@@ -1,0 +1,42 @@
+//
+//  ONE_Prefix.pch
+//  ONE
+//
+//  Created by 任玉祥 on 16/4/1.
+//  Copyright © 2016年 ONE. All rights reserved.
+//
+
+#ifndef ONE_Prefix_pch
+#define ONE_Prefix_pch
+
+#ifdef __OBJC__
+
+//通过 view.XXX  点出相应的frame属性
+#import "UIView+Frame.h"
+
+/** 弱引用 */
+#define ONEWeakSelf __weak typeof(self) weakSelf = self;
+
+/** 日志输出 */
+#ifdef DEBUG
+#define ONELog(...) NSLog(__VA_ARGS__);
+#else
+#define ONELog(...)
+#endif
+
+/** 屏幕宽度 */
+#define ONEScreenWidth [UIScreen mainScreen].bounds.size.width
+/** 屏幕高度 */
+#define ONEScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define ONERandomlyColor ONEColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
+
+/** 打印当方法名 */
+#define ONELogFunc ONELog(@"%s", __func__)
+
+/** 颜色 RGB */
+#define ONEColor(r, g, b, a) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:(a)]
+
+#endif /* 是否是OBJC */
+
+#endif /* ONE_Prefix_pch */
