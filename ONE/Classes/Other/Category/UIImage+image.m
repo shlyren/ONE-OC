@@ -12,6 +12,7 @@
 
 - (UIImage *)circleImage
 {
+    
     UIGraphicsBeginImageContextWithOptions(self.size, false, 0);
     
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.size.width, self.size.height)];

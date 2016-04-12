@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ONEMusicAuthorItem : NSObject
+@interface ONEAuthorItem : NSObject
 
 /** 头像url */
 @property (nonatomic, strong) NSString *web_url;

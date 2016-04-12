@@ -34,4 +34,12 @@
 - (UILabel *)tableViewHeaderViewLabelWithString:(NSString *)title;
 
 
+/**
+ *  tableView footerView 的文字
+ *
+ *  @param title 文字
+ *
+ *  @return label
+ */
+- (UILabel *)tableViewFooterViewLabelWithString:(NSString *)title;
 @end

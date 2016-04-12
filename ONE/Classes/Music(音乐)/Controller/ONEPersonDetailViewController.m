@@ -15,7 +15,7 @@
 #import "ONEDefaultCellGroupItem.h"
 #import "ONEDefaultCellArrItem.h"
 #import "ONEMusicSongViewController.h"
-#import "ONEMusicAuthorItem.h"
+#import "ONEAuthorItem.h"
 
 @interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
 
@@ -111,7 +111,7 @@
 
 - (void)loadData
 {
-    [ONEDataRequest requestUserInfo:_user_id parameters:nil success:^(ONEMusicAuthorItem *authorItem) {
+    [ONEDataRequest requestUserInfo:_user_id parameters:nil success:^(ONEAuthorItem *authorItem) {
         
         [_iconImageView sd_setImageWithURL:[NSURL URLWithString:authorItem.web_url] placeholderImage:[UIImage imageNamed:@"personal"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             _iconImageView.image = [image circleImage];
@@ -125,7 +125,7 @@
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    [tableView tableViewSetExtraCellLineHidden];
+    
     return self.cellItems.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -136,6 +136,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *normalCellID = @"normalCell";
+    [tableView tableViewSetExtraCellLineHidden];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:normalCellID];

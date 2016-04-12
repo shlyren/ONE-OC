@@ -11,16 +11,16 @@
 /** baseUrl http://v3.wufazhuce.com:8000/api */
 UIKIT_EXTERN NSString *const ONEBaseUrl;
 
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 音乐 ↓↓↓↓↓↓↓↓↓↓↓↓
+
 /** 音乐列表 music/idlist */
 UIKIT_EXTERN NSString *const music_idlist;
 
 /** 类似歌曲 related/music */
 UIKIT_EXTERN NSString *const related_music;
 
-
 /** 详情 music/detail */
 UIKIT_EXTERN NSString *const music_detail;
-
 
 /** 音乐评论 comment/praiseandtime/music */
 UIKIT_EXTERN NSString *const comment_music;
@@ -39,3 +39,18 @@ UIKIT_EXTERN NSString *const works_music;
 
 /** 某个月的歌曲列表 */
 UIKIT_EXTERN NSString *const music_bymonth;
+
+
+
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 电影 ↓↓↓↓↓↓↓↓↓↓↓↓
+
+/** 电影列表 */
+UIKIT_EXTERN NSString *const movie_list;
+
+/** 电影详情 */
+UIKIT_EXTERN NSString *const movie_detail;
+
+/** 电影故事 */
+UIKIT_EXTERN NSString *const movie;
+
+

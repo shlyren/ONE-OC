@@ -6,9 +6,8 @@
 //  Copyright © 2016年 ONE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "ONEAuthorItem.h"
 
-@class ONEMusicAuthorItem;
 @interface ONEMusicCommentItem : NSObject
 
 /** 喜欢 */
@@ -20,14 +19,17 @@
 /** 评论时间 */
 @property (nonatomic, strong) NSString *input_date;
 
+/** 评论内容 */
+@property (nonatomic, strong) NSString *content;
+
+
+
+
+
+
 /** 类型 */
 @property (nonatomic, assign) NSInteger type;
 
-
 /** 用户信息 */
-@property (nonatomic, strong) ONEMusicAuthorItem *user;
-
-
-/** 评论内容 */
-@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) ONEAuthorItem *user;
 @end

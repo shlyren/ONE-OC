@@ -22,6 +22,12 @@
 /** 尾部高度 */
 @property (nonatomic, assign) CGFloat footerHeight;
 
+/** headerView */
+@property (nonatomic, strong) UIView *headerView;
+/** footerView */
+@property (nonatomic, strong) UIView *footerView;
+
+/** 行的模型 */
 @property (nonatomic, strong) NSArray *items;
 
 + (instancetype)groupWithItems:(NSArray *)items;

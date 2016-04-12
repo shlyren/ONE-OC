@@ -6,7 +6,7 @@
 //  Copyright © 2016年 ONE. All rights reserved.
 //
 
-#import "ONEMusicAuthorItem.h"
+#import "ONEAuthorItem.h"
 
 @interface ONEMusicDetailItem : NSObject
 
@@ -18,7 +18,7 @@
 
 
 /** 歌手信息 */
-@property (nonatomic, strong) ONEMusicAuthorItem *author;
+@property (nonatomic, strong) ONEAuthorItem *author;
 
 /** 关注,喜欢 */
 @property (nonatomic, assign) NSInteger praisenum;
@@ -64,7 +64,7 @@
 
 
 /** 文章作者 */
-@property (nonatomic, strong) ONEMusicAuthorItem *story_author;
+@property (nonatomic, strong) ONEAuthorItem *story_author;
 
 /** 故事内容 */
 @property (nonatomic, strong) NSString *story;

@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "G_MUSIC.png",
+      "filename" : "moviereview_default.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "G_MUSIC@2x.png",
+      "filename" : "moviereview_default@2x.png",
       "scale" : "2x"
     },
     {

@@ -117,9 +117,10 @@
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:musicDetailItem.cover] placeholderImage:[UIImage imageNamed:@"music_cover"]];
     
     // 歌手
-    ONEMusicAuthorItem *author = musicDetailItem.author;
+    ONEAuthorItem *author = musicDetailItem.author;
     self.descLabel.text = author.desc;
     // 歌手头像
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *urlData =[NSData dataWithContentsOfURL:[NSURL URLWithString:author.web_url]];
         

@@ -8,11 +8,10 @@
 
 #import "ONECommentCell.h"
 #import "ONEMusicCommentItem.h"
-#import "ONEMusicAuthorItem.h"
-#import "UIImage+MultiFormat.h"
 #import "NSMutableAttributedString+string.h"
 #import "ONEDataRequest.h"
-
+#import "UIImageView+WebCache.h"
+#import "UIImage+image.h"
 @interface ONECommentCell ()
 /** 评论内容 */
 @property (weak, nonatomic) IBOutlet UILabel *commentContectLabel;
@@ -24,40 +23,35 @@
 /** 用户名 */
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 /** 头像 */
-@property (weak, nonatomic) IBOutlet UIButton *webUrlBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @end
 
 @implementation ONECommentCell
 
-- (void)setCommentIteme:(ONEMusicCommentItem *)commentIteme
+- (void)awakeFromNib
 {
-    _commentIteme = commentIteme;
+     self.commentContectLabel.preferredMaxLayoutWidth = ONEScreenWidth - 80;
+}
+
+- (void)setCommentItem:(ONEMusicCommentItem *)commentItem
+{
+    _commentItem = commentItem;
     
-    self.commentContectLabel.attributedText = [NSMutableAttributedString attributedStringWithString:commentIteme.content];
+    self.commentContectLabel.attributedText = [NSMutableAttributedString attributedStringWithString:commentItem.content];
     [self.commentContectLabel sizeToFit];
     
-    [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentIteme.praisenum] forState:UIControlStateNormal];
+    [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentItem.praisenum] forState:UIControlStateNormal];
     
-    self.inputDateLabel.text = commentIteme.input_date;
+    self.inputDateLabel.text = commentItem.input_date;
     
-    ONEMusicAuthorItem *author = commentIteme.user;
+    ONEAuthorItem *author = commentItem.user;
     self.userNameLabel.text = author.user_name;
     
 
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:author.web_url]] ;
-        
-        if (iconData)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.webUrlBtn setImage:[UIImage imageWithData:iconData] forState:UIControlStateNormal];
-            });
-        }
-        
-    });
-    
-    
+   [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+       self.iconImageView.image = image.circleImage;
+   }];
 }
 
 #pragma mark - Event
@@ -67,7 +61,7 @@
     
     
     NSDictionary *parameters = @{
-                                 @"cmtid" : _commentIteme.comment_id,
+                                 @"cmtid" : _commentItem.comment_id,
                                  @"itemid" : _detail_id,  // detailID
                                  @"type" : @"music",
                                  };
@@ -78,7 +72,7 @@
             [SVProgressHUD showErrorWithStatus:message];
             _praisenumBtn.selected = !_praisenumBtn.selected;
         }else{
-             NSInteger praisenum = _praisenumBtn.selected ? ++_commentIteme.praisenum : --_commentIteme.praisenum;
+             NSInteger praisenum = _praisenumBtn.selected ? ++_commentItem.praisenum : --_commentItem.praisenum;
             
             [_praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
         }
@@ -89,7 +83,7 @@
 - (IBAction)iconBtnClick
 {
     if ([self.delegate respondsToSelector:@selector(commentCell:didClickIcon:)]) {
-        [self.delegate commentCell:self didClickIcon:_commentIteme.user.user_id];
+        [self.delegate commentCell:self didClickIcon:_commentItem.user.user_id];
     }
 }
 

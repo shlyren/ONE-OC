@@ -208,7 +208,7 @@ static NSString *const relatedCellID = @"relatedCell";
     
     ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.delegate = self;
-    cell.commentIteme = self.commentArr[indexPath.row];
+    cell.commentItem = self.commentArr[indexPath.row];
     cell.detail_id = _detailIdUrl;
     
     return cell;
@@ -271,7 +271,7 @@ static NSString *const relatedCellID = @"relatedCell";
 
     static ONECommentCell *cell;
     if (cell == nil) cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
-    cell.commentIteme = self.commentArr[indexPath.row];
+    cell.commentItem = self.commentArr[indexPath.row];
     return cell.rowHeight;
 }
 

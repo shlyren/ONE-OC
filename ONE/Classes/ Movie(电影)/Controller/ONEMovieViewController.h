@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ONEMovieViewController : UIViewController
+@interface ONEMovieViewController : UITableViewController
 
 @end

@@ -10,15 +10,15 @@
 #import "SVProgressHUD.h"
 #import "ONEConst.h"
 
-
 @class ONEMusicDetailItem;
 @class ONEMusicCommentItem;
 @class ONEMusicRelatedItem;
-@class ONEMusicAuthorItem;
-
+@class ONEAuthorItem;
+@class ONEMovieDetailItem;
+@class ONEMovieResultItem;
 @interface ONEDataRequest : NSObject
 
-#pragma mark - 音乐
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 音乐 ↓↓↓↓↓↓↓↓↓↓↓↓
 /**
  *  请求音乐列表数据
  *
@@ -69,7 +69,7 @@
  *  @param success    请求成功回调
  *  @param failure    请求失败回调
  */
-+ (void)requestUserInfo:(NSString *)url parameters:(id)parameters success:(void (^)(ONEMusicAuthorItem *autoItem))success failure:(void (^)(NSError *error))failure;
++ (void)requestUserInfo:(NSString *)url parameters:(id)parameters success:(void (^)(ONEAuthorItem *autoItem))success failure:(void (^)(NSError *error))failure;
 
 /**
  *  喜欢
@@ -109,5 +109,48 @@
  *  @param success    请求成功回调
  *  @param failure    请求失败回调
  */
-+ (void)requestMusic:(NSString *)url parameters:(id)paramnters success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)requestMusic:(NSString *)url parameters:(id)parameters success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+
+
+
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 电影 ↓↓↓↓↓↓↓↓↓↓↓↓
+/**
+ *  获取电影列表数据
+ *
+ *  @param url        请求地址 短地址
+ *  @param parameters 请求参数
+ *  @param success    请求成功回调
+ *  @param failure    请求失败回调
+ */
++ (void)requestMovieList:(NSString *)url parameters:(id)parameters succes:(void (^)(NSArray *movieLists))success failure:(void(^)(NSError *error))failure;
+
+/**
+ *  获取电影详情数据
+ *
+ *  @param url        请求地址 短地址
+ *  @param parameters 请求参数
+ *  @param success    请求成功回调
+ *  @param failure    请求失败回调
+ */
++ (void)requestMovieDetail:(NSString *)url parameters:(id)parameters success:(void (^)(ONEMovieDetailItem *movieDetail))success failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取电影故事数据
+ *
+ *  @param url        请求地址 短地址
+ *  @param parameters 请求参数
+ *  @param success    请求成功回调
+ *  @param failure    请求失败回调
+ */
++ (void)requestMovieStory:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieStory))success failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取评审团
+ *
+ *  @param url        请求地址 短地址
+ *  @param parameters 请求参数
+ *  @param success    请求成功回调
+ *  @param failure    请求失败回调
+ */
++ (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure;
 @end

@@ -70,6 +70,23 @@
     return titleLabel;
 }
 
-
+/**
+ *  tableView footerView 的文字
+ *
+ *  @param title 文字
+ *
+ *  @return label
+ */
+- (UILabel *)tableViewFooterViewLabelWithString:(NSString *)title
+{
+    UILabel *titleLabel = [UILabel new];
+    titleLabel.text = title;
+    titleLabel.font = [UIFont systemFontOfSize:12];
+    [titleLabel sizeToFit];
+    titleLabel.centerY = 35 * 0.5;
+    titleLabel.x = 15;
+    
+    return titleLabel;
+}
 
 @end

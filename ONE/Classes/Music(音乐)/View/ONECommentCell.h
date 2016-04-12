@@ -21,7 +21,7 @@
 
 @interface ONECommentCell : UITableViewCell
 
-@property (nonatomic, strong) ONEMusicCommentItem *commentIteme;
+@property (nonatomic, strong) ONEMusicCommentItem *commentItem;
 
 @property (nonatomic, strong) NSString *detail_id;
 
