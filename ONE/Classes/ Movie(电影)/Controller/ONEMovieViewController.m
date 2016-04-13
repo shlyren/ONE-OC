@@ -37,7 +37,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.backgroundColor = ONEColor(234, 234, 234, 1);
-    self.tableView.rowHeight = 0.425 * ONEScreenWidth;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self.tableView.mj_header beginRefreshing];
@@ -60,7 +59,6 @@
     } failure:^(NSError *error) {
         [weakSelf endRefreshing];
     }];
-  
 }
 
 - (void)loadMore
@@ -103,6 +101,11 @@
     movieDetailVc.movie_id = [self.movieList[indexPath.row] movie_id];
     movieDetailVc.title = [self.movieList[indexPath.row] title];
     [self.navigationController pushViewController:movieDetailVc animated:true];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ONEScreenWidth * 0.45;
 }
 
 

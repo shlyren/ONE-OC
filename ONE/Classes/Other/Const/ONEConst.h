@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+ /*******************************************  requestUrl ****************************/
+
 /** baseUrl http://v3.wufazhuce.com:8000/api */
 UIKIT_EXTERN NSString *const ONEBaseUrl;
 
@@ -33,6 +35,8 @@ UIKIT_EXTERN NSString *const praise_add;
 
 /** 评论喜欢喜欢 */
 UIKIT_EXTERN NSString *const comment_praise;
+/** 评论喜欢取消喜欢 */
+UIKIT_EXTERN NSString *const comment_unpraise;
 
 /** ta的歌曲列表 */
 UIKIT_EXTERN NSString *const works_music;
@@ -52,5 +56,43 @@ UIKIT_EXTERN NSString *const movie_detail;
 
 /** 电影故事 */
 UIKIT_EXTERN NSString *const movie;
+
+/** 电影故事的喜欢 */
+UIKIT_EXTERN NSString *const movie_praisestory;
+/** 电影故事取消喜欢 */
+UIKIT_EXTERN NSString *const movie_unpraisestory;
+
+/** 审评团喜欢 */
+UIKIT_EXTERN NSString *const movie_praisereview;
+/** 审评团取消喜欢欢 */
+UIKIT_EXTERN NSString *const movie_unpraisereview;
+
+/** 用户评论 */
+UIKIT_EXTERN NSString *const movie_comment;
+
+
+
+
+/*******************************************  requestUrl ****************************/
+
+
+
+
+
+
+UIKIT_EXTERN NSString *const ONEMovieDetailHeaderViewDidClickAllReview;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

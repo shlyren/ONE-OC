@@ -14,6 +14,7 @@
 #import "ONEMovieStoryItem.h"
 #import "ONEMovieResultItem.h"
 #import "NSMutableAttributedString+string.h"
+#import "ONEDataRequest.h"
 
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
@@ -70,17 +71,45 @@
 @property (nonatomic, weak) UIView                      *currentView;
 
 
+@property (nonatomic, strong) UIView                    *bigImgCoverView;
+@property (nonatomic, weak) UIImageView                 *bigImageView;
+
 
 /** 评审团 */
 /** 共X条评审团短评 */
-//@property (strong, nonatomic) IBOutlet UILabel *reviewCountLabel;
-
+@property (strong, nonatomic) IBOutlet UILabel *reviewCountLabel;
 
 @end
 
 @implementation ONEMovieDetailHeaderView
+
 static NSString *const photoCellID = @"photoCell";
 #pragma mark - lazy loading
+- (UIView *)bigImgCoverView
+{
+    if (_bigImgCoverView == nil) {
+        
+        UIView *coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        coverView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.9];
+        coverView.alpha = 0.0;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coverViewClick)];
+        [coverView addGestureRecognizer:tap];
+        _bigImgCoverView = coverView;
+        
+    }
+    return _bigImgCoverView;
+}
+
+- (UIImageView *)bigImageView
+{
+    if (_bigImageView == nil) {
+        UIImageView *bigImgView = [UIImageView new];
+        [self.bigImgCoverView addSubview:_bigImageView = bigImgView];
+    }
+    return _bigImageView;
+}
+
+
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
@@ -190,21 +219,64 @@ static NSString *const photoCellID = @"photoCell";
 - (void)setReviewCount:(NSInteger)reviewCount
 {
     _reviewCount = reviewCount;
+    ONELog(@"reviewCountLabel %@", self.reviewCountLabel)
 }
 
 - (IBAction)storyViewLikeBtnClick:(UIButton *)btn
 {
-    ONELog(@"点击了喜欢")
+//    _praisenumBtn.selected = !_praisenumBtn.selected;
+    
+    ONEMovieStoryItem *movieStory = self.movieStoryResult.data[0];
+    NSString *url = _praisenumBtn.selected ? movie_unpraisestory : movie_praisestory;
+    
+    NSDictionary *parameters = @{
+                                 @"movieid" : movieStory.movie_id,
+                                 @"storyid" : movieStory.movie_story_id // detailID
+                                 };
+    [ONEDataRequest addPraise:url parameters:parameters success:^(BOOL isSuccess, NSString *message) {
+        if (!isSuccess)
+        {
+            [SVProgressHUD showErrorWithStatus:message];
+//            _praisenumBtn.selected = !_praisenumBtn.selected;
+            return;
+        }
+        _praisenumBtn.selected = !_praisenumBtn.selected;
+        NSInteger praisenum = _praisenumBtn.selected ? ++movieStory.praisenum : --movieStory.praisenum;
+        
+        [_praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"操作失败"];
+    }];
+    
 }
 
+- (IBAction)iconBtnClick
+{
+    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickUserIcon:)]) {
+        [self.delegate movieDetailHeaderView:self didClickUserIcon:[self.movieStoryResult.data[0] user_id]];
+    }
 
+}
 
 - (IBAction)allMovieStoryBtnClick
 {
-    ONELog(@"点击了全部电影")
+    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickAllBtn:)]) {
+        [self.delegate movieDetailHeaderView:self didClickAllBtn:@"电影故事"];
+    }
 }
 
-
+- (IBAction)allReviewBtnClick
+{
+    ONELogFunc
+#warning delegate is not ok! why?
+////    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickAllBtn:)]) {
+//        [self.delegate movieDetailHeaderView:self didClickAllBtn:@"评审团短评"];
+//        ONELogFunc
+////    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:ONEMovieDetailHeaderViewDidClickAllReview object:nil userInfo:nil];
+    
+}
 
 - (IBAction)oneMovieBtnClick:(UIButton *)btn
 {
@@ -234,6 +306,42 @@ static NSString *const photoCellID = @"photoCell";
     ONEMovieDetailPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoCellID forIndexPath:indexPath];
     cell.photoName = self.movieDetail.photo[indexPath.row];
     return cell;
+}
+
+#pragma mark - collectionVoew delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *imageName = self.movieDetail.photo[indexPath.row];
+    [self didClickPhoto:imageName];
+    
+}
+
+- (void)didClickPhoto:(NSString *)imageName
+{
+    [[UIApplication sharedApplication].keyWindow addSubview:self.bigImgCoverView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.bigImgCoverView.alpha  = 1;
+        
+    }];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    [SVProgressHUD show];
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:imageName] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        CGFloat height = image.size.height / image.size.width * ONEScreenWidth;
+        self.bigImageView.size = CGSizeMake(ONEScreenWidth, height);
+        self.bigImageView.center = self.bigImgCoverView.center;
+        [SVProgressHUD dismiss];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+    }];
+    
+}
+
+- (void)coverViewClick
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.bigImgCoverView.alpha   = 0;
+    } completion:^(BOOL finished) {
+        [self.bigImgCoverView removeFromSuperview];
+    }];
 }
 
 #pragma  mark - 加载nib
@@ -271,13 +379,13 @@ static NSString *const photoCellID = @"photoCell";
 {
     NSMutableString *mutableStr = [[NSMutableString alloc] initWithString:[string stringByAppendingString:str]];
     NSMutableArray *mutableArr = [NSMutableArray array];
-    NSRange range = [mutableStr rangeOfString:@";"];
+    NSRange range = [mutableStr rangeOfString:str];
     
     while (range.location != NSNotFound)
     {
         [mutableArr addObject:[mutableStr substringToIndex:range.location]];
         [mutableStr deleteCharactersInRange:NSMakeRange(0, range.location + range.length)];
-        range = [mutableStr rangeOfString:@";"];
+        range = [mutableStr rangeOfString:str];
     }
     
     return mutableArr;

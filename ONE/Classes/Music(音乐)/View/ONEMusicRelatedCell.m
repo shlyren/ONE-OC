@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 /** 歌手 */
 @property (weak, nonatomic) IBOutlet UILabel *authorNameLabel;
-/** 菊花 */
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @end
 
@@ -28,7 +26,7 @@
 {
     _relatedItem = relatedItem;
     
-    self.activity.hidden = relatedItem;
+//    self.activity.hidden = relatedItem;
     
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:relatedItem.cover] placeholderImage:[UIImage imageNamed:@"music_more_collection"]];
     

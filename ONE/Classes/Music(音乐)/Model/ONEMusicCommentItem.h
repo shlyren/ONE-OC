@@ -24,9 +24,6 @@
 
 
 
-
-
-
 /** 类型 */
 @property (nonatomic, assign) NSInteger type;
 

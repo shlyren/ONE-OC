@@ -40,6 +40,9 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="iconBtnClick" destination="ABJ-ws-JBl" eventType="touchUpInside" id="Rbj-nW-fbs"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEp-Iz-Bf7">
                         <rect key="frame" x="302" y="0.0" width="70" height="44"/>
@@ -50,9 +53,11 @@
                             <constraint firstAttribute="height" constant="39" id="tvl-Xf-Mf2"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <state key="normal" title="999">
+                        <state key="normal" title="999" image="like_default">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="selected" image="like_selected"/>
+                        <state key="highlighted" image="like_highlighted"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="R2j-8j-ybo"/>
@@ -97,4 +102,9 @@
             <point key="canvasLocation" x="57" y="38.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="like_default" width="44" height="44"/>
+        <image name="like_highlighted" width="44" height="44"/>
+        <image name="like_selected" width="44" height="44"/>
+    </resources>
 </document>

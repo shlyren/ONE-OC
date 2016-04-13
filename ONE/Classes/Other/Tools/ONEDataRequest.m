@@ -32,7 +32,7 @@
         ONEMusicResultItem *result = [ONEMusicResultItem mj_objectWithKeyValues:responseObject];
         success(result.data);
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"音乐列表获取失败 %@", error);
     }];
 }
@@ -51,7 +51,7 @@
         success([ONEMusicDetailItem mj_objectWithKeyValues:result.data]);
     } failure:^(NSError *error) {
         ONELog(@"音乐详情获取失败%@", error);
-        failure(error);
+        if (failure) failure(error);
     }];
 }
 
@@ -70,7 +70,7 @@
         if (success) success([ONEMusicCommentItem mj_objectArrayWithKeyValuesArray:commentResult.data]);
     } failure:^(NSError *error) {
         ONELog(@"评论数据获取失败%@", error);
-        failure(error);
+        if (failure) failure(error);
     }];
 }
 
@@ -88,7 +88,7 @@
         success([ONEMusicRelatedItem mj_objectArrayWithKeyValuesArray:result.data]);
     } failure:^(NSError *error) {
         ONELog(@"音乐详情获取失败%@", error);
-        failure(error);
+        if (failure) failure(error);
     }];
 }
 
@@ -104,7 +104,7 @@
         success(userInfoItem);
     } failure:^(NSError *error) {
         ONELog(@"用户资料获取失败%@", error);
-        failure(error);
+        if (failure) failure(error);
     }];
 }
 
@@ -113,12 +113,13 @@
  */
 + (void)addPraise:(NSString *)url parameters:(id)parameters success:(void (^)(BOOL isSuccess, NSString *message))success failure:(void (^)(NSError *error))failure
 {
+    //http://v3.wufazhuce.com:8000/api/movie/praisereview
     url = [ONEBaseUrl stringByAppendingPathComponent:url];
     [ONEHttpTool POST:url parameters:parameters success:^(id responseObject) {
         ONEMusicResultItem *result = [ONEMusicResultItem mj_objectWithKeyValues:responseObject];
         success(!result.res, result.msg);
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"喜欢请求失败%@", error);
     }];
 }
@@ -133,7 +134,7 @@
     [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
         success([ONEMusicRelatedItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]);
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"ta的歌曲获取失败%@", error);
     }];
 }
@@ -151,7 +152,7 @@
         }];
         success([ONEMusicRelatedItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]);
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"%@歌曲 获取失败%@",url, error);
     }];
 
@@ -184,7 +185,7 @@
         success([ONEMovieListItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]);
         
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"电影列表获取失败%@", error);
     }];
 }
@@ -202,7 +203,7 @@
         success([ONEMovieDetailItem mj_objectWithKeyValues:responseObject[@"data"]]);
         
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"电影详情获取失败%@",error);
     }];
 }
@@ -228,7 +229,7 @@
         success(result);
         
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"电影故事获取失败%@",error);
     }];
 }
@@ -249,19 +250,38 @@
             return @{@"data" : [ONEMovieCommentItem class]};
         }];
         
-        [ONEMusicCommentItem mj_setupIgnoredPropertyNames:^NSArray *{
-            return @[@"user", @"type"];
-        }];
-        
         ONEMovieResultItem *result = [ONEMovieResultItem mj_objectWithKeyValues:responseObject[@"data"]];
         
         success(result);
         
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) failure(error);
         ONELog(@"电影故事获取失败%@",error);
     }];
 
+}
+
+/**
+ *  获取用户评论
+ */
++ (void)requestMovieComment:(NSString *)url parameters:(id)patameters success:(void (^)(NSMutableArray *movieComments))success failure:(void (^)(NSError *error))failure
+{
+    url = [ONEBaseUrl stringByAppendingPathComponent:[movie_comment stringByAppendingPathComponent:url]];
+    
+    [ONEHttpTool GET:url parameters:patameters success:^(id responseObject) {
+        [ONEMovieCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"comment_id" : @"id"};
+        }];
+        
+//        NSArray *ar = [ONEMovieCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+        
+        success([ONEMovieCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]]);
+
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"电影故事获取失败%@",error);
+
+    }];
 }
 
 @end

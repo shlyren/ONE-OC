@@ -32,7 +32,10 @@
 {
     _movieListItem = movieListItem;
     
-    [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:movieListItem.cover] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"movieList_placeholder_%zd", arc4random_uniform(12)]]];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:movieListItem.cover] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"movieList_placeholder_%zd", arc4random_uniform(12)]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+    }];
     
 }
 

@@ -38,6 +38,7 @@
 		55C289B71CAE47A50092A897 /* ONEMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B61CAE47A50092A897 /* ONEMovieViewController.m */; };
 		55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B91CAE48280092A897 /* ONENavigationController.m */; };
 		55DCF5A11CAE9CE70042165B /* ONEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCF5A01CAE9CE70042165B /* ONEConst.m */; };
+		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
 		55FC846F1CB7CE5200E454A3 /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC846E1CB7CE5200E454A3 /* ONEFPSLabel.m */; };
 		55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC84711CB7D63700E454A3 /* ONEMusicPlayerView.m */; };
 		55FC84741CB7D64700E454A3 /* ONEMusicPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55FC84731CB7D64700E454A3 /* ONEMusicPlayerView.xib */; };
@@ -125,6 +126,8 @@
 		55C289B91CAE48280092A897 /* ONENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONENavigationController.m; sourceTree = "<group>"; };
 		55DCF59F1CAE9CE70042165B /* ONEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEConst.h; sourceTree = "<group>"; };
 		55DCF5A01CAE9CE70042165B /* ONEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEConst.m; sourceTree = "<group>"; };
+		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
+		55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieMoreViewController.m; sourceTree = "<group>"; };
 		55FC846D1CB7CE5200E454A3 /* ONEFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFPSLabel.h; sourceTree = "<group>"; };
 		55FC846E1CB7CE5200E454A3 /* ONEFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEFPSLabel.m; sourceTree = "<group>"; };
 		55FC84701CB7D63700E454A3 /* ONEMusicPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicPlayerView.h; sourceTree = "<group>"; };
@@ -393,6 +396,8 @@
 				55C289B61CAE47A50092A897 /* ONEMovieViewController.m */,
 				55FC84A41CBACE6B00E454A3 /* ONEMovieDetailViewController.h */,
 				55FC84A51CBACE6B00E454A3 /* ONEMovieDetailViewController.m */,
+				55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */,
+				55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -787,6 +792,7 @@
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				7E1A394D1CAD9D1B0085EB67 /* main.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
+				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				55FC849E1CBAB98300E454A3 /* ONEMovieListItem.m in Sources */,
 				55FC84B01CBB66D200E454A3 /* ONEMovieDetailHeaderView.m in Sources */,

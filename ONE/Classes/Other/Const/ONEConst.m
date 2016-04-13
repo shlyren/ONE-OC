@@ -29,8 +29,10 @@ NSString *const user_info = @"user/info";
 /** 文章喜欢 */
 NSString *const praise_add = @"praise/add";
 
-/** 评论喜欢喜欢 */
+/** 评论喜欢 */
 NSString *const comment_praise = @"comment/praise";
+/** 评论喜欢取消喜欢 */
+NSString *const comment_unpraise = @"comment/unpraise";
 
 /** 歌曲列表 */
 NSString *const works_music = @"works/music";
@@ -48,6 +50,35 @@ NSString *const movie_list = @"movie/list";
 NSString *const movie_detail = @"http://v3.wufazhuce.com:8000/api/movie/detail";
 
 NSString *const movie = @"http://v3.wufazhuce.com:8000/api/movie";
+
+/** 电影故事的喜欢 */
+NSString *const movie_praisestory = @"movie/praisestory";
+/** 电影故事取消喜欢 */
+NSString *const movie_unpraisestory = @"movie/unpraisestory";
+
+/** 审评团喜欢 */
+NSString *const movie_praisereview = @"movie/praisereview";
+/** 审评团取消喜欢欢 */
+NSString *const movie_unpraisereview = @"movie/unpraisereview";
+/** 用户评论 */
+NSString *const movie_comment = @"comment/praiseandtime/movie";
+
+
+
+
+
+
+
+
+
+NSString *const ONEMovieDetailHeaderViewDidClickAllReview = @"ONEMovieDetailHeaderViewDidClickAllReview";
+
+
+
+
+
+
+
 
 
 

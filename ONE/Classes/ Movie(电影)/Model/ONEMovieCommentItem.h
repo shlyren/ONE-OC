@@ -18,6 +18,6 @@
 
 /**  */
 @property (nonatomic, strong) NSString *sort;
-/** <#注释#> */
+
 @property (nonatomic, strong) NSString *movie_id;
 @end

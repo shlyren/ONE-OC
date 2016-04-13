@@ -13,8 +13,13 @@
 
 @protocol ONEMovieDetailHeaderViewDelegate <NSObject>
 
-@required
+@optional
+/** 电影故事内容更新时调用 */
 - (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didChangedStoryContent:(CGFloat)height;
+/** 点击头像时间调用 */
+- (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didClickUserIcon:(NSString *)user_id;
+/** 点击全部按钮(全部电影&全部短评)调用 */
+- (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didClickAllBtn:(NSString *)title;
 
 @end
 

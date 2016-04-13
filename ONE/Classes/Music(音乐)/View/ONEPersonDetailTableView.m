@@ -11,6 +11,14 @@
 @implementation ONEPersonDetailTableView
 
 
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    if (self = [super initWithFrame:frame]) {
+//        self = [super initWithFrame: [UIScreen mainScreen].bounds];
+//    }
+//    return self;
+//}
+
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];

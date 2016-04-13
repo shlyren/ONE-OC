@@ -153,4 +153,14 @@
  *  @param failure    请求失败回调
  */
 + (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取电影用户评论
+ *
+ *  @param url        请求地址 短地址
+ *  @param parameters 请求参数
+ *  @param success    请求成功回调
+ *  @param failure    请求失败回调
+ */
++ (void)requestMovieComment:(NSString *)url parameters:(id)patameters success:(void (^)(NSMutableArray *movieComments))success failure:(void (^)(NSError *error))failure;
 @end

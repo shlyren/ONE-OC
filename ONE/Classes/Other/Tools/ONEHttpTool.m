@@ -33,8 +33,8 @@
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-        failure(error);
-        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
+        if (failure) failure(error);
+//        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
     }];
 }
 
@@ -61,8 +61,8 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
 
-        failure(error);
-        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
+        if (failure) failure(error);
+//        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
     }];
     
     

@@ -135,7 +135,6 @@ static NSString *const relatedCellID = @"relatedCell";
         [SVProgressHUD dismiss];
         if (musicDetailItem) _musicDetailView.musicDetailItem = musicDetailItem;
         [weakSelf loadRelatedData];
-//        [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];

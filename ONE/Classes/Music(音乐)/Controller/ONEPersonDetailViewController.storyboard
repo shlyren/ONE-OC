@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="pRN-oB-f7a" customClass="ONEPersonDetailTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="pRN-oB-f7a" customClass="ONEPersonDetailTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
@@ -76,8 +76,8 @@
                                             <constraint firstAttribute="height" constant="25" id="fcE-YQ-0GM"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="958" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCW-ya-ZVk">
-                                        <rect key="frame" x="187" y="172" width="23" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCW-ya-ZVk">
+                                        <rect key="frame" x="187" y="172" width="8" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -167,9 +167,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pRN-oB-f7a" firstAttribute="top" secondItem="dcH-i9-lqh" secondAttribute="top" id="8Ja-Pm-eE2"/>
                             <constraint firstAttribute="trailing" secondItem="qld-AI-OLF" secondAttribute="trailing" id="P42-uU-LeG"/>
+                            <constraint firstItem="pRN-oB-f7a" firstAttribute="leading" secondItem="dcH-i9-lqh" secondAttribute="leading" id="PDd-cJ-T5A"/>
+                            <constraint firstAttribute="trailing" secondItem="pRN-oB-f7a" secondAttribute="trailing" id="PZl-oE-Mdd"/>
                             <constraint firstItem="qld-AI-OLF" firstAttribute="top" secondItem="dcH-i9-lqh" secondAttribute="top" id="UYj-15-zD8"/>
                             <constraint firstItem="qld-AI-OLF" firstAttribute="leading" secondItem="dcH-i9-lqh" secondAttribute="leading" id="dW4-bo-5KM"/>
+                            <constraint firstItem="Gq2-Wl-EWa" firstAttribute="top" secondItem="pRN-oB-f7a" secondAttribute="bottom" id="eVh-cO-4zi"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -178,7 +182,7 @@
                         <outlet property="imageView" destination="81D-id-325" id="XLr-ep-lUD"/>
                         <outlet property="personTopView" destination="qld-AI-OLF" id="4SV-Hl-X7p"/>
                         <outlet property="scoreLabel" destination="kCW-ya-ZVk" id="AuD-V2-DxN"/>
-                        <outlet property="tableView" destination="pRN-oB-f7a" id="36B-Ea-LmR"/>
+                        <outlet property="tableView" destination="pRN-oB-f7a" id="biL-Un-X5S"/>
                         <outlet property="topViewH" destination="Pta-F2-qgT" id="drK-Mg-tKM"/>
                         <outlet property="topViewTop" destination="UYj-15-zD8" id="iLO-AQ-QBi"/>
                         <outlet property="userNameLabel" destination="KUZ-kc-P3l" id="tfe-sq-rvj"/>
