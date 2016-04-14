@@ -84,16 +84,23 @@ static ONEHttpTool *_instance;
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     
-    [self.manager GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        
+    
+    [self.manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (success) success(responseObject);
-        
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (failure) failure(error);
     }];
+    
+//    [self.manager GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//       
+//    }];
 }
 
 - (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
@@ -101,15 +108,25 @@ static ONEHttpTool *_instance;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     
-    [self.manager POST:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [self.manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (success) success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (failure) failure(error);
+
+        
     }];
+    
+//    [self.manager POST:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            }];
 }
 
 

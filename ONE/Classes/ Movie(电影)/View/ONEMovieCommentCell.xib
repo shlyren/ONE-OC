@@ -57,7 +57,7 @@
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="like_selected"/>
-                        <state key="highlighted" image="like_highlighted"/>
+                        <state key="highlighted" image="like_selected"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="R2j-8j-ybo"/>
@@ -104,7 +104,6 @@
     </objects>
     <resources>
         <image name="like_default" width="44" height="44"/>
-        <image name="like_highlighted" width="44" height="44"/>
         <image name="like_selected" width="44" height="44"/>
     </resources>
 </document>
