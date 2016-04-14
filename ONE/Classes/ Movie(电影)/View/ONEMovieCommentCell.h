@@ -23,19 +23,20 @@ typedef  NS_ENUM(NSUInteger, ONEMovieCommentCellType){
     ONEMovieCommentCellTypeMovieComment = 2, // 评论
     
 };
+
 @interface ONEMovieCommentCell : UITableViewCell
 
 @property (nonatomic, weak) id<ONEMovieCommentCellDelegate> delegate;
 
-@property (nonatomic, strong) ONEMovieCommentItem *commentItem;
+@property (nonatomic, strong) ONEMovieCommentItem           *commentItem;
 
-@property (nonatomic, strong)ONEMovieStoryItem *movieStoryItem;
+@property (nonatomic, strong) ONEMovieStoryItem             *movieStoryItem;
 
-@property (nonatomic, assign) ONEMovieCommentCellType commentCellType;
+@property (nonatomic, assign) ONEMovieCommentCellType       commentCellType;
 
-@property (nonatomic, assign) CGFloat rowHeight;
+@property (nonatomic, assign) CGFloat                       rowHeight;
 
-@property (nonatomic, strong) NSString *movie_id;
+@property (nonatomic, strong) NSString                      *movie_id;
 
 
 - (void)praisenumBtnClick;

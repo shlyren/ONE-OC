@@ -30,11 +30,15 @@
     return self.pastLists.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *pastLiseCellId = @"pastList";
+#pragma mark - table view delegate
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [tableView tableViewSetExtraCellLineHidden];
+    
+    static NSString *pastLiseCellId = @"pastList";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pastLiseCellId];
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pastLiseCellId];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -48,12 +52,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     
     ONEMusicSongViewController *songVc = [ONEMusicSongViewController new];
-    
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
+    {
         songVc.month = @"2016-04";
     }else{
         songVc.month = self.pastLists[indexPath.row];
     }
+    
     songVc.title = self.pastLists[indexPath.row];
     [self.navigationController pushViewController:songVc animated:true];
     

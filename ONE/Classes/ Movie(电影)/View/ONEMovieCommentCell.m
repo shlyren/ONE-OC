@@ -115,9 +115,9 @@
     switch (self.commentCellType) {
         case 0: // 电影故事
         {
-            url = self.praisenumBtn.selected ? movie_praisestory : movie_praisestory;
+            url = self.praisenumBtn.selected ? movie_unpraisestory : movie_praisestory;
             dict = @{ @"movieid"  : self.movie_id,
-                      @"storyid" : self.movieStoryItem.movie_story_id};
+                      @"storyid"  : self.movieStoryItem.movie_story_id};
         }
             
             break;
@@ -161,7 +161,10 @@
         if (isSuccess)
         {
             _praisenumBtn.selected = !_praisenumBtn.selected;
-            NSInteger praisenum = _praisenumBtn.selected ? ++_commentItem.praisenum : --_commentItem.praisenum;
+            
+            NSInteger praisenum = _praisenumBtn.titleLabel.text.integerValue;
+            
+            praisenum = _praisenumBtn.selected ? ++praisenum : --praisenum;
             [_praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
             
         }else{

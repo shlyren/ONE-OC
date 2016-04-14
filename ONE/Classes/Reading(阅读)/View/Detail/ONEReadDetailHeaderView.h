@@ -1,0 +1,29 @@
+//
+//  ONEReadDetailHeaderView.h
+//  ONE
+//
+//  Created by 任玉祥 on 16/4/14.
+//  Copyright © 2016年 ONE. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class ONEEssayItem;
+@class ONESerialItem;
+@class ONEReadDetailHeaderView;
+
+@protocol ONEReadDetailHeaderViewDelegate <NSObject>
+
+- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height;
+
+@end
+
+@interface ONEReadDetailHeaderView : UIView
+
+@property (nonatomic, strong) ONEEssayItem                       *essayItem;
+@property (nonatomic, strong) ONESerialItem                      *serialItem;
+@property (nonatomic, weak) id <ONEReadDetailHeaderViewDelegate> delegate;
+
++ (instancetype)detailHeaderView;
+
+@end

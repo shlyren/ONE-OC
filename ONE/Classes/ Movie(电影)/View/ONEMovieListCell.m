@@ -19,8 +19,8 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
+    {
        return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
     }
     return self;
@@ -33,6 +33,7 @@
     _movieListItem = movieListItem;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:movieListItem.cover] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"movieList_placeholder_%zd", arc4random_uniform(12)]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
     }];

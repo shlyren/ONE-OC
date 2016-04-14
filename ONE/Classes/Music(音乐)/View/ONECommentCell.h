@@ -21,13 +21,11 @@
 
 @interface ONECommentCell : UITableViewCell
 
-@property (nonatomic, strong) ONEMusicCommentItem *commentItem;
+@property (nonatomic, strong) ONEMusicCommentItem   *commentItem;
 
-@property (nonatomic, strong) NSString *detail_id;
+@property (nonatomic, strong) NSString              *detail_id;
 
-//@property (nonatomic, strong) void (^iconClickBlock)(NSString *user_id);
-
-@property (nonatomic, assign) CGFloat rowHeight;
+@property (nonatomic, assign) CGFloat               rowHeight;
 
 
 @property (nonatomic, weak) id<ONECommentCellDelegate> delegate;

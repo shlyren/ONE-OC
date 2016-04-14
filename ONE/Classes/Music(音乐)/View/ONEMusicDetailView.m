@@ -169,8 +169,10 @@
 - (IBAction)storyBtn:(UIButton *)btn
 {
     if (_textArr == nil) return;
+    
     // 按钮业务逻辑处理
     if (btn == self.selectedBtn) return;
+    
     self.selectedBtn.selected = false;
     btn.selected = true;
     self.selectedBtn = btn;
@@ -214,10 +216,14 @@
                                  };
     //ONELog(@"%@", parameters);
     [ONEDataRequest addPraise:praise_add parameters:parameters success:^(BOOL isSuccess, NSString *message) {
-        if (!isSuccess) {
+        
+        if (!isSuccess)
+        {
             [SVProgressHUD showErrorWithStatus:message];
             sender.selected = !sender.selected;
+        
         }else{
+        
             NSInteger praisenum = sender.selected ? ++_musicDetailItem.praisenum : --_musicDetailItem.praisenum;
             [sender setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
         }

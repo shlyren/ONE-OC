@@ -11,6 +11,7 @@
 
 @interface ONEHttpTool : NSObject
 
++ (void)cancel;
 
 /**
  *  GET 请求

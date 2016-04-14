@@ -8,63 +8,109 @@
 
 #import "ONEHttpTool.h"
 #import "AFNetworking.h"
-#import "SVProgressHUD.h"
+
+@interface ONEHttpTool ()
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@end
+
 
 @implementation ONEHttpTool
-/**
- *  GET 请求
- *
- *  @param url        请求地址
- *  @param parameters 请求参数
- *  @param success    成功回调
- *  @param failure    失败回调
- */
+- (AFHTTPSessionManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
+static ONEHttpTool *_instance;
+
++ (instancetype)shareHttpTool
+{
+    return [[self alloc] init];
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [super allocWithZone:zone];
+    });
+    return _instance;
+}
+
+
+
++ (void)cancel
+{
+    [[ONEHttpTool shareHttpTool].manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+}
+
+
+
 + (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json", @"text/html", nil];
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-    [manager GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-        success(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+    [[ONEHttpTool shareHttpTool] GET:url parameters:parameters success:^(id responseObject) {
+        
+        if (success) success(responseObject);
+        
+    } failure:^(NSError *error) {
+        
         if (failure) failure(error);
-//        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
+        
     }];
 }
 
 
 
-/**
- *  POST 请求
- *
- *  @param url        请求地址
- *  @param parameters 请求参数
- *  @param success    成功回调
- *  @param failure    失败回调
- */
 + (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
+    [[ONEHttpTool shareHttpTool] POST:url parameters:parameters success:^(id responseObject) {
+        
+        if (success) success(responseObject);
+        
+    } failure:^(NSError *error) {
+       
+        if (failure) failure(error);
+        
+    }];
+}
+
+
+
+- (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-    [manager POST:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    
+    [self.manager GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-        success(responseObject);
+        if (success) success(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+        if (failure) failure(error);
+    }];
+}
+
+- (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    
+    [self.manager POST:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+        if (success) success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-
         if (failure) failure(error);
-//        [SVProgressHUD showErrorWithStatus:@"网络连接错误!"];
     }];
-    
-    
 }
+
+
 @end

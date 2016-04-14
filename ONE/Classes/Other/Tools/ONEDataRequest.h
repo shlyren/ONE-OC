@@ -8,14 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "SVProgressHUD.h"
-#import "ONEConst.h"
+#import "ONEURLlConst.h"
+
+@class ONEAuthorItem;
 
 @class ONEMusicDetailItem;
 @class ONEMusicCommentItem;
 @class ONEMusicRelatedItem;
-@class ONEAuthorItem;
+
 @class ONEMovieDetailItem;
 @class ONEMovieResultItem;
+
+@class ONEEssayItem;
+@class ONESerialItem;
+
+
 @interface ONEDataRequest : NSObject
 
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 音乐 ↓↓↓↓↓↓↓↓↓↓↓↓
@@ -163,4 +170,28 @@
  *  @param failure    请求失败回调
  */
 + (void)requestMovieComment:(NSString *)url parameters:(id)patameters success:(void (^)(NSMutableArray *movieComments))success failure:(void (^)(NSError *error))failure;
+
+
+
+
+
+#pragma mark - 阅读
+/**
+ *  广告
+ */
++ (void)requestReadAdSuccess:(void (^)(NSArray *adDatas))success failure:(void (^)(NSError *error))failure;
+
+/**
+ *  阅读列表]
+ */
++ (void)requestReadList:(NSString *)url parameters:(id)parameters succsee:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+/**
+ *  短篇详情
+ */
++ (void)requestEssayDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEEssayItem *essay))success failure:(void (^)(NSError *error))failure;
+/**
+ *  连载详情
+ */
++ (void)requestSerialDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONESerialItem *serial))success failure:(void (^)(NSError *error))failure;
+
 @end

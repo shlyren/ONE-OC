@@ -7,36 +7,114 @@
 //
 
 #import "ONEMovieMoreViewController.h"
+#import "MJRefresh.h"
+#import "ONEDataRequest.h"
+#import "ONEMovieResultItem.h"
+#import "ONEMovieStoryItem.h"
+#import "ONEMovieCommentCell.h"
+#import "ONEPersonDetailViewController.h"
+#import "UITableView+Extension.h"
 
-@interface ONEMovieMoreViewController ()
-
+@interface ONEMovieMoreViewController () <ONEMovieCommentCellDelegate>
+@property (nonatomic, strong) NSMutableArray *storyItems;
 @end
 
 @implementation ONEMovieMoreViewController
 
+static NSString *const moreMovieCell = @"moreMovieCell";
+
+#pragma mark - initial
+#pragma mark view
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.tableView registerClass:[ONEMovieCommentCell class] forCellReuseIdentifier:moreMovieCell];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [self.tableView.mj_header beginRefreshing];
 }
 
-- (void)loadData{}
-- (void)loadMoreData{}
+#pragma mark data
+/** load data */
+- (void)loadData
+{
+    ONEWeakSelf
+    /** 电影故事 */
+    [ONEDataRequest requestMovieStory:[_movie_id stringByAppendingPathComponent:@"story/0/0"] parameters:nil success:^(ONEMovieResultItem *movieStory) {
+         
+         if (movieStory)
+         {
+             weakSelf.storyItems = (NSMutableArray *)movieStory.data;
+             [weakSelf.tableView reloadData];
+         }
+         
+         [weakSelf endRefreshing];
+     } failure:^(NSError *error) {
+         [weakSelf endRefreshing];
+     }];
+}
 
+/** load more */
+- (void)loadMoreData
+{
+    ONEWeakSelf
+    ONEMovieStoryItem *item = self.storyItems.lastObject;
+    
+    NSString *url = [_movie_id stringByAppendingPathComponent:[@"story/0" stringByAppendingPathComponent:item.movie_story_id]];
+    /** 更多电影故事 */
+    [ONEDataRequest requestMovieStory:url parameters:nil success:^(ONEMovieResultItem *movieStory) {
+        
+        if (movieStory)
+        {
+            [weakSelf.storyItems addObjectsFromArray:movieStory.data ];
+            [weakSelf.tableView reloadData];
+        }
+        
+        [weakSelf endRefreshing];
+    } failure:^(NSError *error) {
+        [weakSelf endRefreshing];
+    }];
+}
 
+#pragma mark - ONEMovieCommentCellDelegate
+- (void)movieCommentCell:(ONEMovieCommentCell *)commentCell didClickUserIcon:(NSString *)user_id
+{
+    ONEPersonDetailViewController *persionVc = [ONEPersonDetailViewController new];
+    persionVc.user_id = user_id;
+    [self.navigationController pushViewController:persionVc animated:true];
+}
 #pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tableViewData.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    [tableView tableViewShowMessage:nil numberOfRows:self.storyItems.count];
+    return self.storyItems.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:moreMovieCell];
+    cell.delegate = self;
+    ONEMovieStoryItem *item = self.storyItems[indexPath.row];
+    cell.movieStoryItem = item;
+    cell.movie_id = item.movie_id;
     return cell;
 }
-*/
+
+#pragma mark - table view delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:moreMovieCell];
+    cell.movieStoryItem = self.storyItems[indexPath.row];
+    return cell.rowHeight;
+}
+
+/** endRefresh */
+- (void)endRefreshing
+{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
 
 @end
 

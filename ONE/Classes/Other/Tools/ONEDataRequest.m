@@ -20,7 +20,11 @@
 #import "ONEMovieStoryItem.h"
 #import "ONEMovieCommentItem.h"
 
+#import "ONEReadAdItem.h"
+#import "ONEReadListItem.h"
+
 #import "ONEMovieResultItem.h"
+
 @implementation ONEDataRequest
 /**
  *  请求音乐列表数据
@@ -279,9 +283,119 @@
 
     } failure:^(NSError *error) {
         if (failure) failure(error);
-        ONELog(@"电影故事获取失败%@",error);
+        ONELog(@"电影评论获取失败%@",error);
 
     }];
 }
+
+
+#pragma mark - 阅读
+/**
+ *  广告
+ */
++ (void)requestReadAdSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    [ONEHttpTool GET:readAdUrl parameters:nil success:^(id responseObject) {
+        
+        [ONEReadAdItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"ad_id" : @"id"};
+        }];
+        
+        NSArray *ads = [ONEReadAdItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(ads);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"阅读广告获取失败%@",error);
+    }];
+}
+
+/**
+ *  阅读列表
+ */
++ (void)requestReadList:(NSString *)url parameters:(id)parameters succsee:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    [ONEHttpTool GET:readIndexUrl parameters:nil success:^(NSDictionary *responseObject) {
+        [ONEReadListItem mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"essay" : [ONEEssayItem class],
+                     @"serial" : [ONESerialItem class],
+                     @"question" : [ONEQuestionItem class]
+                     };
+        }];
+        [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"author" : [ONEAuthorItem class]};
+        }];
+        
+        [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"content_id" : @"id"};
+        }];
+        
+       // [responseObject writeToFile:@"/Users/Schnappi/Desktop/1379.plist" atomically:true];
+        
+        ONEReadListItem *item = [ONEReadListItem mj_objectWithKeyValues:responseObject[@"data"]];
+        
+        if (success) success(item);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"阅读列表获取失败%@",error);
+    }];
+}
+/**
+ *  短篇详情
+ */
++ (void)requestEssayDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEEssayItem *essay))success failure:(void (^)(NSError *error))failure
+{
+    
+    url = [[ONEBaseUrl stringByAppendingPathComponent:essay] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+        [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"author" : [ONEAuthorItem class]};
+        }];
+        
+        ONEEssayItem *essay = [ONEEssayItem mj_objectWithKeyValues:responseObject[@"data"]];
+        if (success) success(essay);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"阅读列表获取失败%@",error);
+    }];
+}
+
+/**
+ *  连载详情
+ */
++ (void)requestSerialDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONESerialItem *serial))success failure:(void (^)(NSError *error))failure
+{
+    url = [[ONEBaseUrl stringByAppendingPathComponent:serialcontent] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+        [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"content_id" : @"id"};
+        }];
+    
+        ONESerialItem *serial = [ONESerialItem mj_objectWithKeyValues:responseObject[@"data"]];
+        if (success) success(serial);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"阅读列表获取失败%@",error);
+    }];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

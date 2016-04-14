@@ -32,8 +32,11 @@
 @end
 
 @implementation ONEMovieDetailViewController
+
 static NSString *const movieCommentID = @"movieComment";
+
 #pragma mark - initial
+#pragma mark view
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     if (self = [super initWithStyle:style]) {
@@ -63,14 +66,14 @@ static NSString *const movieCommentID = @"movieComment";
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushMoreViewController) name:ONEMovieDetailHeaderViewDidClickAllReview object:nil];
 }
 
-#pragma mark - 加载数据
-#pragma mark 加载 详情数据
+#pragma mark - load data
+#pragma mark detail data
 - (void)loadData
 {
     ONEWeakSelf
+    /** 电影评审团 */
     [ONEDataRequest requestMovieReview:[_movie_id stringByAppendingPathComponent:@"review/1/0"] parameters:nil success:^(ONEMovieResultItem *movieReview) {
         if (movieReview) {
             weakSelf.movieReviewResult = movieReview;
@@ -80,7 +83,7 @@ static NSString *const movieCommentID = @"movieComment";
         }
     } failure:nil];
  
-    
+    /** 评论 */
     [ONEDataRequest requestMovieComment:[_movie_id stringByAppendingPathComponent:@"0"] parameters:nil success:^(NSMutableArray *movieComments) {
         if (movieComments.count) {
             weakSelf.commentArray = movieComments;
@@ -92,7 +95,7 @@ static NSString *const movieCommentID = @"movieComment";
     
 }
 
-#pragma mark 加载更多评论
+#pragma mark load more comment  data
 - (void)loadMore
 {
     if (self.commentArray.count == 0) {
@@ -121,20 +124,20 @@ static NSString *const movieCommentID = @"movieComment";
    
 }
 
-#pragma mark - 初始化组
+#pragma mark - init group
 - (void)setupGroup
 {
     ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem new];
-    group1.items = self.movieReviewResult.data;
+    group1.items        = self.movieReviewResult.data;
     group1.footerHeight = 40;
-    group1.headerView = [ONEMovieDetailHeaderView reviewSectionHeaderView];
-    group1.footerView = [ONEMovieDetailHeaderView reviewSectionFooterView];
+    group1.headerView   = [ONEMovieDetailHeaderView reviewSectionHeaderView];
+    group1.footerView   = [ONEMovieDetailHeaderView reviewSectionFooterView];
     
     ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
-    group2.items = self.commentArray;
-    group2.headerView = [ONEMovieDetailHeaderView commentSectionHeaderView];
+    group2.items        = self.commentArray;
+    group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
     group2.footerHeight = 0;
-    group2.footerView = nil;
+    group2.footerView   = nil;
     self.groups = @[group1, group2];
 }
 
@@ -161,15 +164,6 @@ static NSString *const movieCommentID = @"movieComment";
     return cell;
 }
 
-- (void)pushMoreViewController
-{
-    ONEMovieMoreViewController *moreVc = [ONEMovieMoreViewController new];
-    moreVc.movie_id = _movie_id;
-    moreVc.title = @"评审团短评";
-    moreVc.MoreViewControllerType = ONEMovieMoreViewControllerTypeReview;
-    [self.navigationController pushViewController:moreVc animated:true];
-}
-
 #pragma mark - delegate Methods
 #pragma mark movieDetailHeaderView
 - (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didChangedStoryContent:(CGFloat)height
@@ -188,7 +182,6 @@ static NSString *const movieCommentID = @"movieComment";
     ONEMovieMoreViewController *moreVc = [ONEMovieMoreViewController new];
     moreVc.movie_id = _movie_id;
     moreVc.title =  title;
-    moreVc.MoreViewControllerType = ONEMovieMoreViewControllerTypeMovieStory;
     [self.navigationController pushViewController:moreVc animated:true];
 }
 
@@ -240,8 +233,4 @@ static NSString *const movieCommentID = @"movieComment";
 }
 
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 @end

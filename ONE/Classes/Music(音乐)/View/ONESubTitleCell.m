@@ -12,8 +12,8 @@
 
 @interface ONESubTitleCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel     *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel     *subTitleLabel;
 @end
 
 @implementation ONESubTitleCell
@@ -23,6 +23,7 @@
     _songListItem = songListItem;
     
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:songListItem.cover] placeholderImage:[UIImage imageNamed:@"music_cover_small"]];
+    
     self.titleLabel.text = songListItem.title;
     self.subTitleLabel.text = songListItem.author.user_name;
 }

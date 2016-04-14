@@ -36,23 +36,35 @@
     
 }
 
+/** 刷新数据 */
 - (void)refreshData
 {
     ONEWeakSelf
-    if (_user_id) {
+    if (_user_id) // 从个人详情push过来的
+    {
         [ONEDataRequest requestPersonSong:_user_id parameters:nil success:^(NSArray<ONEMusicRelatedItem *> *musics) {
+            
             if (musics.count) [weakSelf setupData:musics];
             [weakSelf.tableView.mj_header endRefreshing];
+            
         } failure:^(NSError *error) {
+            
              [weakSelf.tableView.mj_header endRefreshing];
+        
         }];
     }
-    if (_month) {
+    
+    if (_month) // 从往期列表push过来的
+    {
         [ONEDataRequest requsetMusicByMonth:_month parameters:nil success:^(NSArray<ONEMusicRelatedItem *> *musics) {
+            
             if (musics.count) [weakSelf setupData:musics];
             [weakSelf.tableView.mj_header endRefreshing];
+            
         } failure:^(NSError *error) {
+            
             [weakSelf.tableView.mj_header endRefreshing];
+            
         }];
     }
 }
@@ -65,7 +77,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
    [tableView tableViewShowMessage:@"现在还没有数据哦~~" numberOfRows:self.songLists.count];
@@ -90,10 +101,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     
     ONEMusicViewController *musicVc = [ONEMusicViewController new];
-    
-    ONEMusicRelatedItem *detail = self.songLists[indexPath.row];
-    musicVc.detailIdUrl = detail.related_id;
-    musicVc.title = detail.title;
+    ONEMusicRelatedItem *detail     = self.songLists[indexPath.row];
+    musicVc.detailIdUrl             = detail.related_id;
+    musicVc.title                   = detail.title;
     [self.navigationController pushViewController:musicVc animated:true];
 }
 

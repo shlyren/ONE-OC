@@ -20,38 +20,27 @@
 
 @implementation ONEMusicScrollViewController
 
-#pragma mark - lazy loading
+#pragma mark - lazy load
 - (ONEMusicViewController *)musicVc
 {
-    if (_musicVc == nil) {
+    if (_musicVc == nil)
+    {
         ONEMusicViewController *musicVc = [ONEMusicViewController new];
         [self addChildViewController:_musicVc = musicVc];
     }
     return _musicVc;
 }
 
+
+
 #pragma mark - initial
 #pragma mark initial view
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = false;
     [self setUpData];
-}
-
-#pragma mark initial data
-- (void)setUpData
-{
-    ONEWeakSelf
-    [SVProgressHUD show];
-    [ONEDataRequest requsetMusciIdList:@"0" parameters:nil success:^(NSArray *musicIdList) {
-        if (musicIdList.count) {
-            weakSelf.musicListArray = musicIdList;
-            [weakSelf setupScrollView];
-        }
-    } failure:nil];
 }
 
 - (void)setupScrollView
@@ -64,14 +53,28 @@
     scrollView.scrollsToTop = false;
     
     [self.view addSubview:scrollView];
-
+    
     self.musicVc.detailIdUrl = self.musicListArray[0];
     self.musicVc.view.frame = self.view.bounds;
     [scrollView addSubview:self.musicVc.view];
-
+    
 }
 
+#pragma mark data
+- (void)setUpData
+{
+    ONEWeakSelf
+    [SVProgressHUD show];
+    [ONEDataRequest requsetMusciIdList:@"0" parameters:nil success:^(NSArray *musicIdList) {
+        if (musicIdList.count)
+        {
+            weakSelf.musicListArray = musicIdList;
+            [weakSelf setupScrollView];
+        }
+    } failure:nil];
+}
 
+#pragma mark - scrollView delegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     //ONELog(@"%.1f > %.1f",scrollView.contentOffset.x, (self.musicListArray.count - 0.8)* scrollView.width)

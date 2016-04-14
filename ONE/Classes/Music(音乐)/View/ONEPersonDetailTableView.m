@@ -72,9 +72,6 @@
                 break;
             }
         }
-            
-        default:
-            break;
     }
 
 }

@@ -29,4 +29,7 @@
 
 /** 用户信息 */
 @property (nonatomic, strong) ONEAuthorItem *user;
+
+
+//@property (nonatomic, assign) CGFloat height;
 @end

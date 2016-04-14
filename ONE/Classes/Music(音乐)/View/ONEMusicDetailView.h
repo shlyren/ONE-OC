@@ -43,7 +43,7 @@
 
 @interface ONEMusicDetailView : UIView
 
-@property (nonatomic, strong) ONEMusicDetailItem *musicDetailItem;
+@property (nonatomic, strong) ONEMusicDetailItem           *musicDetailItem;
 
 @property (nonatomic, weak) id<ONEMusicDetailViewDelegate> delegate;
 @end

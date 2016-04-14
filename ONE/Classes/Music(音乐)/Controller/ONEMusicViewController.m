@@ -16,6 +16,7 @@
 #import "ONEPersonDetailViewController.h"
 #import "ONEMusicRelatedItem.h"
 #import "UITableView+Extension.h"
+#import "ONEHttpTool.h"
 
 @interface ONEMusicViewController ()<ONEMusicDetailViewDelegate,
 UICollectionViewDelegate, UICollectionViewDataSource, ONECommentCellDelegate>
@@ -100,6 +101,7 @@ static NSString *const relatedCellID = @"relatedCell";
     [self setUpView];
 }
 
+
 #pragma mark 初始化view
 - (void)setUpView
 {
@@ -112,11 +114,11 @@ static NSString *const relatedCellID = @"relatedCell";
     
     self.tableView.tableHeaderView = headerView;
     
-    CGFloat bottom = self.navigationController.childViewControllers.count == 1 ? 49 : 0;
+    CGFloat bottom = self.navigationController.childViewControllers.count == 1 ? ONETabBarH : 0;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, bottom, 0);
     
-    bottom = self.navigationController.childViewControllers.count == 1 ? 49 : 0;
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, bottom, 0);
+    bottom = self.navigationController.childViewControllers.count == 1 ? ONETabBarH : 0;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(ONENavBMaxY, 0, bottom, 0);
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ONECommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellID];
     
@@ -147,12 +149,15 @@ static NSString *const relatedCellID = @"relatedCell";
     ONEWeakSelf
     [ONEDataRequest requestMusicRelated:self.detailIdUrl parameters:nil success:^(NSArray<ONEMusicRelatedItem *> *relatedItems) {
         _haveRelatedData = relatedItems.count;
-        if (relatedItems.count) {
+       
+        if (relatedItems.count)
+        {
             weakSelf.relatedArr = relatedItems;
             [weakSelf.tableView reloadData];
             [weakSelf.collectionView reloadData];
         }
     } failure:nil];
+    
     [self loadCommentData];
 }
 
@@ -196,9 +201,11 @@ static NSString *const relatedCellID = @"relatedCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_haveRelatedData && indexPath.section == 0) {
+    if (_haveRelatedData && indexPath.section == 0)
+    {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"related"];
-        if (cell == nil) {
+        if (cell == nil)
+        {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"related"];
             [cell.contentView addSubview:self.collectionView];
         }
@@ -214,11 +221,13 @@ static NSString *const relatedCellID = @"relatedCell";
 }
 
 #pragma mark UICollectionView
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.relatedArr.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     ONEMusicRelatedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:relatedCellID forIndexPath:indexPath];
     cell.relatedItem = self.relatedArr[indexPath.row];
     return cell;
@@ -231,7 +240,6 @@ static NSString *const relatedCellID = @"relatedCell";
 {
     _musicDetailView.height = height;
     self.tableView.tableHeaderView = _musicDetailView;
-//    [self.tableView reloadData];
 }
 
 - (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didClickStoryUserIcon:(NSString *)user_id
@@ -243,6 +251,7 @@ static NSString *const relatedCellID = @"relatedCell";
 
 - (void)musicDetailViwe:(ONEMusicDetailView *)musicDetailView didClickPlayerBtn:(UIButton *)button
 {
+#warning music player
     //self.playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 225);
 }
 
@@ -256,7 +265,6 @@ static NSString *const relatedCellID = @"relatedCell";
 }
 
 
-
 #pragma mark table view
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -267,9 +275,7 @@ static NSString *const relatedCellID = @"relatedCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_haveRelatedData && indexPath.section == 0) return 190;
-
-    static ONECommentCell *cell;
-    if (cell == nil) cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
+    ONECommentCell *cell= [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentArr[indexPath.row];
     return cell.rowHeight;
 }
@@ -279,10 +285,10 @@ static NSString *const relatedCellID = @"relatedCell";
     UIView *headerView = [UIView new];
     headerView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
     
-    if (_haveRelatedData && section == 0) {
+    if (_haveRelatedData && section == 0)
+    {
         [headerView addSubview:[tableView tableViewHeaderViewLabelWithString:@"相似歌曲"]];
-        
-        [headerView addSubview:[self musicListBtn]];
+        [headerView addSubview:self.musicListBtn];
         return headerView;
     }
     
@@ -290,18 +296,13 @@ static NSString *const relatedCellID = @"relatedCell";
     return headerView;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    return nil;
-//}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.000000001;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35;
+    return ONETitleViewH;
 }
 
 
@@ -325,7 +326,7 @@ static NSString *const relatedCellID = @"relatedCell";
     [musicListBtn setImage:[UIImage imageNamed:@"music_list_pause_default"] forState:UIControlStateSelected];
     [musicListBtn addTarget:self action:@selector(musicListBtnCilck:) forControlEvents:UIControlEventTouchUpInside];
     [musicListBtn sizeToFit];
-    musicListBtn.centerY = 35 * 0.5;
+    musicListBtn.centerY = ONETitleViewH * 0.5;
     musicListBtn.x = ONEScreenWidth - musicListBtn.width;
     
     return musicListBtn;
@@ -343,4 +344,8 @@ static NSString *const relatedCellID = @"relatedCell";
     }
 }
 
+- (void)dealloc
+{
+    [ONEHttpTool cancel];
+}
 @end

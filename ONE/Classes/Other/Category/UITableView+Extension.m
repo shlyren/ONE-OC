@@ -64,7 +64,7 @@
     titleLabel.text = title;
     titleLabel.font = [UIFont systemFontOfSize:12];
     [titleLabel sizeToFit];
-    titleLabel.centerY = 35 * 0.5;
+    titleLabel.centerY = ONETitleViewH * 0.5;
     titleLabel.x = 15;
     
     return titleLabel;
@@ -83,7 +83,7 @@
     titleLabel.text = title;
     titleLabel.font = [UIFont systemFontOfSize:12];
     [titleLabel sizeToFit];
-    titleLabel.centerY = 35 * 0.5;
+    titleLabel.centerY = ONETitleViewH * 0.5;
     titleLabel.x = 15;
     
     return titleLabel;

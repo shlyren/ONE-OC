@@ -17,6 +17,7 @@
 #import "ONEMusicSongViewController.h"
 #import "ONEAuthorItem.h"
 
+#define persionDetailHeader 370
 @interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet ONEPersonDetailTableView *tableView;
@@ -31,9 +32,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTop;
-
-
-//@property (nonatomic, strong) ONEMusicAuthorItem *userInfoItem;
 
 @property (nonatomic, strong) NSMutableArray *cellItems;
 
@@ -106,7 +104,7 @@
     _tableView.delegate_person = self;
     
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.tableView.contentInset = UIEdgeInsetsMake(370, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(persionDetailHeader, 0, 0, 0);
 }
 
 - (void)loadData
@@ -155,13 +153,12 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 获取当前偏移量                                 // -367
-    CGFloat offsetY = scrollView.contentOffset.y + 370;
+    CGFloat offsetY = scrollView.contentOffset.y + persionDetailHeader;
     
     // 获取topview的高度
-    CGFloat height = 370 - offsetY;
+    CGFloat height = persionDetailHeader - offsetY;
    // ONELog(@"y%.1f offsetY%.1f height%.1f image%.1f", scrollView.contentOffset.y, offsetY, height, _imageView.height);
     if (offsetY == 0) return;
-    
     if (offsetY > 0)
     {
         _topViewTop.constant = -offsetY;
@@ -178,7 +175,6 @@
     if (item.actionBlock) {
         item.actionBlock(_user_id);
     }
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

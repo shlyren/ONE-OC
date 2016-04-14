@@ -38,16 +38,15 @@
 {
     _commentItem = commentItem;
     
-    self.commentContectLabel.attributedText = [NSMutableAttributedString attributedStringWithString:commentItem.content];
+    self.inputDateLabel.text      = commentItem.input_date;
+    self.commentContectLabel.text = commentItem.content;
     [self.commentContectLabel sizeToFit];
     
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentItem.praisenum] forState:UIControlStateNormal];
     
-    self.inputDateLabel.text = commentItem.input_date;
     
-    ONEAuthorItem *author = commentItem.user;
-    self.userNameLabel.text = author.user_name;
-    
+    ONEAuthorItem *author    = commentItem.user;
+    self.userNameLabel.text  = author.user_name;
 
    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
        self.iconImageView.image = image.circleImage;
@@ -59,30 +58,35 @@
 {
     self.praisenumBtn.selected = !self.praisenumBtn.selected;
     
-    
     NSDictionary *parameters = @{
                                  @"cmtid" : _commentItem.comment_id,
                                  @"itemid" : _detail_id,  // detailID
                                  @"type" : @"music",
                                  };
-    //ONELog(@"%@", parameters);
+    
     [ONEDataRequest addPraise:comment_praise parameters:parameters success:^(BOOL isSuccess, NSString *message) {
+        
         if (!isSuccess)
         {
             [SVProgressHUD showErrorWithStatus:message];
             _praisenumBtn.selected = !_praisenumBtn.selected;
+            
         }else{
+            
              NSInteger praisenum = _praisenumBtn.selected ? ++_commentItem.praisenum : --_commentItem.praisenum;
             
             [_praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
+            
         }
+        
     } failure:nil];
     
 }
 
 - (IBAction)iconBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(commentCell:didClickIcon:)]) {
+    if ([self.delegate respondsToSelector:@selector(commentCell:didClickIcon:)])
+    {
         [self.delegate commentCell:self didClickIcon:_commentItem.user.user_id];
     }
 }

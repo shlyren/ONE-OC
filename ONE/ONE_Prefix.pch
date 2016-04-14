@@ -13,6 +13,7 @@
 
 //通过 view.XXX  点出相应的frame属性
 #import "UIView+Frame.h"
+#import "ONEConst.h"
 
 /** 弱引用 */
 #define ONEWeakSelf __weak typeof(self) weakSelf = self;
@@ -30,6 +31,8 @@
 #define ONEScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #define ONERandomlyColor ONEColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
+
+#define ONEDefaultFont [UIFont systemFontOfSize:15]
 
 /** 打印当方法名 */
 #define ONELogFunc ONELog(@"%s", __func__)

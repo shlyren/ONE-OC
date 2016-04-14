@@ -1,0 +1,37 @@
+//
+//  ONEReadQuestionViewController.m
+//  ONE
+//
+//  Created by 任玉祥 on 16/4/14.
+//  Copyright © 2016年 ONE. All rights reserved.
+//
+
+#import "ONEReadQuestionViewController.h"
+
+@interface ONEReadQuestionViewController ()
+
+@end
+
+@implementation ONEReadQuestionViewController
+
+- (NSArray *)readItems
+{
+    return self.readList.question;
+}
+
+#pragma mark - Table view data source
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ONEReadCell *cell = [tableView dequeueReusableCellWithIdentifier:readCell];
+    cell.question = self.readItems[indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+@end

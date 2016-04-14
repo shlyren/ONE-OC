@@ -22,7 +22,7 @@
 
 @implementation ONEMovieViewController
 
-
+#pragma mark - lazy load
 - (NSMutableArray *)movieList
 {
     if (_movieList == nil) {
@@ -31,9 +31,16 @@
     return _movieList;
 }
 
+#pragma mark - initial
+#pragma mark view
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupView];
+   
+}
+
+- (void)setupView
+{
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.backgroundColor = ONEColor(234, 234, 234, 1);
@@ -43,7 +50,8 @@
     self.tableView.rowHeight = 150;
 }
 
-
+#pragma mark data
+/** 刷新数据 */
 - (void)loadData
 {
     ONEWeakSelf
@@ -61,6 +69,7 @@
     }];
 }
 
+/** 加载更多 */
 - (void)loadMore
 {
     if (self.tableView.mj_header.isRefreshing) return;
@@ -77,6 +86,7 @@
     }];
 }
 
+#pragma mark - tableview data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.movieList.count;
@@ -94,7 +104,7 @@
     return cell;
 }
 
-
+#pragma mark - table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEMovieDetailViewController *movieDetailVc = [ONEMovieDetailViewController new];
@@ -108,7 +118,7 @@
     return ONEScreenWidth * 0.45;
 }
 
-
+/** endRefresh */
 - (void)endRefreshing
 {
     [self.tableView.mj_header endRefreshing];

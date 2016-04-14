@@ -74,11 +74,6 @@
 @property (nonatomic, strong) UIView                    *bigImgCoverView;
 @property (nonatomic, weak) UIImageView                 *bigImageView;
 
-
-/** 评审团 */
-/** 共X条评审团短评 */
-@property (strong, nonatomic) IBOutlet UILabel *reviewCountLabel;
-
 @end
 
 @implementation ONEMovieDetailHeaderView
@@ -133,13 +128,14 @@ static NSString *const photoCellID = @"photoCell";
 
 - (UILabel *)infoLabel
 {
-    if (_infoLabel == nil) {
+    if (_infoLabel == nil)
+    {
         UILabel *infoLabel = [[UILabel alloc] initWithFrame:self.movieStoryCoverView.bounds];
-        infoLabel.text = _movieDetail.info;
-        infoLabel.x += 10;
-        infoLabel.width = ONEScreenWidth - infoLabel.x;
+        infoLabel.text     = _movieDetail.info;
+        infoLabel.x       += 10;
+        infoLabel.width    = ONEScreenWidth - infoLabel.x;
+        infoLabel.font     = [UIFont systemFontOfSize:14];
         infoLabel.numberOfLines = 0;
-        infoLabel.font = [UIFont systemFontOfSize:14];
         _infoLabel = infoLabel;
     }
     return _infoLabel;
@@ -147,10 +143,10 @@ static NSString *const photoCellID = @"photoCell";
 
 - (void)awakeFromNib
 {
-    self.keywordView.frame = CGRectMake(0, 0, ONEScreenWidth, 110);
-    self.movieStoryView.frame = CGRectMake(0, 0, ONEScreenWidth, 110);
+    self.keywordView.frame                    = CGRectMake(0, 0, ONEScreenWidth, 110);
+    self.movieStoryView.frame                 = CGRectMake(0, 0, ONEScreenWidth, 110);
     self.contentLabel.preferredMaxLayoutWidth = ONEScreenWidth - 60;
-    self.movieStoryCoverView.backgroundColor = [UIColor whiteColor];
+    self.movieStoryCoverView.backgroundColor  = [UIColor whiteColor];
 }
 
 #pragma mark - 加载数据
@@ -161,15 +157,18 @@ static NSString *const photoCellID = @"photoCell";
     ONEWeakSelf
     
     [ONEDataRequest requestMovieStory:[movie_id stringByAppendingPathComponent:@"story/1/0"] parameters:nil success:^(ONEMovieResultItem *movieStory) {
-        if (movieStory) {
+        if (movieStory)
+        {
             weakSelf.movieStoryResult = movieStory;
             [weakSelf setupStoryView];
         }
         
     } failure:nil];
     
+    
     [ONEDataRequest requestMovieDetail:movie_id parameters:nil success:^(ONEMovieDetailItem *movieDetail) {
-        if (movieDetail) {
+        if (movieDetail)
+        {
             weakSelf.movieDetail = movieDetail;
             [weakSelf setupDetailView];
         }
@@ -179,16 +178,17 @@ static NSString *const photoCellID = @"photoCell";
 
 - (void)setupStoryView
 {
-    [self.storyCoverView addSubview:self.movieStoryView];
+    [self.storyCoverView addSubview: self.movieStoryView];
     
     self.movieStoryCountLabel.text = [NSString stringWithFormat:@"共%zd个电影故事",self.movieStoryResult.count];
     
     ONEMovieStoryItem *movieStory = self.movieStoryResult.data[0];
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:movieStory.user.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"]];
-    self.userNamelbel.text = movieStory.user.user_name;
-    self.titleLabel.text = movieStory.title;
-    self.inputTimeLabel.text = movieStory.input_date;
+    
+    self.userNamelbel.text           = movieStory.user.user_name;
+    self.titleLabel.text             = movieStory.title;
+    self.inputTimeLabel.text         = movieStory.input_date;
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:movieStory.content];
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", movieStory.praisenum] forState:UIControlStateNormal];
     [self.contentLabel sizeToFit];
@@ -213,13 +213,6 @@ static NSString *const photoCellID = @"photoCell";
         textLabel.text = [self cutoffString:_movieDetail.keywords byString:@";"][i];
     }
     [self oneMovieBtnClick:_movieBtn];
-}
-
-
-- (void)setReviewCount:(NSInteger)reviewCount
-{
-    _reviewCount = reviewCount;
-    ONELog(@"reviewCountLabel %@", self.reviewCountLabel)
 }
 
 - (IBAction)storyViewLikeBtnClick:(UIButton *)btn
@@ -253,7 +246,8 @@ static NSString *const photoCellID = @"photoCell";
 
 - (IBAction)iconBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickUserIcon:)]) {
+    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickUserIcon:)])
+    {
         [self.delegate movieDetailHeaderView:self didClickUserIcon:[self.movieStoryResult.data[0] user_id]];
     }
 
@@ -261,37 +255,27 @@ static NSString *const photoCellID = @"photoCell";
 
 - (IBAction)allMovieStoryBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickAllBtn:)]) {
+    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickAllBtn:)])
+    {
         [self.delegate movieDetailHeaderView:self didClickAllBtn:@"电影故事"];
     }
 }
 
-- (IBAction)allReviewBtnClick
-{
-    ONELogFunc
-#warning delegate is not ok! why?
-////    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickAllBtn:)]) {
-//        [self.delegate movieDetailHeaderView:self didClickAllBtn:@"评审团短评"];
-//        ONELogFunc
-////    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:ONEMovieDetailHeaderViewDidClickAllReview object:nil userInfo:nil];
-    
-}
 
 - (IBAction)oneMovieBtnClick:(UIButton *)btn
 {
     if (self.selectedBtn == btn) return;
     
     self.oneMovieTitleLabel.text = self.oneMovieTitles[btn.tag];
-    self.selectedBtn.selected = false;
-    self.selectedBtn = btn;
-    btn.selected = true;
+    self.selectedBtn.selected    = false;
+    self.selectedBtn             = btn;
+    btn.selected                 = true;
     
     [self.currentView removeFromSuperview];
     if (btn.tag == 0) self.currentView = self.keywordView;
     if (btn.tag == 1) self.currentView = self.collectionView;
     if (btn.tag == 2) self.currentView = self.infoLabel;
-    [self.movieStoryCoverView addSubview: self.currentView];
+    [self.movieStoryCoverView addSubview:self.currentView];
     
 }
 
@@ -319,16 +303,20 @@ static NSString *const photoCellID = @"photoCell";
 - (void)didClickPhoto:(NSString *)imageName
 {
     [[UIApplication sharedApplication].keyWindow addSubview:self.bigImgCoverView];
+    
     [UIView animateWithDuration:0.5 animations:^{
         self.bigImgCoverView.alpha  = 1;
-        
     }];
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    
     [SVProgressHUD show];
     [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:imageName] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
         CGFloat height = image.size.height / image.size.width * ONEScreenWidth;
         self.bigImageView.size = CGSizeMake(ONEScreenWidth, height);
         self.bigImageView.center = self.bigImgCoverView.center;
+        
         [SVProgressHUD dismiss];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
     }];
@@ -338,9 +326,13 @@ static NSString *const photoCellID = @"photoCell";
 - (void)coverViewClick
 {
     [UIView animateWithDuration:0.5 animations:^{
+        
         self.bigImgCoverView.alpha   = 0;
+        
     } completion:^(BOOL finished) {
+        
         [self.bigImgCoverView removeFromSuperview];
+        
     }];
 }
 
@@ -378,8 +370,8 @@ static NSString *const photoCellID = @"photoCell";
 - (NSArray *)cutoffString:(NSString *)string byString:(NSString *)str
 {
     NSMutableString *mutableStr = [[NSMutableString alloc] initWithString:[string stringByAppendingString:str]];
-    NSMutableArray *mutableArr = [NSMutableArray array];
-    NSRange range = [mutableStr rangeOfString:str];
+    NSMutableArray *mutableArr  = [NSMutableArray array];
+    NSRange range               = [mutableStr rangeOfString:str];
     
     while (range.location != NSNotFound)
     {

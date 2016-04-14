@@ -16,11 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="380" height="110.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-do-4sb">
-                        <rect key="frame" x="65" y="60" width="300" height="42"/>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.04.02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LE3-nm-Z7x">
                         <rect key="frame" x="65" y="33" width="64" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -76,16 +71,21 @@
                         <color key="textColor" red="0.4549019608" green="0.68627450980000004" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥任玉祥" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-do-4sb">
+                        <rect key="frame" x="65" y="60" width="300" height="42"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QxC-mx-nUk" firstAttribute="bottom" secondItem="CFC-m2-7Vp" secondAttribute="centerY" id="3Zs-op-tbV"/>
                     <constraint firstItem="LE3-nm-Z7x" firstAttribute="top" secondItem="QxC-mx-nUk" secondAttribute="bottom" constant="3" id="50I-DS-5kE"/>
-                    <constraint firstItem="Izh-do-4sb" firstAttribute="top" secondItem="LE3-nm-Z7x" secondAttribute="bottom" constant="13" id="9Zi-pj-cZ1"/>
                     <constraint firstAttribute="trailing" secondItem="Izh-do-4sb" secondAttribute="trailing" constant="15" id="AJQ-1I-O3w"/>
                     <constraint firstItem="CFC-m2-7Vp" firstAttribute="bottom" secondItem="qDF-aI-TtM" secondAttribute="bottom" id="B1F-9S-shg"/>
                     <constraint firstItem="dQc-GW-fs3" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="LiS-HM-9I7"/>
                     <constraint firstItem="CFC-m2-7Vp" firstAttribute="leading" secondItem="qDF-aI-TtM" secondAttribute="leading" id="P4R-ag-wW4"/>
                     <constraint firstItem="CFC-m2-7Vp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="d2f-km-sns"/>
+                    <constraint firstItem="Izh-do-4sb" firstAttribute="top" secondItem="CFC-m2-7Vp" secondAttribute="bottom" constant="10" id="hQX-Ab-5Sh"/>
                     <constraint firstItem="dQc-GW-fs3" firstAttribute="centerY" secondItem="QxC-mx-nUk" secondAttribute="centerY" id="mL9-10-dWK"/>
                     <constraint firstItem="LE3-nm-Z7x" firstAttribute="leading" secondItem="QxC-mx-nUk" secondAttribute="leading" id="qEg-Xe-Rpn"/>
                     <constraint firstItem="CFC-m2-7Vp" firstAttribute="trailing" secondItem="qDF-aI-TtM" secondAttribute="trailing" id="qoU-Ui-uyb"/>
