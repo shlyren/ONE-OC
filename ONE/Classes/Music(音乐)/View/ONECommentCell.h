@@ -14,7 +14,7 @@
 @class ONECommentCell;
 
 @protocol ONECommentCellDelegate <NSObject>
-
+@optional
 - (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId;
 
 @end
@@ -30,5 +30,12 @@
 
 @property (nonatomic, weak) id<ONECommentCellDelegate> delegate;
 
+
+/**
+ *  是属于哪一种评论的点赞参数 比如 阅读,还是音乐
+ *
+ *  @return 对应类型的的参数 比如音乐 "music"
+ */
+- (NSString *)commentType;
 
 @end

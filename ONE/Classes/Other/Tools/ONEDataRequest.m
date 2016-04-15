@@ -9,6 +9,7 @@
 
 #import "ONEDataRequest.h"
 #import "ONEHttpTool.h"
+#import "ONEMovieResultItem.h"
 
 #import "ONEMusicResultItem.h"
 #import "ONEAuthorItem.h"
@@ -22,8 +23,9 @@
 
 #import "ONEReadAdItem.h"
 #import "ONEReadListItem.h"
+#import "ONEReadCommentItem.h"
 
-#import "ONEMovieResultItem.h"
+
 
 @implementation ONEDataRequest
 /**
@@ -358,7 +360,7 @@
         
     } failure:^(NSError *error) {
         if (failure) failure(error);
-        ONELog(@"阅读列表获取失败%@",error);
+        ONELog(@"问题详情获取失败%@",error);
     }];
 }
 
@@ -378,19 +380,101 @@
         
     } failure:^(NSError *error) {
         if (failure) failure(error);
-        ONELog(@"阅读列表获取失败%@",error);
+        ONELog(@"问题详情获取失败%@",error);
     }];
 
 }
 
 
+/**
+ *  问题详情
+ */
++ (void)requestQuestionDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEQuestionItem *question))success failure:(void (^)(NSError *error))failure
+{
+    url = [[ONEBaseUrl stringByAppendingPathComponent:question] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+        ONEQuestionItem *question = [ONEQuestionItem mj_objectWithKeyValues:responseObject[@"data"]];
+        if (success) success(question);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"问题详情获取失败%@",error);
+    }];
+
+}
+
+/**
+ *  阅读评论数据
+ */
++ (void)requestReadComment:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray *commentItems))success failure:(void (^)(NSError *error))failure
+{
+    url = [ONEBaseUrl stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+        [ONEReadCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"comment_id" : @"id" };
+        }];
+        //ONEMusicResultItem *commentResult = [ONEMusicResultItem mj_objectWithKeyValues:responseObject[@"data"]];
+        NSArray *Item = [ONEReadCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+        if (success) success(Item);
+    } failure:^(NSError *error) {
+        ONELog(@"评论数据获取失败%@", error);
+        if (failure) failure(error);
+    }];
+}
 
 
+/** 短篇 推荐 */
++ (void)requestEssayRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *essayRelated))success failure:(void (^)(NSError *error))failure
+{
+    
+    url = [[ONEBaseUrl stringByAppendingPathComponent:relates_essay] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"author" : [ONEAuthorItem class]};
+        }];
+        
+        NSArray *essay = [ONEEssayItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(essay);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"短篇推荐获取失败%@",error);
+    }];
+}
 
+/** 连载 推荐 */
++ (void)requestSerialRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialRelated))success failure:(void (^)(NSError *error))failure
+{
+    url = [[ONEBaseUrl stringByAppendingPathComponent:related_serial] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"content_id" : @"id"};
+        }];
+        
+        NSArray *serialRelated = [ONESerialItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(serialRelated);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"连载推荐获取失败%@",error);
+    }];
+}
 
+/** 问题 推荐 */
++ (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure
+{
+    url = [[ONEBaseUrl stringByAppendingPathComponent:related_question] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        NSArray *questionRelated = [ONEQuestionItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(questionRelated);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"问题推荐获取失败%@",error);
+    }];
 
-
-
+}
 
 
 

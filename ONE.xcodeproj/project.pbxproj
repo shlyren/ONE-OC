@@ -39,6 +39,13 @@
 		55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55212F881CB68FAF00634442 /* ONEMusicSongViewController.m */; };
 		55212F8D1CB6901300634442 /* ONEMusicSongViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55212F8C1CB6901300634442 /* ONEMusicSongViewController.storyboard */; };
 		5537A9A41CAF658E0039949C /* ONEMusicScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5537A9A31CAF658E0039949C /* ONEMusicScrollViewController.m */; };
+		553BDD781CC07902006BE7BF /* ONEQuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD771CC07902006BE7BF /* ONEQuestionDetailViewController.m */; };
+		553BDD7E1CC088E6006BE7BF /* ONEQuestionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD7D1CC088E6006BE7BF /* ONEQuestionHeaderView.m */; };
+		553BDD801CC08957006BE7BF /* ONEQuestionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDD7F1CC08957006BE7BF /* ONEQuestionHeaderView.xib */; };
+		553BDD851CC0B414006BE7BF /* ONEReadCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD831CC0B414006BE7BF /* ONEReadCommentCell.m */; };
+		553BDD891CC0D27C006BE7BF /* ONEReadCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD881CC0D27C006BE7BF /* ONEReadCommentItem.m */; };
+		553BDD9C1CC110C7006BE7BF /* ONEReadRelatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD9A1CC110C7006BE7BF /* ONEReadRelatedCell.m */; };
+		553BDD9D1CC110C7006BE7BF /* ONEReadRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDD9B1CC110C7006BE7BF /* ONEReadRelatedCell.xib */; };
 		55422CE81CBFDF4400A3B1A0 /* ONEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CE71CBFDF4400A3B1A0 /* ONEConst.m */; };
 		55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CEC1CBFEAE500A3B1A0 /* AppDelegate.m */; };
 		55422CEF1CBFEAE500A3B1A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CED1CBFEAE500A3B1A0 /* main.m */; };
@@ -147,6 +154,18 @@
 		55212F8C1CB6901300634442 /* ONEMusicSongViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ONEMusicSongViewController.storyboard; sourceTree = "<group>"; };
 		5537A9A21CAF658E0039949C /* ONEMusicScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicScrollViewController.h; sourceTree = "<group>"; };
 		5537A9A31CAF658E0039949C /* ONEMusicScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicScrollViewController.m; sourceTree = "<group>"; };
+		553BDD761CC07902006BE7BF /* ONEQuestionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEQuestionDetailViewController.h; sourceTree = "<group>"; };
+		553BDD771CC07902006BE7BF /* ONEQuestionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEQuestionDetailViewController.m; sourceTree = "<group>"; };
+		553BDD7C1CC088E6006BE7BF /* ONEQuestionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEQuestionHeaderView.h; sourceTree = "<group>"; };
+		553BDD7D1CC088E6006BE7BF /* ONEQuestionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEQuestionHeaderView.m; sourceTree = "<group>"; };
+		553BDD7F1CC08957006BE7BF /* ONEQuestionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEQuestionHeaderView.xib; sourceTree = "<group>"; };
+		553BDD821CC0B414006BE7BF /* ONEReadCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadCommentCell.h; sourceTree = "<group>"; };
+		553BDD831CC0B414006BE7BF /* ONEReadCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadCommentCell.m; sourceTree = "<group>"; };
+		553BDD871CC0D27C006BE7BF /* ONEReadCommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadCommentItem.h; sourceTree = "<group>"; };
+		553BDD881CC0D27C006BE7BF /* ONEReadCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadCommentItem.m; sourceTree = "<group>"; };
+		553BDD991CC110C7006BE7BF /* ONEReadRelatedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadRelatedCell.h; sourceTree = "<group>"; };
+		553BDD9A1CC110C7006BE7BF /* ONEReadRelatedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadRelatedCell.m; sourceTree = "<group>"; };
+		553BDD9B1CC110C7006BE7BF /* ONEReadRelatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEReadRelatedCell.xib; sourceTree = "<group>"; };
 		55422CE61CBFDF4400A3B1A0 /* ONEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEConst.h; sourceTree = "<group>"; };
 		55422CE71CBFDF4400A3B1A0 /* ONEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEConst.m; sourceTree = "<group>"; };
 		55422CEB1CBFEAE500A3B1A0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -268,6 +287,9 @@
 				550904211CBFD62500F884C2 /* ONEReadDetailHeaderView.h */,
 				550904221CBFD62500F884C2 /* ONEReadDetailHeaderView.m */,
 				550904231CBFD62500F884C2 /* ONEReadDetailHeaderView.xib */,
+				553BDD7C1CC088E6006BE7BF /* ONEQuestionHeaderView.h */,
+				553BDD7D1CC088E6006BE7BF /* ONEQuestionHeaderView.m */,
+				553BDD7F1CC08957006BE7BF /* ONEQuestionHeaderView.xib */,
 				550904241CBFD62500F884C2 /* ONEReadToolBarView.h */,
 				550904251CBFD62500F884C2 /* ONEReadToolBarView.m */,
 				550904261CBFD62500F884C2 /* ONEReadToolBarView.xib */,
@@ -292,12 +314,14 @@
 		550904371CBFD64700F884C2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				550904381CBFD64700F884C2 /* ONEEssayDetailViewController.h */,
-				550904391CBFD64700F884C2 /* ONEEssayDetailViewController.m */,
 				5509043A1CBFD64700F884C2 /* ONEReadDetailViewController.h */,
 				5509043B1CBFD64700F884C2 /* ONEReadDetailViewController.m */,
+				550904381CBFD64700F884C2 /* ONEEssayDetailViewController.h */,
+				550904391CBFD64700F884C2 /* ONEEssayDetailViewController.m */,
 				5509043C1CBFD64700F884C2 /* ONESerialDetailViewController.h */,
 				5509043D1CBFD64700F884C2 /* ONESerialDetailViewController.m */,
+				553BDD761CC07902006BE7BF /* ONEQuestionDetailViewController.h */,
+				553BDD771CC07902006BE7BF /* ONEQuestionDetailViewController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -317,6 +341,18 @@
 				550904421CBFD64700F884C2 /* ONEReadQuestionViewController.m */,
 			);
 			path = Read;
+			sourceTree = "<group>";
+		};
+		553BDD811CC0B3FD006BE7BF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				553BDD821CC0B414006BE7BF /* ONEReadCommentCell.h */,
+				553BDD831CC0B414006BE7BF /* ONEReadCommentCell.m */,
+				553BDD991CC110C7006BE7BF /* ONEReadRelatedCell.h */,
+				553BDD9A1CC110C7006BE7BF /* ONEReadRelatedCell.m */,
+				553BDD9B1CC110C7006BE7BF /* ONEReadRelatedCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		55422CF01CBFEAF700A3B1A0 /* Model */ = {
@@ -357,6 +393,8 @@
 				55B9A1081CBF5B1E009E44AA /* ONESerialItem.m */,
 				55B9A10A1CBF5B2D009E44AA /* ONEQuestionItem.h */,
 				55B9A10B1CBF5B2D009E44AA /* ONEQuestionItem.m */,
+				553BDD871CC0D27C006BE7BF /* ONEReadCommentItem.h */,
+				553BDD881CC0D27C006BE7BF /* ONEReadCommentItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +402,7 @@
 		55B9A0E11CBF2669009E44AA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				553BDD811CC0B3FD006BE7BF /* Cell */,
 				550904201CBFD62500F884C2 /* Detail */,
 				550904271CBFD62500F884C2 /* Read */,
 			);
@@ -747,10 +786,12 @@
 				5505BCCE1CAF97160063B97C /* ONECommentCell.xib in Resources */,
 				55FC84741CB7D64700E454A3 /* ONEMusicPlayerView.xib in Resources */,
 				7E1A38FD1CAD960C0085EB67 /* LaunchScreen.storyboard in Resources */,
+				553BDD9D1CC110C7006BE7BF /* ONEReadRelatedCell.xib in Resources */,
 				5592EFD41CB1122200FA3D76 /* ONEMusicRelatedCell.xib in Resources */,
 				550904351CBFD62500F884C2 /* ONEReadCell.xib in Resources */,
 				55FC84C71CBBF5DE00E454A3 /* ONEMovieCommentCell.xib in Resources */,
 				55212F8D1CB6901300634442 /* ONEMusicSongViewController.storyboard in Resources */,
+				553BDD801CC08957006BE7BF /* ONEQuestionHeaderView.xib in Resources */,
 				550904321CBFD62500F884C2 /* ONEReadToolBarView.xib in Resources */,
 				55FC84A31CBAC23B00E454A3 /* ONEMovieListCell.xib in Resources */,
 				7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */,
@@ -838,9 +879,12 @@
 				55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */,
 				550904361CBFD62500F884C2 /* ONEReadTitleButton.m in Sources */,
 				55422CE81CBFDF4400A3B1A0 /* ONEConst.m in Sources */,
+				553BDD851CC0B414006BE7BF /* ONEReadCommentCell.m in Sources */,
 				55B9A1061CBF5B0F009E44AA /* ONEEssayItem.m in Sources */,
 				55FC84B71CBB90CA00E454A3 /* ONEMovieDetailPhotoCell.m in Sources */,
+				553BDD781CC07902006BE7BF /* ONEQuestionDetailViewController.m in Sources */,
 				5505BCD71CAFEE930063B97C /* ONEMusicCommentItem.m in Sources */,
+				553BDD7E1CC088E6006BE7BF /* ONEQuestionHeaderView.m in Sources */,
 				55FC84CA1CBBF69300E454A3 /* ONEMovieCommentItem.m in Sources */,
 				55B9A0EC1CBF2ECA009E44AA /* ONEReadAdItem.m in Sources */,
 				55FC84BF1CBBB78900E454A3 /* ONEAuthorItem.m in Sources */,
@@ -873,7 +917,9 @@
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				5509044D1CBFD64700F884C2 /* ONEReadQuestionViewController.m in Sources */,
 				55FC849E1CBAB98300E454A3 /* ONEMovieListItem.m in Sources */,
+				553BDD891CC0D27C006BE7BF /* ONEReadCommentItem.m in Sources */,
 				55422CFE1CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m in Sources */,
+				553BDD9C1CC110C7006BE7BF /* ONEReadRelatedCell.m in Sources */,
 				55FC84B01CBB66D200E454A3 /* ONEMovieDetailHeaderView.m in Sources */,
 				5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */,
 				55212F4F1CB5782400634442 /* UIImage+image.m in Sources */,

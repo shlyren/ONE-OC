@@ -7,7 +7,7 @@
 //
 
 #import "ONEReadQuestionViewController.h"
-
+#import "ONEQuestionDetailViewController.h"
 @interface ONEReadQuestionViewController ()
 
 @end
@@ -30,7 +30,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    ONEQuestionDetailViewController *questionVc = [ONEQuestionDetailViewController new];
+    questionVc.detail_id = [self.readItems[indexPath.row] question_id];
+    [self.navigationController pushViewController:questionVc animated:true];
 }
 
 

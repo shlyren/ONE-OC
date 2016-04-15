@@ -23,9 +23,8 @@
     _rowHeight += 5;
     
     _rowHeight += [self.excerpt boundingRectWithSize:CGSizeMake(ONEScreenWidth - 4 * ONEDefaultMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + ONEDefaultMargin;
-    _rowHeight += ONEDefaultMargin;
     
-    return _rowHeight;
+    return _rowHeight += ONEDefaultMargin;
 }
 
 @end

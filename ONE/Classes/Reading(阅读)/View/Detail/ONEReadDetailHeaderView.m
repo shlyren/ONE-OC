@@ -16,6 +16,7 @@
 
 @interface ONEReadDetailHeaderView ()
 
+/************************** 短篇,连载headerView *************************/
 @property (weak, nonatomic) IBOutlet UIButton *audioBtn;
 @property (weak, nonatomic) IBOutlet UIButton *listBtn;
 
@@ -25,14 +26,32 @@
 @property (weak, nonatomic) IBOutlet UILabel *maketimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chargeEdtLabel;
+
 
 @end
 
 @implementation ONEReadDetailHeaderView
 + (instancetype)detailHeaderView
 {
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].firstObject;
+    return self.viewsWithNib[0];
 }
+
++ (instancetype)relatedSectionHeader
+{
+    return self.viewsWithNib[1];
+}
++ (instancetype)commentSectionHeader
+{
+    return self.viewsWithNib[2];
+}
+
++ (NSArray *)viewsWithNib
+{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
+}
+
+
 
 - (void)awakeFromNib
 {
@@ -51,6 +70,7 @@
     self.maketimeLabel.text          = essayItem.hp_makettime;
     self.titleLabel.text             = essayItem.hp_title;
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:essayItem.hp_content];
+    self.chargeEdtLabel.text         = essayItem.hp_author_introduce;
     
     [self.contentLabel sizeToFit];
     [self.titleLabel sizeToFit];
@@ -62,7 +82,7 @@
     
     if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didChangedHeight:)])
     {
-        CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height;
+        CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height + 30;
         [self.delegate readDetailHeaderView:self didChangedHeight:height];
     }
     
@@ -80,6 +100,7 @@
     self.maketimeLabel.text          = serialItem.maketime;
     self.titleLabel.text             = serialItem.title;
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:serialItem.content];
+    self.chargeEdtLabel.text         = serialItem.charge_edt;
     
     [self.contentLabel sizeToFit];
     [self.titleLabel sizeToFit];
@@ -91,8 +112,12 @@
     
     if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didChangedHeight:)])
     {
-        CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height;
+        CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height + 30;
         [self.delegate readDetailHeaderView:self didChangedHeight:height];
     }
 }
+
+
+
+
 @end

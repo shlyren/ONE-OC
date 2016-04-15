@@ -16,7 +16,7 @@
      
         self.titleLabel.font = [UIFont systemFontOfSize:15];
         [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [self setTitleColor:ONEColor(150, 187, 248, 1) forState:UIControlStateSelected];
+        [self setTitleColor:ONEDefaultColor forState:UIControlStateSelected];
     }
     return self;
 }

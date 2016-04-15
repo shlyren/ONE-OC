@@ -25,7 +25,6 @@
     
     _rowHeight += [self.guide_word boundingRectWithSize:CGSizeMake(ONEScreenWidth - 4 * ONEDefaultMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : ONEDefaultFont} context:nil].size.height + ONEDefaultMargin;
     
-    _rowHeight += ONEDefaultMargin;
-    return _rowHeight;
+    return _rowHeight += ONEDefaultMargin;
 }
 @end

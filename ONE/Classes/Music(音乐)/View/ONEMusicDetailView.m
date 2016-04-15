@@ -186,7 +186,7 @@
     [self layoutIfNeeded];
     
     CGFloat height = self.storyLabel.y + self.storyLabel.height + self.heardBtn.height + self.chargeEdtLabel.height + 40;
-    if (height < 450) return; // 默认高度为500
+    if (height < 450) return; // 默认高度为450
     if ([self.delegate respondsToSelector:@selector(musicDetailView:didChangedContent:)])
     {
         [self.delegate musicDetailView:self didChangedContent:height];

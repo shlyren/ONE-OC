@@ -31,10 +31,7 @@
 @interface ONEReadAdView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
-@property (nonatomic, strong)  UICollectionViewFlowLayout *layout;
-
 @property (nonatomic, weak) UIPageControl *pageControl;
-
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
@@ -54,9 +51,8 @@ static NSString *const readAdCell = @"readAdCell";
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _layout = layout;
+
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-        collectionView.backgroundColor = [UIColor orangeColor];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollsToTop = false;
@@ -67,8 +63,8 @@ static NSString *const readAdCell = @"readAdCell";
         [self addSubview:self.collectionView = collectionView];
         
         UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.height - PAGECONTROL_HEIGHT, self.width, PAGECONTROL_HEIGHT)];
-        pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-        pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        pageControl.currentPageIndicatorTintColor = ONEDefaultColor;
+        pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.8 alpha:0.8];
         
         [self addSubview:_pageControl = pageControl];
     }
@@ -108,7 +104,8 @@ static NSString *const readAdCell = @"readAdCell";
     NSIndexPath * currentPage = self.resetPage;
     NSInteger nextItem = currentPage.item + 1;
     NSInteger nextScetion = currentPage.section;
-    if (nextItem >= _imageNames.count) {
+    if (nextItem >= _imageNames.count)
+    {
         nextItem = 0;
         nextScetion++;
     }
@@ -130,8 +127,7 @@ static NSString *const readAdCell = @"readAdCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEReadAdCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:readAdCell forIndexPath:indexPath];
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageNames[indexPath.row]]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageNames[indexPath.row]] placeholderImage:[UIImage imageNamed:@"top10"]];
     return cell;
 }
 

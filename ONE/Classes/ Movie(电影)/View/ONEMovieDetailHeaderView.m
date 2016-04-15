@@ -79,7 +79,7 @@
 @implementation ONEMovieDetailHeaderView
 
 static NSString *const photoCellID = @"photoCell";
-#pragma mark - lazy loading
+#pragma mark - lazy load
 - (UIView *)bigImgCoverView
 {
     if (_bigImgCoverView == nil) {
@@ -97,7 +97,8 @@ static NSString *const photoCellID = @"photoCell";
 
 - (UIImageView *)bigImageView
 {
-    if (_bigImageView == nil) {
+    if (_bigImageView == nil)
+    {
         UIImageView *bigImgView = [UIImageView new];
         [self.bigImgCoverView addSubview:_bigImageView = bigImgView];
     }
@@ -107,7 +108,8 @@ static NSString *const photoCellID = @"photoCell";
 
 - (UICollectionView *)collectionView
 {
-    if (_collectionView == nil) {
+    if (_collectionView == nil)
+    {
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
         layout.itemSize = CGSizeMake(_movieStoryCoverView.height * 1.5, _movieStoryCoverView.height);
         layout.minimumInteritemSpacing = 0;
@@ -155,27 +157,30 @@ static NSString *const photoCellID = @"photoCell";
     _movie_id = movie_id;
     _oneMovieTitles = @[@"一个电影表", @"剧照", @"演职人员"];
     ONEWeakSelf
-    
+    [SVProgressHUD show];
     [ONEDataRequest requestMovieStory:[movie_id stringByAppendingPathComponent:@"story/1/0"] parameters:nil success:^(ONEMovieResultItem *movieStory) {
         if (movieStory)
         {
             weakSelf.movieStoryResult = movieStory;
             [weakSelf setupStoryView];
         }
-        
-    } failure:nil];
+         [SVProgressHUD dismiss];
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
     
-    
+
     [ONEDataRequest requestMovieDetail:movie_id parameters:nil success:^(ONEMovieDetailItem *movieDetail) {
         if (movieDetail)
         {
             weakSelf.movieDetail = movieDetail;
-            [weakSelf setupDetailView];
+            [weakSelf movieIntroduce];
         }
     } failure:nil];
 }
 
 
+#pragma mark 电影故事的view
 - (void)setupStoryView
 {
     [self.storyCoverView addSubview: self.movieStoryView];
@@ -190,6 +195,7 @@ static NSString *const photoCellID = @"photoCell";
     self.titleLabel.text             = movieStory.title;
     self.inputTimeLabel.text         = movieStory.input_date;
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:movieStory.content];
+    
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", movieStory.praisenum] forState:UIControlStateNormal];
     [self.contentLabel sizeToFit];
     [self layoutIfNeeded];
@@ -203,7 +209,8 @@ static NSString *const photoCellID = @"photoCell";
     
 }
 
-- (void)setupDetailView
+#pragma mark 电影简介
+- (void)movieIntroduce
 {
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:_movieDetail.detailcover] placeholderImage:[UIImage imageNamed:@"movie"]];
     

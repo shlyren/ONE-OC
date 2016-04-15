@@ -21,7 +21,7 @@
 
 @class ONEEssayItem;
 @class ONESerialItem;
-
+@class ONEQuestionItem;
 
 @interface ONEDataRequest : NSObject
 
@@ -193,5 +193,23 @@
  *  连载详情
  */
 + (void)requestSerialDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONESerialItem *serial))success failure:(void (^)(NSError *error))failure;
+/**
+ *  问题详情
+ */
++ (void)requestQuestionDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEQuestionItem *question))success failure:(void (^)(NSError *error))failure;
+
+/**
+ *  阅读评论数据
+ */
++ (void)requestReadComment:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray *commentItems))success failure:(void (^)(NSError *error))failure;
+
+/** 短篇 推荐 */
++ (void)requestEssayRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *essayRelated))success failure:(void (^)(NSError *error))failure;
+/** 连载 推荐 */
++ (void)requestSerialRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialRelated))success failure:(void (^)(NSError *error))failure;
+
+/** 问题 推荐 */
++ (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure;
+
 
 @end

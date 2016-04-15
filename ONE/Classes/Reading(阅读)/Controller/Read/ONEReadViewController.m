@@ -67,6 +67,9 @@
 {
     UIView *adCoverView = [[UIView alloc] initWithFrame:CGRectMake(0, ONENavBMaxY, ONEScreenWidth, ONEScreenWidth * 0.4)];
     adCoverView.backgroundColor = [UIColor lightGrayColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"top10"]];
+    imageView.frame = adCoverView.bounds;
+    [adCoverView addSubview:imageView];
     [self.view addSubview:_adCoverView = adCoverView];
 }
 
@@ -112,7 +115,7 @@
 #pragma mark - scrollView
 - (void)setupBaseView
 {
-    NSArray *titles = @[@"短篇", @"连载", @"问答"];
+    NSArray *titles = @[@"短篇", @"连载", @"问题"];
   
     // scrollView
     {

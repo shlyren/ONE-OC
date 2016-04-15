@@ -8,6 +8,7 @@
 
 #import "ONEReadDetailViewController.h"
 
+
 @interface ONEEssayDetailViewController : ONEReadDetailViewController
 
 @end

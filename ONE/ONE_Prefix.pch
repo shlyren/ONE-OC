@@ -39,6 +39,7 @@
 
 /** 颜色 RGB */
 #define ONEColor(r, g, b, a) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:(a)]
+#define ONEDefaultColor ONEColor(150, 187, 248, 1)
 
 #endif /* 是否是OBJC */
 

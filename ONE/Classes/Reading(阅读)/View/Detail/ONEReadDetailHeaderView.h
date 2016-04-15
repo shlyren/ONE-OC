@@ -10,10 +10,12 @@
 
 @class ONEEssayItem;
 @class ONESerialItem;
+
 @class ONEReadDetailHeaderView;
 
 @protocol ONEReadDetailHeaderViewDelegate <NSObject>
 
+@optional
 - (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height;
 
 @end
@@ -22,8 +24,11 @@
 
 @property (nonatomic, strong) ONEEssayItem                       *essayItem;
 @property (nonatomic, strong) ONESerialItem                      *serialItem;
+
 @property (nonatomic, weak) id <ONEReadDetailHeaderViewDelegate> delegate;
 
 + (instancetype)detailHeaderView;
++ (instancetype)commentSectionHeader;
++ (instancetype)relatedSectionHeader;
 
 @end

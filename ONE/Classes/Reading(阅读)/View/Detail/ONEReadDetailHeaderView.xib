@@ -50,7 +50,7 @@
                     <state key="highlighted" image="l_article_list_highlighted"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-AM-3HP">
-                    <rect key="frame" x="15" y="119.5" width="345" height="21"/>
+                    <rect key="frame" x="15" y="119" width="345" height="21"/>
                     <attributedString key="attributedText">
                         <fragment content="任玉祥">
                             <attributes>
@@ -62,12 +62,22 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgA-8f-bpR">
+                    <rect key="frame" x="15" y="209" width="37.5" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="h6C-nC-TX5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Ouv-fQ-05m" firstAttribute="trailing" secondItem="hfc-op-SeP" secondAttribute="trailing" id="9wP-gm-CCn"/>
                 <constraint firstItem="KSA-OU-iKD" firstAttribute="top" secondItem="Ouv-fQ-05m" secondAttribute="top" constant="7" id="Apt-Vn-Byb"/>
                 <constraint firstItem="2dy-AM-3HP" firstAttribute="leading" secondItem="k55-uh-40e" secondAttribute="leading" id="BXW-lq-tNi"/>
+                <constraint firstAttribute="bottom" secondItem="WgA-8f-bpR" secondAttribute="bottom" constant="10" id="H2r-tO-IVi"/>
                 <constraint firstAttribute="trailing" secondItem="dxY-Tr-i0b" secondAttribute="trailing" constant="15" id="OTS-ge-V0d"/>
                 <constraint firstItem="2dy-AM-3HP" firstAttribute="trailing" secondItem="k55-uh-40e" secondAttribute="trailing" id="Tkz-Ic-jev"/>
                 <constraint firstItem="0l6-U3-BTb" firstAttribute="bottom" secondItem="Ouv-fQ-05m" secondAttribute="bottom" constant="-7" id="U9U-4b-XwZ"/>
@@ -79,6 +89,7 @@
                 <constraint firstItem="Ouv-fQ-05m" firstAttribute="bottom" secondItem="hfc-op-SeP" secondAttribute="bottom" id="ZCm-oe-kHh"/>
                 <constraint firstItem="m0j-vq-dmP" firstAttribute="top" secondItem="dxY-Tr-i0b" secondAttribute="top" id="Zbk-S7-cCP"/>
                 <constraint firstItem="0l6-U3-BTb" firstAttribute="leading" secondItem="KSA-OU-iKD" secondAttribute="leading" id="bZl-0u-nez"/>
+                <constraint firstItem="WgA-8f-bpR" firstAttribute="leading" secondItem="2dy-AM-3HP" secondAttribute="leading" id="deG-xe-3f8"/>
                 <constraint firstItem="k55-uh-40e" firstAttribute="trailing" secondItem="dxY-Tr-i0b" secondAttribute="trailing" id="dtG-jS-FpT"/>
                 <constraint firstAttribute="trailing" secondItem="m0j-vq-dmP" secondAttribute="trailing" id="f3I-YW-pns"/>
                 <constraint firstItem="k55-uh-40e" firstAttribute="top" secondItem="Ouv-fQ-05m" secondAttribute="bottom" constant="20" id="g2T-MG-Hw2"/>
@@ -96,6 +107,7 @@
             </variation>
             <connections>
                 <outlet property="audioBtn" destination="dxY-Tr-i0b" id="Whu-er-BH9"/>
+                <outlet property="chargeEdtLabel" destination="WgA-8f-bpR" id="qoQ-8s-K3g"/>
                 <outlet property="contentLabel" destination="2dy-AM-3HP" id="Afn-GF-zWH"/>
                 <outlet property="iconImgView" destination="hfc-op-SeP" id="NYo-1p-bRq"/>
                 <outlet property="listBtn" destination="m0j-vq-dmP" id="4mX-bC-HEV"/>
@@ -104,6 +116,46 @@
                 <outlet property="titleLabel" destination="k55-uh-40e" id="nSM-nb-bMh"/>
             </connections>
             <point key="canvasLocation" x="545.5" y="220.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="7fp-aQ-fd2" userLabel="推荐SectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相关推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6p-SK-xWe">
+                    <rect key="frame" x="10" y="12" width="48" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="M6p-SK-xWe" firstAttribute="centerY" secondItem="7fp-aQ-fd2" secondAttribute="centerY" id="B9i-5d-qNf"/>
+                <constraint firstItem="M6p-SK-xWe" firstAttribute="leading" secondItem="7fp-aQ-fd2" secondAttribute="leading" constant="10" id="tF5-W6-BCm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="47.5" y="815"/>
+        </view>
+        <view contentMode="scaleToFill" id="Lkc-QE-31L" userLabel="评论列表SectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="519-1U-1Mb">
+                    <rect key="frame" x="10" y="12" width="48" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="519-1U-1Mb" firstAttribute="leading" secondItem="Lkc-QE-31L" secondAttribute="leading" constant="10" id="CgD-Wf-8fQ"/>
+                <constraint firstItem="519-1U-1Mb" firstAttribute="centerY" secondItem="Lkc-QE-31L" secondAttribute="centerY" id="TlM-6s-qlg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="47.5" y="815"/>
         </view>
     </objects>
     <resources>

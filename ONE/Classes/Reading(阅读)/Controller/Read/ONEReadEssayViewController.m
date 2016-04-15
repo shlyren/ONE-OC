@@ -33,7 +33,6 @@
 {
     ONEEssayItem *item = self.readItems[indexPath.row];
     ONEEssayDetailViewController *detailVc = [ONEEssayDetailViewController new];
-    detailVc.title = @"短篇";
     detailVc.detail_id = item.content_id;
     [self.navigationController pushViewController:detailVc animated:true];
     

@@ -13,24 +13,41 @@
 + (NSMutableAttributedString *)attributedStringWithString:(NSString *)str
 {
     if (str == nil) return nil;
+    NSString * tmpStr = str;
+
+    // <!--StartFragment-->
+    NSRange range;
+    range = [tmpStr rangeOfString:@"<!--StartFragment-->"];
+    if (range.location != NSNotFound)
+    {
+        tmpStr = [tmpStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+//        [str deleteCharactersInRange:NSMakeRange(0, range.location + range.length)];
+    }
     // 换行
-    NSString *story = [str stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
-    story = [story stringByReplacingOccurrencesOfString:@"<strong>" withString:@""];
-    story = [story stringByReplacingOccurrencesOfString:@"</strong>" withString:@""];
-    story = [story stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
-    story = [story stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
-    story = [story stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
-    story = [story stringByReplacingOccurrencesOfString:@"<!--EndFragment-->" withString:@""];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"<strong>" withString:@""];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"</strong>" withString:@""];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
     
+    range = [tmpStr rangeOfString:@"<!--EndFragment-->"];
+    if (range.location != NSNotFound)
+    {
+//        ONELog(@"%@ str %zd", NSStringFromRange(range), tmpStr.length)
+        tmpStr = [tmpStr stringByReplacingCharactersInRange:range withString:@""];
+    }
+    
+//    ONELog(@"%@", tmpStr)
     //<!--EndFragment-->
+    
     // 设置内容格式
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:story];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:tmpStr];
     
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     
-    [paragraphStyle setLineSpacing:4];//调整行间距
-    
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, story.length)];
+    [paragraphStyle setLineSpacing:3];//调整行间距
+
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, tmpStr.length)];
     
     return attributedString;
 }

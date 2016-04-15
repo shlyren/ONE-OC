@@ -39,7 +39,7 @@
     _commentItem = commentItem;
     
     self.inputDateLabel.text      = commentItem.input_date;
-    self.commentContectLabel.text = commentItem.content;
+    self.commentContectLabel.attributedText = [NSMutableAttributedString attributedStringWithString:commentItem.content];
     [self.commentContectLabel sizeToFit];
     
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentItem.praisenum] forState:UIControlStateNormal];
@@ -53,15 +53,21 @@
    }];
 }
 
+- (NSString *)commentType
+{
+    return @"music";
+}
+
 #pragma mark - Event
 - (IBAction)praisenumBtnClick
 {
-    self.praisenumBtn.selected = !self.praisenumBtn.selected;
     
+    self.praisenumBtn.selected = !self.praisenumBtn.selected;
+    return;
     NSDictionary *parameters = @{
                                  @"cmtid" : _commentItem.comment_id,
                                  @"itemid" : _detail_id,  // detailID
-                                 @"type" : @"music",
+                                 @"type" : self.commentType,
                                  };
     
     [ONEDataRequest addPraise:comment_praise parameters:parameters success:^(BOOL isSuccess, NSString *message) {

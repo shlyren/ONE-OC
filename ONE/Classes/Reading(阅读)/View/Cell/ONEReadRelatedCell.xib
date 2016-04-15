@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="KGk-i7-Jjw" customClass="ONEReadRelatedCell">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="127"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="352" height="126.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZE-wH-zb3">
+                        <rect key="frame" x="10" y="15" width="43.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHb-Ka-ldR">
+                        <rect key="frame" x="10" y="44" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="U1S-fe-Ngh">
+                        <rect key="frame" x="301" y="16" width="41" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="41" id="0eV-PP-Kfa"/>
+                            <constraint firstAttribute="height" constant="19" id="1Nu-qZ-W4L"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ2-JE-xbh">
+                        <rect key="frame" x="10" y="71" width="332" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CHb-Ka-ldR" firstAttribute="top" secondItem="qZE-wH-zb3" secondAttribute="bottom" constant="8" id="2DJ-3u-dFv"/>
+                    <constraint firstItem="HJ2-JE-xbh" firstAttribute="leading" secondItem="CHb-Ka-ldR" secondAttribute="leading" id="VOx-ys-Ksw"/>
+                    <constraint firstItem="qZE-wH-zb3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WMi-US-mcA"/>
+                    <constraint firstAttribute="trailing" secondItem="HJ2-JE-xbh" secondAttribute="trailing" constant="10" id="a44-zo-r0H"/>
+                    <constraint firstItem="CHb-Ka-ldR" firstAttribute="leading" secondItem="qZE-wH-zb3" secondAttribute="leading" id="cfy-6u-BEl"/>
+                    <constraint firstItem="U1S-fe-Ngh" firstAttribute="centerY" secondItem="qZE-wH-zb3" secondAttribute="centerY" id="nY6-XQ-puX"/>
+                    <constraint firstItem="qZE-wH-zb3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="pmb-bw-dp4"/>
+                    <constraint firstItem="HJ2-JE-xbh" firstAttribute="top" secondItem="CHb-Ka-ldR" secondAttribute="bottom" constant="10" id="rwQ-cC-kN5"/>
+                    <constraint firstAttribute="trailing" secondItem="U1S-fe-Ngh" secondAttribute="trailing" constant="10" id="t9t-Xp-Rvx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="HJ2-JE-xbh" id="qDi-d5-fgh"/>
+                <outlet property="nameLabel" destination="CHb-Ka-ldR" id="7Xg-je-7He"/>
+                <outlet property="titleLabel" destination="qZE-wH-zb3" id="HKY-kM-hLY"/>
+                <outlet property="typeImgView" destination="U1S-fe-Ngh" id="CQe-cp-7cB"/>
+            </connections>
+            <point key="canvasLocation" x="248" y="218.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="questionIcon" width="41" height="19"/>
+    </resources>
+</document>

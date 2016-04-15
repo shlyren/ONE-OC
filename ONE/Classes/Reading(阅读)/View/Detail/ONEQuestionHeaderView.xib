@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XLr-AM-PC3" customClass="ONEQuestionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友谊的小船为什么说翻就翻?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnn-0n-l0J">
+                    <rect key="frame" x="10" y="30" width="355" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px6-Vi-Gmq">
+                    <rect key="frame" x="10" y="81" width="355" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="责任编辑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Te-cX-NNM">
+                    <rect key="frame" x="10" y="265" width="48" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfB-yf-TCo" userLabel="line View">
+                    <rect key="frame" x="0.0" y="119" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="TIO-rB-r4N"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.4.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCD-8Z-QdU">
+                    <rect key="frame" x="310" y="134" width="54.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友谊的小船为什么说翻就翻?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Ti-04M">
+                    <rect key="frame" x="10" y="149" width="355" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzz-c9-3Er" userLabel="line View">
+                    <rect key="frame" x="0.0" y="299" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jL6-Ns-Hyi"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-Eb-Qzp">
+                    <rect key="frame" x="10" y="190" width="355" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fzz-c9-3Er" secondAttribute="trailing" id="0bb-Zo-iRx"/>
+                <constraint firstItem="px6-Vi-Gmq" firstAttribute="leading" secondItem="XLr-AM-PC3" secondAttribute="leading" constant="10" id="11c-r3-Q5H"/>
+                <constraint firstAttribute="bottom" secondItem="4Te-cX-NNM" secondAttribute="bottom" constant="20" id="2FB-Qo-ocl"/>
+                <constraint firstItem="D5p-Eb-Qzp" firstAttribute="leading" secondItem="Rco-Ti-04M" secondAttribute="leading" id="6zo-hO-N1q"/>
+                <constraint firstItem="Rco-Ti-04M" firstAttribute="top" secondItem="px6-Vi-Gmq" secondAttribute="bottom" constant="50" id="EJD-sU-Usd"/>
+                <constraint firstAttribute="trailing" secondItem="px6-Vi-Gmq" secondAttribute="trailing" constant="10" id="M7c-rY-e0X"/>
+                <constraint firstItem="lfB-yf-TCo" firstAttribute="top" secondItem="px6-Vi-Gmq" secondAttribute="bottom" constant="20" id="RmK-Ke-zsi"/>
+                <constraint firstItem="Xnn-0n-l0J" firstAttribute="leading" secondItem="XLr-AM-PC3" secondAttribute="leading" constant="10" id="U5q-CE-FAw"/>
+                <constraint firstAttribute="trailing" secondItem="lfB-yf-TCo" secondAttribute="trailing" id="UEO-Zm-J4E"/>
+                <constraint firstItem="Xnn-0n-l0J" firstAttribute="top" secondItem="XLr-AM-PC3" secondAttribute="top" constant="30" id="VqO-Sf-nfk"/>
+                <constraint firstItem="Xnn-0n-l0J" firstAttribute="trailing" secondItem="px6-Vi-Gmq" secondAttribute="trailing" id="W2V-g2-KKK"/>
+                <constraint firstItem="Rco-Ti-04M" firstAttribute="top" secondItem="yCD-8Z-QdU" secondAttribute="bottom" id="YTH-sB-qZU"/>
+                <constraint firstItem="px6-Vi-Gmq" firstAttribute="top" secondItem="Xnn-0n-l0J" secondAttribute="bottom" constant="30" id="b3A-eF-Dov"/>
+                <constraint firstItem="Rco-Ti-04M" firstAttribute="leading" secondItem="Xnn-0n-l0J" secondAttribute="leading" id="bon-yg-t1b"/>
+                <constraint firstItem="Rco-Ti-04M" firstAttribute="trailing" secondItem="Xnn-0n-l0J" secondAttribute="trailing" id="prj-hP-lf3"/>
+                <constraint firstItem="4Te-cX-NNM" firstAttribute="leading" secondItem="Rco-Ti-04M" secondAttribute="leading" id="tDj-6y-jIO"/>
+                <constraint firstItem="D5p-Eb-Qzp" firstAttribute="top" secondItem="Rco-Ti-04M" secondAttribute="bottom" constant="20" id="unP-hu-yKh"/>
+                <constraint firstItem="D5p-Eb-Qzp" firstAttribute="trailing" secondItem="Rco-Ti-04M" secondAttribute="trailing" id="vVY-Rw-yh6"/>
+                <constraint firstItem="yCD-8Z-QdU" firstAttribute="trailing" secondItem="Rco-Ti-04M" secondAttribute="trailing" id="wfB-Qc-9uG"/>
+                <constraint firstAttribute="bottom" secondItem="fzz-c9-3Er" secondAttribute="bottom" id="yAQ-Be-Jxf"/>
+                <constraint firstItem="lfB-yf-TCo" firstAttribute="leading" secondItem="XLr-AM-PC3" secondAttribute="leading" id="yBx-b0-TIR"/>
+                <constraint firstItem="fzz-c9-3Er" firstAttribute="leading" secondItem="XLr-AM-PC3" secondAttribute="leading" id="ycC-3g-X44"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="answerContentLabel" destination="D5p-Eb-Qzp" id="jHi-Rc-fWA"/>
+                <outlet property="answerTitleLabel" destination="Rco-Ti-04M" id="g5u-Bv-fK8"/>
+                <outlet property="q_charegeEdtLabel" destination="4Te-cX-NNM" id="4Mc-qE-zDG"/>
+                <outlet property="questionContentLabel" destination="px6-Vi-Gmq" id="KfA-dA-9CA"/>
+                <outlet property="questionMaketimeLabel" destination="yCD-8Z-QdU" id="QzF-I0-kMp"/>
+                <outlet property="questionTitleLabel" destination="Xnn-0n-l0J" id="ZEM-Ue-Lfa"/>
+            </connections>
+            <point key="canvasLocation" x="545.5" y="605"/>
+        </view>
+    </objects>
+</document>

@@ -6,8 +6,7 @@
 //  Copyright © 2016年 ONE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ONEReadListItem.h"
+
 #import "ONEReadCell.h"
 
 UIKIT_EXTERN NSString *const readCell;
@@ -16,7 +15,7 @@ UIKIT_EXTERN NSString *const readCell;
 
 @property (nonatomic, strong) ONEReadListItem *readList;
 
-
 - (NSArray *)readItems;
+
 @end
 

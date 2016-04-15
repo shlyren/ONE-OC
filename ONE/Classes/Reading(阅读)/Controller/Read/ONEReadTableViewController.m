@@ -20,6 +20,7 @@ NSString *const readCell = @"realCell";
 {
     return nil;
 }
+
 #pragma mark - initital
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,9 +38,8 @@ NSString *const readCell = @"realCell";
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.readItems.count;
 }
 
