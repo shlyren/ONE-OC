@@ -83,8 +83,8 @@ NSString *const commnet_serial                  = @"comment/praiseandtime/serial
 NSString *const question                        = @"question";                          // 内容
 NSString *const related_question                = @"related/question";                  // 推荐
 NSString *const commnet_question                = @"comment/praiseandtime/question";    // 评论
-
-
+/** 广告的点击 */
+NSString *const reading_carousel                = @"reading/carousel";
 
 
 

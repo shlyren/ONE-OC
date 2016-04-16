@@ -21,16 +21,6 @@
  *  @param height          改变后musicDetailView的高度
  */
 - (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didChangedContent:(CGFloat)height;
-
-/**
- *  点击歌手头像时调用此方法
- *
- *  @param musicDetailView musicDetailView
- *  @param user_id         user_id
- */
-- (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didClickStoryUserIcon:(NSString *)user_id;
-
-
 /**
  *  点击播放时调用此方法
  *

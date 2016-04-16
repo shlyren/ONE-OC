@@ -212,4 +212,6 @@
 + (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure;
 
 
+/** carouselDetailItem */
++ (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure;
 @end

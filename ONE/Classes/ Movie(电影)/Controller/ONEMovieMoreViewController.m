@@ -15,7 +15,7 @@
 #import "ONEPersonDetailViewController.h"
 #import "UITableView+Extension.h"
 
-@interface ONEMovieMoreViewController () <ONEMovieCommentCellDelegate>
+@interface ONEMovieMoreViewController ()
 @property (nonatomic, strong) NSMutableArray *storyItems;
 @end
 
@@ -76,13 +76,6 @@ static NSString *const moreMovieCell = @"moreMovieCell";
     }];
 }
 
-#pragma mark - ONEMovieCommentCellDelegate
-- (void)movieCommentCell:(ONEMovieCommentCell *)commentCell didClickUserIcon:(NSString *)user_id
-{
-    ONEPersonDetailViewController *persionVc = [ONEPersonDetailViewController new];
-    persionVc.user_id = user_id;
-    [self.navigationController pushViewController:persionVc animated:true];
-}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -94,7 +87,6 @@ static NSString *const moreMovieCell = @"moreMovieCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:moreMovieCell];
-    cell.delegate = self;
     ONEMovieStoryItem *item = self.storyItems[indexPath.row];
     cell.movieStoryItem = item;
     cell.movie_id = item.movie_id;

@@ -17,7 +17,7 @@
 #import "ONEMusicSongViewController.h"
 #import "ONEAuthorItem.h"
 
-#define persionDetailHeader 370
+#define persionDetailHeader 340
 @interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet ONEPersonDetailTableView *tableView;
@@ -51,6 +51,11 @@
 - (instancetype)init
 {
     return [[UIStoryboard storyboardWithName:NSStringFromClass([self class]) bundle:nil] instantiateInitialViewController];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewDidLoad {
@@ -123,7 +128,6 @@
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return self.cellItems.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -188,7 +192,7 @@
 - (void)personDetailTableView:(ONEPersonDetailTableView *)detailTableView didChilckSubtotalBtn:(UIButton *)subtotalBtn
 {
     UIViewController *subtotalVc = [UIViewController new];
-    subtotalVc.navigationItem.title = @"小计";
+    subtotalVc.navigationItem.title = @"小记";
     subtotalVc.view.backgroundColor = [UIColor whiteColor];
     
     [self.navigationController pushViewController:subtotalVc animated:true];
@@ -203,6 +207,10 @@
     songlistVc.view.backgroundColor = [UIColor whiteColor];
     
     [self.navigationController pushViewController:songlistVc animated:true];
+}
+- (IBAction)close
+{
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

@@ -19,7 +19,7 @@
 #import "ONEMovieMoreViewController.h"
 
 
-@interface ONEMovieDetailViewController () <ONEMovieDetailHeaderViewDelegate, ONEMovieCommentCellDelegate>
+@interface ONEMovieDetailViewController () <ONEMovieDetailHeaderViewDelegate>
 /** 评审团评论的模型 */
 @property (nonatomic, strong) ONEMovieResultItem *movieReviewResult;
 /** tableview组 */
@@ -160,7 +160,6 @@ static NSString *const movieCommentID = @"movieComment";
     if (indexPath.section == 1) cell.commentCellType = ONEMovieCommentCellTypeMovieComment;
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
     cell.movie_id = _movie_id;
-    cell.delegate = self;
     return cell;
 }
 
@@ -171,26 +170,13 @@ static NSString *const movieCommentID = @"movieComment";
     self.headerView.height += height;
     self.tableView.tableHeaderView = self.headerView;
 }
-- (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didClickUserIcon:(NSString *)user_id
-{
-    ONEPersonDetailViewController *persionDetailVc = [ONEPersonDetailViewController new];
-    persionDetailVc.user_id = user_id;
-    [self.navigationController pushViewController:persionDetailVc animated:true];
-}
+
 - (void)movieDetailHeaderView:(ONEMovieDetailHeaderView *)movieDetailHeaderView didClickAllBtn:(NSString *)title
 {
     ONEMovieMoreViewController *moreVc = [ONEMovieMoreViewController new];
     moreVc.movie_id = _movie_id;
     moreVc.title =  title;
     [self.navigationController pushViewController:moreVc animated:true];
-}
-
-#pragma mark commentCell
-- (void)movieCommentCell:(ONEMovieCommentCell *)commentCell didClickUserIcon:(NSString *)user_id
-{
-    ONEPersonDetailViewController *persionDetailVc = [ONEPersonDetailViewController new];
-    persionDetailVc.user_id = user_id;
-    [self.navigationController pushViewController:persionDetailVc animated:true];
 }
 
 #pragma mark tableView

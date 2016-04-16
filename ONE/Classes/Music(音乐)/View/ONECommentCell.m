@@ -8,11 +8,14 @@
 
 #import "ONECommentCell.h"
 #import "ONEMusicCommentItem.h"
+#import "ONEPersonDetailViewController.h"
+#import "ONENavigationController.h"
+#import "UIViewController+topViewController.h"
 #import "NSMutableAttributedString+string.h"
 #import "ONEDataRequest.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+image.h"
-@interface ONECommentCell ()
+@interface ONECommentCell ()<UINavigationControllerDelegate>
 /** 评论内容 */
 @property (weak, nonatomic) IBOutlet UILabel *commentContectLabel;
 /** 喜欢 按钮 */
@@ -63,6 +66,7 @@
 {
     
     self.praisenumBtn.selected = !self.praisenumBtn.selected;
+#warning return
     return;
     NSDictionary *parameters = @{
                                  @"cmtid" : _commentItem.comment_id,
@@ -91,10 +95,16 @@
 
 - (IBAction)iconBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(commentCell:didClickIcon:)])
-    {
-        [self.delegate commentCell:self didClickIcon:_commentItem.user.user_id];
-    }
+    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
+    detailVc.user_id = _commentItem.user.user_id;
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
+    nav.delegate = self;
+    [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
 }
 
 - (CGFloat)rowHeight

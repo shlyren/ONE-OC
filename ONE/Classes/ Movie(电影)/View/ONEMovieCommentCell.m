@@ -13,8 +13,11 @@
 #import "UIImage+image.h"
 #import "ONEDataRequest.h"
 #import "ONEMovieStoryItem.h"
+#import "ONEPersonDetailViewController.h"
+#import "ONENavigationController.h"
+#import "UIViewController+topViewController.h"
 
-@interface ONEMovieCommentCell ()
+@interface ONEMovieCommentCell ()<UINavigationControllerDelegate>
 /** 评论内容 */
 @property (weak, nonatomic) IBOutlet UILabel     *commentContectLabel;
 /** 喜欢 按钮 */
@@ -99,11 +102,17 @@
 
 - (IBAction)iconBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(movieCommentCell:didClickUserIcon:)])
-    {
-        [self.delegate movieCommentCell:self didClickUserIcon:self.author.user_id];
-    }
+    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
+    detailVc.user_id = self.author.user_id;
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
+    nav.delegate = self;
+    [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
 }
 
 

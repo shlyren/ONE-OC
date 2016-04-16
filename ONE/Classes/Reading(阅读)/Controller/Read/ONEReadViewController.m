@@ -12,14 +12,17 @@
 #import "ONEReadEssayViewController.h"
 #import "ONEReadSerialViewController.h"
 #import "ONEReadQuestionViewController.h"
-#import "ONEReadAdView.h"
+#import "ONECarouselDetailViewController.h"
+#import "ONEPresentNavigationController.h"
+#import "ONECarouselView.h"
 #import "ONEDataRequest.h"
 #import "ONEReadAdItem.h"
 #import "ONEReadListItem.h"
 
-@interface ONEReadViewController () <ONEReadAdViewDelegate, UIScrollViewDelegate>
-@property (nonatomic, weak) UIView              *adCoverView;
-@property (nonatomic, weak) ONEReadAdView       *adView;
+
+@interface ONEReadViewController () <ONECarouselViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate>
+@property (nonatomic, weak) UIView              *carouselCoverView;
+@property (nonatomic, weak) ONECarouselView       *carouselView;
 @property (nonatomic, strong) NSArray           *adDatas;
 
 @property (nonatomic, weak) UIScrollView        *scrollView;
@@ -33,22 +36,21 @@
 @implementation ONEReadViewController
 
 #pragma mark - lazy load
-- (ONEReadAdView *)adView
+- (ONECarouselView *)adView
 {
-    if (_adView == nil) {
-        ONEReadAdView *adView = [[ONEReadAdView alloc] initWithFrame:_adCoverView.bounds];
-        adView.delegate = self;
-        adView.intervalTime = 4.0;
-        [self.adCoverView addSubview:_adView = adView];
+    if (_carouselView == nil) {
+        ONECarouselView *carouselView = [[ONECarouselView alloc] initWithFrame:_carouselCoverView.bounds];
+        carouselView.delegate = self;
+        carouselView.intervalTime = 4.0;
+        [self.carouselCoverView addSubview:_carouselView = carouselView];
     }
-    return _adView;
+    return _carouselView;
 }
 
 #pragma mark - initial
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.view.backgroundColor = [UIColor whiteColor];
     [self setupAdView];
     [self loadAdData];
     [self loadReadList];
@@ -65,12 +67,12 @@
 
 - (void)setupAdView
 {
-    UIView *adCoverView = [[UIView alloc] initWithFrame:CGRectMake(0, ONENavBMaxY, ONEScreenWidth, ONEScreenWidth * 0.4)];
-    adCoverView.backgroundColor = [UIColor lightGrayColor];
+    UIView *carouselCoverView = [[UIView alloc] initWithFrame:CGRectMake(0, ONENavBMaxY, ONEScreenWidth, ONEScreenWidth * 0.4)];
+    carouselCoverView.backgroundColor = [UIColor lightGrayColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"top10"]];
-    imageView.frame = adCoverView.bounds;
-    [adCoverView addSubview:imageView];
-    [self.view addSubview:_adCoverView = adCoverView];
+    imageView.frame = carouselCoverView.bounds;
+    [carouselCoverView addSubview:imageView];
+    [self.view addSubview:_carouselCoverView = carouselCoverView];
 }
 
 #pragma mark - load data
@@ -115,11 +117,11 @@
 #pragma mark - scrollView
 - (void)setupBaseView
 {
-    NSArray *titles = @[@"短篇", @"连载", @"问题"];
+    NSArray *titles = @[@"短篇", @"连载", @"问答"];
   
     // scrollView
     {
-        CGFloat scrollViewY = CGRectGetMaxY(self.adCoverView.frame);
+        CGFloat scrollViewY = CGRectGetMaxY(self.carouselCoverView.frame);
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, ONEScreenWidth, ONEScreenHeight - scrollViewY - ONETabBarH)];
         scrollView.delegate = self;
         scrollView.contentSize = CGSizeMake(scrollView.width * titles.count, 0);
@@ -221,9 +223,20 @@
 
 
 #pragma mark - ONEReadAdViewDelegate
-- (void)readAdView:(ONEReadAdView *)readAdView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)carouselView:(ONECarouselView *)readAdView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ONELog(@"点击了广告 %zd == %zd", indexPath.section, indexPath.row)
+    ONECarouselDetailViewController *crouseDetailVc = [ONECarouselDetailViewController new];
+    crouseDetailVc.adItem = self.adDatas[indexPath.row];
+    if (crouseDetailVc.adItem == nil) return;
+    ONEPresentNavigationController *nav = [[ONEPresentNavigationController alloc] initWithRootViewController:crouseDetailVc];
+    nav.delegate = self;
+    [self presentViewController:nav animated:true completion:nil];
+}
+
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONECarouselDetailViewController class]] animated:true];
 }
 
 @end

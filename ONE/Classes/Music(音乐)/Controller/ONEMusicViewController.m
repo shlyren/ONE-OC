@@ -13,13 +13,12 @@
 #import "MJRefresh.h"
 #import "ONEMusicrelatedCell.h"
 #import "ONEMusicDetailView.h"
-#import "ONEPersonDetailViewController.h"
 #import "ONEMusicRelatedItem.h"
 #import "UITableView+Extension.h"
 #import "ONEHttpTool.h"
 
 @interface ONEMusicViewController ()<ONEMusicDetailViewDelegate,
-UICollectionViewDelegate, UICollectionViewDataSource, ONECommentCellDelegate>
+UICollectionViewDelegate, UICollectionViewDataSource>
 
 
 @property (nonatomic, weak) UICollectionView *collectionView;
@@ -213,7 +212,6 @@ static NSString *const relatedCellID = @"relatedCell";
     }
     
     ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
-    cell.delegate = self;
     cell.commentItem = self.commentArr[indexPath.row];
     cell.detail_id = _detailIdUrl;
     
@@ -242,28 +240,11 @@ static NSString *const relatedCellID = @"relatedCell";
     self.tableView.tableHeaderView = _musicDetailView;
 }
 
-- (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didClickStoryUserIcon:(NSString *)user_id
-{
-    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
-    detailVc.user_id = user_id;
-    [self.navigationController pushViewController:detailVc animated:true];
-}
-
 - (void)musicDetailViwe:(ONEMusicDetailView *)musicDetailView didClickPlayerBtn:(UIButton *)button
 {
 #warning music player
     //self.playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 225);
 }
-
-
-#pragma mark commentCell
-- (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId
-{
-    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
-    detailVc.user_id = userId;
-    [self.navigationController pushViewController:detailVc animated:true];
-}
-
 
 #pragma mark table view
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

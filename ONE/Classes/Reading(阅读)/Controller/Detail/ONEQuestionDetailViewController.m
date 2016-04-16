@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"问题";
+    self.title = @"问答";
     
 }
 

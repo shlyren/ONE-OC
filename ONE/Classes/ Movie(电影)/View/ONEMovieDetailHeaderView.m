@@ -15,8 +15,12 @@
 #import "ONEMovieResultItem.h"
 #import "NSMutableAttributedString+string.h"
 #import "ONEDataRequest.h"
+#import "ONEPersonDetailViewController.h"
+#import "ONENavigationController.h"
+#import "UIViewController+topViewController.h"
+#import "ONEMovieMoreViewController.h"
 
-@interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
 @property (nonatomic, strong) ONEMovieResultItem        *movieStoryResult;
 /** 顶部的image  */
@@ -253,11 +257,17 @@ static NSString *const photoCellID = @"photoCell";
 
 - (IBAction)iconBtnClick
 {
-    if ([self.delegate respondsToSelector:@selector(movieDetailHeaderView:didClickUserIcon:)])
-    {
-        [self.delegate movieDetailHeaderView:self didClickUserIcon:[self.movieStoryResult.data[0] user_id]];
-    }
+    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
+    detailVc.user_id = [self.movieStoryResult.data[0] user_id];
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
+    nav.delegate = self;
+    [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
 }
 
 - (IBAction)allMovieStoryBtnClick
@@ -266,6 +276,11 @@ static NSString *const photoCellID = @"photoCell";
     {
         [self.delegate movieDetailHeaderView:self didClickAllBtn:@"电影故事"];
     }
+//    ONEMovieMoreViewController *moreVc = [ONEMovieMoreViewController new];
+//        moreVc.movie_id = _movie_id;
+//        moreVc.title =  @"电影故事";
+    
+//    [self.window. pushViewController:moreVc animated:true];
 }
 
 

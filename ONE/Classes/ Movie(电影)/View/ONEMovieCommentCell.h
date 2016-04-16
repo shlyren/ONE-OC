@@ -8,15 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ONEMovieCommentItem, ONEMovieCommentCell, ONEMovieStoryItem;
-
-@protocol ONEMovieCommentCellDelegate <NSObject>
-
-- (void)movieCommentCell:(ONEMovieCommentCell *)commentCell didClickUserIcon:(NSString *)user_id;
-
-@end
-
-
+@class ONEMovieCommentItem, ONEMovieStoryItem;
 typedef  NS_ENUM(NSUInteger, ONEMovieCommentCellType){
     ONEMovieCommentCellTypeMovieStory = 0, // 电影故事
     ONEMovieCommentCellTypeMovieReview = 1, // 评审团
@@ -26,7 +18,6 @@ typedef  NS_ENUM(NSUInteger, ONEMovieCommentCellType){
 
 @interface ONEMovieCommentCell : UITableViewCell
 
-@property (nonatomic, weak) id<ONEMovieCommentCellDelegate> delegate;
 
 @property (nonatomic, strong) ONEMovieCommentItem           *commentItem;
 

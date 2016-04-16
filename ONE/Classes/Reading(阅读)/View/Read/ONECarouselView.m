@@ -1,12 +1,12 @@
 //
-//  ONEReadAdView.m
+//  ONECarouselView.m
 //  ONE
 //
 //  Created by 任玉祥 on 16/4/14.
 //  Copyright © 2016年 ONE. All rights reserved.
 //
 
-#import "ONEReadAdView.h"
+#import "ONECarouselView.h"
 #import "UIImageView+WebCache.h"
 
 @interface ONEReadAdCell : UICollectionViewCell
@@ -28,7 +28,7 @@
 
 @end
 
-@interface ONEReadAdView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ONECarouselView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, weak) UIPageControl *pageControl;
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation ONEReadAdView
+@implementation ONECarouselView
 
 static NSString *const readAdCell = @"readAdCell";
 
@@ -75,6 +75,8 @@ static NSString *const readAdCell = @"readAdCell";
 - (void)setImageNames:(NSArray<NSString *> *)imageNames
 {
     _imageNames = imageNames;
+    
+    if (![imageNames.firstObject hasPrefix:@"http"]) return;
     
     self.pageControl.numberOfPages = imageNames.count;
     self.pageControl.currentPage = 0;
@@ -134,10 +136,10 @@ static NSString *const readAdCell = @"readAdCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(readAdView:didSelectItemAtIndexPath:)])
+    if ([self.delegate respondsToSelector:@selector(carouselView:didSelectItemAtIndexPath:)])
     {
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-        [self.delegate readAdView:self didSelectItemAtIndexPath:currentIndexPath];
+        [self.delegate carouselView:self didSelectItemAtIndexPath:currentIndexPath];
     }
 }
 

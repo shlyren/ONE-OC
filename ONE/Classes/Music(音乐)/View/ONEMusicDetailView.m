@@ -11,10 +11,13 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+image.h"
 #import "NSMutableAttributedString+string.h"
+#import "ONEPersonDetailViewController.h"
+#import "ONENavigationController.h"
+#import "UIViewController+topViewController.h"
 #import "ONEDataRequest.h"
 #import "ONEMusicPlayerView.h"
 
-@interface ONEMusicDetailView ()
+@interface ONEMusicDetailView ()<UINavigationControllerDelegate>
 /**  图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 /** 简介 */
@@ -197,10 +200,17 @@
 - (IBAction)iconBtnClick
 {
     self.playerView.hidden = true;
-    if ([self.delegate respondsToSelector:@selector(musicDetailView:didClickStoryUserIcon:)])
-    {
-        [self.delegate musicDetailView:self didClickStoryUserIcon:_musicDetailItem.author.user_id];
-    }
+    
+    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
+    detailVc.user_id = self.musicDetailItem.author.user_id;
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
+    nav.delegate = self;
+    [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
 }
 
 - (IBAction)praiseBtnclick:(UIButton *)sender

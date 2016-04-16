@@ -10,8 +10,8 @@
 #import "SVProgressHUD.h"
 
 @interface ONENavigationController ()<UIGestureRecognizerDelegate>
-@property (nonatomic, strong) UIImage *shadowImage;
-@property (nonatomic, strong) UIImage *backgroudImage;
+//@property (nonatomic, strong) UIImage *shadowImage;
+//@property (nonatomic, strong) UIImage *backgroudImage;
 @end
 
 @implementation ONENavigationController
@@ -25,9 +25,9 @@
     
     pan.delegate = self;
     [self.view addGestureRecognizer:pan];
-   
-    _shadowImage = self.navigationBar.shadowImage;
-    _backgroudImage = [self.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+//   
+//    _shadowImage = self.navigationBar.shadowImage;
+//    _backgroudImage = [self.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
     
 }
 

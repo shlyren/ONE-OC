@@ -10,6 +10,7 @@
 
 @interface ONEAuthorItem : NSObject
 
+@property (nonatomic, strong) NSString *wb_name;
 /** 头像url */
 @property (nonatomic, strong) NSString *web_url;
 

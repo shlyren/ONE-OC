@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @class ONEMusicCommentItem;
-@class ONECommentCell;
-
-@protocol ONECommentCellDelegate <NSObject>
-@optional
-- (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId;
-
-@end
 
 @interface ONECommentCell : UITableViewCell
 
@@ -27,8 +18,6 @@
 
 @property (nonatomic, assign) CGFloat               rowHeight;
 
-
-@property (nonatomic, weak) id<ONECommentCellDelegate> delegate;
 
 
 /**

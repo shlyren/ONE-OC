@@ -77,4 +77,5 @@ UIKIT_EXTERN NSString *const commnet_serial;        // 推荐
 UIKIT_EXTERN NSString *const question;              // 内容
 UIKIT_EXTERN NSString *const related_question;      // 推荐
 UIKIT_EXTERN NSString *const commnet_question;      // 推荐
-
+/** 广告的点击 */
+UIKIT_EXTERN NSString *const reading_carousel;

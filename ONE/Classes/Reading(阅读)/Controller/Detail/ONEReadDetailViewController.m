@@ -14,9 +14,7 @@
 #import "MJRefresh.h"
 #import "ONEReadCommentCell.h"
 
-
-
-@interface ONEReadDetailViewController ()<ONEReadDetailHeaderViewDelegate, ONECommentCellDelegate>
+@interface ONEReadDetailViewController ()<ONEReadDetailHeaderViewDelegate>
 @property (nonatomic, strong) NSMutableArray *commentItems;
 
 @end
@@ -124,12 +122,12 @@ NSString *const relatedCell = @"relatedCell";
 }
 
 #pragma mark - ONECommentCellDelegate
-- (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId
-{
-    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
-    detailVc.user_id = userId;
-    [self.navigationController pushViewController:detailVc animated:true];
-}
+//- (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId
+//{
+//    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
+//    detailVc.user_id = userId;
+//    [self.navigationController pushViewController:detailVc animated:true];
+//}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -150,7 +148,6 @@ NSString *const relatedCell = @"relatedCell";
     [tableView tableViewSetExtraCellLineHidden];
     ONEReadCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:readCommentCellID];
     cell.commentItem = self.commentItems[indexPath.row];
-    cell.delegate = self;
     return cell;
 }
 

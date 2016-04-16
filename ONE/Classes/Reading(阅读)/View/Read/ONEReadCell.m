@@ -22,7 +22,7 @@
 
 - (void)awakeFromNib
 {
-    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_button_white"]];
 }
 
 - (void)setFrame:(CGRect)frame
