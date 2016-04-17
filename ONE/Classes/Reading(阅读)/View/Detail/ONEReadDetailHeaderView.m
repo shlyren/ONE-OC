@@ -84,9 +84,13 @@
     
     self.bottomNameLabel.text        = essayItem.hp_author;
     
-    NSString *weiboName              = [NSString stringWithFormat:@"weibo:%@", [essayItem.author.firstObject wb_name]];
-    self.weiboLabel.text             = weiboName;
+    NSString *weiboName              =  [essayItem.author.firstObject wb_name];
+    self.weiboLabel.text             = [NSString stringWithFormat:@"weibo:%@",weiboName];
     self.weiboLabel.hidden           = !weiboName.length;
+    
+//    NSString *weiboName              = [NSString stringWithFormat:@"weibo:%@", [essayItem.author.firstObject wb_name]];
+//    self.weiboLabel.text             = weiboName;
+//    self.weiboLabel.hidden           = !weiboName.length;
     
     self.descLabel.text              = [essayItem.author.firstObject desc];
     
@@ -94,7 +98,7 @@
     [self.titleLabel sizeToFit];
     [self layoutIfNeeded];
     
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:[essayItem.author.firstObject web_url]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:[essayItem.author.firstObject web_url]] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconImgView.image = image.circleImage;
         self.bottomIconImgView.image = image.circleImage;
     }];
@@ -125,8 +129,8 @@
    
     self.bottomNameLabel.text        = self.nameLabel.text;
 
-    NSString *weiboName              = [NSString stringWithFormat:@"weibo:%@", serialItem.author.wb_name];
-    self.weiboLabel.text             = weiboName;
+    NSString *weiboName              =  serialItem.author.wb_name;;
+    self.weiboLabel.text             = [NSString stringWithFormat:@"weibo:%@",weiboName];
     self.weiboLabel.hidden           = !weiboName.length;
     
     self.descLabel.text              = serialItem.author.desc;
@@ -135,7 +139,7 @@
     [self.titleLabel sizeToFit];
     [self layoutIfNeeded];
     
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:[serialItem.author web_url]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:[serialItem.author web_url]] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconImgView.image = image.circleImage;
         self.bottomIconImgView.image = image.circleImage;
     }];

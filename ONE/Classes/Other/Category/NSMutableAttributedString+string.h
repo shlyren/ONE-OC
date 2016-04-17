@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NSMutableAttributedString (string)
+
+
 /**
  *  根据一个字符串返回一个格式化好的字符串
  *

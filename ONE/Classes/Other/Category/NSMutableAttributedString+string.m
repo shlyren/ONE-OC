@@ -45,7 +45,7 @@
     
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     
-    [paragraphStyle setLineSpacing:3];//调整行间距
+    [paragraphStyle setLineSpacing:4];//调整行间距
 
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, tmpStr.length)];
     

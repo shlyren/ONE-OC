@@ -11,8 +11,9 @@
 #import "ONEMusicSongViewController.h"
 
 
+
 @interface ONEPastListViewController ()
-@property (nonatomic, strong) NSArray *pastLists;
+
 @end
 
 @implementation ONEPastListViewController
@@ -20,8 +21,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"往期列表";
-    _pastLists = @[@"本月", @"2016-03", @"2016-02", @"2016-01"];
+    _pastLists = [self arryWithDateStr:self.endMonth];
 }
+- (NSArray *)arryWithDateStr:(NSString *)str
+{
+    
+    /** 当前的时间 */
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"yyyy-MM";
+    NSString *currentDate = [formatter stringFromDate:[NSDate date]];
+    NSInteger currentYear = currentDate.integerValue;
+    NSRange range = [currentDate rangeOfString:@"-"];
+    if (range.location != NSNotFound)
+    {
+        currentDate = [currentDate stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+    }
+    NSInteger currentMonth = currentDate.integerValue;
+    
+    
+    /** 截止的时间 */
+    NSInteger endYear = str.integerValue;
+    if (range.location != NSNotFound)
+    {
+        str = [str stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+    }
+    NSInteger endMonth = str.integerValue;
+    
+    
+    NSInteger maxMonth = 0;
+    NSInteger minMonth = 0;
+    NSMutableArray *tmpArr = [NSMutableArray array];
+    
+    for (NSInteger resYear = currentYear; resYear >= endYear; resYear--)
+    {
+        maxMonth = resYear ==  currentYear ? currentMonth : 12;
+        minMonth = resYear == endYear ? endMonth : 1;
+        
+        for (NSInteger resMonth = maxMonth; resMonth >= minMonth; resMonth--)
+        {
+            [tmpArr addObject:[NSString stringWithFormat:@"%zd-%02zd",resYear, resMonth]];
+        }
+        
+    }
+    return tmpArr;
+}
+
 
 
 #pragma mark - Table view data source
@@ -42,8 +86,11 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pastLiseCellId];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = self.pastLists[indexPath.row];
-    
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"本月";
+    }else{
+     cell.textLabel.text = self.pastLists[indexPath.row];
+    }
     return cell;
 }
 
@@ -52,14 +99,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     
     ONEMusicSongViewController *songVc = [ONEMusicSongViewController new];
-    if (indexPath.row == 0)
-    {
-        songVc.month = @"2016-04";
-    }else{
-        songVc.month = self.pastLists[indexPath.row];
-    }
-    
+    songVc.month = self.pastLists[indexPath.row];
     songVc.title = self.pastLists[indexPath.row];
+    
     [self.navigationController pushViewController:songVc animated:true];
     
 }

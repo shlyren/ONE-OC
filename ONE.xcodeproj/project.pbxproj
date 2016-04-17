@@ -56,6 +56,9 @@
 		553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDC41CC27570006BE7BF /* ONECarouselDetailViewController.m */; };
 		553BDDC71CC27570006BE7BF /* ONECarouselDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDC51CC27570006BE7BF /* ONECarouselDetailViewController.xib */; };
 		553BDDCA1CC2836C006BE7BF /* UIViewController+topViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDC91CC2836C006BE7BF /* UIViewController+topViewController.m */; };
+		553BDDCD1CC32049006BE7BF /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDCC1CC32049006BE7BF /* YSLDraggableCardContainer.m */; };
+		553BDDD01CC320A1006BE7BF /* ONEDraggableCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */; };
+		553BDDD71CC35891006BE7BF /* ONEHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */; };
 		55422CE81CBFDF4400A3B1A0 /* ONEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CE71CBFDF4400A3B1A0 /* ONEConst.m */; };
 		55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CEC1CBFEAE500A3B1A0 /* AppDelegate.m */; };
 		55422CEF1CBFEAE500A3B1A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CED1CBFEAE500A3B1A0 /* main.m */; };
@@ -77,6 +80,7 @@
 		55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B31CAE479B0092A897 /* ONEMusicViewController.m */; };
 		55C289B71CAE47A50092A897 /* ONEMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B61CAE47A50092A897 /* ONEMovieViewController.m */; };
 		55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B91CAE48280092A897 /* ONENavigationController.m */; };
+		55C6DCFB1CC378FC00988121 /* ONEMoviePastListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */; };
 		55DCF5A11CAE9CE70042165B /* ONEURLlConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
 		55FC846F1CB7CE5200E454A3 /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC846E1CB7CE5200E454A3 /* ONEFPSLabel.m */; };
@@ -193,6 +197,11 @@
 		553BDDC51CC27570006BE7BF /* ONECarouselDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONECarouselDetailViewController.xib; sourceTree = "<group>"; };
 		553BDDC81CC2836C006BE7BF /* UIViewController+topViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+topViewController.h"; sourceTree = "<group>"; };
 		553BDDC91CC2836C006BE7BF /* UIViewController+topViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+topViewController.m"; sourceTree = "<group>"; };
+		553BDDCB1CC32049006BE7BF /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
+		553BDDCC1CC32049006BE7BF /* YSLDraggableCardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLDraggableCardContainer.m; sourceTree = "<group>"; };
+		553BDDCE1CC320A1006BE7BF /* ONEDraggableCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDraggableCardView.h; sourceTree = "<group>"; };
+		553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDraggableCardView.m; sourceTree = "<group>"; };
+		553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEHomeViewController.xib; sourceTree = "<group>"; };
 		55422CE61CBFDF4400A3B1A0 /* ONEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEConst.h; sourceTree = "<group>"; };
 		55422CE71CBFDF4400A3B1A0 /* ONEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEConst.m; sourceTree = "<group>"; };
 		55422CEB1CBFEAE500A3B1A0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -233,6 +242,8 @@
 		55C289B61CAE47A50092A897 /* ONEMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieViewController.m; sourceTree = "<group>"; };
 		55C289B81CAE48280092A897 /* ONENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONENavigationController.h; sourceTree = "<group>"; };
 		55C289B91CAE48280092A897 /* ONENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONENavigationController.m; sourceTree = "<group>"; };
+		55C6DCF91CC378FC00988121 /* ONEMoviePastListVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoviePastListVc.h; sourceTree = "<group>"; };
+		55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoviePastListVc.m; sourceTree = "<group>"; };
 		55DCF59F1CAE9CE70042165B /* ONEURLlConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLlConst.h; sourceTree = "<group>"; };
 		55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLlConst.m; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
@@ -401,6 +412,9 @@
 			children = (
 				553BDDA01CC138B2006BE7BF /* ONEHomeViewController.h */,
 				553BDDA11CC138B2006BE7BF /* ONEHomeViewController.m */,
+				553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */,
+				55C6DCF91CC378FC00988121 /* ONEMoviePastListVc.h */,
+				55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -417,6 +431,10 @@
 		553BDDA31CC138B2006BE7BF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				553BDDCE1CC320A1006BE7BF /* ONEDraggableCardView.h */,
+				553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */,
+				553BDDCB1CC32049006BE7BF /* YSLDraggableCardContainer.h */,
+				553BDDCC1CC32049006BE7BF /* YSLDraggableCardContainer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -718,9 +736,9 @@
 		7E1A39411CAD9D1B0085EB67 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				553BDDA81CC14346006BE7BF /* UIColor+Hex.h */,
 				553BDDC81CC2836C006BE7BF /* UIViewController+topViewController.h */,
 				553BDDC91CC2836C006BE7BF /* UIViewController+topViewController.m */,
+				553BDDA81CC14346006BE7BF /* UIColor+Hex.h */,
 				553BDDA91CC14346006BE7BF /* UIColor+Hex.m */,
 				55212F711CB67AC800634442 /* UITableView+Extension.h */,
 				55212F721CB67AC800634442 /* UITableView+Extension.m */,
@@ -839,6 +857,7 @@
 				7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */,
 				55FC84B81CBB90CA00E454A3 /* ONEMovieDetailPhotoCell.xib in Resources */,
 				55FC84AD1CBB4D9200E454A3 /* ONEMovieDetailHeaderView.xib in Resources */,
+				553BDDD71CC35891006BE7BF /* ONEHomeViewController.xib in Resources */,
 				553BDDC71CC27570006BE7BF /* ONECarouselDetailViewController.xib in Resources */,
 				550904301CBFD62500F884C2 /* ONEReadDetailHeaderView.xib in Resources */,
 				55212F6A1CB634CF00634442 /* ONEPersonDetailViewController.storyboard in Resources */,
@@ -917,6 +936,7 @@
 				55FC846F1CB7CE5200E454A3 /* ONEFPSLabel.m in Sources */,
 				55422CF61CBFEAF700A3B1A0 /* ONEMusicResultItem.m in Sources */,
 				55B9A1091CBF5B1E009E44AA /* ONESerialItem.m in Sources */,
+				55C6DCFB1CC378FC00988121 /* ONEMoviePastListVc.m in Sources */,
 				55422CEF1CBFEAE500A3B1A0 /* main.m in Sources */,
 				55212F731CB67AC800634442 /* UITableView+Extension.m in Sources */,
 				550904491CBFD64700F884C2 /* ONEEssayDetailViewController.m in Sources */,
@@ -972,8 +992,10 @@
 				5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */,
 				553BDDA41CC138B2006BE7BF /* ONEHomeViewController.m in Sources */,
 				553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */,
+				553BDDCD1CC32049006BE7BF /* YSLDraggableCardContainer.m in Sources */,
 				55212F4F1CB5782400634442 /* UIImage+image.m in Sources */,
 				7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */,
+				553BDDD01CC320A1006BE7BF /* ONEDraggableCardView.m in Sources */,
 				550904341CBFD62500F884C2 /* ONEReadCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

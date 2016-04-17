@@ -82,6 +82,7 @@
     if (scrollView.contentOffset.x > (self.musicListArray.count - 0.8) * scrollView.width)
     {
         ONEPastListViewController *pastListVc = [ONEPastListViewController new];
+        pastListVc.endMonth = @"2016-01";
         [self.navigationController pushViewController:pastListVc animated:true];
         
     }

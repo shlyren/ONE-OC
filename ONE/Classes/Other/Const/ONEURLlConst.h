@@ -79,3 +79,8 @@ UIKIT_EXTERN NSString *const related_question;      // 推荐
 UIKIT_EXTERN NSString *const commnet_question;      // 推荐
 /** 广告的点击 */
 UIKIT_EXTERN NSString *const reading_carousel;
+
+
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 首页 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+/** 首页rul */
+UIKIT_EXTERN NSString *const homeSubtotal;

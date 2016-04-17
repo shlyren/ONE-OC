@@ -31,7 +31,6 @@
                             <constraint firstAttribute="height" constant="40" id="K34-DZ-VcY"/>
                             <constraint firstAttribute="width" constant="40" id="cXJ-92-Odc"/>
                         </constraints>
-                        <state key="highlighted" image="author_cover"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="20"/>

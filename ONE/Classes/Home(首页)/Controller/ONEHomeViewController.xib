@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ONEHomeViewController">
+            <connections>
+                <outlet property="praiseButton" destination="PlZ-hG-dcv" id="scV-IA-aXd"/>
+                <outlet property="view" destination="qSw-z2-mg6" id="uDv-85-Mpf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qSw-z2-mg6">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRs-YM-JT6">
+                    <rect key="frame" x="0.0" y="567" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v17-4S-zbC">
+                            <rect key="frame" x="15" y="9" width="53" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="XQe-YA-9B1"/>
+                                <constraint firstAttribute="width" constant="53" id="dyf-R9-58f"/>
+                            </constraints>
+                            <state key="normal" image="diary_default"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddo-ph-cVe">
+                            <rect key="frame" x="321" y="0.0" width="44" height="40"/>
+                            <state key="normal" image="shareImage"/>
+                            <connections>
+                                <action selector="shareBtnClick" destination="-1" eventType="touchUpInside" id="Ked-cd-3c3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlZ-hG-dcv">
+                            <rect key="frame" x="267" y="0.0" width="44" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="like_default">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="like_selected"/>
+                            <connections>
+                                <action selector="praiseBtnClick" destination="-1" eventType="touchUpInside" id="4bh-fM-eU9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="PlZ-hG-dcv" firstAttribute="top" secondItem="LRs-YM-JT6" secondAttribute="top" id="0sH-T3-jiE"/>
+                        <constraint firstAttribute="height" constant="40" id="1oM-o0-ULT"/>
+                        <constraint firstItem="v17-4S-zbC" firstAttribute="leading" secondItem="LRs-YM-JT6" secondAttribute="leading" constant="15" id="5RE-2Z-f5x"/>
+                        <constraint firstAttribute="trailing" secondItem="ddo-ph-cVe" secondAttribute="trailing" constant="10" id="CZz-bj-5vs"/>
+                        <constraint firstItem="ddo-ph-cVe" firstAttribute="top" secondItem="v17-4S-zbC" secondAttribute="top" id="EoJ-Ph-isE"/>
+                        <constraint firstItem="v17-4S-zbC" firstAttribute="centerY" secondItem="LRs-YM-JT6" secondAttribute="centerY" id="acU-1Y-LL3"/>
+                        <constraint firstAttribute="bottom" secondItem="v17-4S-zbC" secondAttribute="bottom" id="bS0-pY-CXb"/>
+                        <constraint firstItem="ddo-ph-cVe" firstAttribute="top" secondItem="LRs-YM-JT6" secondAttribute="top" id="grH-sR-u2V"/>
+                        <constraint firstAttribute="bottom" secondItem="ddo-ph-cVe" secondAttribute="bottom" id="ici-Nq-6Ae"/>
+                        <constraint firstAttribute="bottom" secondItem="PlZ-hG-dcv" secondAttribute="bottom" id="ikd-qf-TXf"/>
+                        <constraint firstItem="v17-4S-zbC" firstAttribute="top" secondItem="LRs-YM-JT6" secondAttribute="top" id="iuC-mO-Xgv"/>
+                        <constraint firstItem="ddo-ph-cVe" firstAttribute="bottom" secondItem="v17-4S-zbC" secondAttribute="bottom" id="mRq-oS-k84"/>
+                        <constraint firstItem="ddo-ph-cVe" firstAttribute="leading" secondItem="PlZ-hG-dcv" secondAttribute="trailing" constant="10" id="xNn-4k-sIm"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="bS0-pY-CXb"/>
+                            <exclude reference="iuC-mO-Xgv"/>
+                            <exclude reference="EoJ-Ph-isE"/>
+                            <exclude reference="mRq-oS-k84"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="LRs-YM-JT6" firstAttribute="leading" secondItem="qSw-z2-mg6" secondAttribute="leading" id="DXz-KZ-1ju"/>
+                <constraint firstAttribute="trailing" secondItem="LRs-YM-JT6" secondAttribute="trailing" id="gEb-Oe-cbT"/>
+                <constraint firstAttribute="bottom" secondItem="LRs-YM-JT6" secondAttribute="bottom" constant="60" id="tcc-p5-TRZ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="475.5" y="197.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="diary_default" width="106" height="42"/>
+        <image name="like_default" width="44" height="44"/>
+        <image name="like_selected" width="44" height="44"/>
+        <image name="shareImage" width="44" height="44"/>
+    </resources>
+</document>

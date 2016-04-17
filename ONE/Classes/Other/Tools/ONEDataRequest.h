@@ -211,7 +211,13 @@
 /** 问题 推荐 */
 + (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure;
 
-
 /** carouselDetailItem */
 + (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure;
+
+
+
+
+#pragma mark - 首页
+/** 首页小记 */
++ (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure;
 @end

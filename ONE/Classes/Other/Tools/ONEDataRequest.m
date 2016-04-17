@@ -26,7 +26,7 @@
 #import "ONEReadCommentItem.h"
 #import "ONECarouselDetailItem.h"
 
-
+#import "ONEHomeSubtotalItem.h"
 
 @implementation ONEDataRequest
 /**
@@ -495,5 +495,20 @@
 
 
 
-
+#pragma mark - 首页
+/** 首页小记 */
++ (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure
+{
+    url = [homeSubtotal stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        NSArray *homeSubtotal = [ONEHomeSubtotalItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(homeSubtotal);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"首页数据获取失败%@",error);
+    }];
+    
+}
 @end
