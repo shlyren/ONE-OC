@@ -42,4 +42,7 @@
 @property (nonatomic, strong) NSString *sharenum;
 @property (nonatomic, strong) NSString *commentnum;
 
+
+@property (nonatomic, assign) CGFloat height;
+
 @end

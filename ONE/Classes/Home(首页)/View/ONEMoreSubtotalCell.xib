@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moreSubtotalCell" id="gTV-IL-0wX" customClass="ONEMoreSubtotalCell">
+            <rect key="frame" x="0.0" y="0.0" width="212" height="248"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="212" height="248"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Rre-v3-vRF">
+                        <rect key="frame" x="0.0" y="0.0" width="212" height="159"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI3-9i-qkd">
+                        <rect key="frame" x="5" y="161" width="202" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-Hw-eAs">
+                        <rect key="frame" x="0.0" y="147" width="212" height="13.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.29717133620689656" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="RI3-9i-qkd" firstAttribute="top" secondItem="vfR-Hw-eAs" secondAttribute="bottom" id="9qu-1k-PGx"/>
+                <constraint firstItem="Rre-v3-vRF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M8C-4R-r4F"/>
+                <constraint firstAttribute="trailing" secondItem="Rre-v3-vRF" secondAttribute="trailing" id="Zgg-HW-yVF"/>
+                <constraint firstItem="vfR-Hw-eAs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a6x-DS-ggD"/>
+                <constraint firstAttribute="trailing" secondItem="RI3-9i-qkd" secondAttribute="trailing" constant="5" id="eVy-92-fN0"/>
+                <constraint firstItem="Rre-v3-vRF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oWk-WL-HZK"/>
+                <constraint firstItem="RI3-9i-qkd" firstAttribute="top" secondItem="Rre-v3-vRF" secondAttribute="bottom" constant="2" id="t5T-Iu-LVp"/>
+                <constraint firstItem="RI3-9i-qkd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="tAK-xT-xHm"/>
+                <constraint firstAttribute="trailing" secondItem="vfR-Hw-eAs" secondAttribute="trailing" id="x32-ns-XuK"/>
+                <constraint firstItem="Rre-v3-vRF" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.75" id="xFS-VO-dju"/>
+            </constraints>
+            <size key="customSize" width="212" height="248"/>
+            <connections>
+                <outlet property="hp_contentLabel" destination="RI3-9i-qkd" id="RYe-mV-o2i"/>
+                <outlet property="hp_titleLable" destination="vfR-Hw-eAs" id="DBw-Z2-ASH"/>
+                <outlet property="imageView" destination="Rre-v3-vRF" id="kEA-IG-Rdo"/>
+            </connections>
+            <point key="canvasLocation" x="337" y="304"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="home" width="758" height="570"/>
+    </resources>
+</document>

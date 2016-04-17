@@ -127,7 +127,9 @@
 #pragma mark - Events
 - (IBAction)shareBtnClick
 {
-
+    ONEMoviePastListVc *pastListVc = [ONEMoviePastListVc new];
+    pastListVc.endMonth = @"2012-10";
+    [self.navigationController pushViewController:pastListVc animated:true];
 }
 
 - (IBAction)praiseBtnClick

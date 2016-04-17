@@ -81,6 +81,10 @@
 		55C289B71CAE47A50092A897 /* ONEMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B61CAE47A50092A897 /* ONEMovieViewController.m */; };
 		55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B91CAE48280092A897 /* ONENavigationController.m */; };
 		55C6DCFB1CC378FC00988121 /* ONEMoviePastListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */; };
+		55C6DD031CC381D100988121 /* ONEMoreSubtotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD021CC381D100988121 /* ONEMoreSubtotalViewController.m */; };
+		55C6DD0B1CC3834200988121 /* ONEMoreSubtotalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD0A1CC3834200988121 /* ONEMoreSubtotalLayout.m */; };
+		55C6DD111CC38EFA00988121 /* ONEMoreSubtotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */; };
+		55C6DD121CC38EFA00988121 /* ONEMoreSubtotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */; };
 		55DCF5A11CAE9CE70042165B /* ONEURLlConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
 		55FC846F1CB7CE5200E454A3 /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC846E1CB7CE5200E454A3 /* ONEFPSLabel.m */; };
@@ -244,6 +248,13 @@
 		55C289B91CAE48280092A897 /* ONENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONENavigationController.m; sourceTree = "<group>"; };
 		55C6DCF91CC378FC00988121 /* ONEMoviePastListVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoviePastListVc.h; sourceTree = "<group>"; };
 		55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoviePastListVc.m; sourceTree = "<group>"; };
+		55C6DD011CC381D100988121 /* ONEMoreSubtotalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoreSubtotalViewController.h; sourceTree = "<group>"; };
+		55C6DD021CC381D100988121 /* ONEMoreSubtotalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoreSubtotalViewController.m; sourceTree = "<group>"; };
+		55C6DD091CC3834200988121 /* ONEMoreSubtotalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoreSubtotalLayout.h; sourceTree = "<group>"; };
+		55C6DD0A1CC3834200988121 /* ONEMoreSubtotalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoreSubtotalLayout.m; sourceTree = "<group>"; };
+		55C6DD0E1CC38EFA00988121 /* ONEMoreSubtotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoreSubtotalCell.h; sourceTree = "<group>"; };
+		55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoreSubtotalCell.m; sourceTree = "<group>"; };
+		55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMoreSubtotalCell.xib; sourceTree = "<group>"; };
 		55DCF59F1CAE9CE70042165B /* ONEURLlConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLlConst.h; sourceTree = "<group>"; };
 		55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLlConst.m; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
@@ -415,6 +426,8 @@
 				553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */,
 				55C6DCF91CC378FC00988121 /* ONEMoviePastListVc.h */,
 				55C6DCFA1CC378FC00988121 /* ONEMoviePastListVc.m */,
+				55C6DD011CC381D100988121 /* ONEMoreSubtotalViewController.h */,
+				55C6DD021CC381D100988121 /* ONEMoreSubtotalViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -435,6 +448,11 @@
 				553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */,
 				553BDDCB1CC32049006BE7BF /* YSLDraggableCardContainer.h */,
 				553BDDCC1CC32049006BE7BF /* YSLDraggableCardContainer.m */,
+				55C6DD0E1CC38EFA00988121 /* ONEMoreSubtotalCell.h */,
+				55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */,
+				55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */,
+				55C6DD091CC3834200988121 /* ONEMoreSubtotalLayout.h */,
+				55C6DD0A1CC3834200988121 /* ONEMoreSubtotalLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -856,6 +874,7 @@
 				55FC84A31CBAC23B00E454A3 /* ONEMovieListCell.xib in Resources */,
 				7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */,
 				55FC84B81CBB90CA00E454A3 /* ONEMovieDetailPhotoCell.xib in Resources */,
+				55C6DD121CC38EFA00988121 /* ONEMoreSubtotalCell.xib in Resources */,
 				55FC84AD1CBB4D9200E454A3 /* ONEMovieDetailHeaderView.xib in Resources */,
 				553BDDD71CC35891006BE7BF /* ONEHomeViewController.xib in Resources */,
 				553BDDC71CC27570006BE7BF /* ONECarouselDetailViewController.xib in Resources */,
@@ -941,6 +960,7 @@
 				55212F731CB67AC800634442 /* UITableView+Extension.m in Sources */,
 				550904491CBFD64700F884C2 /* ONEEssayDetailViewController.m in Sources */,
 				5509044F1CBFD64700F884C2 /* ONEReadTableViewController.m in Sources */,
+				55C6DD031CC381D100988121 /* ONEMoreSubtotalViewController.m in Sources */,
 				55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */,
 				553BDDB21CC1E63C006BE7BF /* ONECarouselDetailItem.m in Sources */,
 				550904361CBFD62500F884C2 /* ONEReadTitleButton.m in Sources */,
@@ -959,6 +979,7 @@
 				55C289A31CAE1B9D0092A897 /* UIView+Frame.m in Sources */,
 				55212F5C1CB5998B00634442 /* NSMutableAttributedString+string.m in Sources */,
 				55FC84991CBA5F8800E454A3 /* ONEPastListViewController.m in Sources */,
+				55C6DD111CC38EFA00988121 /* ONEMoreSubtotalCell.m in Sources */,
 				550904311CBFD62500F884C2 /* ONEReadToolBarView.m in Sources */,
 				5505BCCD1CAF97160063B97C /* ONECommentCell.m in Sources */,
 				5537A9A41CAF658E0039949C /* ONEMusicScrollViewController.m in Sources */,
@@ -990,6 +1011,7 @@
 				553BDD9C1CC110C7006BE7BF /* ONEReadRelatedCell.m in Sources */,
 				55FC84B01CBB66D200E454A3 /* ONEMovieDetailHeaderView.m in Sources */,
 				5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */,
+				55C6DD0B1CC3834200988121 /* ONEMoreSubtotalLayout.m in Sources */,
 				553BDDA41CC138B2006BE7BF /* ONEHomeViewController.m in Sources */,
 				553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */,
 				553BDDCD1CC32049006BE7BF /* YSLDraggableCardContainer.m in Sources */,

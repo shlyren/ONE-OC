@@ -10,22 +10,17 @@
 #import "UITableView+Extension.h"
 #import "ONEMusicSongViewController.h"
 
-
-
-@interface ONEPastListViewController ()
-
-@end
-
 @implementation ONEPastListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.title = @"往期列表";
     _pastLists = [self arryWithDateStr:self.endMonth];
 }
+
 - (NSArray *)arryWithDateStr:(NSString *)str
 {
-    
     /** 当前的时间 */
     NSDateFormatter *formatter = [NSDateFormatter new];
     formatter.dateFormat = @"yyyy-MM";
