@@ -22,11 +22,11 @@
 
 static NSString * const moreSubtotalCell = @"moreSubtotalCell";
 
-
+#pragma mark - lazy load
 - (ONEMoreSubtotalLayout *)subtotalLayout
 {
-    if (_subtotalLayout == nil) {
-        
+    if (_subtotalLayout == nil)
+    {
        ONEMoreSubtotalLayout *layout =  [ONEMoreSubtotalLayout new];
         
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_subtotalLayout = layout];
@@ -43,16 +43,17 @@ static NSString * const moreSubtotalCell = @"moreSubtotalCell";
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = false;
     [self loadData];
 }
 
 - (void)loadData
 {
     ONEWeakSelf
-    
     NSString *url = [@"bymonth" stringByAppendingPathComponent:self.month];
     [SVProgressHUD show];
     [ONEDataRequest requestHomeSubtotal:url paramrters:nil success:^(NSArray *homeSubtotal) {
@@ -74,7 +75,7 @@ static NSString * const moreSubtotalCell = @"moreSubtotalCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ONEMoreSubtotalCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreSubtotalCell forIndexPath:indexPath];    
+    ONEMoreSubtotalCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreSubtotalCell forIndexPath:indexPath];
     cell.subtotalItem = self.subtotalArr[indexPath.row];
     
     return cell;
@@ -83,7 +84,7 @@ static NSString * const moreSubtotalCell = @"moreSubtotalCell";
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ONELog(@"%zd", indexPath.row)
+    [collectionView deselectItemAtIndexPath:indexPath animated:true];
 }
 
 @end

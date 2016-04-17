@@ -13,20 +13,16 @@
 @interface ONEMoreSubtotalCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *hp_titleLable;
-
 @property (weak, nonatomic) IBOutlet UILabel *hp_contentLabel;
 @end
 
 @implementation ONEMoreSubtotalCell
 
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.layer.borderWidth = 0.4f;
-    self.layer.shouldRasterize = YES;
+    self.backgroundColor = [UIColor colorWithWhite:0.98 alpha:0.9];
+    self.layer.shouldRasterize = true;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     self.layer.cornerRadius = 5;
 }

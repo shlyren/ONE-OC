@@ -19,7 +19,7 @@
     _pastLists = [self arryWithDateStr:self.endMonth];
 }
 
-- (NSArray *)arryWithDateStr:(NSString *)str
+- (NSArray *)arryWithDateStr:(NSString *)dateStr
 {
     /** 当前的时间 */
     NSDateFormatter *formatter = [NSDateFormatter new];
@@ -30,18 +30,20 @@
     if (range.location != NSNotFound)
     {
         currentDate = [currentDate stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+        
     }
     NSInteger currentMonth = currentDate.integerValue;
     
     
     /** 截止的时间 */
-    NSInteger endYear = str.integerValue;
+    NSInteger endYear = dateStr.integerValue;
+    range = [dateStr rangeOfString:@"-"];
     if (range.location != NSNotFound)
     {
-        str = [str stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+        dateStr = [dateStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
     }
-    NSInteger endMonth = str.integerValue;
-    
+    NSInteger endMonth = dateStr.integerValue;
+
     
     NSInteger maxMonth = 0;
     NSInteger minMonth = 0;
@@ -49,7 +51,7 @@
     
     for (NSInteger resYear = currentYear; resYear >= endYear; resYear--)
     {
-        maxMonth = resYear ==  currentYear ? currentMonth : 12;
+        maxMonth = resYear == currentYear ? currentMonth : 12;
         minMonth = resYear == endYear ? endMonth : 1;
         
         for (NSInteger resMonth = maxMonth; resMonth >= minMonth; resMonth--)
@@ -58,6 +60,7 @@
         }
         
     }
+    
     return tmpArr;
 }
 

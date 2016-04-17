@@ -55,15 +55,15 @@ static NSString *const movieCommentID = @"movieComment";
 
 - (void)setupView
 {
+    self.automaticallyAdjustsScrollViewInsets = false;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -38, 0);
     ONEMovieDetailHeaderView *headerView = [ONEMovieDetailHeaderView tableHeaderView];
     headerView.movie_id = _movie_id;
     headerView.reviewCount = self.movieReviewResult.count;
     headerView.delegate = self;
-    _headerView = headerView;
-    [self.tableView registerClass:[ONEMovieCommentCell class] forCellReuseIdentifier:movieCommentID];
-    self.tableView.tableHeaderView = headerView;
     
+    self.tableView.tableHeaderView = _headerView = headerView;
+    [self.tableView registerClass:[ONEMovieCommentCell class] forCellReuseIdentifier:movieCommentID];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
 }

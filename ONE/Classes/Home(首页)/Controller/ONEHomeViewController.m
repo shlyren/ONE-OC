@@ -93,7 +93,7 @@
 
 - (void)cardContainerViewDidCompleteAll:(YSLDraggableCardContainer *)container;
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经显示完毕" message:@"您还可以?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经显示完毕" message:@"您还可以" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"再看一次" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [container reloadCardContainer];
@@ -105,9 +105,7 @@
             [container reloadCardContainer];
         });
         
-        ONEMoviePastListVc *pastListVc = [ONEMoviePastListVc new];
-        pastListVc.endMonth = @"2012-10";
-        [self.navigationController pushViewController:pastListVc animated:true];
+        [self allSubtotal];
     }];
     
     [alertController addAction:action1];
@@ -125,11 +123,21 @@
 }
 
 #pragma mark - Events
-- (IBAction)shareBtnClick
+- (IBAction)subtotalBtmClick
+{
+    [self allSubtotal];
+}
+
+- (void)allSubtotal
 {
     ONEMoviePastListVc *pastListVc = [ONEMoviePastListVc new];
     pastListVc.endMonth = @"2012-10";
     [self.navigationController pushViewController:pastListVc animated:true];
+}
+
+- (IBAction)shareBtnClick
+{
+   
 }
 
 - (IBAction)praiseBtnClick

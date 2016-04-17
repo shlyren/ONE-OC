@@ -10,7 +10,8 @@
 
 @implementation UIView (Frame)
 
-- (CGFloat)centerX{
+- (CGFloat)centerX
+{
     return self.center.x;
 }
 

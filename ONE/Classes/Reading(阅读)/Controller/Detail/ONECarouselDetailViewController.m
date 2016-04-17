@@ -129,6 +129,7 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ONECarouselDetailItem *item = self.carouselDetailItems[indexPath.row];
+    
     if ([item.type isEqualToString:@"1"])
     {
         ONEEssayDetailViewController *essayVc = [ONEEssayDetailViewController new];

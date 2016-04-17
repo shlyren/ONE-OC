@@ -61,8 +61,6 @@
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
 }
 
-
-
 - (void)awakeFromNib
 {
     self.audioBtn.hidden = true;
@@ -73,7 +71,7 @@
 {
     _essayItem = essayItem;
     
-    self.audioBtn.hidden             = !essayItem.audio.length;
+    self.audioBtn.hidden             = !essayItem.has_aduio;
     self.listBtn.hidden              = true;
     
     self.nameLabel.text              = essayItem.hp_author;
@@ -87,10 +85,6 @@
     NSString *weiboName              =  [essayItem.author.firstObject wb_name];
     self.weiboLabel.text             = [NSString stringWithFormat:@"weibo:%@",weiboName];
     self.weiboLabel.hidden           = !weiboName.length;
-    
-//    NSString *weiboName              = [NSString stringWithFormat:@"weibo:%@", [essayItem.author.firstObject wb_name]];
-//    self.weiboLabel.text             = weiboName;
-//    self.weiboLabel.hidden           = !weiboName.length;
     
     self.descLabel.text              = [essayItem.author.firstObject desc];
     

@@ -19,13 +19,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRs-YM-JT6">
                     <rect key="frame" x="0.0" y="567" width="375" height="40"/>
                     <subviews>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v17-4S-zbC">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v17-4S-zbC">
                             <rect key="frame" x="15" y="9" width="53" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="XQe-YA-9B1"/>
                                 <constraint firstAttribute="width" constant="53" id="dyf-R9-58f"/>
                             </constraints>
                             <state key="normal" image="diary_default"/>
+                            <connections>
+                                <action selector="subtotalBtmClick" destination="-1" eventType="touchUpInside" id="frN-o4-w5t"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddo-ph-cVe">
                             <rect key="frame" x="321" y="0.0" width="44" height="40"/>

@@ -13,7 +13,7 @@
 #import "ONEReadSerialViewController.h"
 #import "ONEReadQuestionViewController.h"
 #import "ONECarouselDetailViewController.h"
-#import "ONEPresentNavigationController.h"
+#import "ONENavigationController.h"
 #import "ONECarouselView.h"
 #import "ONEDataRequest.h"
 #import "ONEReadAdItem.h"
@@ -22,7 +22,7 @@
 
 @interface ONEReadViewController () <ONECarouselViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, weak) UIView              *carouselCoverView;
-@property (nonatomic, weak) ONECarouselView       *carouselView;
+@property (nonatomic, weak) ONECarouselView     *carouselView;
 @property (nonatomic, strong) NSArray           *adDatas;
 
 @property (nonatomic, weak) UIScrollView        *scrollView;
@@ -228,7 +228,7 @@
     ONECarouselDetailViewController *crouseDetailVc = [ONECarouselDetailViewController new];
     crouseDetailVc.adItem = self.adDatas[indexPath.row];
     if (crouseDetailVc.adItem == nil) return;
-    ONEPresentNavigationController *nav = [[ONEPresentNavigationController alloc] initWithRootViewController:crouseDetailVc];
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:crouseDetailVc];
     nav.delegate = self;
     [self presentViewController:nav animated:true completion:nil];
 }

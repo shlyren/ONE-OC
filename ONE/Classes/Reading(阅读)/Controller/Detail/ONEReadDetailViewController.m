@@ -110,7 +110,7 @@ NSString *const relatedCell = @"relatedCell";
         }
         [weakSelf.tableView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
-         [weakSelf.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -120,14 +120,6 @@ NSString *const relatedCell = @"relatedCell";
     self.headerView.height = height;
     self.tableView.tableHeaderView = self.headerView;
 }
-
-#pragma mark - ONECommentCellDelegate
-//- (void)commentCell:(ONECommentCell *)commentCell didClickIcon:(NSString *)userId
-//{
-//    ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
-//    detailVc.user_id = userId;
-//    [self.navigationController pushViewController:detailVc animated:true];
-//}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

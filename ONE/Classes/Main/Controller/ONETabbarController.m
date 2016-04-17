@@ -13,15 +13,14 @@
 #import "ONEMusicScrollViewController.h"
 #import "ONEMovieViewController.h"
 
-//#import "ONEPastListViewController.h"
-
 @interface ONETabbarController ()
 
 @end
 
 @implementation ONETabbarController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self setUpAllChildViewController];
 

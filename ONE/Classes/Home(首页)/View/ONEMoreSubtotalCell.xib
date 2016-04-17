@@ -17,24 +17,27 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Rre-v3-vRF">
                         <rect key="frame" x="0.0" y="0.0" width="212" height="159"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-Hw-eAs">
+                        <rect key="frame" x="0.0" y="145" width="212" height="14"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.19779094827586208" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="qh8-mK-YRU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" white="0.0" alpha="0.35204741379310345" colorSpace="calibratedWhite"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI3-9i-qkd">
                         <rect key="frame" x="5" y="161" width="202" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-Hw-eAs">
-                        <rect key="frame" x="0.0" y="147" width="212" height="13.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.29717133620689656" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="RI3-9i-qkd" firstAttribute="top" secondItem="vfR-Hw-eAs" secondAttribute="bottom" id="9qu-1k-PGx"/>
+                <constraint firstItem="vfR-Hw-eAs" firstAttribute="bottom" secondItem="Rre-v3-vRF" secondAttribute="bottom" id="Au7-K6-uBe"/>
                 <constraint firstItem="Rre-v3-vRF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M8C-4R-r4F"/>
                 <constraint firstAttribute="trailing" secondItem="Rre-v3-vRF" secondAttribute="trailing" id="Zgg-HW-yVF"/>
                 <constraint firstItem="vfR-Hw-eAs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a6x-DS-ggD"/>

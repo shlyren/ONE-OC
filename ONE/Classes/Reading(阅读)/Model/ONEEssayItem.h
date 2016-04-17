@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSString *last_update_date;
 @property (nonatomic, strong) NSString *web_url;
 @property (nonatomic, strong) NSString *audio;
+@property (nonatomic, assign) BOOL     has_aduio;
 
 @property (nonatomic, strong) NSString *praisenum;
 @property (nonatomic, strong) NSString *sharenum;

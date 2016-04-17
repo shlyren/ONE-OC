@@ -50,7 +50,6 @@
 		553BDDA71CC13CC5006BE7BF /* ONEHomeSubtotalItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA61CC13CC5006BE7BF /* ONEHomeSubtotalItem.m */; };
 		553BDDAA1CC14346006BE7BF /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA91CC14346006BE7BF /* UIColor+Hex.m */; };
 		553BDDB21CC1E63C006BE7BF /* ONECarouselDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB11CC1E63C006BE7BF /* ONECarouselDetailItem.m */; };
-		553BDDB51CC200F1006BE7BF /* ONEPresentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB41CC200F1006BE7BF /* ONEPresentNavigationController.m */; };
 		553BDDB91CC20BEF006BE7BF /* ONECarouselDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB71CC20BEF006BE7BF /* ONECarouselDetailCell.m */; };
 		553BDDBA1CC20BEF006BE7BF /* ONECarouselDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDB81CC20BEF006BE7BF /* ONECarouselDetailCell.xib */; };
 		553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDC41CC27570006BE7BF /* ONECarouselDetailViewController.m */; };
@@ -85,7 +84,7 @@
 		55C6DD0B1CC3834200988121 /* ONEMoreSubtotalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD0A1CC3834200988121 /* ONEMoreSubtotalLayout.m */; };
 		55C6DD111CC38EFA00988121 /* ONEMoreSubtotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */; };
 		55C6DD121CC38EFA00988121 /* ONEMoreSubtotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */; };
-		55DCF5A11CAE9CE70042165B /* ONEURLlConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */; };
+		55DCF5A11CAE9CE70042165B /* ONEURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCF5A01CAE9CE70042165B /* ONEURLConst.m */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
 		55FC846F1CB7CE5200E454A3 /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC846E1CB7CE5200E454A3 /* ONEFPSLabel.m */; };
 		55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC84711CB7D63700E454A3 /* ONEMusicPlayerView.m */; };
@@ -191,8 +190,6 @@
 		553BDDA91CC14346006BE7BF /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		553BDDB01CC1E63C006BE7BF /* ONECarouselDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONECarouselDetailItem.h; sourceTree = "<group>"; };
 		553BDDB11CC1E63C006BE7BF /* ONECarouselDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONECarouselDetailItem.m; sourceTree = "<group>"; };
-		553BDDB31CC200F1006BE7BF /* ONEPresentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPresentNavigationController.h; sourceTree = "<group>"; };
-		553BDDB41CC200F1006BE7BF /* ONEPresentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPresentNavigationController.m; sourceTree = "<group>"; };
 		553BDDB61CC20BEF006BE7BF /* ONECarouselDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONECarouselDetailCell.h; sourceTree = "<group>"; };
 		553BDDB71CC20BEF006BE7BF /* ONECarouselDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONECarouselDetailCell.m; sourceTree = "<group>"; };
 		553BDDB81CC20BEF006BE7BF /* ONECarouselDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONECarouselDetailCell.xib; sourceTree = "<group>"; };
@@ -255,8 +252,8 @@
 		55C6DD0E1CC38EFA00988121 /* ONEMoreSubtotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMoreSubtotalCell.h; sourceTree = "<group>"; };
 		55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMoreSubtotalCell.m; sourceTree = "<group>"; };
 		55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMoreSubtotalCell.xib; sourceTree = "<group>"; };
-		55DCF59F1CAE9CE70042165B /* ONEURLlConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLlConst.h; sourceTree = "<group>"; };
-		55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLlConst.m; sourceTree = "<group>"; };
+		55DCF59F1CAE9CE70042165B /* ONEURLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLConst.h; sourceTree = "<group>"; };
+		55DCF5A01CAE9CE70042165B /* ONEURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLConst.m; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
 		55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieMoreViewController.m; sourceTree = "<group>"; };
 		55FC846D1CB7CE5200E454A3 /* ONEFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFPSLabel.h; sourceTree = "<group>"; };
@@ -516,8 +513,8 @@
 		55DCF59E1CAE9CD90042165B /* Const */ = {
 			isa = PBXGroup;
 			children = (
-				55DCF59F1CAE9CE70042165B /* ONEURLlConst.h */,
-				55DCF5A01CAE9CE70042165B /* ONEURLlConst.m */,
+				55DCF59F1CAE9CE70042165B /* ONEURLConst.h */,
+				55DCF5A01CAE9CE70042165B /* ONEURLConst.m */,
 				55422CE61CBFDF4400A3B1A0 /* ONEConst.h */,
 				55422CE71CBFDF4400A3B1A0 /* ONEConst.m */,
 			);
@@ -705,8 +702,6 @@
 				7EC8D0CD1CAE027000613625 /* ONETabbarController.m */,
 				55C289B81CAE48280092A897 /* ONENavigationController.h */,
 				55C289B91CAE48280092A897 /* ONENavigationController.m */,
-				553BDDB31CC200F1006BE7BF /* ONEPresentNavigationController.h */,
-				553BDDB41CC200F1006BE7BF /* ONEPresentNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -947,7 +942,7 @@
 				55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */,
 				55FC84961CBA4FB100E454A3 /* ONESubTitleCell.m in Sources */,
 				5505BCD11CAFEE460063B97C /* ONEMusicDetailItem.m in Sources */,
-				55DCF5A11CAE9CE70042165B /* ONEURLlConst.m in Sources */,
+				55DCF5A11CAE9CE70042165B /* ONEURLConst.m in Sources */,
 				55FC84C61CBBF5DE00E454A3 /* ONEMovieCommentCell.m in Sources */,
 				553BDDB91CC20BEF006BE7BF /* ONECarouselDetailCell.m in Sources */,
 				553BDDCA1CC2836C006BE7BF /* UIViewController+topViewController.m in Sources */,
@@ -969,7 +964,6 @@
 				55B9A1061CBF5B0F009E44AA /* ONEEssayItem.m in Sources */,
 				55FC84B71CBB90CA00E454A3 /* ONEMovieDetailPhotoCell.m in Sources */,
 				553BDD781CC07902006BE7BF /* ONEQuestionDetailViewController.m in Sources */,
-				553BDDB51CC200F1006BE7BF /* ONEPresentNavigationController.m in Sources */,
 				5505BCD71CAFEE930063B97C /* ONEMusicCommentItem.m in Sources */,
 				553BDD7E1CC088E6006BE7BF /* ONEQuestionHeaderView.m in Sources */,
 				55FC84CA1CBBF69300E454A3 /* ONEMovieCommentItem.m in Sources */,

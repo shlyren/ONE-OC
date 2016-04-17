@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SVProgressHUD.h"
-#import "ONEURLlConst.h"
+#import "ONEURLConst.h"
 
 @class ONEAuthorItem;
 
