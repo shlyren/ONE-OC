@@ -19,13 +19,11 @@ static NSString *const searchTableViewCell = @"searchTableViewCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+
     [self.tableView registerNib:[UINib nibWithNibName:@"ONESearchTableViewCell" bundle:nil] forCellReuseIdentifier:searchTableViewCell];
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.tableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-
+    self.tableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(30, 0, 0, 0);
 }
 #pragma mark - Table view data source
 

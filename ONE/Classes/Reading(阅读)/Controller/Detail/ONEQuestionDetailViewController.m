@@ -29,11 +29,6 @@
     return _questionHeaderView;
 }
 
-//- (NSString *)commentUrl
-//{
-//    return commnet_question;
-//}
-
 - (NSString *)commentType
 {
     return @"question";
@@ -51,13 +46,10 @@
     ONEWeakSelf
     [SVProgressHUD show];
     [ONEDataRequest requestQuestionDetail:self.detail_id parameters:nil succsee:^(ONEQuestionItem *question) {
-        [SVProgressHUD dismiss];
         if (question == nil) return;
         weakSelf.questionHeaderView.questionItem = question;
         [weakSelf.tableView reloadData];
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-    }];
+    } failure:nil];
 }
 
 - (void)loadRelatedData

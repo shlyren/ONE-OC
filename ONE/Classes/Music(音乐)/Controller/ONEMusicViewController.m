@@ -133,7 +133,6 @@ static NSString *const relatedCellID = @"relatedCell";
     ONEWeakSelf
     [SVProgressHUD showWithStatus:@"努力加载中..."];
     [ONEDataRequest requestMusicDetail:_detailIdUrl parameters:nil success:^(ONEMusicDetailItem *musicDetailItem) {
-        [SVProgressHUD dismiss];
         if (musicDetailItem) _musicDetailView.musicDetailItem = musicDetailItem;
         [weakSelf loadRelatedData];
         [weakSelf.tableView.mj_header endRefreshing];

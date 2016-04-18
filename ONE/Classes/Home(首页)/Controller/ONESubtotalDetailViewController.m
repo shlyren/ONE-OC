@@ -58,7 +58,7 @@
 }
 
 /**
- *  拖动收拾
+ *  拖动
  */
 - (void)pan:(UIPanGestureRecognizer *)pan
 {
@@ -87,9 +87,8 @@
 
 - (IBAction)praiseBtnClick
 {
-
-    
     if (!self.subtotalItem.hpcontent_id.length) return;
+    
     NSDictionary *parameters = @{
                                  @"deviceid" : NSUUID.UUID.UUIDString,
                                  @"devicetype" : @"ios",

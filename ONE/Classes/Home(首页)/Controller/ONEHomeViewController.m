@@ -51,7 +51,6 @@
     [SVProgressHUD show];
     ONEWeakSelf
     [ONEDataRequest requestHomeSubtotal:@"more/0" paramrters:nil success:^(NSArray *homeSubtotal) {
-        [SVProgressHUD dismiss];
         if (homeSubtotal.count)
         {
             weakSelf.homeSubtotals = homeSubtotal;
@@ -68,7 +67,7 @@
 
 - (UIView *)cardContainerViewNextViewWithIndex:(NSInteger)index
 {
-    ONEDraggableCardView *cardView = [[ONEDraggableCardView alloc]initWithFrame:CGRectMake(10, ONENavBMaxY + ONEDefaultMargin, ONEScreenWidth - 20, ONEScreenWidth * 1.1)];
+    ONEDraggableCardView *cardView = [[ONEDraggableCardView alloc]initWithFrame:CGRectMake(10, ONENavBMaxY + ONEDefaultMargin, ONEScreenWidth - 20, ONEScreenWidth * 1.2)];
     cardView.subtotalItem = self.homeSubtotals[index];
     
     return cardView;
@@ -142,7 +141,7 @@
 
 - (IBAction)shareBtnClick
 {
-   
+    ONELogFunc
 }
 
 - (void)praiseBtnClick

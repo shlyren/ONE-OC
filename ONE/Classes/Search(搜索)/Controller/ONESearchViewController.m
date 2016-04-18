@@ -53,7 +53,7 @@
         // titlesView
         {
             UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.y, ONEScreenWidth, 30)];
-            titlesView.backgroundColor = ONEColor(248, 248, 248, 0.8);
+            titlesView.backgroundColor = ONEColor(248, 248, 248, 0.9);
             [self.view addSubview: _titlesView = titlesView];
         }
         

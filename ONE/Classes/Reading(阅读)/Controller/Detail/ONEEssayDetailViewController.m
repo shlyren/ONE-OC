@@ -33,13 +33,10 @@
     ONEWeakSelf
     [SVProgressHUD show];
     [ONEDataRequest requestEssayDetail:self.detail_id parameters:nil succsee:^(ONEEssayItem *essay) {
-        [SVProgressHUD dismiss];
         if (!essay) return;
         weakSelf.headerView.essayItem = essay;
         [weakSelf.tableView reloadData];
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-    }];
+    } failure:nil];
 }
 
 - (void)loadRelatedData

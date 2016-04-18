@@ -27,12 +27,11 @@
     
     if ([self.searchKey isEqualToString:searchKey]) return;
     [super setSearchKey:searchKey];
-     ONEWeakSelf
-     [SVProgressHUD show];
+    ONEWeakSelf
+    [SVProgressHUD showWithStatus:@"搜索中..."];
     [ONEDataRequest requestSearchAuthor:self.searchKey success:^(NSArray *authorResult) {
-         [SVProgressHUD dismiss];
         if (authorResult.count) {
-            self.searchResult = authorResult;
+            weakSelf.searchResult = authorResult;
             [weakSelf.tableView reloadData];
         }
         

@@ -42,7 +42,7 @@
         hp_titleLabel.font            = [UIFont systemFontOfSize:10];
         hp_titleLabel.textColor       = [UIColor lightGrayColor];
         hp_titleLabel.x               = imageView.x;
-        hp_titleLabel.y               = CGRectGetMaxY(imageView.frame) + ONEDefaultMargin;
+        hp_titleLabel.y               = CGRectGetMaxY(imageView.frame) + 5;
         _hp_titleLabel                = hp_titleLabel;
         [self addSubview:hp_titleLabel];
         
@@ -78,10 +78,10 @@
     [super layoutSubviews];
     /** 用户 */
     self.hp_authorLabel.x  = CGRectGetMaxX(self.imageView.frame) - self.hp_authorLabel.width;
-    self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + ONEDefaultMargin;
+    self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + 5;
     /** 发布时间 */
     self.hp_makettimeLabel.x =  CGRectGetMaxX(self.imageView.frame) - self.hp_makettimeLabel.width;
-    self.hp_makettimeLabel.y = ONEScreenWidth * 1.1 - 20;
+    self.hp_makettimeLabel.y = ONEScreenWidth * 1.2 - 15;
     /** 内容 */
     self.hp_contentLabel.x = self.imageView.x + ONEDefaultMargin;
     self.hp_contentLabel.centerY =  (CGRectGetMaxY(self.imageView.frame) + self.hp_makettimeLabel.y) * 0.5 + ONEDefaultMargin;
@@ -93,7 +93,7 @@
 {
     _subtotalItem = subtotalItem;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:subtotalItem.hp_img_url] placeholderImage:[UIImage imageNamed:@"123"]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:subtotalItem.hp_img_url] placeholderImage:[UIImage imageNamed:@"home"]];
     self.hp_titleLabel.text = subtotalItem.hp_title;
     [self.hp_titleLabel sizeToFit];
     

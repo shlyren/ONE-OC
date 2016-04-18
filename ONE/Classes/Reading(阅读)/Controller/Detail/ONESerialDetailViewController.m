@@ -14,11 +14,6 @@
 @end
 
 @implementation ONESerialDetailViewController
-//- (NSString *)commentUrl
-//{
-//    return commnet_serial;
-//}
-
 - (NSString *)commentType
 {
     return @"serial";
@@ -35,13 +30,10 @@
     ONEWeakSelf
     [SVProgressHUD show];
     [ONEDataRequest requestSerialDetail:self.detail_id parameters:nil succsee:^(ONESerialItem *serial) {
-        [SVProgressHUD dismiss];
         if (!serial) return ;
         weakSelf.headerView.serialItem = serial;
         [weakSelf.tableView reloadData];
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-    }];
+    } failure:nil];
 }
 
 - (void)loadRelatedData

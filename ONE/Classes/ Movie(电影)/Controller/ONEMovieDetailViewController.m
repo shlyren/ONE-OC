@@ -23,7 +23,7 @@
 /** 评审团评论的模型 */
 @property (nonatomic, strong) ONEMovieResultItem *movieReviewResult;
 /** tableview组 */
-@property (nonatomic, strong) NSArray *groups;
+@property (nonatomic, strong) NSMutableArray *groups;
 /** taberheader, 电影故事详情的View */
 @property (nonatomic, weak) ONEMovieDetailHeaderView *headerView;
 /** 用户评论的模型 */
@@ -34,6 +34,14 @@
 @implementation ONEMovieDetailViewController
 
 static NSString *const movieCommentID = @"movieComment";
+
+- (NSMutableArray *)groups
+{
+    if (_groups == nil) {
+        _groups = [NSMutableArray array];
+    }
+    return _groups;
+}
 
 #pragma mark - initial
 #pragma mark view
@@ -76,12 +84,14 @@ static NSString *const movieCommentID = @"movieComment";
     ONEWeakSelf
     /** 电影评审团 */
     [ONEDataRequest requestMovieReview:[_movie_id stringByAppendingPathComponent:@"review/1/0"] parameters:nil success:^(ONEMovieResultItem *movieReview) {
-        if (movieReview) {
+        if (movieReview.data.count) {
             weakSelf.movieReviewResult = movieReview;
             ONEDefaultCellGroupItem *group1 = weakSelf.groups.firstObject;
             group1.items = movieReview.data;
-            [weakSelf.tableView reloadData];
+        }else{
+           [weakSelf.groups removeObjectAtIndex:0];
         }
+        [weakSelf.tableView reloadData];
     } failure:nil];
  
     /** 评论 */
@@ -92,6 +102,7 @@ static NSString *const movieCommentID = @"movieComment";
             group2.items = weakSelf.commentArray;
             [weakSelf.tableView reloadData];
         }
+    
     } failure:nil];
     
 }
@@ -99,17 +110,18 @@ static NSString *const movieCommentID = @"movieComment";
 #pragma mark load more comment  data
 - (void)loadMore
 {
-    if (self.commentArray.count == 0) {
-        [SVProgressHUD showErrorWithStatus:@"网络繁忙,请稍后再试!"];
-        [self.tableView.mj_footer endRefreshing];
-        return;
+    NSString *url = nil;
+    if (self.commentArray.count == 0)
+    {
+        url = [_movie_id stringByAppendingPathComponent:@"review/1/0"];
+    }else{
+        ONEMovieCommentItem *item = [self.commentArray lastObject];
+       url = [_movie_id stringByAppendingPathComponent:item.comment_id];
     }
     
     ONEWeakSelf
-    ONEMovieCommentItem *item = [self.commentArray lastObject];
     [SVProgressHUD show];
-    [ONEDataRequest requestMovieComment:[_movie_id stringByAppendingPathComponent:item.comment_id] parameters:nil success:^(NSArray *movieComments) {
-        [SVProgressHUD dismiss];
+    [ONEDataRequest requestMovieComment:url parameters:nil success:^(NSArray *movieComments) {
         if (movieComments.count) {
             [weakSelf.commentArray addObjectsFromArray:movieComments];
             [weakSelf.tableView reloadData];
@@ -128,28 +140,31 @@ static NSString *const movieCommentID = @"movieComment";
 #pragma mark - init group
 - (void)setupGroup
 {
+   
     ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem new];
     group1.items        = self.movieReviewResult.data;
     group1.footerHeight = 40;
     group1.headerView   = [ONEMovieDetailHeaderView reviewSectionHeaderView];
     group1.footerView   = [ONEMovieDetailHeaderView reviewSectionFooterView];
-    
     ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
     group2.items        = self.commentArray;
     group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
     group2.footerHeight = 0;
     group2.footerView   = nil;
-    self.groups = @[group1, group2];
+    [self.groups addObject:group1];
+    [self.groups addObject:group2];
 }
 
 
 
 #pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return self.groups.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 
     return [self.groups[section] items].count;
 }

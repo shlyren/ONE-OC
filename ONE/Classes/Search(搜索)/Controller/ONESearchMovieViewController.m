@@ -25,11 +25,10 @@
     if ([self.searchKey isEqualToString:searchKey]) return;
     [super setSearchKey:searchKey];
     ONEWeakSelf
-    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"搜索中..."];
     [ONEDataRequest requestSearchMovie:self.searchKey success:^(NSArray *movieResult) {
-        [SVProgressHUD dismiss];
         if (movieResult.count) {
-            self.searchResult = movieResult;
+            weakSelf.searchResult = movieResult;
             [weakSelf.tableView reloadData];
         }
         
