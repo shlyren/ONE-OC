@@ -29,13 +29,13 @@
                                 </connections>
                             </tableView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qld-AI-OLF" userLabel="topView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personalBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="81D-id-325" userLabel="person">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小  记" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6E-l5-XV1">
-                                        <rect key="frame" x="0.0" y="314" width="187.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="334" width="187.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="EPC-0e-dPp"/>
                                         </constraints>
@@ -44,46 +44,46 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="center_board" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-l8-z3M">
-                                        <rect key="frame" x="28" y="178" width="131" height="131"/>
+                                        <rect key="frame" x="28" y="198" width="131" height="131"/>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="center_cd" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-AP-Grl">
-                                        <rect key="frame" x="215" y="178" width="131" height="131"/>
+                                        <rect key="frame" x="215" y="198" width="131" height="131"/>
                                     </imageView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1Z-5q-Gny">
-                                        <rect key="frame" x="28" y="178" width="131" height="131"/>
+                                        <rect key="frame" x="28" y="198" width="131" height="131"/>
                                         <state key="normal" backgroundImage="center_board_cover"/>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music_cover_small" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-O6-AWq">
-                                        <rect key="frame" x="30" y="180" width="121" height="99"/>
+                                        <rect key="frame" x="30" y="200" width="121" height="99"/>
                                     </imageView>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-uA-pKZ">
-                                        <rect key="frame" x="215" y="178" width="131" height="131"/>
+                                        <rect key="frame" x="215" y="198" width="131" height="131"/>
                                         <state key="normal" backgroundImage="center_cd_cover"/>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music_cover_small" translatesAutoresizingMaskIntoConstraints="NO" id="rDI-EH-eja">
-                                        <rect key="frame" x="225" y="185" width="111" height="112"/>
+                                        <rect key="frame" x="225" y="205" width="111" height="112"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任玉祥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUZ-kc-P3l">
-                                        <rect key="frame" x="166" y="121" width="42" height="17"/>
+                                        <rect key="frame" x="166" y="141" width="42" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scoreIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-ij-zce">
-                                        <rect key="frame" x="162" y="138" width="25" height="25"/>
+                                        <rect key="frame" x="162" y="158" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="OQb-08-Txb"/>
                                             <constraint firstAttribute="height" constant="25" id="fcE-YQ-0GM"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCW-ya-ZVk">
-                                        <rect key="frame" x="187" y="142" width="8" height="15"/>
+                                        <rect key="frame" x="187" y="162" width="8" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F2-OG-97e" userLabel="头像的背景view">
-                                        <rect key="frame" x="156" y="51" width="62" height="62"/>
+                                        <rect key="frame" x="156" y="71" width="62" height="62"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal" translatesAutoresizingMaskIntoConstraints="NO" id="3UW-cw-lGb">
                                                 <rect key="frame" x="1" y="1" width="60" height="60"/>
@@ -106,7 +106,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌  单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NJ-qw-GGv">
-                                        <rect key="frame" x="187" y="314" width="187.5" height="21"/>
+                                        <rect key="frame" x="187" y="334" width="187.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="oBU-lk-5tX"/>
                                         </constraints>
@@ -137,7 +137,7 @@
                                     <constraint firstItem="kCW-ya-ZVk" firstAttribute="centerY" secondItem="MP9-ij-zce" secondAttribute="centerY" constant="-1" id="LtB-T9-Cdf"/>
                                     <constraint firstItem="KUZ-kc-P3l" firstAttribute="top" secondItem="4F2-OG-97e" secondAttribute="bottom" constant="8" id="N30-v9-ne9"/>
                                     <constraint firstItem="F1Z-5q-Gny" firstAttribute="width" secondItem="eU5-uA-pKZ" secondAttribute="width" id="OJ2-qZ-IJd"/>
-                                    <constraint firstAttribute="height" constant="340" id="Pta-F2-qgT"/>
+                                    <constraint firstAttribute="height" constant="360" id="Pta-F2-qgT"/>
                                     <constraint firstItem="aPT-AP-Grl" firstAttribute="leading" secondItem="eU5-uA-pKZ" secondAttribute="leading" id="Ruh-hq-cZR"/>
                                     <constraint firstItem="4NJ-qw-GGv" firstAttribute="height" secondItem="I6E-l5-XV1" secondAttribute="height" id="XO6-9t-IBp"/>
                                     <constraint firstItem="eU5-uA-pKZ" firstAttribute="centerX" secondItem="4NJ-qw-GGv" secondAttribute="centerX" id="aU0-0c-EsE"/>

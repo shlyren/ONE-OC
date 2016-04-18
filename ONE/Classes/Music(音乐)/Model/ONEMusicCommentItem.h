@@ -23,13 +23,10 @@
 @property (nonatomic, strong) NSString *content;
 
 
-
 /** 类型 */
 @property (nonatomic, assign) NSInteger type;
 
 /** 用户信息 */
 @property (nonatomic, strong) ONEAuthorItem *user;
 
-
-//@property (nonatomic, assign) CGFloat height;
 @end

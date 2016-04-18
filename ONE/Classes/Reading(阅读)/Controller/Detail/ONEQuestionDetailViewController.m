@@ -29,16 +29,20 @@
     return _questionHeaderView;
 }
 
-- (NSString *)commentUrl
+//- (NSString *)commentUrl
+//{
+//    return commnet_question;
+//}
+
+- (NSString *)commentType
 {
-    return commnet_question;
+    return @"question";
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"问答";
-    
 }
 
 - (void)loadDetailData

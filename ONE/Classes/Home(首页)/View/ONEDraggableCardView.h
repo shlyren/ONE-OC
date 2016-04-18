@@ -22,6 +22,6 @@
 
 @interface ONEDraggableCardView : YSLCardView
 
-@property (nonatomic, strong) ONEHomeSubtotalItem *subbtotaItem;
+@property (nonatomic, strong) ONEHomeSubtotalItem *subtotalItem;
 
 @end

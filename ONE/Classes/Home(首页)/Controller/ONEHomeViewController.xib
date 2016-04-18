@@ -45,9 +45,6 @@
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" image="like_selected"/>
-                            <connections>
-                                <action selector="praiseBtnClick" destination="-1" eventType="touchUpInside" id="4bh-fM-eU9"/>
-                            </connections>
                         </button>
                     </subviews>
                     <constraints>

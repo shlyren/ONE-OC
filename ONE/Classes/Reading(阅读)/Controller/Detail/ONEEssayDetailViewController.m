@@ -22,9 +22,9 @@
      self.title = @"短篇";
 }
 
-- (NSString *)commentUrl
+- (NSString *)commentType
 {
-    return comment_essay;
+    return @"essay";
 }
 
 - (void)loadDetailData

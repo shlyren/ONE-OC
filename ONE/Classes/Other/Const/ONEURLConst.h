@@ -63,20 +63,21 @@ UIKIT_EXTERN NSString *const readAdUrl;
 /** 阅读列表 全路径 */
 UIKIT_EXTERN NSString *const readIndexUrl;
 
+/** 评论 */
+UIKIT_EXTERN NSString *const readeCommnet;
+
 /** 推荐 */
 UIKIT_EXTERN NSString *const essay;                 // 内容
 UIKIT_EXTERN NSString *const relates_essay;         // 推荐
-UIKIT_EXTERN NSString *const comment_essay;         // 评论
 
 /** 连载 */
 UIKIT_EXTERN NSString *const serialcontent;         // 内容
 UIKIT_EXTERN NSString *const related_serial;        // 推荐
-UIKIT_EXTERN NSString *const commnet_serial;        // 推荐
 
 /** 问题 */
 UIKIT_EXTERN NSString *const question;              // 内容
 UIKIT_EXTERN NSString *const related_question;      // 推荐
-UIKIT_EXTERN NSString *const commnet_question;      // 推荐
+
 /** 广告的点击 */
 UIKIT_EXTERN NSString *const reading_carousel;
 

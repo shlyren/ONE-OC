@@ -4,7 +4,7 @@
 //
 //  Created by 任玉祥 on 16/4/1.
 //  Copyright © 2016年 ONE. All rights reserved.
-//
+// 首页
 
 #import "ONEHomeViewController.h"
 #import "YSLDraggableCardContainer.h"
@@ -24,6 +24,7 @@
 
 @implementation ONEHomeViewController
 
+#pragma mark - lazy load
 - (YSLDraggableCardContainer *)cardContainer
 {
     if (_cardContainer == nil)
@@ -44,6 +45,7 @@
     [self loadData];
 }
 
+#pragma  mark - 加载数据 
 - (void)loadData
 {
     [SVProgressHUD show];
@@ -67,7 +69,7 @@
 - (UIView *)cardContainerViewNextViewWithIndex:(NSInteger)index
 {
     ONEDraggableCardView *cardView = [[ONEDraggableCardView alloc]initWithFrame:CGRectMake(10, ONENavBMaxY + ONEDefaultMargin, ONEScreenWidth - 20, ONEScreenWidth * 1.1)];
-    cardView.subbtotaItem = self.homeSubtotals[index];
+    cardView.subtotalItem = self.homeSubtotals[index];
     
     return cardView;
 }
@@ -118,8 +120,11 @@
 - (void)cardContainerView:(YSLDraggableCardContainer *)cardContainerView didShowDraggableViewAtIndex:(NSInteger)index
 {
     ONEHomeSubtotalItem *item = self.homeSubtotals[index];
-    [self.praiseButton setTitle:item.praisenum forState:UIControlStateNormal];
-    [self.praiseButton setTitle:item.praisenum forState:UIControlStateSelected];
+    [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateNormal];
+    [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateSelected];
+    self.praiseButton.tag = index;
+    self.praiseButton.selected = false;
+    [self.praiseButton addTarget:self action:@selector(praiseBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Events
@@ -140,8 +145,33 @@
    
 }
 
-- (IBAction)praiseBtnClick
+- (void)praiseBtnClick
 {
-    self.praiseButton.selected = !self.praiseButton.selected;
+    ONEHomeSubtotalItem *item = self.homeSubtotals[self.praiseButton.tag];
+
+   if (!item.hpcontent_id.length) return;
+    NSDictionary *parameters = @{
+                                 @"deviceid" : NSUUID.UUID.UUIDString,
+                                 @"devicetype" : @"ios",
+                                 @"itemid" : item.hpcontent_id,
+                                 @"type" : @"hpcontent"
+                                 };
+    
+    [ONEDataRequest addPraise:praise_add parameters:parameters success:^(BOOL isSuccess, NSString *message) {
+        
+        if (!isSuccess)
+        {
+            [SVProgressHUD showErrorWithStatus:message];
+            
+        }else{
+             self.praiseButton.selected = !self.praiseButton.selected;
+            NSInteger praisenum = self.praiseButton.selected ? ++item.praisenum : --item.praisenum;
+            [_praiseButton setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
+            [_praiseButton setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateSelected];
+            
+        }
+        
+    } failure:nil];
+
 }
 @end

@@ -214,7 +214,7 @@ static NSString *const relatedCellID = @"relatedCell";
     ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentArr[indexPath.row];
     cell.detail_id = _detailIdUrl;
-    
+    cell.commentType = @"music";
     return cell;
 }
 

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class ONEMoreSubtotalLayout;
+
+@protocol ONEMoreSubtotalLayoutDelegate <NSObject>
+- (CGFloat)subtotallowLayout:(ONEMoreSubtotalLayout *)subtotallowLayout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @interface ONEMoreSubtotalLayout : UICollectionViewFlowLayout
-@property (nonatomic, strong) NSArray *subtotalArr;
+@property (nonatomic, weak) id<ONEMoreSubtotalLayoutDelegate> delegate;
 @end

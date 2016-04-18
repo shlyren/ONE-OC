@@ -14,9 +14,14 @@
 @end
 
 @implementation ONESerialDetailViewController
-- (NSString *)commentUrl
+//- (NSString *)commentUrl
+//{
+//    return commnet_serial;
+//}
+
+- (NSString *)commentType
 {
-    return commnet_serial;
+    return @"serial";
 }
 - (void)viewDidLoad
 {

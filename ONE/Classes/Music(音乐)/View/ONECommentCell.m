@@ -33,6 +33,15 @@
 
 @implementation ONECommentCell
 
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self = [[NSBundle mainBundle] loadNibNamed:@"ONECommentCell" owner:nil options:nil].firstObject;
+    }
+    return self;
+}
+
 - (void)awakeFromNib
 {
      self.commentContectLabel.preferredMaxLayoutWidth = ONEScreenWidth - 80;
@@ -57,18 +66,13 @@
    }];
 }
 
-- (NSString *)commentType
-{
-    return @"music";
-}
-
 #pragma mark - Event
 - (IBAction)praisenumBtnClick
 {
+    if (!(self.commentType.length + self.commentItem.comment_id.length + self.commentType.length)) return;
     
     self.praisenumBtn.selected = !self.praisenumBtn.selected;
-#warning return
-    return;
+
     NSDictionary *parameters = @{
                                  @"cmtid" : _commentItem.comment_id,
                                  @"itemid" : _detail_id,  // detailID

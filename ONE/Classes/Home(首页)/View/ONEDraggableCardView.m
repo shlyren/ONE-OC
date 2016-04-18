@@ -28,6 +28,7 @@
     {
         self.backgroundColor          = [UIColor whiteColor];
         
+        /** 图片 */
         UIImageView *imageView        = [UIImageView new];
         CGFloat imageViewW            = self.width - 10;
         imageView.frame               = CGRectMake(5, 5, imageViewW, imageViewW * 0.75);
@@ -36,7 +37,7 @@
         [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImage)]];
         [self addSubview: imageView];
         
-    
+        /** 标题 */
         UILabel *hp_titleLabel        = [UILabel new];
         hp_titleLabel.font            = [UIFont systemFontOfSize:10];
         hp_titleLabel.textColor       = [UIColor lightGrayColor];
@@ -45,12 +46,14 @@
         _hp_titleLabel                = hp_titleLabel;
         [self addSubview:hp_titleLabel];
         
+        /** 用户 */
         UILabel *hp_authorLabel       = [UILabel new];
         hp_authorLabel.font           = [UIFont systemFontOfSize:10];
         hp_authorLabel.textColor      = [UIColor lightGrayColor];
                 _hp_authorLabel       = hp_authorLabel;
         [self addSubview:hp_authorLabel];
         
+        /** 内容 */
         UILabel *hp_contentLabel      = [UILabel new];
         hp_contentLabel.numberOfLines = 0;
         hp_contentLabel.width         = imageView.width - 2 * ONEDefaultMargin;
@@ -59,7 +62,7 @@
         _hp_contentLabel              = hp_contentLabel;
         [self addSubview:hp_contentLabel];
         
-        
+        /** 发布时间 */
         UILabel *hp_makettimeLabel    = [UILabel new];
         hp_makettimeLabel.font        = [UIFont systemFontOfSize:10];
         hp_makettimeLabel.textColor   = [UIColor lightGrayColor];
@@ -69,36 +72,38 @@
     return self;
 }
 
+/** 设置frame */
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    /** 用户 */
     self.hp_authorLabel.x  = CGRectGetMaxX(self.imageView.frame) - self.hp_authorLabel.width;
     self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + ONEDefaultMargin;
-
+    /** 发布时间 */
     self.hp_makettimeLabel.x =  CGRectGetMaxX(self.imageView.frame) - self.hp_makettimeLabel.width;
     self.hp_makettimeLabel.y = ONEScreenWidth * 1.1 - 20;
-    
+    /** 内容 */
     self.hp_contentLabel.x = self.imageView.x + ONEDefaultMargin;
-    
     self.hp_contentLabel.centerY =  (CGRectGetMaxY(self.imageView.frame) + self.hp_makettimeLabel.y) * 0.5 + ONEDefaultMargin;
     
 }
 
-- (void)setSubbtotaItem:(ONEHomeSubtotalItem *)subbtotaItem
+/** 设置数据 */
+- (void)setSubtotalItem:(ONEHomeSubtotalItem *)subtotalItem
 {
-    _subbtotaItem = subbtotaItem;
+    _subtotalItem = subtotalItem;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:subbtotaItem.hp_img_url] placeholderImage:[UIImage imageNamed:@"123"]];
-    self.hp_titleLabel.text = subbtotaItem.hp_title;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:subtotalItem.hp_img_url] placeholderImage:[UIImage imageNamed:@"123"]];
+    self.hp_titleLabel.text = subtotalItem.hp_title;
     [self.hp_titleLabel sizeToFit];
     
-    self.hp_authorLabel.text = subbtotaItem.hp_author;
+    self.hp_authorLabel.text = subtotalItem.hp_author;
     [self.hp_authorLabel sizeToFit];
     
-    self.hp_makettimeLabel.text = subbtotaItem.hp_makettime;
+    self.hp_makettimeLabel.text = subtotalItem.hp_makettime;
     [self.hp_makettimeLabel sizeToFit];
     
-    self.hp_contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:subbtotaItem.hp_content];
+    self.hp_contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:subtotalItem.hp_content];
     [self.hp_contentLabel sizeToFit];
 }
 

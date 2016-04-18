@@ -38,9 +38,9 @@
 @property (nonatomic, strong) NSString *hp_makettime;
 @property (nonatomic, strong) NSString *last_update_date;
 @property (nonatomic, strong) NSString *web_url;
-@property (nonatomic, strong) NSString *praisenum;
-@property (nonatomic, strong) NSString *sharenum;
-@property (nonatomic, strong) NSString *commentnum;
+@property (nonatomic, assign) NSInteger praisenum;
+@property (nonatomic, assign) NSInteger sharenum;
+@property (nonatomic, assign) NSInteger commentnum;
 
 
 @property (nonatomic, assign) CGFloat height;

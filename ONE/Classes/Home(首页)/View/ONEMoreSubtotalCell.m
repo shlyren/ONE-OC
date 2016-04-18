@@ -11,8 +11,11 @@
 #import "UIImageView+WebCache.h"
 
 @interface ONEMoreSubtotalCell ()
+/** 图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+/** 标题 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_titleLable;
+/** 内容 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_contentLabel;
 @end
 
@@ -32,7 +35,7 @@
     _subtotalItem = subtotalItem;
     
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:subtotalItem.hp_img_url] placeholderImage:[UIImage imageNamed:@"home"]];
-    self.hp_titleLable.text = subtotalItem.hp_title;
+    self.hp_titleLable.text = [NSString stringWithFormat:@" %@", subtotalItem.hp_title];
     self.hp_contentLabel.text = subtotalItem.hp_content;
 }
 

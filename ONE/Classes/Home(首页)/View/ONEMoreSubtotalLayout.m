@@ -7,134 +7,107 @@
 //
 
 #import "ONEMoreSubtotalLayout.h"
-#import "ONEHomeSubtotalItem.h"
 
 @interface ONEMoreSubtotalLayout ()
 
 // 总列数
 #define columnCount 2
 
-// 所有item的属性的数组
-@property (nonatomic, strong) NSArray *layoutAttributesArray;
+/** 这个字典用来存储每一列最大的Y值(每一列的高度) */
+@property (nonatomic, strong) NSMutableDictionary *maxYDict;
+
+/** 存放所有的布局属性 */
+@property (nonatomic, strong) NSMutableArray *attrsArray;
+
+
 @end
 
 @implementation ONEMoreSubtotalLayout
-/**
- *  布局准备方法 当collectionView的布局发生变化时 会被调用
- *  通常是做布局的准备工作 itemSize.....
- *  UICollectionView 的 contentSize 是根据 itemSize 动态计算出来的
- */
+- (NSMutableDictionary *)maxYDict
+{
+    if (_maxYDict == nil) {
+        self.maxYDict = [NSMutableDictionary dictionary];
+    }
+    return _maxYDict;
+}
+
+- (NSMutableArray *)attrsArray
+{
+    if (_attrsArray == nil)
+    {
+        self.attrsArray = [NSMutableArray array];
+    }
+    return _attrsArray;
+}
+
 
 - (void)prepareLayout
 {
-    // 根据列数 计算item的宽度 宽度是一样的
-    CGFloat itemWidth = self.collectionView.width / columnCount - ONEDefaultMargin;
-    // 计算布局属性
-    [self computeAttributesWithItemWidth:itemWidth];
-}
-
-/**
- *  根据itemWidth计算布局属性
- */
-- (void)computeAttributesWithItemWidth:(CGFloat)itemWidth
-{
-    // 定义一个列高数组 记录每一列的总高度
-    CGFloat columnHeight[columnCount];
-    // 定义一个记录每一列的总item个数的数组
-    NSInteger columnItemCount[columnCount];
+    self.sectionInset = UIEdgeInsetsMake(0, 5, 10, 5);
     
-    // 初始化
+    // 1.清空最大的Y值
     for (NSInteger i = 0; i < columnCount; i++)
     {
-        columnHeight[i] = self.sectionInset.top;
-        columnItemCount[i] = 0;
+        NSString *column = [NSString stringWithFormat:@"%zd", i];
+        self.maxYDict[column] = @(self.sectionInset.top);
     }
     
-    // 遍历数组计算相关的属性
-    NSInteger index = 0;
-    NSMutableArray *attributesArray = [NSMutableArray arrayWithCapacity:self.subtotalArr.count];
-    for (ONEHomeSubtotalItem *subtotalItem in self.subtotalArr)
-    {
-        // 建立布局属性
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-        UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-        // 找出最短列号
-        NSInteger column = [self shortestColumn:columnHeight];
-        // 数据追加在最短列
-        columnItemCount[column]++;
-        // X值
-        CGFloat itemX = (itemWidth + self.minimumInteritemSpacing) * column + self.sectionInset.left + 5;
-        // Y值
-        CGFloat itemY = columnHeight[column];
-        // 等比例缩放 计算item的高度
-        CGFloat itemH = subtotalItem.height;
-        // 设置frame
-        attributes.frame = CGRectMake(itemX, itemY, itemWidth, itemH);
-        [attributesArray addObject:attributes];
-        
-        // 累加列高
-        columnHeight[column] += itemH + self.minimumLineSpacing;
-        
-        index++;
+    // 2.计算所有cell的属性
+    [self.attrsArray removeAllObjects];
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
+    for (NSInteger i = 0; i < count; i++) {
+        UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        [self.attrsArray addObject:attrs];
     }
-    
-    // 找出最高列列号
-    NSInteger column = [self highestColumn:columnHeight];
-    // 根据最高列设置itemSize 使用总高度的平均值
-    CGFloat itemH = (columnHeight[column] - self.minimumLineSpacing * columnItemCount[column]) / columnItemCount[column];
-    self.itemSize = CGSizeMake(itemWidth, itemH);
-    
-    // 给属性数组设置数值
-    self.layoutAttributesArray = attributesArray.copy;
 }
 
-/**
- *  找出columnHeight数组中最短列号 追加数据的时候追加在最短列中
- */
-- (NSInteger)shortestColumn:(CGFloat *)columnHeight
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 假设最短的那一列的第0列
+    __block NSString *minColumn = @"0";
+    // 找出最短的那一列
+    [self.maxYDict enumerateKeysAndObjectsUsingBlock:^(NSString *column, NSNumber *maxY, BOOL *stop) {
+        if (maxY.floatValue < [self.maxYDict[minColumn] floatValue]) minColumn = column;
+    }];
     
-    CGFloat max = CGFLOAT_MAX;
-    NSInteger column = 0;
-    for (int i = 0; i < columnCount; i++)
+    // 计算尺寸
+    CGFloat width = (self.collectionView.width - self.sectionInset.left - self.sectionInset.right - (columnCount - 1) * ONEDefaultMargin) / columnCount;
+    CGFloat height = 0.0;
+    if ([self.delegate respondsToSelector:@selector(subtotallowLayout:heightForWidth:atIndexPath:)])
     {
-        if (columnHeight[i] < max)
-        {
-            max = columnHeight[i];
-            column = i;
+        height = [self.delegate subtotallowLayout:self heightForWidth:width atIndexPath:indexPath];
+    }
+    
+    // 计算位置
+    CGFloat x = self.sectionInset.left + (width + ONEDefaultMargin) * minColumn.intValue;
+    CGFloat y = [self.maxYDict[minColumn] floatValue] + ONEDefaultMargin;
+    
+    // 更新这一列的最大Y值
+    self.maxYDict[minColumn] = @(y + height);
+    
+    // 创建属性
+    UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    attrs.frame = CGRectMake(x, y, width, height);
+    return attrs;
+    
+}
+
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    return self.attrsArray;
+}
+
+- (CGSize)collectionViewContentSize
+{
+    __block NSString *maxColumn = @"0";
+    [self.maxYDict enumerateKeysAndObjectsUsingBlock:^(NSString *column, NSNumber *maxY, BOOL *stop) {
+        if ([maxY floatValue] > [self.maxYDict[maxColumn] floatValue]) {
+            maxColumn = column;
         }
-    }
-    return column;
-}
-
-
-/**
- *  找出columnHeight数组中最高列号
- */
-- (NSInteger)highestColumn:(CGFloat *)columnHeight
-{
-    CGFloat min = 0;
-    NSInteger column = 0;
-    for (int i = 0; i < columnCount; i++)
-    {
-        if (columnHeight[i] > min) {
-            min = columnHeight[i];
-            column = i;
-        }
-    }
-    return column;
-}
-
-
-/**
- *  跟踪效果：当到达要显示的区域时 会计算所有显示item的属性
- *           一旦计算完成 所有的属性会被缓存 不会再次计算
- *  @return 返回布局属性(UICollectionViewLayoutAttributes)数组
- */
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
-    // 直接返回计算好的布局属性数组
-    return self.layoutAttributesArray;
+    }];
+    return CGSizeMake(0, [self.maxYDict[maxColumn] floatValue] + self.sectionInset.bottom);
+    
 }
 
 @end

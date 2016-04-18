@@ -68,21 +68,21 @@ NSString *const movie_comment                   = @"comment/praiseandtime/movie"
 NSString *const readAdUrl                       = @"http://v3.wufazhuce.com:8000/api/reading/carousel";
 /** 阅读的列表 全路径 */
 NSString *const readIndexUrl                    = @"http://v3.wufazhuce.com:8000/api/reading/index";
+/** 评论 */
+NSString *const readeCommnet                    = @"comment/praiseandtime";
 
 /** 短篇 */
 NSString *const essay                           = @"essay";                             // 内容
 NSString *const relates_essay                   = @"related/essay";                     // 推荐
-NSString *const comment_essay                   = @"comment/praiseandtime/essay";       // 评论
 
 /** 连载 */
 NSString *const serialcontent                   = @"serialcontent";                     // 内容
-NSString *const related_serial                   = @"related/serial";                    // 推荐
-NSString *const commnet_serial                  = @"comment/praiseandtime/serial";      // 评论
+NSString *const related_serial                  = @"related/serial";                    // 推荐
 
 /** 问题 */
 NSString *const question                        = @"question";                          // 内容
 NSString *const related_question                = @"related/question";                  // 推荐
-NSString *const commnet_question                = @"comment/praiseandtime/question";    // 评论
+
 /** 广告的点击 */
 NSString *const reading_carousel                = @"reading/carousel";
 
@@ -90,7 +90,6 @@ NSString *const reading_carousel                = @"reading/carousel";
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 首页 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 /** 首页rul */
 NSString *const homeSubtotal                    = @"http://v3.wufazhuce.com:8000/api/hp";
-
 
 
 

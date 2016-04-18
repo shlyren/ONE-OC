@@ -8,8 +8,9 @@
 
 #import "ONENavigationController.h"
 #import "SVProgressHUD.h"
+#import "ONESearchViewController.h"
 
-@interface ONENavigationController ()<UIGestureRecognizerDelegate>
+@interface ONENavigationController ()<UIGestureRecognizerDelegate , UINavigationControllerDelegate>
 @end
 
 @implementation ONENavigationController
@@ -37,12 +38,12 @@
         
     }else {// 当子控制器的个数==0 的时候, 表示暂定控制器是跟控制器, 设置导航条的item
         
-        // 创建右侧tabbItem
-        UIBarButtonItem *leftBtn = [self setUpNavigationItemImage:@"nav_search_default" target:self action:@selector(leftBtnClick)];
+        // 创建左侧tabbItem
+        UIBarButtonItem *leftBtn = [self setUpNavigationItemImage:@"nav_search_default" frame:CGRectMake(0, 15, 20, 20) action:@selector(leftBtnClick)];
         viewController.navigationItem.leftBarButtonItem = leftBtn;
         
          // 创建右侧tabbItem
-        UIBarButtonItem *rightBtn = [self setUpNavigationItemImage:@"nav_me_default" target:self action:@selector(rightBtnClick)];
+        UIBarButtonItem *rightBtn = [self setUpNavigationItemImage:@"nav_me_default" frame:CGRectMake(30, 15, 20, 20) action:@selector(rightBtnClick)];
         viewController.navigationItem.rightBarButtonItem = rightBtn;
         
     }
@@ -52,24 +53,19 @@
 }
 
 // 初始化跟控制器导航条的item
-- (UIBarButtonItem *)setUpNavigationItemImage:(NSString *)imageName target:(id)target action:(SEL)action
+- (UIBarButtonItem *)setUpNavigationItemImage:(NSString *)imageName frame:(CGRect)frame action:(SEL)action
 {
-    //创建右侧按钮
-    UIButton *btn = [UIButton new];
+    UIButton *bigBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    UIButton *smallBtn = [[UIButton alloc] initWithFrame:frame];
     
-    // 设置图片
-    [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    
-    // 设置frame
-    btn.frame = CGRectMake(0, 0, 20, 20);
+    smallBtn.userInteractionEnabled = false;
+    [smallBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
     // 添加点击事件
-    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [bigBtn addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    [bigBtn addSubview:smallBtn];
     
-    UIView *view = [[UIView alloc] initWithFrame:btn.bounds];
-    [view addSubview:btn];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:view];
+    return [[UIBarButtonItem alloc] initWithCustomView:bigBtn];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -83,8 +79,20 @@
 
 - (void)leftBtnClick
 {
-    ONELogFunc;
+    [SVProgressHUD dismiss];
+    ONESearchViewController *searchVc = [ONESearchViewController new];
+    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:searchVc];
+   nav.delegate = self;
+
+   [self presentViewController:nav animated:true completion:nil];
+
 }
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONESearchViewController class]] animated:true];
+}
+
 
 - (void)rightBtnClick
 {

@@ -17,7 +17,7 @@
 #import "ONEMusicSongViewController.h"
 #import "ONEAuthorItem.h"
 
-#define persionDetailHeader 340
+#define persionDetailHeader 360
 @interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet ONEPersonDetailTableView *tableView;

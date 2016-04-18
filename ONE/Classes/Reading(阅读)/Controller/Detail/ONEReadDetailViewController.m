@@ -12,7 +12,7 @@
 #import "ONEPersonDetailViewController.h"
 #import "ONEReadCommentItem.h"
 #import "MJRefresh.h"
-#import "ONEReadCommentCell.h"
+#import "ONECommentCell.h" //serial
 
 @interface ONEReadDetailViewController ()<ONEReadDetailHeaderViewDelegate>
 @property (nonatomic, strong) NSMutableArray *commentItems;
@@ -20,7 +20,7 @@
 @end
 
 @implementation ONEReadDetailViewController
-static NSString *const readCommentCellID = @"readCommentCellID";
+static NSString *const commentCellID = @"commentCell";
 NSString *const relatedCell = @"relatedCell";
 
 #pragma mark - lazy load
@@ -40,18 +40,17 @@ NSString *const relatedCell = @"relatedCell";
 #pragma mark  initial
 - (instancetype)init
 {
-    return [super initWithStyle:UITableViewStyleGrouped];
+    return [super initWithStyle: UITableViewStyleGrouped];
 }
-- (NSString *)commentUrl
+- (NSString *)commentType
 {
     return nil;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDetailData];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ONECommentCell" bundle:nil] forCellReuseIdentifier:readCommentCellID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ONECommentCell" bundle:nil] forCellReuseIdentifier:commentCellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"ONEReadRelatedCell" bundle:nil] forCellReuseIdentifier:relatedCell];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
@@ -77,7 +76,7 @@ NSString *const relatedCell = @"relatedCell";
 - (void)loadData
 {
     ONEWeakSelf
-    NSString *url = [NSString stringWithFormat:@"%@/%@/0",self.commentUrl, self.detail_id];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/0",readeCommnet,self.commentType, self.detail_id];
    [ONEDataRequest requestReadComment:url parameters:nil success:^(NSArray *commentItems) {
       
        if (!commentItems.count) return;
@@ -98,7 +97,7 @@ NSString *const relatedCell = @"relatedCell";
 {
     ONEWeakSelf
     NSString *comment_id = [self.commentItems.lastObject comment_id];
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@",self.commentUrl, self.detail_id, comment_id];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@", readeCommnet,self.commentType, self.detail_id, comment_id];
     
     [ONEDataRequest requestReadComment:url parameters:nil success:^(NSArray *commentItems) {
         
@@ -138,8 +137,11 @@ NSString *const relatedCell = @"relatedCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView tableViewSetExtraCellLineHidden];
-    ONEReadCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:readCommentCellID];
+    ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
+    
     cell.commentItem = self.commentItems[indexPath.row];
+    cell.detail_id = self.detail_id;
+    cell.commentType = self.commentType;
     return cell;
 }
 
@@ -151,7 +153,7 @@ NSString *const relatedCell = @"relatedCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ONEReadCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:readCommentCellID];
+    ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentItems[indexPath.row];
     return cell.rowHeight;
 }

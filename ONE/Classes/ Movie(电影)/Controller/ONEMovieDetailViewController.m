@@ -57,6 +57,7 @@ static NSString *const movieCommentID = @"movieComment";
 {
     self.automaticallyAdjustsScrollViewInsets = false;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -38, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(ONENavBMaxY, 0, 0, 0);
     ONEMovieDetailHeaderView *headerView = [ONEMovieDetailHeaderView tableHeaderView];
     headerView.movie_id = _movie_id;
     headerView.reviewCount = self.movieReviewResult.count;
