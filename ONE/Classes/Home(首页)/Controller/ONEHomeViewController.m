@@ -3,7 +3,7 @@
 //  ONE
 //
 //  Created by 任玉祥 on 16/4/1.
-//  Copyright © 2016年 ONE. All rights reserved.
+//  Copyright © 2016年 任玉祥. All rights reserved.
 // 首页
 
 #import "ONEHomeViewController.h"
