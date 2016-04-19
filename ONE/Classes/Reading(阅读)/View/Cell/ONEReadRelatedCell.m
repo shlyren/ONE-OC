@@ -25,6 +25,7 @@
 - (void)awakeFromNib
 {
     self.contentLabel.preferredMaxLayoutWidth = ONEScreenWidth - 2 * ONEDefaultMargin;
+    self.titleLabel.preferredMaxLayoutWidth = ONEScreenWidth - 61;
 }
 
 - (void)setEssayItem:(ONEEssayItem *)essayItem
@@ -33,8 +34,7 @@
     self.titleLabel.text = essayItem.hp_title;
     self.nameLabel.text = [essayItem.author.firstObject user_name];
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:essayItem.guide_word];
-    self.typeImgView.image = [UIImage imageNamed:@"readIcon"];
-    
+    self.typeImgView.image = [UIImage imageNamed:@"essay"];
 }
 
 - (void)setQuestionItem:(ONEQuestionItem *)questionItem
@@ -43,7 +43,7 @@
     self.titleLabel.text = questionItem.question_title;
     self.nameLabel.text = questionItem.answer_title;
     self.contentLabel.attributedText = [NSMutableAttributedString attributedStringWithString:questionItem.answer_content];
-    self.typeImgView.image = [UIImage imageNamed:@"questionIcon"];
+    self.typeImgView.image = [UIImage imageNamed:@"question"];
     
 }
 - (void)setSerialItem:(ONESerialItem *)serialItem
@@ -52,7 +52,7 @@
     self.titleLabel.text    = serialItem.title;
     self.nameLabel.text     = serialItem.author.user_name;
     self.contentLabel.text  = serialItem.excerpt;
-    self.typeImgView.image = [UIImage imageNamed:@"serialIcon"];
+    self.typeImgView.image = [UIImage imageNamed:@"serialcontent"];
 
 }
 

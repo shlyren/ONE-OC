@@ -205,13 +205,18 @@
 
 /** 短篇 推荐 */
 + (void)requestEssayRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *essayRelated))success failure:(void (^)(NSError *error))failure;
+
 /** 连载 推荐 */
 + (void)requestSerialRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialRelated))success failure:(void (^)(NSError *error))failure;
 
 /** 问题 推荐 */
 + (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure;
 
-/** carouselDetailItem */
+/** 连载列表 */
++ (void)requestSeriaList:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialList))success failure:(void (^)(NSError *error))failure;
+
+
+/** 阅读轮播 */
 + (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure;
 
 

@@ -66,13 +66,15 @@ UIKIT_EXTERN NSString *const readIndexUrl;
 /** 评论 */
 UIKIT_EXTERN NSString *const readeCommnet;
 
-/** 推荐 */
+/** 短篇 */
 UIKIT_EXTERN NSString *const essay;                 // 内容
 UIKIT_EXTERN NSString *const relates_essay;         // 推荐
 
 /** 连载 */
 UIKIT_EXTERN NSString *const serialcontent;         // 内容
 UIKIT_EXTERN NSString *const related_serial;        // 推荐
+/** 连载列表 */
+UIKIT_EXTERN NSString *const serial_list;
 
 /** 问题 */
 UIKIT_EXTERN NSString *const question;              // 内容

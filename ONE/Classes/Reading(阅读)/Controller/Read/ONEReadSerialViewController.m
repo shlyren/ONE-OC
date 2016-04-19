@@ -19,6 +19,15 @@
 {
     return self.readList.serial;
 }
+- (NSString *)endDate
+{
+    return @"2016-01";
+}
+//serialcontent
+- (NSString *)readType
+{
+    return serialcontent;
+}
 
 #pragma mark - Table view data source
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

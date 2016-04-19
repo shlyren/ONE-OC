@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ONEReadDetailHeaderView.h"
 #import "ONEDataRequest.h"
-
 #import "ONEReadRelatedCell.h"
-
 
 @interface ONEReadDetailViewController : UITableViewController
 UIKIT_EXTERN NSString *const relatedCell;

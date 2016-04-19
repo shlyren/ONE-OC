@@ -213,7 +213,7 @@
     }
 }
 
-#pragma mark - dcrollView delegate
+#pragma mark - scrollView delegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;

@@ -19,6 +19,11 @@
 {
     return self.readList.essay;
 }
+- (NSString *)readType
+{
+    return essay;
+}
+
 
 #pragma mark - Table view data source
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

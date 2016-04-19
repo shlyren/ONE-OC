@@ -56,7 +56,9 @@
 {
     ONEWeakSelf
     [SVProgressHUD show];
-    [ONEDataRequest requestQuestionRelated:self.detail_id paramrters:nil success:^(NSArray *questionRelated) {
+    
+    NSString *url = [related_question stringByAppendingPathComponent:self.detail_id];
+    [ONEDataRequest requestQuestionRelated:url paramrters:nil success:^(NSArray *questionRelated) {
         if (!questionRelated.count) return;
         weakSelf.relatedItems = questionRelated;
         [super loadRelatedData];

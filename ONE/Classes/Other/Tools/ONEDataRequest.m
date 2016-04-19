@@ -433,7 +433,7 @@
 + (void)requestEssayRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *essayRelated))success failure:(void (^)(NSError *error))failure
 {
     
-    url = [[ONEBaseUrl stringByAppendingPathComponent:relates_essay] stringByAppendingPathComponent:url];
+    url = [ONEBaseUrl stringByAppendingPathComponent:url];
     [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
         [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
             return @{@"author" : [ONEAuthorItem class]};
@@ -451,7 +451,7 @@
 /** 连载 推荐 */
 + (void)requestSerialRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialRelated))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:related_serial] stringByAppendingPathComponent:url];
+    url = [ONEBaseUrl stringByAppendingPathComponent:url];
     [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
         [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"content_id" : @"id"};
@@ -469,7 +469,7 @@
 /** 问题 推荐 */
 + (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:related_question] stringByAppendingPathComponent:url];
+    url = [ONEBaseUrl stringByAppendingPathComponent:url];
     [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
         
         NSArray *questionRelated = [ONEQuestionItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
@@ -482,8 +482,28 @@
 
 }
 
+/** 连载列表 */
++ (void)requestSeriaList:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialList))success failure:(void (^)(NSError *error))failure
+{
+    url = [serial_list stringByAppendingPathComponent:url];
+    
+    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+        
+        [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"content_id" : @"id"};
+        }];
+        
+        NSArray *serialList = [ONESerialItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
+        if (success) success(serialList);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"连载列表获取失败%@",error);
+    }];
+}
 
-/** carouselDetailItem */
+
+/** 阅读轮播 */
 + (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure
 {
     url = [[ONEBaseUrl stringByAppendingPathComponent:reading_carousel] stringByAppendingPathComponent:url];
@@ -514,7 +534,6 @@
         if (failure) failure(error);
         ONELog(@"首页数据获取失败%@",error);
     }];
-    
 }
 
 

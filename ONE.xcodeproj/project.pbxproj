@@ -58,6 +58,8 @@
 		55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFB1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m */; };
 		55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */; };
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
+		55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */; };
+		55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */; };
 		558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165931CC609830022458E /* NSMutableAttributedString+string.m */; };
 		558165AB1CC609830022458E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165951CC609830022458E /* UIColor+Hex.m */; };
 		558165AC1CC609830022458E /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165971CC609830022458E /* UIImage+image.m */; };
@@ -215,6 +217,10 @@
 		55422CFC1CBFEB1700A3B1A0 /* ONEDefaultCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONEDefaultCellItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEDefaultCellItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMusicDetailView.xib; sourceTree = "<group>"; };
+		55711AFF1CC66BC600A4EC54 /* ONEReadPastListResultVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadPastListResultVc.h; sourceTree = "<group>"; };
+		55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadPastListResultVc.m; sourceTree = "<group>"; };
+		55711B0B1CC66E0C00A4EC54 /* ONEReadPastListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadPastListViewController.h; sourceTree = "<group>"; };
+		55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadPastListViewController.m; sourceTree = "<group>"; };
 		558165921CC609830022458E /* NSMutableAttributedString+string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+string.h"; sourceTree = "<group>"; };
 		558165931CC609830022458E /* NSMutableAttributedString+string.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+string.m"; sourceTree = "<group>"; };
 		558165941CC609830022458E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -237,7 +243,6 @@
 		558165A71CC609830022458E /* ONEFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEFPSLabel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		558165A81CC609830022458E /* ONEHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEHttpTool.h; sourceTree = "<group>"; };
 		558165A91CC609830022458E /* ONEHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEHttpTool.m; sourceTree = "<group>"; };
-		558165B51CC61AA00022458E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5592EFC11CB0175200FA3D76 /* ONEMusicDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicDetailView.h; sourceTree = "<group>"; };
 		5592EFC21CB0175200FA3D76 /* ONEMusicDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicDetailView.m; sourceTree = "<group>"; };
 		5592EFD01CB1122200FA3D76 /* ONEMusicRelatedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicRelatedCell.h; sourceTree = "<group>"; };
@@ -505,6 +510,17 @@
 				55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */,
 			);
 			path = cellItem;
+			sourceTree = "<group>";
+		};
+		55711AFE1CC669A800A4EC54 /* PastList */ = {
+			isa = PBXGroup;
+			children = (
+				55711AFF1CC66BC600A4EC54 /* ONEReadPastListResultVc.h */,
+				55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */,
+				55711B0B1CC66E0C00A4EC54 /* ONEReadPastListViewController.h */,
+				55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */,
+			);
+			path = PastList;
 			sourceTree = "<group>";
 		};
 		558165911CC609830022458E /* Category */ = {
@@ -907,6 +923,7 @@
 		7E1A39451CAD9D1B0085EB67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				55711AFE1CC669A800A4EC54 /* PastList */,
 				550904371CBFD64700F884C2 /* Detail */,
 				5509043E1CBFD64700F884C2 /* Read */,
 			);
@@ -965,7 +982,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 7E1A38E11CAD960C0085EB67;
@@ -1137,12 +1153,14 @@
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
+				55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				55C6DD6F1CC4D03D00988121 /* ONESearchMusicItem.m in Sources */,
 				558165B01CC609830022458E /* ONEConst.m in Sources */,
 				5509044D1CBFD64700F884C2 /* ONEReadQuestionViewController.m in Sources */,
 				558165B41CC609830022458E /* ONEHttpTool.m in Sources */,
 				55FC849E1CBAB98300E454A3 /* ONEMovieListItem.m in Sources */,
+				55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */,
 				558165AD1CC609830022458E /* UITableView+Extension.m in Sources */,
 				553BDD891CC0D27C006BE7BF /* ONEReadCommentItem.m in Sources */,
 				55422CFE1CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m in Sources */,
@@ -1166,7 +1184,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				7E1A38FC1CAD960C0085EB67 /* Base */,
-				558165B51CC61AA00022458E /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

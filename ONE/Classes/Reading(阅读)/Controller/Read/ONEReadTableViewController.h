@@ -14,8 +14,18 @@ UIKIT_EXTERN NSString *const readCell;
 @interface ONEReadTableViewController : UITableViewController
 
 @property (nonatomic, strong) ONEReadListItem *readList;
-
+/**
+ *  阅读的模型数组
+ */
 - (NSArray *)readItems;
+/**
+ *  往期作品的截止时间
+ */
+- (NSString *)endDate;
+/**
+ *  阅读的类型
+ */
+- (NSString *)readType;
 
 @end
 

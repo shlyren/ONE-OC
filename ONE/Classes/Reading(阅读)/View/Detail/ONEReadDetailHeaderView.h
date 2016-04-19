@@ -17,6 +17,7 @@
 
 @optional
 - (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height;
+- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didSelectedSerialList:(NSString *)content_id;
 
 @end
 

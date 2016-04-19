@@ -78,6 +78,8 @@ NSString *const relates_essay                   = @"related/essay";       // 推
 /** 连载 */
 NSString *const serialcontent                   = @"serialcontent";       // 内容
 NSString *const related_serial                  = @"related/serial";      // 推荐
+/** 连载列表 */
+NSString *const serial_list                     = @"http://v3.wufazhuce.com:8000/api/serial/list/";
 
 /** 问题 */
 NSString *const question                        = @"question";            // 内容

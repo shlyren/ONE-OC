@@ -36,15 +36,20 @@
     } failure:nil];
 }
 
+
 - (void)loadRelatedData
 {
     [SVProgressHUD show];
-    [ONEDataRequest requestSerialRelated:self.detail_id paramrters:nil success:^(NSArray *serialRelated) {
+    
+    NSString *url =  [related_serial stringByAppendingPathComponent:self.detail_id];
+    [ONEDataRequest requestSerialRelated:url paramrters:nil success:^(NSArray *serialRelated) {
         if (!serialRelated.count) return;
         self.relatedItems = serialRelated;
         [super loadRelatedData];
     } failure:nil];
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -18,7 +18,10 @@
 {
     return self.readList.question;
 }
-
+- (NSString *)readType
+{
+    return question;
+}
 #pragma mark - Table view data source
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

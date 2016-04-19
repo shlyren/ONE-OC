@@ -14,7 +14,7 @@
 #import "MJRefresh.h"
 #import "ONECommentCell.h" //serial
 
-@interface ONEReadDetailViewController ()<ONEReadDetailHeaderViewDelegate>
+@interface ONEReadDetailViewController () <ONEReadDetailHeaderViewDelegate>
 @property (nonatomic, strong) NSMutableArray *commentItems;
 
 @end
@@ -119,6 +119,12 @@ NSString *const relatedCell = @"relatedCell";
 {
     self.headerView.height = height;
     self.tableView.tableHeaderView = self.headerView;
+}
+
+- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didSelectedSerialList:(NSString *)content_id
+{
+    self.detail_id = content_id;
+    [self loadDetailData];
 }
 
 #pragma mark - Table view data source
