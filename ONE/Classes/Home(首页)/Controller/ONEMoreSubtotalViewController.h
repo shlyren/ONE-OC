@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ONEMoreSubtotalViewController : UIViewController
+/** 往期数据月份  格式  yyyy-MM */
 @property (nonatomic, strong) NSString *month;
 @end

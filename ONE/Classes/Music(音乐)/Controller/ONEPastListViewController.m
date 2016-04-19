@@ -16,11 +16,13 @@
 {
     [super viewDidLoad];
     self.title = @"往期列表";
-    _pastLists = [self arryWithDateStr:self.endMonth];
+    _pastLists = [self arryWithEndDateStr:self.endMonth];
 }
 
-- (NSArray *)arryWithDateStr:(NSString *)dateStr
+- (NSArray *)arryWithEndDateStr:(NSString *)endDateStr
 {
+    if (![endDateStr containsString:@"-"]) return nil;
+    
     /** 当前的时间 */
     NSDateFormatter *formatter = [NSDateFormatter new];
     formatter.dateFormat = @"yyyy-MM";
@@ -30,25 +32,22 @@
     if (range.location != NSNotFound)
     {
         currentDate = [currentDate stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
-        
     }
     NSInteger currentMonth = currentDate.integerValue;
     
     
     /** 截止的时间 */
-    NSInteger endYear = dateStr.integerValue;
-    range = [dateStr rangeOfString:@"-"];
+    NSInteger endYear = endDateStr.integerValue;
+    range = [endDateStr rangeOfString:@"-"];
     if (range.location != NSNotFound)
     {
-        dateStr = [dateStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+        endDateStr = [endDateStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
     }
-    NSInteger endMonth = dateStr.integerValue;
-
+    NSInteger endMonth = endDateStr.integerValue;
     
     NSInteger maxMonth = 0;
     NSInteger minMonth = 0;
     NSMutableArray *tmpArr = [NSMutableArray array];
-    
     for (NSInteger resYear = currentYear; resYear >= endYear; resYear--)
     {
         maxMonth = resYear == currentYear ? currentMonth : 12;
@@ -58,7 +57,6 @@
         {
             [tmpArr addObject:[NSString stringWithFormat:@"%zd-%02zd",resYear, resMonth]];
         }
-        
     }
     
     return tmpArr;

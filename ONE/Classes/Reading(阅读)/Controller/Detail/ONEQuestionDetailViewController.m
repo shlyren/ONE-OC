@@ -55,6 +55,7 @@
 - (void)loadRelatedData
 {
     ONEWeakSelf
+    [SVProgressHUD show];
     [ONEDataRequest requestQuestionRelated:self.detail_id paramrters:nil success:^(NSArray *questionRelated) {
         if (!questionRelated.count) return;
         weakSelf.relatedItems = questionRelated;

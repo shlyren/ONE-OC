@@ -97,6 +97,7 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
     [self.footerLabel sizeToFit];
     
     ONEWeakSelf
+    [SVProgressHUD show];
     [ONEDataRequest requestCarousel:adItem.ad_id paramrters:nil success:^(NSArray *carouselDetailItem) {
         if (carouselDetailItem.count)
         {

@@ -50,7 +50,7 @@
         UILabel *hp_authorLabel       = [UILabel new];
         hp_authorLabel.font           = [UIFont systemFontOfSize:10];
         hp_authorLabel.textColor      = [UIColor lightGrayColor];
-                _hp_authorLabel       = hp_authorLabel;
+        _hp_authorLabel               = hp_authorLabel;
         [self addSubview:hp_authorLabel];
         
         /** 内容 */

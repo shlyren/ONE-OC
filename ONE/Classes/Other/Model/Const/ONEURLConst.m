@@ -72,16 +72,16 @@ NSString *const readIndexUrl                    = @"http://v3.wufazhuce.com:8000
 NSString *const readeCommnet                    = @"comment/praiseandtime";
 
 /** 短篇 */
-NSString *const essay                           = @"essay";                             // 内容
-NSString *const relates_essay                   = @"related/essay";                     // 推荐
+NSString *const essay                           = @"essay";               // 内容
+NSString *const relates_essay                   = @"related/essay";       // 推荐
 
 /** 连载 */
-NSString *const serialcontent                   = @"serialcontent";                     // 内容
-NSString *const related_serial                  = @"related/serial";                    // 推荐
+NSString *const serialcontent                   = @"serialcontent";       // 内容
+NSString *const related_serial                  = @"related/serial";      // 推荐
 
 /** 问题 */
-NSString *const question                        = @"question";                          // 内容
-NSString *const related_question                = @"related/question";                  // 推荐
+NSString *const question                        = @"question";            // 内容
+NSString *const related_question                = @"related/question";    // 推荐
 
 /** 广告的点击 */
 NSString *const reading_carousel                = @"reading/carousel";

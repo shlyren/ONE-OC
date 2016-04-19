@@ -11,7 +11,6 @@
 #import "SVProgressHUD.h"
 #import "ONEFPSLabel.h"
 #import "SDImageCache.h"
-//#import "AFNetworking.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -34,7 +33,7 @@
     
     // 界面 FPS 代码
 #if DEBUG
-    [self.window addSubview: [[ONEFPSLabel alloc] initWithFrame: CGRectMake(15, ONEScreenHeight - 40, 55, 50)]];
+    [self.window addSubview: [[ONEFPSLabel alloc] initWithFrame:CGRectMake(15, ONEScreenHeight - 50, 0, 0)]];
 #else
 #endif
     

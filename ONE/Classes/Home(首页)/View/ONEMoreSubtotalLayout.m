@@ -74,9 +74,19 @@
     // 计算尺寸
     CGFloat width = (self.collectionView.width - self.sectionInset.left - self.sectionInset.right - (columnCount - 1) * ONEDefaultMargin) / columnCount;
     CGFloat height = 0.0;
+    
+    if (self.delegate == nil)
+    {
+         [[NSException exceptionWithName:@"ONEMoreSubtotalLayout delegate is nil" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:' " userInfo:nil] raise];
+    }
+    
     if ([self.delegate respondsToSelector:@selector(subtotallowLayout:heightForWidth:atIndexPath:)])
     {
         height = [self.delegate subtotallowLayout:self heightForWidth:width atIndexPath:indexPath];
+    }else{
+        ///Users/Schnappi/Documents/Git/oneIsAll/ONE/Classes/Home(首页)/Controller/ONEMoreSubtotalViewController.m:21:17: Method 'subtotallowLayout:heightForWidth:atIndexPath:' in protocol 'ONEMoreSubtotalLayoutDelegate' not implemented
+        
+        [[NSException exceptionWithName:@"ONEMoreSubtotalLayoutDelegate method not implemented" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:' " userInfo:nil] raise];
     }
     
     // 计算位置

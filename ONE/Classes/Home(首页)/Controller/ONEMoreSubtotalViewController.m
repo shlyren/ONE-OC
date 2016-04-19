@@ -20,7 +20,7 @@
 
 @implementation ONEMoreSubtotalViewController
 
-static NSString * const moreSubtotalCell = @"moreSubtotalCell";
+static NSString *const moreSubtotalCell = @"moreSubtotalCell";
 
 #pragma mark - lazy load
 - (UICollectionView *)collectionView

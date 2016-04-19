@@ -20,9 +20,9 @@
  "hp_makettime"         :"2016-04-15 21:00:00", //
  "last_update_date"     :"2016-04-08 13:10:43",
  "web_url"              :"http://m.wufazhuce.com/one/1310",
- "wb_img_url"               :"",
+ "wb_img_url"           :"",
  "praisenum"            :5117,
- "sharenum"         :682,
+ "sharenum"             :682,
  "commentnum"           :252
  */
 @interface ONEHomeSubtotalItem : NSObject

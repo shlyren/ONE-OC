@@ -94,7 +94,7 @@
 
 - (void)cardContainerViewDidCompleteAll:(YSLDraggableCardContainer *)container;
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经显示完毕" message:@"您还可以" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经加载完毕" message:@"你还可以" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"再看一次" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [container reloadCardContainer];
@@ -132,6 +132,7 @@
     [self allSubtotal];
 }
 
+/** 往期列表 */
 - (void)allSubtotal
 {
     ONEMoviePastListVc *pastListVc = [ONEMoviePastListVc new];
@@ -163,7 +164,7 @@
             [SVProgressHUD showErrorWithStatus:message];
             
         }else{
-             self.praiseButton.selected = !self.praiseButton.selected;
+            self.praiseButton.selected = !self.praiseButton.selected;
             NSInteger praisenum = self.praiseButton.selected ? ++item.praisenum : --item.praisenum;
             [_praiseButton setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
             [_praiseButton setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateSelected];

@@ -11,6 +11,17 @@
 @class ONEMoreSubtotalLayout;
 
 @protocol ONEMoreSubtotalLayoutDelegate <NSObject>
+
+/**
+ *  每个item的高度
+ *
+ *  @param subtotallowLayout 布局参数
+ *  @param width             item的宽度
+ *  @param indexPath         item的索引
+ *
+ *  @return Item的高度
+ */
+@required
 - (CGFloat)subtotallowLayout:(ONEMoreSubtotalLayout *)subtotallowLayout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath;
 @end
 

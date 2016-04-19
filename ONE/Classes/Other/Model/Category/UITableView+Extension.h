@@ -19,12 +19,13 @@
 - (void)tableViewShowMessage:(NSString *)message numberOfRows:(NSInteger)rowCount;
 
 /**
- *  没有内容是显示一张图片
+ *  没有内容时显示一张图片
  *
  *  @param imageName 图片名字
- *  @param rowCount  cell 的个数
+ *  @param rowCount  row的个数
  */
 - (void)tableViewShowImage:(NSString *)imageName  numberOfRows:(NSInteger)rowCount;
+
 /**
  *  隐藏tableViewCell多余的分割线
  *  cellForRowAtIndexPath 方法中调用

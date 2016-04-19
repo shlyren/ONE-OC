@@ -38,6 +38,7 @@
 
 - (void)loadRelatedData
 {
+    [SVProgressHUD show];
     [ONEDataRequest requestSerialRelated:self.detail_id paramrters:nil success:^(NSArray *serialRelated) {
         if (!serialRelated.count) return;
         self.relatedItems = serialRelated;

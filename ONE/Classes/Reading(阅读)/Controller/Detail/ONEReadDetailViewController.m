@@ -97,8 +97,9 @@ NSString *const relatedCell = @"relatedCell";
 {
     ONEWeakSelf
     NSString *comment_id = [self.commentItems.lastObject comment_id];
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@", readeCommnet,self.commentType, self.detail_id, comment_id];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@", readeCommnet, self.commentType, self.detail_id, comment_id];
     
+    [SVProgressHUD show];
     [ONEDataRequest requestReadComment:url parameters:nil success:^(NSArray *commentItems) {
         
         if (commentItems.count) {
@@ -140,7 +141,7 @@ NSString *const relatedCell = @"relatedCell";
     ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     
     cell.commentItem = self.commentItems[indexPath.row];
-    cell.detail_id = self.detail_id;
+    cell.detail_id   = self.detail_id;
     cell.commentType = self.commentType;
     return cell;
 }
@@ -160,7 +161,8 @@ NSString *const relatedCell = @"relatedCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0 && self.relatedItems.count ) return [ONEReadDetailHeaderView relatedSectionHeader];
+    if (section == 0 && self.relatedItems.count )
+    return [ONEReadDetailHeaderView relatedSectionHeader];
     return [ONEReadDetailHeaderView commentSectionHeader];
 }
 

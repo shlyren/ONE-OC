@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@class ONEHomeSubtotalItem;
-
 @interface YSLCardView : UIView
 
 /**
@@ -20,6 +18,7 @@
 
 @end
 
+@class ONEHomeSubtotalItem;
 @interface ONEDraggableCardView : YSLCardView
 
 @property (nonatomic, strong) ONEHomeSubtotalItem *subtotalItem;

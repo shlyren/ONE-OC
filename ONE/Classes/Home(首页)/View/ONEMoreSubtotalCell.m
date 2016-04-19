@@ -26,7 +26,7 @@
     [super awakeFromNib];
     self.backgroundColor = [UIColor colorWithWhite:0.98 alpha:0.9];
     self.layer.shouldRasterize = true;
-    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    self.layer.rasterizationScale = UIScreen.mainScreen.scale;
     self.layer.cornerRadius = 5;
 }
 

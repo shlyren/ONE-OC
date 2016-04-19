@@ -501,7 +501,7 @@
 
 
 #pragma mark - 首页
-/** 首页小记 */
+/** 首页 小记 */
 + (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure
 {
     url = [homeSubtotal stringByAppendingPathComponent:url];

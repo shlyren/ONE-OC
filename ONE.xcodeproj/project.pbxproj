@@ -802,12 +802,12 @@
 		7E1A39291CAD9D1B0085EB67 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				55C6DD471CC4B2E400988121 /* Personal(个人) */,
-				55C6DD4B1CC4B2E400988121 /* Search(搜索) */,
 				553BDD9E1CC138B2006BE7BF /* Home(首页) */,
 				7E1A39441CAD9D1B0085EB67 /* Reading(阅读) */,
 				7E1A39361CAD9D1B0085EB67 /* Music(音乐) */,
 				7E1A392A1CAD9D1B0085EB67 /*  Movie(电影) */,
+				55C6DD4B1CC4B2E400988121 /* Search(搜索) */,
+				55C6DD471CC4B2E400988121 /* Personal(个人) */,
 				7E1A39321CAD9D1B0085EB67 /* Main */,
 				7E1A393E1CAD9D1B0085EB67 /* Other */,
 			);
