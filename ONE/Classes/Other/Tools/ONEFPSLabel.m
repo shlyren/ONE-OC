@@ -23,6 +23,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     frame.size = CGSizeMake(55, 20);
+    
     if (self = [super initWithFrame: frame])
     {
         self.layer.cornerRadius = 5;
@@ -36,11 +37,13 @@
         self.link = [CADisplayLink displayLinkWithTarget: weakSelf selector: @selector(tick:)];
         [self.link addToRunLoop: [NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];
     }
+    
     return self;
 }
 
 
-- (void)tick:(CADisplayLink *)link {
+- (void)tick:(CADisplayLink *)link
+{
     if (self.lastTime == 0)
     {
         self.lastTime = link.timestamp;
@@ -49,15 +52,15 @@
     
     self.count++;
     NSTimeInterval delta = link.timestamp - self.lastTime;
-    if (delta < 1)
-        return;
+    
+    if (delta < 1) return;
     self.lastTime = link.timestamp;
     double fps = self.count / delta;
     _count = 0;
     
-    double progress = fps / 60.0;
+    CGFloat progress = fps / 60.0;
     self.textColor = [UIColor colorWithHue: 0.27 * (progress - 0.2) saturation: 1 brightness: 0.9 alpha: 1];
-    self.text = [NSString stringWithFormat: @"%dFPS", (int)(fps + 0.5)];
+    self.text = [NSString stringWithFormat: @"%zdFPS", (NSInteger)(fps + 0.5)];
 }
 
 

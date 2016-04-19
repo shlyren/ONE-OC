@@ -37,6 +37,25 @@
     
 }
 
+
+- (void)tableViewShowImage:(NSString *)imageName numberOfRows:(NSInteger)rowCount;
+{
+    if (!rowCount)
+    {
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.backgroundView = imageView;
+        
+    }else {
+        self.backgroundView = nil;
+        self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+
+    
+}
+
 /**
  *  隐藏tableViewCell多余的分割线
  */

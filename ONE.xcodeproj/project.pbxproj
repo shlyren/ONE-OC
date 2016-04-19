@@ -58,6 +58,17 @@
 		55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFB1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m */; };
 		55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */; };
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
+		558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165931CC609830022458E /* NSMutableAttributedString+string.m */; };
+		558165AB1CC609830022458E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165951CC609830022458E /* UIColor+Hex.m */; };
+		558165AC1CC609830022458E /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165971CC609830022458E /* UIImage+image.m */; };
+		558165AD1CC609830022458E /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165991CC609830022458E /* UITableView+Extension.m */; };
+		558165AE1CC609830022458E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5581659B1CC609830022458E /* UIView+Frame.m */; };
+		558165AF1CC609830022458E /* UIViewController+topViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5581659D1CC609830022458E /* UIViewController+topViewController.m */; };
+		558165B01CC609830022458E /* ONEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165A01CC609830022458E /* ONEConst.m */; };
+		558165B11CC609830022458E /* ONEURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165A21CC609830022458E /* ONEURLConst.m */; };
+		558165B21CC609830022458E /* ONEDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165A51CC609830022458E /* ONEDataRequest.m */; };
+		558165B31CC609830022458E /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165A71CC609830022458E /* ONEFPSLabel.m */; };
+		558165B41CC609830022458E /* ONEHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165A91CC609830022458E /* ONEHttpTool.m */; };
 		5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592EFC21CB0175200FA3D76 /* ONEMusicDetailView.m */; };
 		5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592EFD11CB1122200FA3D76 /* ONEMusicRelatedCell.m */; };
 		5592EFD41CB1122200FA3D76 /* ONEMusicRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5592EFD21CB1122200FA3D76 /* ONEMusicRelatedCell.xib */; };
@@ -76,17 +87,6 @@
 		55C6DD121CC38EFA00988121 /* ONEMoreSubtotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */; };
 		55C6DD191CC3CF7700988121 /* ONESubtotalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD171CC3CF7700988121 /* ONESubtotalDetailViewController.m */; };
 		55C6DD1A1CC3CF7700988121 /* ONESubtotalDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD181CC3CF7700988121 /* ONESubtotalDetailViewController.xib */; };
-		55C6DD3B1CC4B24E00988121 /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD241CC4B24E00988121 /* NSMutableAttributedString+string.m */; };
-		55C6DD3C1CC4B24E00988121 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD261CC4B24E00988121 /* UIColor+Hex.m */; };
-		55C6DD3D1CC4B24E00988121 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD281CC4B24E00988121 /* UIImage+image.m */; };
-		55C6DD3E1CC4B24E00988121 /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD2A1CC4B24E00988121 /* UITableView+Extension.m */; };
-		55C6DD3F1CC4B24E00988121 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD2C1CC4B24E00988121 /* UIView+Frame.m */; };
-		55C6DD401CC4B24E00988121 /* UIViewController+topViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD2E1CC4B24E00988121 /* UIViewController+topViewController.m */; };
-		55C6DD411CC4B24E00988121 /* ONEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD311CC4B24E00988121 /* ONEConst.m */; };
-		55C6DD421CC4B24E00988121 /* ONEURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD331CC4B24E00988121 /* ONEURLConst.m */; };
-		55C6DD431CC4B24E00988121 /* ONEDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD361CC4B24E00988121 /* ONEDataRequest.m */; };
-		55C6DD441CC4B24E00988121 /* ONEFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD381CC4B24E00988121 /* ONEFPSLabel.m */; };
-		55C6DD451CC4B24E00988121 /* ONEHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD3A1CC4B24E00988121 /* ONEHttpTool.m */; };
 		55C6DD521CC4B75000988121 /* ONESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD501CC4B75000988121 /* ONESearchViewController.m */; };
 		55C6DD531CC4B75000988121 /* ONESearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD511CC4B75000988121 /* ONESearchViewController.xib */; };
 		55C6DD571CC4C4E200988121 /* ONESearchBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD561CC4C4E200988121 /* ONESearchBaseViewController.m */; };
@@ -215,6 +215,28 @@
 		55422CFC1CBFEB1700A3B1A0 /* ONEDefaultCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDefaultCellItem.h; sourceTree = "<group>"; };
 		55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDefaultCellItem.m; sourceTree = "<group>"; };
 		5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMusicDetailView.xib; sourceTree = "<group>"; };
+		558165921CC609830022458E /* NSMutableAttributedString+string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+string.h"; sourceTree = "<group>"; };
+		558165931CC609830022458E /* NSMutableAttributedString+string.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+string.m"; sourceTree = "<group>"; };
+		558165941CC609830022458E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		558165951CC609830022458E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		558165961CC609830022458E /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
+		558165971CC609830022458E /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
+		558165981CC609830022458E /* UITableView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extension.h"; sourceTree = "<group>"; };
+		558165991CC609830022458E /* UITableView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
+		5581659A1CC609830022458E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		5581659B1CC609830022458E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		5581659C1CC609830022458E /* UIViewController+topViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+topViewController.h"; sourceTree = "<group>"; };
+		5581659D1CC609830022458E /* UIViewController+topViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+topViewController.m"; sourceTree = "<group>"; };
+		5581659F1CC609830022458E /* ONEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEConst.h; sourceTree = "<group>"; };
+		558165A01CC609830022458E /* ONEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEConst.m; sourceTree = "<group>"; };
+		558165A11CC609830022458E /* ONEURLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLConst.h; sourceTree = "<group>"; };
+		558165A21CC609830022458E /* ONEURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLConst.m; sourceTree = "<group>"; };
+		558165A41CC609830022458E /* ONEDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDataRequest.h; sourceTree = "<group>"; };
+		558165A51CC609830022458E /* ONEDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDataRequest.m; sourceTree = "<group>"; };
+		558165A61CC609830022458E /* ONEFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFPSLabel.h; sourceTree = "<group>"; };
+		558165A71CC609830022458E /* ONEFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEFPSLabel.m; sourceTree = "<group>"; };
+		558165A81CC609830022458E /* ONEHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEHttpTool.h; sourceTree = "<group>"; };
+		558165A91CC609830022458E /* ONEHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEHttpTool.m; sourceTree = "<group>"; };
 		5592EFC11CB0175200FA3D76 /* ONEMusicDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicDetailView.h; sourceTree = "<group>"; };
 		5592EFC21CB0175200FA3D76 /* ONEMusicDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicDetailView.m; sourceTree = "<group>"; };
 		5592EFD01CB1122200FA3D76 /* ONEMusicRelatedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicRelatedCell.h; sourceTree = "<group>"; };
@@ -249,28 +271,6 @@
 		55C6DD161CC3CF7700988121 /* ONESubtotalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESubtotalDetailViewController.h; sourceTree = "<group>"; };
 		55C6DD171CC3CF7700988121 /* ONESubtotalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONESubtotalDetailViewController.m; sourceTree = "<group>"; };
 		55C6DD181CC3CF7700988121 /* ONESubtotalDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONESubtotalDetailViewController.xib; sourceTree = "<group>"; };
-		55C6DD231CC4B24E00988121 /* NSMutableAttributedString+string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+string.h"; sourceTree = "<group>"; };
-		55C6DD241CC4B24E00988121 /* NSMutableAttributedString+string.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+string.m"; sourceTree = "<group>"; };
-		55C6DD251CC4B24E00988121 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		55C6DD261CC4B24E00988121 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		55C6DD271CC4B24E00988121 /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
-		55C6DD281CC4B24E00988121 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
-		55C6DD291CC4B24E00988121 /* UITableView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extension.h"; sourceTree = "<group>"; };
-		55C6DD2A1CC4B24E00988121 /* UITableView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
-		55C6DD2B1CC4B24E00988121 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		55C6DD2C1CC4B24E00988121 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		55C6DD2D1CC4B24E00988121 /* UIViewController+topViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+topViewController.h"; sourceTree = "<group>"; };
-		55C6DD2E1CC4B24E00988121 /* UIViewController+topViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+topViewController.m"; sourceTree = "<group>"; };
-		55C6DD301CC4B24E00988121 /* ONEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEConst.h; sourceTree = "<group>"; };
-		55C6DD311CC4B24E00988121 /* ONEConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEConst.m; sourceTree = "<group>"; };
-		55C6DD321CC4B24E00988121 /* ONEURLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEURLConst.h; sourceTree = "<group>"; };
-		55C6DD331CC4B24E00988121 /* ONEURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEURLConst.m; sourceTree = "<group>"; };
-		55C6DD351CC4B24E00988121 /* ONEDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDataRequest.h; sourceTree = "<group>"; };
-		55C6DD361CC4B24E00988121 /* ONEDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDataRequest.m; sourceTree = "<group>"; };
-		55C6DD371CC4B24E00988121 /* ONEFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFPSLabel.h; sourceTree = "<group>"; };
-		55C6DD381CC4B24E00988121 /* ONEFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEFPSLabel.m; sourceTree = "<group>"; };
-		55C6DD391CC4B24E00988121 /* ONEHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEHttpTool.h; sourceTree = "<group>"; };
-		55C6DD3A1CC4B24E00988121 /* ONEHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEHttpTool.m; sourceTree = "<group>"; };
 		55C6DD4F1CC4B75000988121 /* ONESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESearchViewController.h; sourceTree = "<group>"; };
 		55C6DD501CC4B75000988121 /* ONESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONESearchViewController.m; sourceTree = "<group>"; };
 		55C6DD511CC4B75000988121 /* ONESearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONESearchViewController.xib; sourceTree = "<group>"; };
@@ -507,6 +507,49 @@
 			path = cellItem;
 			sourceTree = "<group>";
 		};
+		558165911CC609830022458E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				558165921CC609830022458E /* NSMutableAttributedString+string.h */,
+				558165931CC609830022458E /* NSMutableAttributedString+string.m */,
+				558165941CC609830022458E /* UIColor+Hex.h */,
+				558165951CC609830022458E /* UIColor+Hex.m */,
+				558165961CC609830022458E /* UIImage+image.h */,
+				558165971CC609830022458E /* UIImage+image.m */,
+				558165981CC609830022458E /* UITableView+Extension.h */,
+				558165991CC609830022458E /* UITableView+Extension.m */,
+				5581659A1CC609830022458E /* UIView+Frame.h */,
+				5581659B1CC609830022458E /* UIView+Frame.m */,
+				5581659C1CC609830022458E /* UIViewController+topViewController.h */,
+				5581659D1CC609830022458E /* UIViewController+topViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		5581659E1CC609830022458E /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				5581659F1CC609830022458E /* ONEConst.h */,
+				558165A01CC609830022458E /* ONEConst.m */,
+				558165A11CC609830022458E /* ONEURLConst.h */,
+				558165A21CC609830022458E /* ONEURLConst.m */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		558165A31CC609830022458E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				558165A41CC609830022458E /* ONEDataRequest.h */,
+				558165A51CC609830022458E /* ONEDataRequest.m */,
+				558165A61CC609830022458E /* ONEFPSLabel.h */,
+				558165A71CC609830022458E /* ONEFPSLabel.m */,
+				558165A81CC609830022458E /* ONEHttpTool.h */,
+				558165A91CC609830022458E /* ONEHttpTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		55B9A0E01CBF2669009E44AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,52 +579,6 @@
 				550904271CBFD62500F884C2 /* Read */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		55C6DD221CC4B24E00988121 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				55C6DD231CC4B24E00988121 /* NSMutableAttributedString+string.h */,
-				55C6DD241CC4B24E00988121 /* NSMutableAttributedString+string.m */,
-				55C6DD251CC4B24E00988121 /* UIColor+Hex.h */,
-				55C6DD261CC4B24E00988121 /* UIColor+Hex.m */,
-				55C6DD271CC4B24E00988121 /* UIImage+image.h */,
-				55C6DD281CC4B24E00988121 /* UIImage+image.m */,
-				55C6DD291CC4B24E00988121 /* UITableView+Extension.h */,
-				55C6DD2A1CC4B24E00988121 /* UITableView+Extension.m */,
-				55C6DD2B1CC4B24E00988121 /* UIView+Frame.h */,
-				55C6DD2C1CC4B24E00988121 /* UIView+Frame.m */,
-				55C6DD2D1CC4B24E00988121 /* UIViewController+topViewController.h */,
-				55C6DD2E1CC4B24E00988121 /* UIViewController+topViewController.m */,
-			);
-			name = Category;
-			path = Model/Category;
-			sourceTree = "<group>";
-		};
-		55C6DD2F1CC4B24E00988121 /* Const */ = {
-			isa = PBXGroup;
-			children = (
-				55C6DD301CC4B24E00988121 /* ONEConst.h */,
-				55C6DD311CC4B24E00988121 /* ONEConst.m */,
-				55C6DD321CC4B24E00988121 /* ONEURLConst.h */,
-				55C6DD331CC4B24E00988121 /* ONEURLConst.m */,
-			);
-			name = Const;
-			path = Model/Const;
-			sourceTree = "<group>";
-		};
-		55C6DD341CC4B24E00988121 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				55C6DD351CC4B24E00988121 /* ONEDataRequest.h */,
-				55C6DD361CC4B24E00988121 /* ONEDataRequest.m */,
-				55C6DD371CC4B24E00988121 /* ONEFPSLabel.h */,
-				55C6DD381CC4B24E00988121 /* ONEFPSLabel.m */,
-				55C6DD391CC4B24E00988121 /* ONEHttpTool.h */,
-				55C6DD3A1CC4B24E00988121 /* ONEHttpTool.m */,
-			);
-			name = Tools;
-			path = Model/Tools;
 			sourceTree = "<group>";
 		};
 		55C6DD471CC4B2E400988121 /* Personal(个人) */ = {
@@ -889,9 +886,9 @@
 		7E1A393E1CAD9D1B0085EB67 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				55C6DD341CC4B24E00988121 /* Tools */,
-				55C6DD2F1CC4B24E00988121 /* Const */,
-				55C6DD221CC4B24E00988121 /* Category */,
+				558165911CC609830022458E /* Category */,
+				5581659E1CC609830022458E /* Const */,
+				558165A31CC609830022458E /* Tools */,
 				55422CF01CBFEAF700A3B1A0 /* Model */,
 			);
 			path = Other;
@@ -1069,34 +1066,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				5509044A1CBFD64700F884C2 /* ONEReadDetailViewController.m in Sources */,
+				558165AB1CC609830022458E /* UIColor+Hex.m in Sources */,
 				55FC84BB1CBBB48A00E454A3 /* ONEMovieStoryItem.m in Sources */,
 				55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */,
+				558165B21CC609830022458E /* ONEDataRequest.m in Sources */,
 				55C6DD191CC3CF7700988121 /* ONESubtotalDetailViewController.m in Sources */,
 				550904501CBFD64700F884C2 /* ONEReadViewController.m in Sources */,
 				55FC84A61CBACE6B00E454A3 /* ONEMovieDetailViewController.m in Sources */,
 				55B9A10C1CBF5B2D009E44AA /* ONEQuestionItem.m in Sources */,
 				55C6DD601CC4C56A00988121 /* ONESearchReadViewController.m in Sources */,
+				558165AC1CC609830022458E /* UIImage+image.m in Sources */,
 				55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */,
 				55C6DD6C1CC4CF9400988121 /* ONESearchReadItem.m in Sources */,
 				55FC84961CBA4FB100E454A3 /* ONESubTitleCell.m in Sources */,
 				5505BCD11CAFEE460063B97C /* ONEMusicDetailItem.m in Sources */,
-				55C6DD3F1CC4B24E00988121 /* UIView+Frame.m in Sources */,
 				55FC84C61CBBF5DE00E454A3 /* ONEMovieCommentCell.m in Sources */,
 				55C6DD721CC4D72C00988121 /* ONESearchMovieItem.m in Sources */,
 				553BDDB91CC20BEF006BE7BF /* ONECarouselDetailCell.m in Sources */,
+				558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */,
 				55422CF61CBFEAF700A3B1A0 /* ONEMusicResultItem.m in Sources */,
 				55B9A1091CBF5B1E009E44AA /* ONESerialItem.m in Sources */,
-				55C6DD441CC4B24E00988121 /* ONEFPSLabel.m in Sources */,
 				55C6DCFB1CC378FC00988121 /* ONEMoviePastListVc.m in Sources */,
 				55422CEF1CBFEAE500A3B1A0 /* main.m in Sources */,
 				55C6DD571CC4C4E200988121 /* ONESearchBaseViewController.m in Sources */,
 				550904491CBFD64700F884C2 /* ONEEssayDetailViewController.m in Sources */,
-				55C6DD3D1CC4B24E00988121 /* UIImage+image.m in Sources */,
 				5509044F1CBFD64700F884C2 /* ONEReadTableViewController.m in Sources */,
 				55C6DD031CC381D100988121 /* ONEMoreSubtotalViewController.m in Sources */,
+				558165B31CC609830022458E /* ONEFPSLabel.m in Sources */,
 				55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */,
 				553BDDB21CC1E63C006BE7BF /* ONECarouselDetailItem.m in Sources */,
-				55C6DD3E1CC4B24E00988121 /* UITableView+Extension.m in Sources */,
 				550904361CBFD62500F884C2 /* ONEReadTitleButton.m in Sources */,
 				55B9A1061CBF5B0F009E44AA /* ONEEssayItem.m in Sources */,
 				55FC84B71CBB90CA00E454A3 /* ONEMovieDetailPhotoCell.m in Sources */,
@@ -1111,16 +1109,17 @@
 				55FC84991CBA5F8800E454A3 /* ONEPastListViewController.m in Sources */,
 				55C6DD111CC38EFA00988121 /* ONEMoreSubtotalCell.m in Sources */,
 				550904311CBFD62500F884C2 /* ONEReadToolBarView.m in Sources */,
-				55C6DD3C1CC4B24E00988121 /* UIColor+Hex.m in Sources */,
 				5505BCCD1CAF97160063B97C /* ONECommentCell.m in Sources */,
-				55C6DD451CC4B24E00988121 /* ONEHttpTool.m in Sources */,
 				5537A9A41CAF658E0039949C /* ONEMusicScrollViewController.m in Sources */,
 				55C6DD521CC4B75000988121 /* ONESearchViewController.m in Sources */,
+				558165AF1CC609830022458E /* UIViewController+topViewController.m in Sources */,
 				55212F6D1CB6493F00634442 /* ONEPersonDetailTableView.m in Sources */,
 				550904331CBFD62500F884C2 /* ONECarouselView.m in Sources */,
 				55C6DD691CC4C5D600988121 /* ONESearchMusicViewController.m in Sources */,
+				558165AE1CC609830022458E /* UIView+Frame.m in Sources */,
 				553BDDA71CC13CC5006BE7BF /* ONEHomeSubtotalItem.m in Sources */,
 				55C6DD5D1CC4C55200988121 /* ONESearchHpViewController.m in Sources */,
+				558165B11CC609830022458E /* ONEURLConst.m in Sources */,
 				5505BCD41CAFEE5F0063B97C /* ONEMusicRelatedItem.m in Sources */,
 				55212F601CB5EF5100634442 /* ONEPersonDetailViewController.m in Sources */,
 				55C6DD661CC4C58900988121 /* ONESearchAuthorViewController.m in Sources */,
@@ -1134,16 +1133,17 @@
 				55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */,
 				5509044E1CBFD64700F884C2 /* ONEReadSerialViewController.m in Sources */,
 				5509044C1CBFD64700F884C2 /* ONEReadEssayViewController.m in Sources */,
-				55C6DD411CC4B24E00988121 /* ONEConst.m in Sources */,
 				55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				55C6DD6F1CC4D03D00988121 /* ONESearchMusicItem.m in Sources */,
+				558165B01CC609830022458E /* ONEConst.m in Sources */,
 				5509044D1CBFD64700F884C2 /* ONEReadQuestionViewController.m in Sources */,
+				558165B41CC609830022458E /* ONEHttpTool.m in Sources */,
 				55FC849E1CBAB98300E454A3 /* ONEMovieListItem.m in Sources */,
-				55C6DD431CC4B24E00988121 /* ONEDataRequest.m in Sources */,
+				558165AD1CC609830022458E /* UITableView+Extension.m in Sources */,
 				553BDD891CC0D27C006BE7BF /* ONEReadCommentItem.m in Sources */,
 				55422CFE1CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m in Sources */,
 				553BDD9C1CC110C7006BE7BF /* ONEReadRelatedCell.m in Sources */,
@@ -1152,11 +1152,8 @@
 				55C6DD0B1CC3834200988121 /* ONEMoreSubtotalLayout.m in Sources */,
 				553BDDA41CC138B2006BE7BF /* ONEHomeViewController.m in Sources */,
 				553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */,
-				55C6DD3B1CC4B24E00988121 /* NSMutableAttributedString+string.m in Sources */,
-				55C6DD401CC4B24E00988121 /* UIViewController+topViewController.m in Sources */,
 				553BDDCD1CC32049006BE7BF /* YSLDraggableCardContainer.m in Sources */,
 				7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */,
-				55C6DD421CC4B24E00988121 /* ONEURLConst.m in Sources */,
 				553BDDD01CC320A1006BE7BF /* ONEDraggableCardView.m in Sources */,
 				550904341CBFD62500F884C2 /* ONEReadCell.m in Sources */,
 			);

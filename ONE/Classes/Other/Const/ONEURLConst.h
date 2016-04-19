@@ -85,3 +85,18 @@ UIKIT_EXTERN NSString *const reading_carousel;
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 首页 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 /** 首页rul */
 UIKIT_EXTERN NSString *const homeSubtotal;
+
+
+
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 搜索 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+/** 插图 */
+UIKIT_EXTERN NSString *const search_hp;
+/** 阅读 */
+UIKIT_EXTERN NSString *const search_reading;
+/** 音乐 */
+UIKIT_EXTERN NSString *const search_music;
+/** 影视 */
+UIKIT_EXTERN NSString *const search_movie;
+/** 用户 */
+UIKIT_EXTERN NSString *const search_author;
+

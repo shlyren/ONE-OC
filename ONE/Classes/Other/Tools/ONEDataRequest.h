@@ -220,4 +220,22 @@
 #pragma mark - 首页
 /** 首页小记 */
 + (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure;
+
+
+#pragma mark - 搜索
+/** 插图 */
++ (void)requestSearchHp:(NSString *)url success:(void (^)(NSArray *hpResult))success failure:(void (^)(NSError *error))failure;
+/** 插图 */
++ (void)requestSearchRead:(NSString *)url success:(void (^)(NSArray *readResult))success failure:(void (^)(NSError *error))failure;
+
+/** 插图 */
++ (void)requestSearchMusic:(NSString *)url success:(void (^)(NSArray *musicResult))success failure:(void (^)(NSError *error))failure;
+
+/** 插图 */
++ (void)requestSearchMovie:(NSString *)url success:(void (^)(NSArray *movieResult))success failure:(void (^)(NSError *error))failure;
+
+/** 插图 */
++ (void)requestSearchAuthor:(NSString *)url success:(void (^)(NSArray *authorResult))success failure:(void (^)(NSError *error))failure;
+
+
 @end

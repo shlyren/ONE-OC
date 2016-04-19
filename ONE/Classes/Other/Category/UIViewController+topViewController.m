@@ -23,18 +23,23 @@
         UITabBarController *tabBarController = (UITabBarController *)rootViewController;
         
         return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
-        
-    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+    }
+    
+    else if ([rootViewController isKindOfClass:[UINavigationController class]]){
         
         UINavigationController* navigationController = (UINavigationController *)rootViewController;
         return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
         
-    } else if (rootViewController.presentedViewController) {
+    }
+    
+    else if (rootViewController.presentedViewController) {
         
         UIViewController* presentedViewController = rootViewController.presentedViewController;
         return [self topViewControllerWithRootViewController:presentedViewController];
         
-    } else {
+    }
+    
+    else {
         
         return rootViewController;
         

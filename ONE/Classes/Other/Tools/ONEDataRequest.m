@@ -28,6 +28,11 @@
 
 #import "ONEHomeSubtotalItem.h"
 
+
+#import "ONESearchReadItem.h"
+#import "ONESearchMusicItem.h"
+#import "ONESearchMovieItem.h"
+
 @implementation ONEDataRequest
 /**
  *  请求音乐列表数据
@@ -496,7 +501,7 @@
 
 
 #pragma mark - 首页
-/** 首页小记 */
+/** 首页 小记 */
 + (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure
 {
     url = [homeSubtotal stringByAppendingPathComponent:url];
@@ -510,5 +515,100 @@
         ONELog(@"首页数据获取失败%@",error);
     }];
     
+}
+
+
+#pragma mark - 搜索
+/** 插图 */
++ (void)requestSearchHp:(NSString *)url success:(void (^)(NSArray *hpResult))success failure:(void (^)(NSError *error))failure
+{
+    url = [search_hp stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        NSArray *hpResult = [ONEHomeSubtotalItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(hpResult);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"插图数据搜索失败%@",error);
+    }];
+
+}
+
+/** 阅读 */
++ (void)requestSearchRead:(NSString *)url success:(void (^)(NSArray *readResult))success failure:(void (^)(NSError *error))failure
+{
+    url = [search_reading stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        [ONESearchReadItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"read_id" : @"id"};
+        }];
+        
+        NSArray *readResult = [ONESearchReadItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(readResult);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"阅读数据搜索失败%@",error);
+    }];
+
+}
+
+/** 音乐 */
++ (void)requestSearchMusic:(NSString *)url success:(void (^)(NSArray *musicResult))success failure:(void (^)(NSError *error))failure
+{
+    url = [search_music stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        //music_detail_id
+        [ONESearchMusicItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"music_detail_id" : @"id"};
+        }];
+        NSArray *musicResult = [ONESearchMusicItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(musicResult);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"音乐数据搜索失败%@",error);
+    }];
+
+}
+
+/** 影视 */
++ (void)requestSearchMovie:(NSString *)url success:(void (^)(NSArray *movieResult))success failure:(void (^)(NSError *error))failure
+{
+    url = [search_movie stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        //movie_id
+        
+        [ONESearchMovieItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"movie_id" : @"id"};
+        }];
+        NSArray *movieResult = [ONESearchMovieItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        success(movieResult);
+        
+
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"影视数据搜索失败%@",error);
+    }];
+
+}
+
+/** 用户 */
++ (void)requestSearchAuthor:(NSString *)url success:(void (^)(NSArray *authorResult))success failure:(void (^)(NSError *error))failure
+{
+    url = [search_author stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        NSArray *homeSubtotal = [ONEAuthorItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(homeSubtotal);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"用户数据搜索失败%@",error);
+    }];
+
 }
 @end

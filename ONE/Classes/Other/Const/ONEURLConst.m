@@ -72,16 +72,16 @@ NSString *const readIndexUrl                    = @"http://v3.wufazhuce.com:8000
 NSString *const readeCommnet                    = @"comment/praiseandtime";
 
 /** 短篇 */
-NSString *const essay                           = @"essay";                             // 内容
-NSString *const relates_essay                   = @"related/essay";                     // 推荐
+NSString *const essay                           = @"essay";               // 内容
+NSString *const relates_essay                   = @"related/essay";       // 推荐
 
 /** 连载 */
-NSString *const serialcontent                   = @"serialcontent";                     // 内容
-NSString *const related_serial                  = @"related/serial";                    // 推荐
+NSString *const serialcontent                   = @"serialcontent";       // 内容
+NSString *const related_serial                  = @"related/serial";      // 推荐
 
 /** 问题 */
-NSString *const question                        = @"question";                          // 内容
-NSString *const related_question                = @"related/question";                  // 推荐
+NSString *const question                        = @"question";            // 内容
+NSString *const related_question                = @"related/question";    // 推荐
 
 /** 广告的点击 */
 NSString *const reading_carousel                = @"reading/carousel";
@@ -94,3 +94,15 @@ NSString *const homeSubtotal                    = @"http://v3.wufazhuce.com:8000
 
 
 
+
+#pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 搜索 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+/** 插图 */
+NSString *const search_hp            = @"http://v3.wufazhuce.com:8000/api/search/hp";
+/** 阅读 */
+NSString *const search_reading       = @"http://v3.wufazhuce.com:8000/api/search/reading";
+/** 音乐 */
+NSString *const search_music         = @"http://v3.wufazhuce.com:8000/api/search/music";
+/** 影视 */
+NSString *const search_movie         = @"http://v3.wufazhuce.com:8000/api/search/movie";
+/** 用户 */
+NSString *const search_author        = @"http://v3.wufazhuce.com:8000/api/search/author";

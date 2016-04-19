@@ -12,8 +12,9 @@
 // 格式化故事详情的内容
 + (NSMutableAttributedString *)attributedStringWithString:(NSString *)str
 {
-    if (str == nil) return nil;
-    NSString * tmpStr = str;
+    if (!str.length) return nil;
+    
+    NSString *tmpStr = str;
 
     // <!--StartFragment-->
     NSRange range;
