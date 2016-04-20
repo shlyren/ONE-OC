@@ -18,6 +18,7 @@
 @property (weak, nonatomic) UILabel *hp_authorLabel;
 @property (weak, nonatomic) UILabel *hp_contentLabel;
 @property (weak, nonatomic) UILabel *hp_makettimeLabel;
+@property (nonatomic, weak) UIScrollView *contentScroll;
 
 @end
 @implementation ONEDraggableCardView
@@ -53,14 +54,20 @@
         _hp_authorLabel               = hp_authorLabel;
         [self addSubview:hp_authorLabel];
         
+        UIScrollView *contentScroll = [UIScrollView new];
+        contentScroll.width         = imageViewW;
+        contentScroll.x             = self.imageView.x;
+        _contentScroll              = contentScroll;
+        [self addSubview:contentScroll];
         /** 内容 */
         UILabel *hp_contentLabel      = [UILabel new];
         hp_contentLabel.numberOfLines = 0;
-        hp_contentLabel.width         = imageView.width - 2 * ONEDefaultMargin;
+        hp_contentLabel.width         = imageView.width - 20;
         hp_contentLabel.font          = [UIFont systemFontOfSize:14];
         hp_contentLabel.textColor     = [UIColor darkGrayColor];
+        hp_contentLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _hp_contentLabel              = hp_contentLabel;
-        [self addSubview:hp_contentLabel];
+        [contentScroll addSubview:hp_contentLabel];
         
         /** 发布时间 */
         UILabel *hp_makettimeLabel    = [UILabel new];
@@ -79,12 +86,24 @@
     /** 用户 */
     self.hp_authorLabel.x  = CGRectGetMaxX(self.imageView.frame) - self.hp_authorLabel.width;
     self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + 5;
+    
     /** 发布时间 */
     self.hp_makettimeLabel.x =  CGRectGetMaxX(self.imageView.frame) - self.hp_makettimeLabel.width;
     self.hp_makettimeLabel.y = ONEScreenWidth * 1.2 - 15;
+  
+    /** 内容的滚动视图 */
+    self.contentScroll.y = CGRectGetMaxY(self.hp_authorLabel.frame) + 5;
+    self.contentScroll.height = self.hp_makettimeLabel.y - 5 - self.contentScroll.y;
+    self.contentScroll.contentSize = CGSizeMake(0, self.hp_contentLabel.height);
+  
     /** 内容 */
-    self.hp_contentLabel.x = self.imageView.x + ONEDefaultMargin;
-    self.hp_contentLabel.centerY =  (CGRectGetMaxY(self.imageView.frame) + self.hp_makettimeLabel.y) * 0.5 + ONEDefaultMargin;
+    self.hp_contentLabel.x = self.contentScroll.x + 5;
+    if (self.hp_contentLabel.height > self.contentScroll.height)
+    {
+        self.hp_contentLabel.y = 0;
+    }else{
+        self.hp_contentLabel.y = (self.contentScroll.height - self.hp_contentLabel.height ) * 0.5;
+    }
     
 }
 

@@ -103,7 +103,7 @@ static NSString *const readAdCell = @"readAdCell";
 
 - (void)showNextPage
 {
-    NSIndexPath * currentPage = self.resetPage;
+    NSIndexPath *currentPage = self.resetPage;
     NSInteger nextItem = currentPage.item + 1;
     NSInteger nextScetion = currentPage.section;
     if (nextItem >= _imageNames.count)

@@ -117,11 +117,11 @@
 - (void)setupAllViewController
 {
     
-    [self addChildViewController:[ONESearchHpViewController new]];
-    [self addChildViewController:[ONESearchReadViewController new]];
-    [self addChildViewController:[ONESearchMusicViewController new]];
-    [self addChildViewController:[ONESearchMovieViewController new]];
-    [self addChildViewController:[ONESearchAuthorViewController new]];
+    [self addChildViewController:ONESearchHpViewController.new];
+    [self addChildViewController:ONESearchReadViewController.new];
+    [self addChildViewController:ONESearchMusicViewController.new];
+    [self addChildViewController:ONESearchMovieViewController.new];
+    [self addChildViewController:ONESearchAuthorViewController.new];
 
 }
 

@@ -10,13 +10,10 @@
 
 @class ONEHomeSubtotalItem;
 @class ONESearchMusicItem;
-@class ONEAuthorItem;
 
 @interface ONESearchTableViewCell : UITableViewCell
 @property (nonatomic, strong) ONEHomeSubtotalItem *item;
 
 @property (nonatomic, strong) ONESearchMusicItem *musicItem;
 
-
-@property (nonatomic, strong) ONEAuthorItem *author;
 @end

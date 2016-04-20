@@ -224,8 +224,6 @@ static NSString *const photoCellID = @"photoCell";
 
 - (IBAction)storyViewLikeBtnClick:(UIButton *)btn
 {
-//    _praisenumBtn.selected = !_praisenumBtn.selected;
-    
     ONEMovieStoryItem *movieStory = self.movieStoryResult.data[0];
     NSString *url = _praisenumBtn.selected ? movie_unpraisestory : movie_praisestory;
     
@@ -237,7 +235,6 @@ static NSString *const photoCellID = @"photoCell";
         if (!isSuccess)
         {
             [SVProgressHUD showErrorWithStatus:message];
-//            _praisenumBtn.selected = !_praisenumBtn.selected;
             return;
         }
         _praisenumBtn.selected = !_praisenumBtn.selected;
@@ -263,7 +260,7 @@ static NSString *const photoCellID = @"photoCell";
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:ONEPersonDetailViewController.class] animated:true];
 }
 
 - (IBAction)allMovieStoryBtnClick

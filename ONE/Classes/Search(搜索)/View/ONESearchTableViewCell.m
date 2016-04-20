@@ -40,17 +40,5 @@
     self.contentLabel.text = musicItem.author.user_name;
 }
 
-- (void)setAuthor:(ONEAuthorItem *)author
-{
-    _author = author;
-    self.iconImgViewWidth.constant = 50;
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.imageView.image = image.circleImage;
-    }];
-    self.nameLabel.text = author.user_name;
-    self.contentLabel.text = author.desc;
-
-    
-}
 
 @end
