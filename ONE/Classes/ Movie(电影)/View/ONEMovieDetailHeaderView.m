@@ -18,7 +18,6 @@
 #import "ONEPersonDetailViewController.h"
 #import "ONENavigationController.h"
 #import "UIViewController+topViewController.h"
-#import "ONEMovieMoreViewController.h"
 
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
@@ -34,7 +33,7 @@
 /** coverView的高度 */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *storyCoverViewHeight;
 /** 电影故事的view xib */
-@property (strong, nonatomic) IBOutlet UIView             *movieStoryView;
+@property (strong, nonatomic) IBOutlet UIView           *movieStoryView;
 /** 用户头像 */
 @property (weak, nonatomic) IBOutlet UIButton           *userIconBtn;
 @property (weak, nonatomic) IBOutlet UIImageView        *iconImageView;
@@ -168,10 +167,7 @@ static NSString *const photoCellID = @"photoCell";
             weakSelf.movieStoryResult = movieStory;
             [weakSelf setupStoryView];
         }
-         [SVProgressHUD dismiss];
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-    }];
+    } failure:nil];
     
 
     [ONEDataRequest requestMovieDetail:movie_id parameters:nil success:^(ONEMovieDetailItem *movieDetail) {
@@ -276,11 +272,6 @@ static NSString *const photoCellID = @"photoCell";
     {
         [self.delegate movieDetailHeaderView:self didClickAllBtn:@"电影故事"];
     }
-//    ONEMovieMoreViewController *moreVc = [ONEMovieMoreViewController new];
-//        moreVc.movie_id = _movie_id;
-//        moreVc.title =  @"电影故事";
-    
-//    [self.window. pushViewController:moreVc animated:true];
 }
 
 

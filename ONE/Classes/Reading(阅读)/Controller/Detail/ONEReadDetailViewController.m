@@ -14,7 +14,7 @@
 #import "MJRefresh.h"
 #import "ONECommentCell.h" //serial
 
-@interface ONEReadDetailViewController () <ONEReadDetailHeaderViewDelegate>
+@interface ONEReadDetailViewController ()
 @property (nonatomic, strong) NSMutableArray *commentItems;
 
 @end
@@ -28,11 +28,20 @@ NSString *const relatedCell = @"relatedCell";
 {
     if (_headerView == nil)
     {
-        ONEReadDetailHeaderView *headerView = [ONEReadDetailHeaderView detailHeaderView];
-        headerView.height = 100;
-        headerView.delegate = self;
+        ONEWeakSelf
+        __weak ONEReadDetailHeaderView *headerView = [ONEReadDetailHeaderView detailHeaderView];
+        headerView.contentChangeBlock = ^(CGFloat height){
+            headerView.height = height;
+            weakSelf.tableView.tableHeaderView = headerView;
+        };
+        
+        headerView.clickListBtnBlock = ^(NSString *contend_id){
+            weakSelf.detail_id = contend_id;
+            [weakSelf loadDetailData];
+        };
+        
         _headerView = headerView;
-        self.tableView.tableHeaderView = headerView;
+        
     }
     return _headerView;
 }
@@ -50,11 +59,13 @@ NSString *const relatedCell = @"relatedCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDetailData];
+    self.tableView.tableHeaderView = self.headerView;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"ONECommentCell" bundle:nil] forCellReuseIdentifier:commentCellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"ONEReadRelatedCell" bundle:nil] forCellReuseIdentifier:relatedCell];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-//    [self setupToolBar];
+
 }
 
 - (void)setupToolBar
@@ -112,19 +123,6 @@ NSString *const relatedCell = @"relatedCell";
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
-}
-
-#pragma mark - ONEReadDetailHeaderViewDelegate
-- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height
-{
-    self.headerView.height = height;
-    self.tableView.tableHeaderView = self.headerView;
-}
-
-- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didSelectedSerialList:(NSString *)content_id
-{
-    self.detail_id = content_id;
-    [self loadDetailData];
 }
 
 #pragma mark - Table view data source

@@ -109,6 +109,12 @@ static NSString *const relatedCellID = @"relatedCell";
     ONEMusicDetailView *headerView = [[ONEMusicDetailView alloc] init];
     headerView.delegate = self;
     headerView.size = CGSizeMake(ONEScreenWidth, 450);
+    __weak ONEMusicDetailView *weakHeaderView = headerView;
+    ONEWeakSelf
+    headerView.contentChangeBlock = ^(CGFloat height){
+        weakHeaderView.height = height;
+        weakSelf.tableView.tableHeaderView = weakHeaderView;
+    };
     _musicDetailView = headerView;
     
     self.tableView.tableHeaderView = headerView;
@@ -233,12 +239,6 @@ static NSString *const relatedCellID = @"relatedCell";
 
 #pragma mark -  ↓↓↓↓↓↓ delegate Methods ↓↓↓↓↓↓
 #pragma mark musicDetailView
-- (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didChangedContent:(CGFloat)height
-{
-    _musicDetailView.height = height;
-    self.tableView.tableHeaderView = _musicDetailView;
-}
-
 - (void)musicDetailViwe:(ONEMusicDetailView *)musicDetailView didClickPlayerBtn:(UIButton *)button
 {
 #warning music player

@@ -65,7 +65,7 @@
     
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:self.author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        if (image == nil) return ;
+        if (image == nil) return;
         self.iconImgView.image = image.circleImage;
     }];
     
@@ -87,7 +87,7 @@
     
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:self.author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        if (image == nil) return ;
+        if (image == nil) return;
         self.iconImgView.image = image.circleImage;
     }];
 
@@ -121,41 +121,35 @@
     NSDictionary *dict = nil;
     NSString *url = nil;
     
-    switch (self.commentCellType) {
+    switch (self.commentCellType)
+    {
         case 0: // 电影故事
         {
             url = self.praisenumBtn.selected ? movie_unpraisestory : movie_praisestory;
             dict = @{ @"movieid"  : self.movie_id,
                       @"storyid"  : self.movieStoryItem.movie_story_id};
-        }
-            
             break;
+        }
+
         case 1: // 评审团
         {
             url = self.praisenumBtn.selected ? movie_unpraisereview : movie_praisereview;
             dict = @{ @"movieid"  : self.movie_id,
                       @"reviewid" : _commentItem.comment_id};
-        }
             break;
+        }
+
         case 2: // 评论
         {
             url = self.praisenumBtn.selected ? comment_unpraise : comment_praise;
             dict = @{ @"itemid"   : self.movie_id,
                       @"cmtid"    : _commentItem.comment_id,
                       @"type"     : @"movie"};
-        }
-            
             break;
+        }
+        
+        default:break;
     }
-    
-//    url = _commentItem.author ? movie_praisereview : comment_praise;
-//    
-//    dict = _commentItem.author ? @{ @"movieid"  : self.movie_id,
-//                                                  @"reviewid" : _commentItem.comment_id} :
-//    
-//                                               @{ @"itemid"   : self.movie_id,
-//                                                  @"cmtid"    : _commentItem.comment_id,
-//                                                  @"type"     : @"movie"};
     
     [self addPraise:url parameters:dict];
 }
@@ -163,8 +157,6 @@
 
 - (void)addPraise:(NSString *)url parameters:(NSDictionary *)parameters
 {
-//    _praisenumBtn.selected = !_praisenumBtn.selected;
-//    ONELog(@"%@", url)
     
     [ONEDataRequest addPraise:url parameters:parameters success:^(BOOL isSuccess, NSString *message) {
         if (isSuccess)
@@ -178,11 +170,10 @@
             
         }else{
             [SVProgressHUD showErrorWithStatus:message];
-//            _praisenumBtn.selected = !_praisenumBtn.selected;
         }
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"操作失败"];
-//        _praisenumBtn.selected = !_praisenumBtn.selected;
+
     }];
 }
 

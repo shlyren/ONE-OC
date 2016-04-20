@@ -20,7 +20,7 @@ UIKIT_EXTERN NSString *const relatedCell;
 @property (nonatomic, strong) NSArray *relatedItems;
 
 /** 就是阅读的类型 essay serial question */
-@property (nonatomic, strong, readonly) NSString *commentType;
+- (NSString *)commentType;
 
 /** 详情数据 */
 - (void)loadDetailData;

@@ -15,13 +15,6 @@
 
 @optional
 /**
- *  storyLable文字改变时(点击了故事,歌词,信息按钮)调用此方法
- *
- *  @param musicDetailView musicDetailView
- *  @param height          改变后musicDetailView的高度
- */
-- (void)musicDetailView:(ONEMusicDetailView *)musicDetailView didChangedContent:(CGFloat)height;
-/**
  *  点击播放时调用此方法
  *
  *  @param musicDetailView musicDetailView
@@ -34,6 +27,8 @@
 @interface ONEMusicDetailView : UIView
 
 @property (nonatomic, strong) ONEMusicDetailItem           *musicDetailItem;
+
+@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat heoght);
 
 @property (nonatomic, weak) id<ONEMusicDetailViewDelegate> delegate;
 @end

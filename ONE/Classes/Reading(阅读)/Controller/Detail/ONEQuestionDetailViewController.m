@@ -10,7 +10,7 @@
 #import "ONEQuestionHeaderView.h"
 #import "ONEQuestionItem.h"
 
-@interface ONEQuestionDetailViewController ()<ONEReadDetailHeaderViewDelegate>
+@interface ONEQuestionDetailViewController ()
 @property (nonatomic, weak) ONEQuestionHeaderView *questionHeaderView;
 @end
 
@@ -20,11 +20,15 @@
 {
     if ( _questionHeaderView == nil)
     {
-        ONEQuestionHeaderView *questionHeaderView = [ONEQuestionHeaderView questionDetailHeaderView];
-        questionHeaderView.height = 300;
-        questionHeaderView.delegate = self;
+        ONEWeakSelf
+       __weak ONEQuestionHeaderView *questionHeaderView = [ONEQuestionHeaderView questionDetailHeaderView];
+        questionHeaderView.contentChangeBlock = ^(CGFloat height){
+            questionHeaderView.height = height;
+            weakSelf.tableView.tableHeaderView = questionHeaderView;
+        };
+
         _questionHeaderView =  questionHeaderView;
-        self.tableView.tableHeaderView = questionHeaderView;
+       
     }
     return _questionHeaderView;
 }
@@ -37,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.tableView.tableHeaderView = self.questionHeaderView;
     self.title = @"问答";
 }
 
@@ -63,13 +68,6 @@
         weakSelf.relatedItems = questionRelated;
         [super loadRelatedData];
     } failure:nil];
-}
-
-#pragma mark ONEReadDetailHeaderViewDelegate
-- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height
-{
-    self.questionHeaderView.height = height;
-    self.tableView.tableHeaderView = self.questionHeaderView;
 }
 
 #pragma mark - table view data source

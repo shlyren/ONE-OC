@@ -20,7 +20,6 @@
  */
 - (void)personDetailTableView:(ONEPersonDetailTableView *)detailTableView didChilckSubtotalBtn:(UIButton *)subtotalBtn;
 
-
 /**
  *  点击歌单时调用此方法
  *

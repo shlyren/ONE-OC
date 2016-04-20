@@ -163,12 +163,10 @@
         self.bottomIconImgView.image = image.circleImage;
     }];
     
-    if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didChangedHeight:)])
-    {
+    if (self.contentChangeBlock) {
         CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height + 30 + listViewH;
-        [self.delegate readDetailHeaderView:self didChangedHeight:height];
+        self.contentChangeBlock(height);
     }
-
 }
 
 #pragma mark 连载
@@ -202,10 +200,9 @@
         self.bottomIconImgView.image = image.circleImage;
     }];
     
-    if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didChangedHeight:)])
-    {
+    if (self.contentChangeBlock) {
         CGFloat height = 110 + self.contentLabel.height + self.titleLabel.height + 30 + listViewH;
-        [self.delegate readDetailHeaderView:self didChangedHeight:height];
+        self.contentChangeBlock(height);
     }
 }
 
@@ -241,10 +238,9 @@
 //通知控制器更新数据
 - (void)listBtnClick:(UIButton *)listBtn
 {
-    if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didSelectedSerialList:)]) {
-        
+    if (self.clickListBtnBlock) {
         ONESerialItem *itme = self.serialList[listBtn.tag];
-        [self.delegate readDetailHeaderView:self didSelectedSerialList:itme.content_id];
+        self.clickListBtnBlock(itme.content_id);
     }
     
     [self hiddenListView];

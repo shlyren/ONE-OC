@@ -11,22 +11,13 @@
 @class ONEEssayItem;
 @class ONESerialItem;
 
-@class ONEReadDetailHeaderView;
-
-@protocol ONEReadDetailHeaderViewDelegate <NSObject>
-
-@optional
-- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didChangedHeight:(CGFloat)height;
-- (void)readDetailHeaderView:(ONEReadDetailHeaderView *)detailHeaderView didSelectedSerialList:(NSString *)content_id;
-
-@end
-
 @interface ONEReadDetailHeaderView : UIView
 
 @property (nonatomic, strong) ONEEssayItem                       *essayItem;
 @property (nonatomic, strong) ONESerialItem                      *serialItem;
 
-@property (nonatomic, weak) id <ONEReadDetailHeaderViewDelegate> delegate;
+@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat height);
+@property (nonatomic, strong) void (^clickListBtnBlock) (NSString *content_id);
 
 + (instancetype)detailHeaderView;
 + (instancetype)commentSectionHeader;

@@ -45,10 +45,11 @@
     [self layoutIfNeeded];
     
     self.q_charegeEdtLabel.text = questionItem.charge_edt;
-    if ([self.delegate respondsToSelector:@selector(readDetailHeaderView:didChangedHeight:)])
-    {
-        CGFloat height = CGRectGetMaxY(self.questionContentLabel.frame) + self.questionContentLabel.height + 50 + self.answerTitleLabel.height + 20+ self.answerContentLabel.height + self.q_charegeEdtLabel.height + 20;
-        [self.delegate readDetailHeaderView:self didChangedHeight:height];
+    
+    
+    if (self.contentChangeBlock) {
+         CGFloat height = CGRectGetMaxY(self.questionContentLabel.frame) + self.questionContentLabel.height + 50 + self.answerTitleLabel.height + 20+ self.answerContentLabel.height + self.q_charegeEdtLabel.height + 20;
+        self.contentChangeBlock(height);
     }
 }
 
