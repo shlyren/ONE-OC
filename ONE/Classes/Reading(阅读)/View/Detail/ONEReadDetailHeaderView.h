@@ -13,11 +13,11 @@
 
 @interface ONEReadDetailHeaderView : UIView
 
-@property (nonatomic, strong) ONEEssayItem                       *essayItem;
-@property (nonatomic, strong) ONESerialItem                      *serialItem;
+@property (nonatomic, strong) ONEEssayItem       *essayItem;
+@property (nonatomic, strong) ONESerialItem      *serialItem;
 
-@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat height);
-@property (nonatomic, strong) void (^clickListBtnBlock) (NSString *content_id);
+@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat);
+@property (nonatomic, strong) void (^clickListBtnBlock) (NSString *);
 
 + (instancetype)detailHeaderView;
 + (instancetype)commentSectionHeader;

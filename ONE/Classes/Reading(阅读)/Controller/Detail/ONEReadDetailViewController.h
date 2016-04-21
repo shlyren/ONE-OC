@@ -10,15 +10,19 @@
 #import "ONEReadDetailHeaderView.h"
 #import "ONEDataRequest.h"
 #import "ONEReadRelatedCell.h"
+#import "ONEReadToolBarView.h"
 
-@interface ONEReadDetailViewController : UITableViewController
-UIKIT_EXTERN NSString *const relatedCell;
+@interface ONEReadDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+UIKIT_EXTERN NSString *const relatedCellID;
 /** id */
 @property (nonatomic, strong) NSString *detail_id;
 @property (nonatomic, weak) ONEReadDetailHeaderView *headerView;
+@property (nonatomic, weak, readonly) ONEReadToolBarView *toolBarView;
 
 @property (nonatomic, strong) NSArray *relatedItems;
 
+
+@property (nonatomic, weak) UITableView *tableView;
 /** 就是阅读的类型 essay serial question */
 - (NSString *)commentType;
 

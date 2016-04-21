@@ -7,7 +7,7 @@
 //
 
 #import "ONEReadDetailViewController.h"
-#import "ONEReadToolBarView.h"
+
 #import "UITableView+Extension.h"
 #import "ONEPersonDetailViewController.h"
 #import "ONEReadCommentItem.h"
@@ -16,12 +16,14 @@
 
 @interface ONEReadDetailViewController ()
 @property (nonatomic, strong) NSMutableArray *commentItems;
+@property (nonatomic, strong) UIImageView *noDataImgView;
 
 @end
 
 @implementation ONEReadDetailViewController
 static NSString *const commentCellID = @"commentCell";
-NSString *const relatedCell = @"relatedCell";
+NSString *const relatedCellID = @"relatedCell";
+#define ToolBarHeight 44
 
 #pragma mark - lazy load
 - (ONEReadDetailHeaderView *)headerView
@@ -35,22 +37,45 @@ NSString *const relatedCell = @"relatedCell";
             weakSelf.tableView.tableHeaderView = headerView;
         };
         
-        headerView.clickListBtnBlock = ^(NSString *contend_id){
-            weakSelf.detail_id = contend_id;
+        headerView.clickListBtnBlock = ^(NSString *content_id){
+            weakSelf.detail_id = content_id;
             [weakSelf loadDetailData];
         };
-        
         _headerView = headerView;
         
     }
     return _headerView;
 }
 
-#pragma mark  initial
-- (instancetype)init
+- (UIImageView *)noDataImgView
 {
-    return [super initWithStyle: UITableViewStyleGrouped];
+    if (_noDataImgView == nil)
+    {
+        UIImageView *noDataImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sofa_image"]];
+        noDataImgView.frame = CGRectMake(0, 0, ONEScreenWidth, 192 * ONEScreenWidth / 828);
+        _noDataImgView = noDataImgView;
+    }
+    return _noDataImgView;
 }
+
+- (UITableView *)tableView
+{
+    if (_tableView == nil)
+    {
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        tableView.contentInset = UIEdgeInsetsMake(ONENavBMaxY, 0, ToolBarHeight, 0);
+        [tableView registerNib:[UINib nibWithNibName:@"ONECommentCell" bundle:nil] forCellReuseIdentifier:commentCellID];
+        [tableView registerNib:[UINib nibWithNibName:@"ONEReadRelatedCell" bundle:nil] forCellReuseIdentifier:relatedCellID];
+        tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+        tableView.scrollIndicatorInsets = tableView.contentInset;
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [self.view addSubview:_tableView = tableView];
+    }
+    return _tableView;
+}
+
+
 - (NSString *)commentType
 {
     return nil;
@@ -59,21 +84,17 @@ NSString *const relatedCell = @"relatedCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDetailData];
-    self.tableView.tableHeaderView = self.headerView;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"ONECommentCell" bundle:nil] forCellReuseIdentifier:commentCellID];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ONEReadRelatedCell" bundle:nil] forCellReuseIdentifier:relatedCell];
-    
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-
+    [self setupView];
 }
 
-- (void)setupToolBar
+- (void)setupView
 {
-    ONEReadToolBarView *toolBarView = [ONEReadToolBarView toolBarView];
-    toolBarView.frame = CGRectMake(0, self.tableView.height - 44, ONEScreenWidth, 44);
-    [self.view addSubview:toolBarView];
+    self.automaticallyAdjustsScrollViewInsets = false;
+    self.tableView.tableHeaderView = self.headerView;
     
+    ONEReadToolBarView *toolBarView = [ONEReadToolBarView toolBarView];
+    toolBarView.frame = CGRectMake(0, self.tableView.height - ToolBarHeight, self.view.width, ToolBarHeight);
+    [self.view  addSubview: _toolBarView = toolBarView];
 }
 
 #pragma mark - 数据相关
@@ -128,7 +149,7 @@ NSString *const relatedCell = @"relatedCell";
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    [tableView tableViewShowMessage:@"" numberOfRows:self.commentItems.count];
+    tableView.tableFooterView = !self.commentItems.count ? self.noDataImgView : nil;
     if (self.relatedItems.count) return 2;
     return 1;
 }

@@ -9,10 +9,6 @@
 #import "ONEReadPastListViewController.h"
 #import "ONEReadPastListResultVc.h"
 
-@interface ONEReadPastListViewController ()
-
-@end
-
 @implementation ONEReadPastListViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

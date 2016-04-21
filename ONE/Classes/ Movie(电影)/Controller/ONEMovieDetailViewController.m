@@ -165,7 +165,6 @@ static NSString *const movieCommentID = @"movieComment";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     return [self.groups[section] items].count;
 }
 

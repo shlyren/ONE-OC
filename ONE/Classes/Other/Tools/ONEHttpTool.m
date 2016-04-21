@@ -113,8 +113,6 @@ static ONEHttpTool *_instance;
         [SVProgressHUD dismiss];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (failure) failure(error);
-
-        
     }];
 
 }

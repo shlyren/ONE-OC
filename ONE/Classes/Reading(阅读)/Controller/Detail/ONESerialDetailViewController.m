@@ -32,6 +32,13 @@
     [ONEDataRequest requestSerialDetail:self.detail_id parameters:nil succsee:^(ONESerialItem *serial) {
         if (!serial) return ;
         weakSelf.headerView.serialItem = serial;
+        [weakSelf.toolBarView setPraiseTitle:serial.praisenum commentTitle:serial.commentnum shareTitle:serial.sharenum];
+        weakSelf.toolBarView.typeStr = @"serial";
+        weakSelf.toolBarView.content_id = serial.content_id;
+//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
+//            return serial.content_id;
+//        };
+        
         [weakSelf.tableView reloadData];
     } failure:nil];
 }
@@ -55,7 +62,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.serialItem = self.relatedItems[indexPath.row];
         return cell;
     }
@@ -80,7 +87,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.serialItem = self.relatedItems[indexPath.row];
         return cell.rowHeight;
     }

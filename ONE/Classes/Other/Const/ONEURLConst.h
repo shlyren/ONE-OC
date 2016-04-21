@@ -102,3 +102,8 @@ UIKIT_EXTERN NSString *const search_movie;
 /** 用户 */
 UIKIT_EXTERN NSString *const search_author;
 
+
+
+/** 用户协议url */
+UIKIT_EXTERN NSString *const procotolUrl;
+

@@ -53,6 +53,13 @@
     [ONEDataRequest requestQuestionDetail:self.detail_id parameters:nil succsee:^(ONEQuestionItem *question) {
         if (question == nil) return;
         weakSelf.questionHeaderView.questionItem = question;
+        [weakSelf.toolBarView setPraiseTitle:question.praisenum commentTitle:question.commentnum shareTitle:question.sharenum];
+         weakSelf.toolBarView.typeStr = @"question";
+        weakSelf.toolBarView.content_id = question.question_id;
+//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
+//            return question.question_id;
+//        };
+        
         [weakSelf.tableView reloadData];
     } failure:nil];
 }
@@ -75,7 +82,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.questionItem = self.relatedItems[indexPath.row];
         return cell;
     }
@@ -97,7 +104,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.questionItem = self.relatedItems[indexPath.row];
         return cell.rowHeight;
     }

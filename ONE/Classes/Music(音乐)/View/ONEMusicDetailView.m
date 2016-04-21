@@ -15,7 +15,8 @@
 #import "ONENavigationController.h"
 #import "UIViewController+topViewController.h"
 #import "ONEDataRequest.h"
-#import "ONEMusicPlayerView.h"
+//#import "ONEMusicPlayerView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface ONEMusicDetailView ()<UINavigationControllerDelegate>
 /**  图片 */
@@ -68,26 +69,39 @@
 /** 存放故事详情label文字的内容(故事,歌词,信息)的数组 */
 @property (nonatomic, strong) NSArray *textArr;
 
-@property (nonatomic, weak) ONEMusicPlayerView *playerView;
+//@property (nonatomic, weak) ONEMusicPlayerView *playerView;
+@property (nonatomic, strong) AVPlayer *player;
+
+@property (nonatomic, weak) UIView *playTipView;
 
 @end
 
 @implementation ONEMusicDetailView
 
-
-- (ONEMusicPlayerView *)playerView
+- (AVPlayer *)player
 {
-    if (_playerView == nil)
-    {
-        ONEMusicPlayerView *playerView = [ONEMusicPlayerView new];
-        playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 250);
-        playerView.hidden = true;
-        [[UIApplication sharedApplication].keyWindow addSubview:playerView];
-        _playerView = playerView;
-    
+    if (_player == nil) {
+        NSURL * url  = [NSURL URLWithString:self.musicDetailItem.music_id];
+        AVPlayerItem * songItem = [[AVPlayerItem alloc] initWithURL:url];
+        AVPlayer * player = [[AVPlayer alloc] initWithPlayerItem:songItem];
+        _player = player;
     }
-    return _playerView;
+    
+    return _player;
 }
+//- (ONEMusicPlayerView *)playerView
+//{
+//    if (_playerView == nil)
+//    {
+//        ONEMusicPlayerView *playerView = [ONEMusicPlayerView new];
+//        playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 250);
+//        playerView.hidden = true;
+//        [[UIApplication sharedApplication].keyWindow addSubview:playerView];
+//        _playerView = playerView;
+//    
+//    }
+//    return _playerView;
+//}
 
 - (instancetype)init
 {
@@ -198,7 +212,7 @@
 
 - (IBAction)iconBtnClick
 {
-    self.playerView.hidden = true;
+//    self.playerView.hidden = true;
     
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = self.musicDetailItem.author.user_id;
@@ -243,30 +257,16 @@
 
 - (IBAction)playerBtnClick:(UIButton *)btn
 {
+    if (btn.selected) {
+        [self.player pause];
+    }else{
+        [self.player play];
+        
+    }
+    
     btn.selected = !btn.selected;
-    
-    
-    self.playerView.hidden = false;
-
-
-//    if ([self.delegate respondsToSelector:@selector(musicDetailViwe:didClickPlayerBtn:)])
-//    {
-//        [self.delegate musicDetailViwe:self didClickPlayerBtn:btn];
-//    }
-    
-    //    [ONEDataRequest requestMusic:_musicDetailItem.music_id parameters:nil success:^(id responseObject) {
-    //
-    //    } failure:^(NSError *error) {
-    //
-    //    }];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    self.playerView.hidden = true;
 
 }
-
 
 
 @end

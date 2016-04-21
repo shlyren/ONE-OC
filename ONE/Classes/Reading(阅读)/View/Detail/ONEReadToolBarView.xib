@@ -11,14 +11,100 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcO-kr-wa6">
-                    <rect key="frame" x="163" y="5" width="51" height="31"/>
-                </switch>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-9U-2Co" userLabel="like Btn">
+                    <rect key="frame" x="0.0" y="1" width="125" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" image="like_default">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="like_selected">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="like_default"/>
+                    <connections>
+                        <action selector="praiseBtnClick" destination="UWT-S1-eqZ" eventType="touchUpInside" id="CPV-Qr-4GA"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-yV-s2j">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.52947198279999996" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="tPl-6G-loa"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rU-LK-e2o">
+                    <rect key="frame" x="125" y="1" width="125" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" image="music_comment_default">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" title="100">
+                        <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.75716594829999995" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="commentBtnClick" destination="UWT-S1-eqZ" eventType="touchUpInside" id="sPz-8U-PdP"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toolBarLine" translatesAutoresizingMaskIntoConstraints="NO" id="8lW-zK-CiH">
+                    <rect key="frame" x="125" y="6" width="1" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="veI-3T-Npf"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toolBarLine" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-uR-Ecv">
+                    <rect key="frame" x="250" y="6" width="1" height="33"/>
+                </imageView>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJh-zL-t8p">
+                    <rect key="frame" x="250" y="1" width="125" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" image="shareImage">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7rU-LK-e2o" firstAttribute="leading" secondItem="3Gb-9U-2Co" secondAttribute="trailing" id="3EI-k9-MFW"/>
+                <constraint firstItem="Q7G-yV-s2j" firstAttribute="top" secondItem="UWT-S1-eqZ" secondAttribute="top" id="4At-p5-HKw"/>
+                <constraint firstItem="7rU-LK-e2o" firstAttribute="centerY" secondItem="3Gb-9U-2Co" secondAttribute="centerY" id="5xC-MV-2zx"/>
+                <constraint firstItem="bJh-zL-t8p" firstAttribute="height" secondItem="3Gb-9U-2Co" secondAttribute="height" id="7XY-TD-mvp"/>
+                <constraint firstItem="Q7G-yV-s2j" firstAttribute="leading" secondItem="UWT-S1-eqZ" secondAttribute="leading" id="AiK-JM-HqB"/>
+                <constraint firstItem="8lW-zK-CiH" firstAttribute="leading" secondItem="3Gb-9U-2Co" secondAttribute="trailing" id="BGl-5N-zWn"/>
+                <constraint firstAttribute="bottom" secondItem="8lW-zK-CiH" secondAttribute="bottom" constant="5" id="C8Y-dg-8ax"/>
+                <constraint firstItem="ROk-uR-Ecv" firstAttribute="bottom" secondItem="8lW-zK-CiH" secondAttribute="bottom" id="Cop-HW-aUo"/>
+                <constraint firstItem="7rU-LK-e2o" firstAttribute="height" secondItem="3Gb-9U-2Co" secondAttribute="height" id="DfU-3i-WT6"/>
+                <constraint firstItem="bJh-zL-t8p" firstAttribute="leading" secondItem="7rU-LK-e2o" secondAttribute="trailing" id="Dkv-lu-vh9"/>
+                <constraint firstItem="ROk-uR-Ecv" firstAttribute="top" secondItem="8lW-zK-CiH" secondAttribute="top" id="Iyk-1g-SYm"/>
+                <constraint firstItem="3Gb-9U-2Co" firstAttribute="top" secondItem="Q7G-yV-s2j" secondAttribute="bottom" id="K1c-2j-uJw"/>
+                <constraint firstItem="bJh-zL-t8p" firstAttribute="width" secondItem="3Gb-9U-2Co" secondAttribute="width" id="LZi-eB-zMW"/>
+                <constraint firstAttribute="bottom" secondItem="3Gb-9U-2Co" secondAttribute="bottom" id="QCl-Vy-Y0n"/>
+                <constraint firstItem="ROk-uR-Ecv" firstAttribute="leading" secondItem="7rU-LK-e2o" secondAttribute="trailing" id="QSh-Gm-FI0"/>
+                <constraint firstAttribute="trailing" secondItem="Q7G-yV-s2j" secondAttribute="trailing" id="ROX-UD-R46"/>
+                <constraint firstAttribute="trailing" secondItem="bJh-zL-t8p" secondAttribute="trailing" id="U3g-4H-TFu"/>
+                <constraint firstItem="7rU-LK-e2o" firstAttribute="width" secondItem="3Gb-9U-2Co" secondAttribute="width" id="bf1-8U-qbi"/>
+                <constraint firstItem="8lW-zK-CiH" firstAttribute="top" secondItem="Q7G-yV-s2j" secondAttribute="bottom" constant="5" id="cwY-jh-YF8"/>
+                <constraint firstItem="7rU-LK-e2o" firstAttribute="leading" secondItem="3Gb-9U-2Co" secondAttribute="trailing" id="dIv-yb-Eq7"/>
+                <constraint firstItem="ROk-uR-Ecv" firstAttribute="width" secondItem="8lW-zK-CiH" secondAttribute="width" id="nPO-0e-pd5"/>
+                <constraint firstItem="bJh-zL-t8p" firstAttribute="leading" secondItem="7rU-LK-e2o" secondAttribute="trailing" id="ok3-6T-fWC"/>
+                <constraint firstItem="3Gb-9U-2Co" firstAttribute="leading" secondItem="UWT-S1-eqZ" secondAttribute="leading" id="rKL-ho-cvl"/>
+                <constraint firstItem="bJh-zL-t8p" firstAttribute="centerY" secondItem="3Gb-9U-2Co" secondAttribute="centerY" id="rk1-dT-d5D"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="351" y="278"/>
+            <connections>
+                <outlet property="commentBtn" destination="7rU-LK-e2o" id="Xtz-k9-cLg"/>
+                <outlet property="praiseBtn" destination="3Gb-9U-2Co" id="vqd-o4-3aq"/>
+                <outlet property="shareBtn" destination="bJh-zL-t8p" id="0zm-1s-feY"/>
+            </connections>
+            <point key="canvasLocation" x="350.5" y="278"/>
         </view>
     </objects>
+    <resources>
+        <image name="like_default" width="44" height="44"/>
+        <image name="like_selected" width="44" height="44"/>
+        <image name="music_comment_default" width="44" height="44"/>
+        <image name="shareImage" width="44" height="44"/>
+        <image name="toolBarLine" width="1" height="27"/>
+    </resources>
 </document>

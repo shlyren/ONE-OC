@@ -35,7 +35,7 @@
         imageView.frame               = CGRectMake(5, 5, imageViewW, imageViewW * 0.75);
         _imageView                    = imageView;
         imageView.userInteractionEnabled  = true;
-        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImage)]];
+        [imageView addGestureRecognizer:[UITapGestureRecognizer.alloc initWithTarget:self action:@selector(bigImage)]];
         [self addSubview: imageView];
         
         /** 标题 */
@@ -54,11 +54,12 @@
         _hp_authorLabel               = hp_authorLabel;
         [self addSubview:hp_authorLabel];
         
-        UIScrollView *contentScroll = [UIScrollView new];
-        contentScroll.width         = imageViewW;
-        contentScroll.x             = self.imageView.x;
-        _contentScroll              = contentScroll;
+        UIScrollView *contentScroll   = [UIScrollView new];
+        contentScroll.width           = imageViewW;
+        contentScroll.x               = self.imageView.x;
+        _contentScroll                = contentScroll;
         [self addSubview:contentScroll];
+      
         /** 内容 */
         UILabel *hp_contentLabel      = [UILabel new];
         hp_contentLabel.numberOfLines = 0;
@@ -75,6 +76,7 @@
         hp_makettimeLabel.textColor   = [UIColor lightGrayColor];
         _hp_makettimeLabel            = hp_makettimeLabel;
         [self addSubview:hp_makettimeLabel];
+  
     }
     return self;
 }
@@ -161,17 +163,12 @@
     return self;
 }
 
-- (void)setupCardView {
-    
+- (void)setupCardView
+{
     self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.layer.borderWidth = 0.4f;
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     self.layer.cornerRadius = 7.0;
 }
-
-
-
-
-
 @end

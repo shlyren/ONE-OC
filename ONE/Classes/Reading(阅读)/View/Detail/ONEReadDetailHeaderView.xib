@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Lhw-Bl-al9" customClass="ONEReadDetailHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="author_cover" translatesAutoresizingMaskIntoConstraints="NO" id="hfc-op-SeP">
@@ -41,7 +41,7 @@
                     <state key="normal" image="audio"/>
                     <state key="selected" image="audio_stop"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任玉祥" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k55-uh-40e">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载中..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k55-uh-40e">
                     <rect key="frame" x="15" y="90" width="345" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,7 +55,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-AM-3HP">
                     <rect key="frame" x="15" y="119" width="345" height="21"/>
                     <attributedString key="attributedText">
-                        <fragment content="任玉祥">
+                        <fragment content="加载中...">
                             <attributes>
                                 <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <font key="NSFont" size="15" name="PingFangSC-Regular"/>
@@ -66,7 +66,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgA-8f-bpR">
-                    <rect key="frame" x="15" y="360" width="37.5" height="20"/>
+                    <rect key="frame" x="15" y="220" width="37.5" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="h6C-nC-TX5"/>
                     </constraints>
@@ -75,7 +75,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tj3-uQ-FR0" userLabel="bottomView">
-                    <rect key="frame" x="0.0" y="290" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="150" width="375" height="100"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="author_cover" translatesAutoresizingMaskIntoConstraints="NO" id="KPJ-Iu-mzI">
                             <rect key="frame" x="15" y="25" width="50" height="50"/>

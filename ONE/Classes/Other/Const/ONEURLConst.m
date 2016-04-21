@@ -108,3 +108,6 @@ NSString *const search_music         = @"http://v3.wufazhuce.com:8000/api/search
 NSString *const search_movie         = @"http://v3.wufazhuce.com:8000/api/search/movie";
 /** 用户 */
 NSString *const search_author        = @"http://v3.wufazhuce.com:8000/api/search/author";
+
+
+NSString *const procotolUrl          = @"http://m.wufazhuce.com/policy?from=ONEApp";

@@ -47,7 +47,7 @@ UICollectionViewDelegate, UICollectionViewDataSource>
 static NSString *const commentCellID = @"commentCell";
 static NSString *const relatedCellID = @"relatedCell";
 
-#pragma mark - ↓↓↓↓↓↓ lazy loading ↓↓↓↓↓↓
+#pragma mark - ↓↓↓↓↓↓ lazy load ↓↓↓↓↓↓
 - (UIImageView *)noDataImgView
 {
     if (_noDataImgView == nil) {
@@ -68,7 +68,8 @@ static NSString *const relatedCellID = @"relatedCell";
 
 - (UICollectionView *)collectionView
 {
-    if (_collectionView == nil) {
+    if (_collectionView == nil)
+    {
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
         layout.itemSize = CGSizeMake(95, 150);
         layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
@@ -192,7 +193,6 @@ static NSString *const relatedCellID = @"relatedCell";
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     tableView.tableFooterView = !self.commentArr.count ? self.noDataImgView : nil;
-    [tableView tableViewShowMessage:nil numberOfRows:self.commentArr.count];
     if (_haveRelatedData) return 2;
     return 1;
 }
@@ -241,7 +241,6 @@ static NSString *const relatedCellID = @"relatedCell";
 #pragma mark musicDetailView
 - (void)musicDetailViwe:(ONEMusicDetailView *)musicDetailView didClickPlayerBtn:(UIButton *)button
 {
-#warning music player
     //self.playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 225);
 }
 

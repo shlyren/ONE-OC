@@ -38,9 +38,9 @@ static NSString *const pastListReusltCellId = @"pastListReusltCellId";
 /**
  *  通过block来做不同情况下的事情
  *
- *  @param myEssay    当是短篇时 执行这个blo块里面的代码
- *  @param mySerial   当是连载时 执行这个blo块里面的代码
- *  @param myQuestion 当是问答时 执行这个blo块里面的代码
+ *  @param myEssay    当是短篇时 执行这个block块里面的代码
+ *  @param mySerial   当是连载时 执行这个block块里面的代码
+ *  @param myQuestion 当是问答时 执行这个block块里面的代码
  */
 - (void)actionWithEssay:(void(^)())myEssay serial:(void(^)())mySerial question:(void(^)())myQuestion
 {

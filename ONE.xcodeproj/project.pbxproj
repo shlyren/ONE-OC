@@ -60,6 +60,9 @@
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
 		55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */; };
 		55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */; };
+		55711B331CC7913900A4EC54 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55711B321CC7913900A4EC54 /* MediaPlayer.framework */; };
+		55711B3B1CC87EFA00A4EC54 /* ONELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */; };
+		55711B3C1CC87EFA00A4EC54 /* ONELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */; };
 		558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165931CC609830022458E /* NSMutableAttributedString+string.m */; };
 		558165AB1CC609830022458E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165951CC609830022458E /* UIColor+Hex.m */; };
 		558165AC1CC609830022458E /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165971CC609830022458E /* UIImage+image.m */; };
@@ -221,6 +224,10 @@
 		55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadPastListResultVc.m; sourceTree = "<group>"; };
 		55711B0B1CC66E0C00A4EC54 /* ONEReadPastListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadPastListViewController.h; sourceTree = "<group>"; };
 		55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadPastListViewController.m; sourceTree = "<group>"; };
+		55711B321CC7913900A4EC54 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		55711B381CC87EFA00A4EC54 /* ONELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONELoginViewController.h; sourceTree = "<group>"; };
+		55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONELoginViewController.m; sourceTree = "<group>"; };
+		55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONELoginViewController.xib; sourceTree = "<group>"; };
 		558165921CC609830022458E /* NSMutableAttributedString+string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+string.h"; sourceTree = "<group>"; };
 		558165931CC609830022458E /* NSMutableAttributedString+string.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+string.m"; sourceTree = "<group>"; };
 		558165941CC609830022458E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -350,6 +357,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55711B331CC7913900A4EC54 /* MediaPlayer.framework in Frameworks */,
 				D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +531,40 @@
 			path = PastList;
 			sourceTree = "<group>";
 		};
+		55711B341CC87EEF00A4EC54 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				55711B351CC87EEF00A4EC54 /* Controller */,
+				55711B361CC87EEF00A4EC54 /* Model */,
+				55711B371CC87EEF00A4EC54 /* View */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		55711B351CC87EEF00A4EC54 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55711B381CC87EFA00A4EC54 /* ONELoginViewController.h */,
+				55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */,
+				55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55711B361CC87EEF00A4EC54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55711B371CC87EEF00A4EC54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		558165911CC609830022458E /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,37 +635,6 @@
 				553BDD811CC0B3FD006BE7BF /* Cell */,
 				550904201CBFD62500F884C2 /* Detail */,
 				550904271CBFD62500F884C2 /* Read */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		55C6DD471CC4B2E400988121 /* Personal(个人) */ = {
-			isa = PBXGroup;
-			children = (
-				55C6DD481CC4B2E400988121 /* Controller */,
-				55C6DD491CC4B2E400988121 /* Model */,
-				55C6DD4A1CC4B2E400988121 /* View */,
-			);
-			path = "Personal(个人)";
-			sourceTree = "<group>";
-		};
-		55C6DD481CC4B2E400988121 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		55C6DD491CC4B2E400988121 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		55C6DD4A1CC4B2E400988121 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -820,7 +831,7 @@
 				7E1A39361CAD9D1B0085EB67 /* Music(音乐) */,
 				7E1A392A1CAD9D1B0085EB67 /*  Movie(电影) */,
 				55C6DD4B1CC4B2E400988121 /* Search(搜索) */,
-				55C6DD471CC4B2E400988121 /* Personal(个人) */,
+				55711B341CC87EEF00A4EC54 /* Personal */,
 				7E1A39321CAD9D1B0085EB67 /* Main */,
 				7E1A393E1CAD9D1B0085EB67 /* Other */,
 			);
@@ -933,6 +944,7 @@
 		E14DF55EF240829EA9F129B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55711B321CC7913900A4EC54 /* MediaPlayer.framework */,
 				9308BD47B20C5C8F1D609C57 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1011,6 +1023,7 @@
 				55FC84C71CBBF5DE00E454A3 /* ONEMovieCommentCell.xib in Resources */,
 				55212F8D1CB6901300634442 /* ONEMusicSongViewController.storyboard in Resources */,
 				553BDD801CC08957006BE7BF /* ONEQuestionHeaderView.xib in Resources */,
+				55711B3C1CC87EFA00A4EC54 /* ONELoginViewController.xib in Resources */,
 				550904321CBFD62500F884C2 /* ONEReadToolBarView.xib in Resources */,
 				55FC84A31CBAC23B00E454A3 /* ONEMovieListCell.xib in Resources */,
 				7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */,
@@ -1108,6 +1121,7 @@
 				550904491CBFD64700F884C2 /* ONEEssayDetailViewController.m in Sources */,
 				5509044F1CBFD64700F884C2 /* ONEReadTableViewController.m in Sources */,
 				55C6DD031CC381D100988121 /* ONEMoreSubtotalViewController.m in Sources */,
+				55711B3B1CC87EFA00A4EC54 /* ONELoginViewController.m in Sources */,
 				558165B31CC609830022458E /* ONEFPSLabel.m in Sources */,
 				55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */,
 				553BDDB21CC1E63C006BE7BF /* ONECarouselDetailItem.m in Sources */,

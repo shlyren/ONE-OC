@@ -18,6 +18,7 @@
 #import "ONEPersonDetailViewController.h"
 #import "ONENavigationController.h"
 #import "UIViewController+topViewController.h"
+//#import <MPMoviePlayerController/MPMoviePlayerController.h>
 
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
@@ -377,7 +378,7 @@ static NSString *const photoCellID = @"photoCell";
  *
  *  @return 截取后的数组
  */
-- (NSArray *)cutoffString:(NSString *)string byString:(NSString *)str
+- (NSArray<NSString *> *)cutoffString:(NSString *)string byString:(NSString *)str
 {
     NSMutableString *mutableStr = [[NSMutableString alloc] initWithString:[string stringByAppendingString:str]];
     NSMutableArray *mutableArr  = [NSMutableArray array];

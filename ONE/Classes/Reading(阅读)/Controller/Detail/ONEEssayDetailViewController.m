@@ -35,6 +35,21 @@
     [ONEDataRequest requestEssayDetail:self.detail_id parameters:nil succsee:^(ONEEssayItem *essay) {
         if (!essay) return;
         weakSelf.headerView.essayItem = essay;
+        weakSelf.toolBarView.typeStr = @"essay";
+        weakSelf.toolBarView.content_id = essay.content_id;
+        [weakSelf.toolBarView setPraiseTitle:essay.praisenum commentTitle:essay.commentnum shareTitle:essay.sharenum];
+        
+//        NSDictionary *paremeter = @{
+//                                    @"deviceid"    : NSUUID.UUID.UUIDString,
+//                                    @"devicetype"  : @"ios",
+//                                    @"itemid"      : essay.content_id,
+//                                    @"type"        : @"essay"
+//                                    };
+        
+//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
+//          
+//            return essay.content_id;
+//        };
         [weakSelf.tableView reloadData];
     } failure:nil];
 }
@@ -55,7 +70,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.essayItem = self.relatedItems[indexPath.row];
         return cell;
     }
@@ -80,7 +95,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
-        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCell];
+        ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.essayItem = self.relatedItems[indexPath.row];
         return cell.rowHeight;
     }
