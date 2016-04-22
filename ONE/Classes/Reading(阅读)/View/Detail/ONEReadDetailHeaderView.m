@@ -251,6 +251,7 @@
 {
     if (self.listView.y == 0) [self hiddenListView];
 }
+
 // 隐藏列表
 - (void)hiddenListView
 {
@@ -268,7 +269,7 @@
     if (self.essayItem.author.count) {
         userid = [self.essayItem.author.firstObject user_id];
     }
-    if (self.serialItem) {
+    if (self.serialItem.author) {
         userid = self.serialItem.author.user_id;
     }
     if (userid == nil) return;

@@ -31,8 +31,8 @@
 @interface ONECarouselView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
-@property (nonatomic, weak) UIPageControl *pageControl;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, weak) UIPageControl    *pageControl;
+@property (nonatomic, weak) NSTimer          *timer;
 
 @end
 
@@ -41,7 +41,7 @@
 static NSString *const readAdCell = @"readAdCell";
 
 #define COLLECTION_MAX_SECTION 10
-#define PAGECONTROL_HEIGHT 30
+#define PAGECONTROL_HEIGHT 25
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame])
@@ -93,7 +93,7 @@ static NSString *const readAdCell = @"readAdCell";
     }];
 }
 
--(NSIndexPath*)resetPage
+-(NSIndexPath *)resetPage
 {
     NSIndexPath *currentIndexPath = [self.collectionView indexPathsForVisibleItems].lastObject;
     NSIndexPath *currentIndexPathReset = [NSIndexPath indexPathForItem:currentIndexPath.item inSection:COLLECTION_MAX_SECTION / 2];

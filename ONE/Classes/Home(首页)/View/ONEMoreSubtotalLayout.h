@@ -12,6 +12,7 @@
 
 @protocol ONEMoreSubtotalLayoutDelegate <NSObject>
 
+@required
 /**
  *  每个item的高度
  *
@@ -21,7 +22,6 @@
  *
  *  @return Item的高度
  */
-@required
 - (CGFloat)subtotallowLayout:(ONEMoreSubtotalLayout *)subtotallowLayout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath;
 @end
 

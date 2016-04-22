@@ -12,7 +12,7 @@
 #import "ONEReadRelatedCell.h"
 #import "ONEReadToolBarView.h"
 
-@interface ONEReadDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ONEReadDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 UIKIT_EXTERN NSString *const relatedCellID;
 /** id */
 @property (nonatomic, strong) NSString *detail_id;
@@ -23,6 +23,7 @@ UIKIT_EXTERN NSString *const relatedCellID;
 
 
 @property (nonatomic, weak) UITableView *tableView;
+
 /** 就是阅读的类型 essay serial question */
 - (NSString *)commentType;
 

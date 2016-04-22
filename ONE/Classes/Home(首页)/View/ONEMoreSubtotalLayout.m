@@ -77,7 +77,7 @@
     
     if (self.delegate == nil)
     {
-         [[NSException exceptionWithName:@"ONEMoreSubtotalLayout delegate is nil" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:' " userInfo:nil] raise];
+         [[NSException exceptionWithName:@"ONEMoreSubtotalLayout delegate is nil" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:'" userInfo:nil] raise];
     }
     
     if ([self.delegate respondsToSelector:@selector(subtotallowLayout:heightForWidth:atIndexPath:)])
@@ -86,7 +86,7 @@
     }else{
         ///Users/Schnappi/Documents/Git/oneIsAll/ONE/Classes/Home(首页)/Controller/ONEMoreSubtotalViewController.m:21:17: Method 'subtotallowLayout:heightForWidth:atIndexPath:' in protocol 'ONEMoreSubtotalLayoutDelegate' not implemented
         
-        [[NSException exceptionWithName:@"ONEMoreSubtotalLayoutDelegate method not implemented" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:' " userInfo:nil] raise];
+        [[NSException exceptionWithName:@"ONEMoreSubtotalLayoutDelegate method not implemented" reason:@"Must implemented ONEMoreSubtotalLayoutDelegate method 'subtotallowLayout:heightForWidth:atIndexPath:'" userInfo:nil] raise];
     }
     
     // 计算位置

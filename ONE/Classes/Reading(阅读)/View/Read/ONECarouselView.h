@@ -15,15 +15,13 @@
 
 @optional
 - (void)carouselView:(ONECarouselView *)carouselView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-
-
 @end
 
 @interface ONECarouselView : UIView
-/** 图片名字的数组 */
+/** 图片urlStr的数组  */
 @property (nonatomic, strong) NSArray<NSString *>       *imageNames;
 
-@property (nonatomic, weak) id<ONECarouselViewDelegate>   delegate;
+@property (nonatomic, weak) id<ONECarouselViewDelegate> delegate;
 /** 翻页的时间 默认2.0s */
 @property (nonatomic, assign) NSTimeInterval            intervalTime;
 

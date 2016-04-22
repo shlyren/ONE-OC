@@ -52,7 +52,7 @@
     self.titleLabel.text    = serialItem.title;
     self.nameLabel.text     = serialItem.author.user_name;
     self.contentLabel.text  = serialItem.excerpt;
-    self.typeImgView.image = [UIImage imageNamed:@"serialcontent"];
+    self.typeImgView.image  = [UIImage imageNamed:@"serialcontent"];
 
 }
 

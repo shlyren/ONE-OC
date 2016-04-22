@@ -12,6 +12,7 @@
 
 @interface ONELoginViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *protocolLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *backgrouImage;
 
 @end
 
@@ -24,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.backgrouImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"login_bg_%02zd", (NSInteger)arc4random_uniform(10)]];
+    
     NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithString:self.protocolLabel.text];
     NSRange contentRange = {0,content.length};
     [content addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange];

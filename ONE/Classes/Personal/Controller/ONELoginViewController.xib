@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ONELoginViewController">
             <connections>
+                <outlet property="backgrouImage" destination="BMX-Yd-qRd" id="uPl-o8-FVx"/>
                 <outlet property="protocolLabel" destination="WgJ-Ne-pDH" id="UtC-jN-pmf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBgi" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-Yd-qRd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg_10" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-Yd-qRd">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <gestureRecognizers/>
                 </imageView>
@@ -167,7 +168,7 @@
     <resources>
         <image name="close_default" width="44" height="44"/>
         <image name="close_highlighted" width="44" height="44"/>
-        <image name="loginBgi" width="1200" height="2242"/>
+        <image name="login_bg_10" width="700" height="1244"/>
         <image name="mobileLogin" width="121" height="17"/>
         <image name="qqLogin" width="270" height="40"/>
         <image name="qqLoginHigh" width="270" height="40"/>

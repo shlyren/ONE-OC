@@ -60,7 +60,6 @@
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
 		55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */; };
 		55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */; };
-		55711B331CC7913900A4EC54 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55711B321CC7913900A4EC54 /* MediaPlayer.framework */; };
 		55711B3B1CC87EFA00A4EC54 /* ONELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */; };
 		55711B3C1CC87EFA00A4EC54 /* ONELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */; };
 		558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165931CC609830022458E /* NSMutableAttributedString+string.m */; };
@@ -357,7 +356,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55711B331CC7913900A4EC54 /* MediaPlayer.framework in Frameworks */,
 				D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
