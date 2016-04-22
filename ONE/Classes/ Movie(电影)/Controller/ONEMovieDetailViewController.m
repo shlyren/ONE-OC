@@ -64,8 +64,6 @@ static NSString *const movieCommentID = @"movieComment";
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -38, 0);
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(ONENavBMaxY, 0, 0, 0);
     ONEMovieDetailHeaderView *headerView = [ONEMovieDetailHeaderView tableHeaderView];
     headerView.movie_id = _movie_id;
     headerView.reviewCount = self.movieReviewResult.count;
@@ -116,7 +114,7 @@ static NSString *const movieCommentID = @"movieComment";
         url = [_movie_id stringByAppendingPathComponent:@"review/1/0"];
     }else{
         ONEMovieCommentItem *item = [self.commentArray lastObject];
-       url = [_movie_id stringByAppendingPathComponent:item.comment_id];
+        url = [_movie_id stringByAppendingPathComponent:item.comment_id];
     }
     
     ONEWeakSelf
@@ -149,7 +147,7 @@ static NSString *const movieCommentID = @"movieComment";
     ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
     group2.items        = self.commentArray;
     group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
-    group2.footerHeight = 0;
+    group2.footerHeight = 0.000000000001;
     group2.footerView   = nil;
     [self.groups addObject:group1];
     [self.groups addObject:group2];
