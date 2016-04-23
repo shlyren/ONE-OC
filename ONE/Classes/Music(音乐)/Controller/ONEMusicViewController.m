@@ -322,9 +322,4 @@ static NSString *const relatedCellID = @"relatedCell";
         ONELog(@"暂停播放音乐...");
     }
 }
-
-- (void)dealloc
-{
-    [ONEHttpTool cancel];
-}
 @end

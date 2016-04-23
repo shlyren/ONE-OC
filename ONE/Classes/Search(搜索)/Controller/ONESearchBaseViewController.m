@@ -29,7 +29,6 @@ static NSString *const searchTableViewCell = @"searchTableViewCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [tableView tableViewShowMessage:nil numberOfRows:self.searchResult.count];
     [tableView tableViewShowImage:@"search_null_image" numberOfRows:self.searchResult.count];
     return self.searchResult.count;
 }

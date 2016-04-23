@@ -22,15 +22,6 @@
 
 @implementation ONEMovieViewController
 
-#pragma mark - lazy load
-- (NSMutableArray *)movieList
-{
-    if (_movieList == nil) {
-        _movieList = [NSMutableArray array];
-    }
-    return _movieList;
-}
-
 #pragma mark - initial
 #pragma mark view
 - (void)viewDidLoad {
@@ -56,14 +47,12 @@
 {
     ONEWeakSelf
     [ONEDataRequest requestMovieList:@"0" parameters:nil succes:^(NSArray *movieLists) {
-    
-        if (weakSelf.movieList.count) [weakSelf.movieList removeAllObjects];
-        
+
         if (movieLists.count) {
-            [weakSelf.movieList addObjectsFromArray:movieLists];
+            weakSelf.movieList = (NSMutableArray *)movieLists;
             [weakSelf.tableView reloadData];
         }
-        [weakSelf endRefreshing];
+       [weakSelf endRefreshing];
     } failure:^(NSError *error) {
         [weakSelf endRefreshing];
     }];
@@ -79,8 +68,11 @@
         if (movieLists.count) {
             [weakSelf.movieList addObjectsFromArray:movieLists];
             [weakSelf.tableView reloadData];
+            [weakSelf endRefreshing];
+        }else{
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-        [weakSelf endRefreshing];
+        
     } failure:^(NSError *error) {
         [weakSelf endRefreshing];
     }];

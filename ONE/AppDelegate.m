@@ -73,7 +73,7 @@
 
 - (void)startTimer
 {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(clearMemory) userInfo:nil repeats:true];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(clearMemory) userInfo:nil repeats:true];
     
 }
 - (void)stopTimer

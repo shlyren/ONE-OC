@@ -103,6 +103,9 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+   [self.view endEditing:true];
+    if ([searchBar.text isEqualToString:self.searhKey]) return;
+    
     self.searhKey = searchBar.text;
     NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
     ONESearchBaseViewController *childVc = self.childViewControllers[index];
@@ -110,13 +113,11 @@
     childVc.searchKey = [searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self.scrollView addSubview:childVc.view];
     
-    [self.view endEditing:true];
     self.bgImageView.hidden = true;
 }
 
 - (void)setupAllViewController
 {
-    
     [self addChildViewController:ONESearchHpViewController.new];
     [self addChildViewController:ONESearchReadViewController.new];
     [self addChildViewController:ONESearchMusicViewController.new];

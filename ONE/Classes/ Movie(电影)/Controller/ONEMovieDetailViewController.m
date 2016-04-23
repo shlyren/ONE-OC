@@ -34,7 +34,7 @@
 @implementation ONEMovieDetailViewController
 
 static NSString *const movieCommentID = @"movieComment";
-
+#pragma mark - lazy load
 - (NSMutableArray *)groups
 {
     if (_groups == nil) {
@@ -130,7 +130,7 @@ static NSString *const movieCommentID = @"movieComment";
 
         [weakSelf.tableView.mj_footer  endRefreshing];
     } failure:^(NSError *error) {
-         [weakSelf.tableView.mj_footer  endRefreshing];
+        [weakSelf.tableView.mj_footer  endRefreshing];
     }];
     
    
@@ -145,6 +145,7 @@ static NSString *const movieCommentID = @"movieComment";
     group1.footerHeight = 40;
     group1.headerView   = [ONEMovieDetailHeaderView reviewSectionHeaderView];
     group1.footerView   = [ONEMovieDetailHeaderView reviewSectionFooterView];
+    
     ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
     group2.items        = self.commentArray;
     group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
@@ -231,6 +232,5 @@ static NSString *const movieCommentID = @"movieComment";
     ONEDefaultCellGroupItem *group = self.groups[section];
     return group.footerHeight;
 }
-
 
 @end

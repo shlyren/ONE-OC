@@ -237,7 +237,7 @@
                                  @"itemid"      : _musicDetailItem.detail_id,
                                  @"type"        : @"music"
                                  };
-    //ONELog(@"%@", parameters);
+    
     [ONEDataRequest addPraise:praise_add parameters:parameters success:^(BOOL isSuccess, NSString *message) {
         
         if (!isSuccess)
