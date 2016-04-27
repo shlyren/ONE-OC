@@ -606,8 +606,6 @@
         NSArray *movieResult = [ONESearchMovieItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         success(movieResult);
         
-
-        
     } failure:^(NSError *error) {
         if (failure) failure(error);
         ONELog(@"影视数据搜索失败%@",error);

@@ -27,14 +27,14 @@
     
     else if ([rootViewController isKindOfClass:[UINavigationController class]]){
         
-        UINavigationController* navigationController = (UINavigationController *)rootViewController;
+        UINavigationController *navigationController = (UINavigationController *)rootViewController;
         return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
         
     }
     
     else if (rootViewController.presentedViewController) {
         
-        UIViewController* presentedViewController = rootViewController.presentedViewController;
+        UIViewController *presentedViewController = rootViewController.presentedViewController;
         return [self topViewControllerWithRootViewController:presentedViewController];
         
     }

@@ -218,7 +218,7 @@ static NSString *const photoCellID = @"photoCell";
     for (NSInteger i = 0; i < self.keywordView.subviews[1].subviews.count; i++)
     {
         UILabel *textLabel = self.keywordView.subviews[1].subviews[i];
-        textLabel.text = [self cutoffString:_movieDetail.keywords byString:@";"][i];
+        textLabel.text = [_movieDetail.keywords componentsSeparatedByString:@";"][i];
     }
     [self oneMovieBtnClick:_movieBtn];
 }
@@ -369,28 +369,30 @@ static NSString *const photoCellID = @"photoCell";
 {
     return self.loadViewsFromNib[3];
 }
-
-/**
- *  通过一个字符截取整个字符串
- *
- *  @param string 需要截取的字符串
- *  @param str
- *
- *  @return 截取后的数组
- */
-- (NSArray<NSString *> *)cutoffString:(NSString *)string byString:(NSString *)str
-{
-    NSMutableString *mutableStr = [[NSMutableString alloc] initWithString:[string stringByAppendingString:str]];
-    NSMutableArray *mutableArr  = [NSMutableArray array];
-    NSRange range               = [mutableStr rangeOfString:str];
-    
-    while (range.location != NSNotFound)
-    {
-        [mutableArr addObject:[mutableStr substringToIndex:range.location]];
-        [mutableStr deleteCharactersInRange:NSMakeRange(0, range.location + range.length)];
-        range = [mutableStr rangeOfString:str];
-    }
-    
-    return mutableArr;
-}
+//
+///**
+// *  通过一个字符截取整个字符串
+// *
+// *  @param string 需要截取的字符串
+// *  @param str
+// *
+// *  @return 截取后的数组
+// */
+//- (NSArray<NSString *> *)cutoffString:(NSString *)string byString:(NSString *)str
+//{
+//    NSMutableString *mutableStr = [[NSMutableString alloc] initWithString:[string stringByAppendingString:str]];
+//    NSMutableArray *mutableArr  = [NSMutableArray array];
+//    NSRange range               = [mutableStr rangeOfString:str];
+//    
+//   // [string componentsSeparatedByString:str];
+//    
+//    while (range.location != NSNotFound)
+//    {
+//        [mutableArr addObject:[mutableStr substringToIndex:range.location]];
+//        [mutableStr deleteCharactersInRange:NSMakeRange(0, range.location + range.length)];
+//        range = [mutableStr rangeOfString:str];
+//    }
+//    
+//    return mutableArr;
+//}
 @end

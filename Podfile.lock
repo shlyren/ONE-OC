@@ -22,11 +22,11 @@ PODS:
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.1.0)
-  - MJExtension (~> 3.0.1)
-  - MJRefresh (~> 3.1.0)
+  - AFNetworking
+  - MJExtension
+  - MJRefresh
   - SDWebImage
-  - SVProgressHUD (~> 2.0.3)
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
