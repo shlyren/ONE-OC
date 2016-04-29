@@ -21,7 +21,7 @@
     self.interactivePopGestureRecognizer.enabled = false;
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-    
+
     pan.delegate = self;
     [self.view addGestureRecognizer:pan];
     
@@ -84,7 +84,7 @@
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:searchVc];
    nav.delegate = self;
 
-   [self presentViewController:nav animated:true completion:nil];
+   [self presentViewController:nav animated:true completion:nil]  ;
 
 }
 #pragma mark - UINavigationControllerDelegate

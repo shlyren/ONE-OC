@@ -63,7 +63,7 @@
 {
     
     UIView *view = [UIView new];
-    
+
     view.backgroundColor = [UIColor whiteColor];
     
     [self setTableFooterView:view];
