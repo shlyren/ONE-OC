@@ -12,9 +12,10 @@
 #import "ONEReadViewController.h"
 #import "ONEMusicScrollViewController.h"
 #import "ONEMovieViewController.h"
+#import "ONETabBar.h"
 
-@interface ONETabbarController ()
-
+@interface ONETabbarController ()<UITabBarDelegate>
+@property (nonatomic, weak) UITabBarItem *tabBarItem;
 @end
 
 @implementation ONETabbarController
@@ -24,6 +25,27 @@
     [super viewDidLoad];
     [self setUpAllChildViewController];
 
+    [self setupTabBar];
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if ([UIApplication sharedApplication].isNetworkActivityIndicatorVisible) return;
+        
+    if (self.tabBarItem == item)
+    {
+        // 发送通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:ONETabBarItemDidRepeatClickNotification object:nil];
+    }
+    self.tabBarItem = item;
+}
+
+- (void)setupTabBar
+{
+    ONETabBar *tabBar = [ONETabBar new];
+    tabBar.delegate = self;
+    [self setValue:tabBar forKey:@"tabBar"];
+    
 }
 
 // 添加所有子控制器
@@ -71,7 +93,6 @@
     }
     
     [self addChildViewController:[[ONENavigationController alloc] initWithRootViewController:vc]];
-    
 }
 
 

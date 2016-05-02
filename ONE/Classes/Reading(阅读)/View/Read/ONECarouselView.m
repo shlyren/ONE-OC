@@ -85,10 +85,9 @@ static NSString *const readAdCell = @"readAdCell";
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:COLLECTION_MAX_SECTION / 2] atScrollPosition:UICollectionViewScrollPositionLeft animated:false];
     
     [self.collectionView performBatchUpdates:^{
-        
+        [self stopTimer];
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     } completion:^(BOOL finished) {
-        
         [self startTimer];
     }];
 }

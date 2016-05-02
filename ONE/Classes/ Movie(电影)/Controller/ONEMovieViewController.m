@@ -41,6 +41,18 @@
     self.tableView.rowHeight = 150;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView.mj_header selector:@selector(beginRefreshing) name:ONETabBarItemDidRepeatClickNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.tableView.mj_header];
+}
+
 #pragma mark data
 /** 刷新数据 */
 - (void)loadData

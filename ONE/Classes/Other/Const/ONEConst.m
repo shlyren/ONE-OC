@@ -17,3 +17,5 @@ CGFloat const ONETabBarH = 49;
 CGFloat const ONETitleViewH = 35;
 
 CGFloat const ONEDefaultMargin = 10;
+
+NSString *const ONETabBarItemDidRepeatClickNotification = @"ONETabBarItemDidRepeatClickNotification";

@@ -57,6 +57,7 @@
 		55422CFE1CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CF91CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m */; };
 		55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFB1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m */; };
 		55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */; };
+		554481681CD6EC2B008AB5DE /* ONETabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 554481671CD6EC2B008AB5DE /* ONETabBar.m */; };
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
 		55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */; };
 		55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */; };
@@ -218,6 +219,8 @@
 		55422CFB1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEDefaultCellGroupItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		55422CFC1CBFEB1700A3B1A0 /* ONEDefaultCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONEDefaultCellItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEDefaultCellItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		554481661CD6EC2B008AB5DE /* ONETabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONETabBar.h; sourceTree = "<group>"; };
+		554481671CD6EC2B008AB5DE /* ONETabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONETabBar.m; sourceTree = "<group>"; };
 		5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMusicDetailView.xib; sourceTree = "<group>"; };
 		55711AFF1CC66BC600A4EC54 /* ONEReadPastListResultVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadPastListResultVc.h; sourceTree = "<group>"; };
 		55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadPastListResultVc.m; sourceTree = "<group>"; };
@@ -516,6 +519,15 @@
 				55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */,
 			);
 			path = cellItem;
+			sourceTree = "<group>";
+		};
+		554481651CD6EC0E008AB5DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				554481661CD6EC2B008AB5DE /* ONETabBar.h */,
+				554481671CD6EC2B008AB5DE /* ONETabBar.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		55711AFE1CC669A800A4EC54 /* PastList */ = {
@@ -862,6 +874,7 @@
 		7E1A39321CAD9D1B0085EB67 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				554481651CD6EC0E008AB5DE /* View */,
 				55FC84BC1CBBB78900E454A3 /* Model */,
 				7E1A39331CAD9D1B0085EB67 /* Controller */,
 			);
@@ -1104,6 +1117,7 @@
 				55C6DD601CC4C56A00988121 /* ONESearchReadViewController.m in Sources */,
 				558165AC1CC609830022458E /* UIImage+image.m in Sources */,
 				55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */,
+				554481681CD6EC2B008AB5DE /* ONETabBar.m in Sources */,
 				55C6DD6C1CC4CF9400988121 /* ONESearchReadItem.m in Sources */,
 				55FC84961CBA4FB100E454A3 /* ONESubTitleCell.m in Sources */,
 				5505BCD11CAFEE460063B97C /* ONEMusicDetailItem.m in Sources */,

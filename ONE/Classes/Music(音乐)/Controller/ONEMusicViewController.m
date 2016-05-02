@@ -58,14 +58,6 @@ static NSString *const relatedCellID = @"relatedCell";
     return _noDataImgView;
 }
 
-- (NSMutableArray *)commentArr
-{
-    if (_commentArr == nil) {
-        _commentArr = [NSMutableArray array];
-    }
-    return _commentArr;
-}
-
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil)
@@ -129,8 +121,20 @@ static NSString *const relatedCellID = @"relatedCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ONECommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellID];
     
     self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadDetailData)];
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadCommentData)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreCommentData)];
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView.mj_header selector:@selector(beginRefreshing) name:ONETabBarItemDidRepeatClickNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.tableView.mj_header];
 }
 
 #pragma mark - ↓↓↓↓↓↓ loadData Methods ↓↓↓↓↓↓
@@ -140,9 +144,13 @@ static NSString *const relatedCellID = @"relatedCell";
     ONEWeakSelf
     [SVProgressHUD showWithStatus:@"努力加载中..."];
     [ONEDataRequest requestMusicDetail:_detailIdUrl parameters:nil success:^(ONEMusicDetailItem *musicDetailItem) {
-        if (musicDetailItem) _musicDetailView.musicDetailItem = musicDetailItem;
-        [weakSelf loadRelatedData];
-        [weakSelf.tableView.mj_header endRefreshing];
+        
+        if (musicDetailItem) {
+            _musicDetailView.musicDetailItem = musicDetailItem;
+            [weakSelf loadRelatedData];
+            [weakSelf.tableView.mj_header endRefreshing];
+        }
+
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
     }];
@@ -154,13 +162,10 @@ static NSString *const relatedCellID = @"relatedCell";
     ONEWeakSelf
     [ONEDataRequest requestMusicRelated:self.detailIdUrl parameters:nil success:^(NSArray<ONEMusicRelatedItem *> *relatedItems) {
         _haveRelatedData = relatedItems.count;
-       
-        if (relatedItems.count)
-        {
-            weakSelf.relatedArr = relatedItems;
-            [weakSelf.tableView reloadData];
-            [weakSelf.collectionView reloadData];
-        }
+        if (!_haveRelatedData) return;
+        
+        weakSelf.relatedArr = relatedItems;
+        [weakSelf.collectionView reloadData];
     } failure:nil];
     
     [self loadCommentData];
@@ -170,23 +175,34 @@ static NSString *const relatedCellID = @"relatedCell";
 - (void)loadCommentData
 {
     ONEWeakSelf
-    ONEMusicCommentItem *item = [self.commentArr lastObject];
-    NSString *commentId = item ? item.comment_id : @"0";
+    [ONEDataRequest requestMusicComment:[_detailIdUrl stringByAppendingPathComponent:@"0"] parameters:nil success:^(NSArray<ONEMusicCommentItem *> *commentItems) {
+        if (commentItems.count)
+        {
+            weakSelf.commentArr = (NSMutableArray *)commentItems;
+            [weakSelf.tableView reloadData];
+        }
+        
+    } failure:nil];
+}
 
+- (void)loadMoreCommentData
+{
+    ONEWeakSelf
+    if (!self.commentArr.count) return;
+    NSString *commentId = [self.commentArr.lastObject comment_id];
+    
     [ONEDataRequest requestMusicComment:[_detailIdUrl stringByAppendingPathComponent:commentId] parameters:nil success:^(NSArray<ONEMusicCommentItem *> *commentItems) {
         if (commentItems.count) {
             [weakSelf.commentArr addObjectsFromArray:commentItems];
             [weakSelf.tableView reloadData];
-        }else{
-            [SVProgressHUD showErrorWithStatus:@"没有数据了哦~~"];
         }
         [weakSelf.tableView.mj_footer  endRefreshing];
         
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_footer  endRefreshing];
     }];
-}
 
+}
 
 #pragma mark - ↓↓↓↓↓↓ data source Methods ↓↓↓↓↓↓
 #pragma mark table view

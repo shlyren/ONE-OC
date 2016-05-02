@@ -44,6 +44,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:ONETabBarItemDidRepeatClickNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma  mark - 加载数据 
@@ -171,8 +184,7 @@
             [_praiseButton setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateSelected];
             
         }
-        
     } failure:nil];
-
 }
+
 @end

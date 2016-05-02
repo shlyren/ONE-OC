@@ -49,6 +49,7 @@
 
 - (void)setCommentItem:(ONEMusicCommentItem *)commentItem
 {
+    
     _commentItem = commentItem;
     
     self.inputDateLabel.text      = commentItem.input_date;

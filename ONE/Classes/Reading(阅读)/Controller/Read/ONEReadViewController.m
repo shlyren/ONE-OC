@@ -47,13 +47,62 @@
     return _carouselView;
 }
 
+- (UIScrollView *)scrollView
+{
+    if (_scrollView == nil) {
+        NSArray *titles = @[@"短篇", @"连载", @"问答"];
+        
+        // scrollView
+        CGFloat scrollViewY = CGRectGetMaxY(self.carouselCoverView.frame);
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, ONEScreenWidth, ONEScreenHeight - scrollViewY - ONETabBarH)];
+        scrollView.delegate = self;
+        scrollView.contentSize = CGSizeMake(scrollView.width * titles.count, 0);
+        scrollView.pagingEnabled = true;
+        scrollView.scrollsToTop = false;
+        scrollView.showsVerticalScrollIndicator = false;
+        scrollView.showsHorizontalScrollIndicator = false;
+        _scrollView = scrollView;
+        
+        // titlesView
+        UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.y, ONEScreenWidth, ONETitleViewH)];
+        titlesView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+        [self.view addSubview: _titlesView = titlesView];
+        
+        // titleBtn
+        CGFloat titleButtonW = ONEScreenWidth / titles.count;
+        for (NSInteger i = 0; i < titles.count; i++)
+        {
+            ONEReadTitleButton *titleBtn = [[ONEReadTitleButton alloc] initWithFrame:CGRectMake(i * titleButtonW, 0, titleButtonW, _titlesView.height)];
+            titleBtn.tag = i;
+            [titleBtn setTitle:titles[i] forState:UIControlStateNormal];
+            [titleBtn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            [titlesView addSubview:titleBtn];
+            
+            if (i == 0) [self titleBtnClick:titleBtn];
+        }
+        
+        // titleLineView
+        CGFloat titleLineViewH = 2;
+        CGFloat titleLineViewY = ONETitleViewH - titleLineViewH;
+        UIView *titlesLineView = [UIView new];
+        titlesLineView.backgroundColor = [_selectedBtn titleColorForState:UIControlStateSelected];
+        titlesLineView.frame = CGRectMake(0, titleLineViewY, 0, titleLineViewH);
+        [titlesView addSubview:_titlesLineView = titlesLineView];
+        
+        [_selectedBtn.titleLabel sizeToFit];
+        titlesLineView.width = _selectedBtn.titleLabel.width;
+        titlesLineView.centerX = _selectedBtn.width * 0.5;
+    }
+    
+    return _scrollView;
+}
+
 #pragma mark - initial
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = false;
     [self setupAdView];
-    [self loadAdData];
-    [self loadReadList];
+    [self loadData];
     [self setupAllViewController];
 }
 
@@ -75,7 +124,24 @@
     [self.view addSubview:_carouselCoverView = carouselCoverView];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:ONETabBarItemDidRepeatClickNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - load data
+- (void)loadData
+{
+    [self loadAdData];
+    [self loadReadList];
+}
 /** 阅读列表 */
 - (void)loadReadList
 {
@@ -100,8 +166,9 @@
 }
 - (void)setAdDatas:(NSArray *)adDatas
 {
+    if (_adDatas == adDatas) return;
     _adDatas = adDatas;
-    
+
     NSMutableArray *imageNames = [NSMutableArray array];
     for (ONEReadAdItem *adItem in adDatas) [imageNames addObject:adItem.cover];
     self.adView.imageNames = imageNames;
@@ -117,58 +184,7 @@
 #pragma mark - scrollView
 - (void)setupBaseView
 {
-    NSArray *titles = @[@"短篇", @"连载", @"问答"];
-  
-    // scrollView
-    {
-        CGFloat scrollViewY = CGRectGetMaxY(self.carouselCoverView.frame);
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, ONEScreenWidth, ONEScreenHeight - scrollViewY - ONETabBarH)];
-        scrollView.delegate = self;
-        scrollView.contentSize = CGSizeMake(scrollView.width * titles.count, 0);
-        scrollView.pagingEnabled = true;
-        scrollView.scrollsToTop = false;
-        scrollView.showsVerticalScrollIndicator = false;
-        scrollView.showsHorizontalScrollIndicator = false;
-        [self.view addSubview:_scrollView = scrollView];
-    }
-
-    
-    // titlesView
-    {
-        UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.y, ONEScreenWidth, ONETitleViewH)];
-        titlesView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
-        [self.view addSubview: _titlesView = titlesView];
-    }
-    
-    // titleBtn
-    {
-        CGFloat titleButtonW = ONEScreenWidth / titles.count;
-        for (NSInteger i = 0; i < titles.count; i++)
-        {
-            ONEReadTitleButton *titleBtn = [[ONEReadTitleButton alloc] initWithFrame:CGRectMake(i * titleButtonW, 0, titleButtonW, _titlesView.height)];
-            titleBtn.tag = i;
-            [titleBtn setTitle:titles[i] forState:UIControlStateNormal];
-            [titleBtn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-            [_titlesView addSubview:titleBtn];
-            
-            if (i == 0) [self titleBtnClick:titleBtn];
-        }
-    }
-    
-    // titleLineView
-    {
-        CGFloat titleLineViewH = 2;
-        CGFloat titleLineViewY = ONETitleViewH - titleLineViewH;
-        
-        UIView *titlesLineView = [UIView new];
-        titlesLineView.backgroundColor = [_selectedBtn titleColorForState:UIControlStateSelected];
-        titlesLineView.frame = CGRectMake(0, titleLineViewY, 0, titleLineViewH);
-        [self.titlesView addSubview:_titlesLineView = titlesLineView];
-        
-        [_selectedBtn.titleLabel sizeToFit];
-        titlesLineView.width = _selectedBtn.titleLabel.width;
-        titlesLineView.centerX = _selectedBtn.width * 0.5;
-    }
+    [self.view insertSubview:self.scrollView atIndex:0];
 }
 
 #pragma mark - Events
