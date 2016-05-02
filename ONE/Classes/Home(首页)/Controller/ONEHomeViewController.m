@@ -81,7 +81,7 @@
 
 - (UIView *)cardContainerViewNextViewWithIndex:(NSInteger)index
 {
-    ONEDraggableCardView *cardView = [[ONEDraggableCardView alloc]initWithFrame:CGRectMake(10, ONENavBMaxY + ONEDefaultMargin, ONEScreenWidth - 20, ONEScreenWidth * 1.2)];
+    ONEDraggableCardView *cardView = [[ONEDraggableCardView alloc]initWithFrame:CGRectMake(ONEDefaultMargin, ONENavBMaxY + ONEDefaultMargin, ONEScreenWidth - 20, ONEScreenWidth * 1.2)];
     cardView.subtotalItem = self.homeSubtotals[index];
     
     return cardView;

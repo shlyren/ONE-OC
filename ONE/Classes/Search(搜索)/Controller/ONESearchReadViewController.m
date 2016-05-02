@@ -48,7 +48,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:readCell];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 0);
+        cell.separatorInset = UIEdgeInsetsMake(0, ONEDefaultMargin, 0, 0);
     }
     
     ONESearchReadItem *item = self.searchResult[indexPath.row];
@@ -63,7 +63,7 @@
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     ONESearchReadItem *item = self.searchResult[indexPath.row];
     
-    ONEReadDetailViewController *readVc;
+    ONEReadDetailViewController *readVc = nil;
     if ([item.type isEqualToString:@"essay"]) {
         readVc = [ONEEssayDetailViewController new];
     }

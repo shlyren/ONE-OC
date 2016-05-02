@@ -12,27 +12,35 @@
 #import "NSMutableAttributedString+string.h"
 
 @interface ONEDraggableCardView ()
-
-@property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UILabel *hp_titleLabel;
-@property (weak, nonatomic) UILabel *hp_authorLabel;
-@property (weak, nonatomic) UILabel *hp_contentLabel;
-@property (weak, nonatomic) UILabel *hp_makettimeLabel;
-@property (nonatomic, weak) UIScrollView *contentScroll;
+/** 图片 */
+@property (weak, nonatomic) UIImageView     *imageView;
+/** 标题 */
+@property (weak, nonatomic) UILabel         *hp_titleLabel;
+/** 作者 */
+@property (weak, nonatomic) UILabel         *hp_authorLabel;
+/** 内容 */
+@property (weak, nonatomic) UILabel         *hp_contentLabel;
+/** 发表时间 */
+@property (weak, nonatomic) UILabel         *hp_makettimeLabel;
+/** 内容的scrollView */
+@property (weak, nonatomic) UIScrollView    *contentScroll;
+/** 间距 */
+@property (nonatomic, assign) CGFloat margin;
 
 @end
 @implementation ONEDraggableCardView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    self.margin = 5;
     if (self = [super initWithFrame:frame])
     {
         self.backgroundColor          = [UIColor whiteColor];
         
         /** 图片 */
         UIImageView *imageView        = [UIImageView new];
-        CGFloat imageViewW            = self.width - 10;
-        imageView.frame               = CGRectMake(5, 5, imageViewW, imageViewW * 0.75);
+        CGFloat imageViewW            = self.width - ONEDefaultMargin;
+        imageView.frame               = CGRectMake(self.margin, self.margin, imageViewW, imageViewW * 0.75);
         _imageView                    = imageView;
         imageView.userInteractionEnabled  = true;
         [imageView addGestureRecognizer:[UITapGestureRecognizer.alloc initWithTarget:self action:@selector(bigImage)]];
@@ -43,7 +51,7 @@
         hp_titleLabel.font            = [UIFont systemFontOfSize:10];
         hp_titleLabel.textColor       = [UIColor lightGrayColor];
         hp_titleLabel.x               = imageView.x;
-        hp_titleLabel.y               = CGRectGetMaxY(imageView.frame) + 5;
+        hp_titleLabel.y               = CGRectGetMaxY(imageView.frame) + self.margin;
         _hp_titleLabel                = hp_titleLabel;
         [self addSubview:hp_titleLabel];
         
@@ -63,7 +71,7 @@
         /** 内容 */
         UILabel *hp_contentLabel      = [UILabel new];
         hp_contentLabel.numberOfLines = 0;
-        hp_contentLabel.width         = imageView.width - 20;
+        hp_contentLabel.width         = imageView.width - 2 * ONEDefaultMargin;
         hp_contentLabel.font          = [UIFont systemFontOfSize:14];
         hp_contentLabel.textColor     = [UIColor darkGrayColor];
         hp_contentLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -87,19 +95,19 @@
     [super layoutSubviews];
     /** 用户 */
     self.hp_authorLabel.x  = CGRectGetMaxX(self.imageView.frame) - self.hp_authorLabel.width;
-    self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + 5;
+    self.hp_authorLabel.y  = CGRectGetMaxY(self.imageView.frame) + self.margin;
     
     /** 发布时间 */
     self.hp_makettimeLabel.x =  CGRectGetMaxX(self.imageView.frame) - self.hp_makettimeLabel.width;
     self.hp_makettimeLabel.y = ONEScreenWidth * 1.2 - 15;
   
     /** 内容的滚动视图 */
-    self.contentScroll.y = CGRectGetMaxY(self.hp_authorLabel.frame) + 5;
-    self.contentScroll.height = self.hp_makettimeLabel.y - 5 - self.contentScroll.y;
+    self.contentScroll.y = CGRectGetMaxY(self.hp_authorLabel.frame) + self.margin;
+    self.contentScroll.height = self.hp_makettimeLabel.y - self.margin - self.contentScroll.y;
     self.contentScroll.contentSize = CGSizeMake(0, self.hp_contentLabel.height);
   
     /** 内容 */
-    self.hp_contentLabel.x = self.contentScroll.x + 5;
+    self.hp_contentLabel.x = self.contentScroll.x + self.margin;
     if (self.hp_contentLabel.height > self.contentScroll.height)
     {
         self.hp_contentLabel.y = 0;
@@ -167,7 +175,7 @@
 {
     self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.layer.borderWidth = 0.4f;
-    self.layer.shouldRasterize = YES;
+    self.layer.shouldRasterize = true;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     self.layer.cornerRadius = 7.0;
 }

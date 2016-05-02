@@ -15,7 +15,7 @@
 #import "ONETabBar.h"
 
 @interface ONETabbarController ()<UITabBarDelegate>
-@property (nonatomic, weak) UITabBarItem *tabBarItem;
+@property (nonatomic, weak) UITabBarItem *selectedTabBarItem;
 @end
 
 @implementation ONETabbarController
@@ -28,24 +28,23 @@
     [self setupTabBar];
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    if ([UIApplication sharedApplication].isNetworkActivityIndicatorVisible) return;
-        
-    if (self.tabBarItem == item)
-    {
-        // 发送通知
-        [[NSNotificationCenter defaultCenter] postNotificationName:ONETabBarItemDidRepeatClickNotification object:nil];
-    }
-    self.tabBarItem = item;
-}
-
 - (void)setupTabBar
 {
     ONETabBar *tabBar = [ONETabBar new];
     tabBar.delegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if ([UIApplication sharedApplication].isNetworkActivityIndicatorVisible) return;
+    if (self.selectedTabBarItem == item)
+    {
+        // 发送通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:ONETabBarItemDidRepeatClickNotification object:nil];
+    }
+    self.selectedTabBarItem = item;
 }
 
 // 添加所有子控制器

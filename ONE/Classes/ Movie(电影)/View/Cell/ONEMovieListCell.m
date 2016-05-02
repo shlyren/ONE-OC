@@ -9,24 +9,40 @@
 #import "ONEMovieListCell.h"
 #import "UIImageView+WebCache.h"
 #import "ONEMovieListItem.h"
+#import "ONEMovieScoreView.h"
 
 @interface ONEMovieListCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
-
+@property (nonatomic, weak) ONEMovieScoreView *movieScoreView;
 @end
 
 @implementation ONEMovieListCell
+
+- (ONEMovieScoreView *)movieScoreView
+{
+    if (_movieScoreView == nil) {
+        ONEMovieScoreView *movieScoreView = [[ONEMovieScoreView alloc] initWithFrame:CGRectMake(self.width - 90, self.height - 50, 90, 50)];
+        
+        [self.contentView addSubview:_movieScoreView = movieScoreView];
+    }
+    
+    return _movieScoreView;
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
-       return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
+       self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
     }
     return self;
-    
 }
 
+
+- (void)awakeFromNib
+{
+    
+}
 
 - (void)setMovieListItem:(ONEMovieListItem *)movieListItem
 {
@@ -38,12 +54,13 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
     }];
     
+    [self.movieScoreView setScoreTitle:movieListItem.score];
+    
 }
 
 - (void)setFrame:(CGRect)frame
 {
     frame.size.height -= 5;
-    
     [super setFrame:frame];
 }
 

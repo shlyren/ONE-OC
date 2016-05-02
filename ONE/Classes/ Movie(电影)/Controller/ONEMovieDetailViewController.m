@@ -171,10 +171,19 @@ static NSString *const movieCommentID = @"movieComment";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:movieCommentID];
-    if (indexPath.section == 0) cell.commentCellType = ONEMovieCommentCellTypeMovieReview;
-    if (indexPath.section == 1) cell.commentCellType = ONEMovieCommentCellTypeMovieComment;
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
     cell.movie_id = _movie_id;
+    
+    if (self.groups.count == 1) {
+        cell.commentCellType = ONEMovieCommentCellTypeMovieComment;
+        return cell;
+    }
+    
+    if (indexPath.section == 0)
+        cell.commentCellType = ONEMovieCommentCellTypeMovieReview;
+    if (indexPath.section == 1)
+        cell.commentCellType = ONEMovieCommentCellTypeMovieComment;
+    
     return cell;
 }
 

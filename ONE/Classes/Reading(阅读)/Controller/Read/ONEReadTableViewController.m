@@ -68,7 +68,7 @@ NSString *const readCell = @"realCell";
     UIButton *footerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [footerBtn setBackgroundImage:[UIImage imageNamed:@"common_button_white"] forState:UIControlStateNormal];
     [footerBtn addTarget:self action:@selector(footerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [footerBtn setFrame:CGRectMake(10, 0, ONEScreenWidth - 20, footerView.height - 10)];
+    [footerBtn setFrame:CGRectMake(ONEDefaultMargin, 0, ONEScreenWidth - 20, footerView.height - 10)];
     [footerBtn setTitle:@"查看往期作品" forState:UIControlStateNormal];
     footerBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [footerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

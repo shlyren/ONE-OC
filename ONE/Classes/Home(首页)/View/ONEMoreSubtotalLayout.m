@@ -10,15 +10,15 @@
 
 @interface ONEMoreSubtotalLayout ()
 
-// 总列数
-#define columnCount 2
+
 
 /** 这个字典用来存储每一列最大的Y值(每一列的高度) */
 @property (nonatomic, strong) NSMutableDictionary *maxYDict;
 
 /** 存放所有的布局属性 */
 @property (nonatomic, strong) NSMutableArray *attrsArray;
-
+// 总列数
+@property (nonatomic, assign) NSInteger columnCount;
 
 @end
 
@@ -43,10 +43,12 @@
 
 - (void)prepareLayout
 {
-    self.sectionInset = UIEdgeInsetsMake(0, 5, 10, 5);
+    self.columnCount = 2;
+    
+    self.sectionInset = UIEdgeInsetsMake(0, 5, ONEDefaultMargin, 5);
     
     // 1.清空最大的Y值
-    for (NSInteger i = 0; i < columnCount; i++)
+    for (NSInteger i = 0; i < self.columnCount; i++)
     {
         NSString *column = [NSString stringWithFormat:@"%zd", i];
         self.maxYDict[column] = @(self.sectionInset.top);
@@ -72,7 +74,7 @@
     }];
     
     // 计算尺寸
-    CGFloat width = (self.collectionView.width - self.sectionInset.left - self.sectionInset.right - (columnCount - 1) * ONEDefaultMargin) / columnCount;
+    CGFloat width = (self.collectionView.width - self.sectionInset.left - self.sectionInset.right - (self.columnCount - 1) * ONEDefaultMargin) / self.columnCount;
     CGFloat height = 0.0;
     
     if (self.delegate == nil)

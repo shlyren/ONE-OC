@@ -18,7 +18,7 @@ typedef  NS_ENUM(NSUInteger, ONEMovieCommentCellType){
 
 @interface ONEMovieCommentCell : UITableViewCell
 
-
+/** 评论模型 */
 @property (nonatomic, strong) ONEMovieCommentItem           *commentItem;
 
 @property (nonatomic, strong) ONEMovieStoryItem             *movieStoryItem;
@@ -28,9 +28,5 @@ typedef  NS_ENUM(NSUInteger, ONEMovieCommentCellType){
 @property (nonatomic, assign) CGFloat                       rowHeight;
 
 @property (nonatomic, strong) NSString                      *movie_id;
-
-
-- (void)praisenumBtnClick;
-- (void)addPraise:(NSString *)url parameters:(NSDictionary *)parameters;
 
 @end

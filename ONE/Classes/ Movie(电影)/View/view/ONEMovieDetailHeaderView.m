@@ -18,13 +18,15 @@
 #import "ONEPersonDetailViewController.h"
 #import "ONENavigationController.h"
 #import "UIViewController+topViewController.h"
-//#import <MPMoviePlayerController/MPMoviePlayerController.h>
+#import "ONEMovieScoreView.h"
 
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
 @property (nonatomic, strong) ONEMovieResultItem        *movieStoryResult;
 /** 顶部的image  */
 @property (weak, nonatomic) IBOutlet UIImageView        *coverImgView;
+
+@property (nonatomic, weak) ONEMovieScoreView *movieScoreView;
 
 #pragma mark - 电影故事相关
 /*************************  电影故事相关  *******************************/
@@ -84,6 +86,17 @@
 
 static NSString *const photoCellID = @"photoCell";
 #pragma mark - lazy load
+- (ONEMovieScoreView *)movieScoreView
+{
+    if (_movieScoreView == nil) {
+        ONEMovieScoreView *movieScoreView = [[ONEMovieScoreView alloc] initWithFrame:CGRectMake(self.coverImgView.width - 90, self.coverImgView.height - 20, 90, 50)];
+        
+        [self addSubview:_movieScoreView = movieScoreView];
+    }
+    
+    return _movieScoreView;
+}
+
 - (UIView *)bigImgCoverView
 {
     if (_bigImgCoverView == nil) {
@@ -138,7 +151,7 @@ static NSString *const photoCellID = @"photoCell";
     {
         UILabel *infoLabel = [[UILabel alloc] initWithFrame:self.movieStoryCoverView.bounds];
         infoLabel.text     = _movieDetail.info;
-        infoLabel.x       += 10;
+        infoLabel.x       += ONEDefaultMargin;
         infoLabel.width    = ONEScreenWidth - infoLabel.x;
         infoLabel.font     = [UIFont systemFontOfSize:14];
         infoLabel.numberOfLines = 0;
@@ -214,6 +227,8 @@ static NSString *const photoCellID = @"photoCell";
 - (void)movieIntroduce
 {
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:_movieDetail.detailcover] placeholderImage:[UIImage imageNamed:@"movie"]];
+    
+    [self.movieScoreView setScoreTitle:_movieDetail.score];
     
     for (NSInteger i = 0; i < self.keywordView.subviews[1].subviews.count; i++)
     {

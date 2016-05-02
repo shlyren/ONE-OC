@@ -305,7 +305,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="42.5" y="724"/>
+            <point key="canvasLocation" x="47.5" y="693"/>
         </view>
         <view contentMode="scaleToFill" id="E5j-4e-hbB" userLabel="评论列表SectionHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -332,7 +332,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47.5" y="815"/>
+            <point key="canvasLocation" x="47.5" y="791"/>
         </view>
         <view contentMode="scaleToFill" id="GUH-D0-YiK" userLabel="keywordsView" customClass="ONEMovieDetailHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -413,7 +413,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47.5" y="964"/>
+            <point key="canvasLocation" x="47.5" y="963"/>
         </view>
         <view contentMode="scaleToFill" id="2kS-bS-pCe" userLabel="movieStory" customClass="ONEMovieDetailHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
@@ -527,7 +527,7 @@
                     <exclude reference="ska-1p-wwG"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="52.5" y="1279.75"/>
+            <point key="canvasLocation" x="42.5" y="1167"/>
         </view>
     </objects>
     <resources>

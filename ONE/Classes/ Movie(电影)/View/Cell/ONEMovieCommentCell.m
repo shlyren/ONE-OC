@@ -96,7 +96,7 @@
 - (CGFloat)rowHeight
 {
     [self layoutIfNeeded];
-    return CGRectGetMaxY(self.commentContectLabel.frame) + 10;
+    return CGRectGetMaxY(self.commentContectLabel.frame) + ONEDefaultMargin;
 }
 
 
@@ -120,7 +120,7 @@
 {
     NSDictionary *dict = nil;
     NSString *url = nil;
-    
+
     switch (self.commentCellType)
     {
         case 0: // 电影故事
@@ -135,7 +135,7 @@
         {
             url = self.praisenumBtn.selected ? movie_unpraisereview : movie_praisereview;
             dict = @{ @"movieid"  : self.movie_id,
-                      @"reviewid" : _commentItem.comment_id};
+                      @"reviewid" : self.commentItem.comment_id};
             break;
         }
 
@@ -143,7 +143,7 @@
         {
             url = self.praisenumBtn.selected ? comment_unpraise : comment_praise;
             dict = @{ @"itemid"   : self.movie_id,
-                      @"cmtid"    : _commentItem.comment_id,
+                      @"cmtid"    : self.commentItem.comment_id,
                       @"type"     : @"movie"};
             break;
         }
@@ -162,9 +162,7 @@
         if (isSuccess)
         {
             _praisenumBtn.selected = !_praisenumBtn.selected;
-            
             NSInteger praisenum = _praisenumBtn.titleLabel.text.integerValue;
-            
             praisenum = _praisenumBtn.selected ? ++praisenum : --praisenum;
             [_praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", praisenum] forState:UIControlStateNormal];
             
@@ -173,7 +171,6 @@
         }
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"操作失败"];
-
     }];
 }
 
