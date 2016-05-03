@@ -48,7 +48,7 @@
             <connections>
                 <outlet property="scoreLabel" destination="6ai-Ey-rvt" id="DUW-Xp-HD9"/>
             </connections>
-            <point key="canvasLocation" x="532" y="100"/>
+            <point key="canvasLocation" x="402" y="91"/>
         </view>
     </objects>
     <resources>

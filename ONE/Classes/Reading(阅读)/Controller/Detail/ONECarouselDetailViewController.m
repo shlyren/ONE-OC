@@ -15,6 +15,7 @@
 #import "ONECarouselDetailItem.h"
 #import "ONESerialDetailViewController.h"
 #import "ONEEssayDetailViewController.h"
+#import "ONEQuestionDetailViewController.h"
 
 @interface ONECarouselDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -111,7 +112,6 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return self.carouselDetailItems.count;
 }
 
@@ -131,19 +131,24 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 {
     ONECarouselDetailItem *item = self.carouselDetailItems[indexPath.row];
     
+    ONEReadDetailViewController *readDetailVC = nil;
+    
     if ([item.type isEqualToString:@"1"])
     {
-        ONEEssayDetailViewController *essayVc = [ONEEssayDetailViewController new];
-        essayVc.detail_id = item.item_id;
-        [self.navigationController pushViewController:essayVc animated:true];
+        readDetailVC = [ONEEssayDetailViewController new];
     }
     
     if ([item.type isEqualToString:@"2"])
     {
-        ONESerialDetailViewController *serialVc = [ONESerialDetailViewController new];
-        serialVc.detail_id = item.item_id;
-        [self.navigationController pushViewController:serialVc animated:true];
+        readDetailVC = [ONESerialDetailViewController new];
     }
+    
+    if ([item.type isEqualToString:@"3"])
+    {
+        readDetailVC = [ONEQuestionDetailViewController new];
+    }
+    readDetailVC.detail_id = item.item_id;
+    [self.navigationController pushViewController:readDetailVC animated:true];
     
 }
 

@@ -317,6 +317,20 @@
         ONELog(@"阅读广告获取失败%@",error);
     }];
 }
+/** 阅读轮播 */
++ (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure
+{
+    url = [[ONEBaseUrl stringByAppendingPathComponent:reading_carousel] stringByAppendingPathComponent:url];
+    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+        
+        NSArray *carouselDetailItem = [ONECarouselDetailItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (success) success(carouselDetailItem);
+        
+    } failure:^(NSError *error) {
+        if (failure) failure(error);
+        ONELog(@"广告详情获取失败%@",error);
+    }];
+}
 
 /**
  *  阅读列表
@@ -501,23 +515,6 @@
         ONELog(@"连载列表获取失败%@",error);
     }];
 }
-
-
-/** 阅读轮播 */
-+ (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure
-{
-    url = [[ONEBaseUrl stringByAppendingPathComponent:reading_carousel] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
-        
-        NSArray *carouselDetailItem = [ONECarouselDetailItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        if (success) success(carouselDetailItem);
-        
-    } failure:^(NSError *error) {
-        if (failure) failure(error);
-        ONELog(@"广告详情获取失败%@",error);
-    }];
-}
-
 
 
 #pragma mark - 首页

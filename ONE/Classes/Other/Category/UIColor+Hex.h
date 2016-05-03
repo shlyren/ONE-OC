@@ -10,12 +10,6 @@
 
 @interface UIColor (Hex)
 
-/**
- *  默认alpha位1
- *
- *  @paramcolor:支持@“#123456”、 @“0X123456”、 @“123456”三种格式
- */
-+ (UIColor *)colorWithHexString:(NSString *)color;
 
 /**
  *  从十六进制字符串获取颜色
@@ -24,5 +18,13 @@
  *
  */
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
+
+
+/**
+ *  默认alpha位1
+ *
+ *  @paramcolor:支持@“#123456”、 @“0X123456”、 @“123456”三种格式
+ */
++ (UIColor *)colorWithHexString:(NSString *)color;
 
 @end

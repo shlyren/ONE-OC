@@ -89,19 +89,6 @@
     
     return _player;
 }
-//- (ONEMusicPlayerView *)playerView
-//{
-//    if (_playerView == nil)
-//    {
-//        ONEMusicPlayerView *playerView = [ONEMusicPlayerView new];
-//        playerView.frame = CGRectMake(0, 0, ONEScreenWidth, 250);
-//        playerView.hidden = true;
-//        [[UIApplication sharedApplication].keyWindow addSubview:playerView];
-//        _playerView = playerView;
-//    
-//    }
-//    return _playerView;
-//}
 
 - (instancetype)init
 {
@@ -197,7 +184,7 @@
     self.typeLabel.text = _typeArr[btn.tag];
     
     // 故事详情label的文字设置
-    self.storyLabel.attributedText = [NSMutableAttributedString attributedStringWithString:_textArr[btn.tag]];
+    self.storyLabel.attributedText = [NSMutableAttributedString attributedStringWithString:self.textArr[btn.tag]];
     [self.storyLabel sizeToFit];
     
     [self layoutIfNeeded];
@@ -212,8 +199,6 @@
 
 - (IBAction)iconBtnClick
 {
-//    self.playerView.hidden = true;
-    
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = self.musicDetailItem.author.user_id;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
@@ -261,7 +246,6 @@
         [self.player pause];
     }else{
         [self.player play];
-        
     }
     
     btn.selected = !btn.selected;

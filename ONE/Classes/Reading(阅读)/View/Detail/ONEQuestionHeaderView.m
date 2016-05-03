@@ -10,8 +10,6 @@
 #import "ONEQuestionItem.h"
 #import "NSMutableAttributedString+string.h"
 
-
-
 @interface ONEQuestionHeaderView ()
 
 /************************* 问题 headerView *************************/

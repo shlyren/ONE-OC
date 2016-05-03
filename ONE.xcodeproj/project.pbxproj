@@ -87,6 +87,7 @@
 		559D1DA21CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1D9A1CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.xib */; };
 		559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D1DA41CD72CB500CA6CB3 /* ONEMovieScoreView.m */; };
 		559D1DA71CD72CD000CA6CB3 /* ONEMovieScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1DA61CD72CD000CA6CB3 /* ONEMovieScoreView.xib */; };
+		559D1DAB1CD771AC00CA6CB3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */; };
 		55B9A0EC1CBF2ECA009E44AA /* ONEReadAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A0EB1CBF2ECA009E44AA /* ONEReadAdItem.m */; };
 		55B9A1061CBF5B0F009E44AA /* ONEEssayItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A1051CBF5B0F009E44AA /* ONEEssayItem.m */; };
 		55B9A1091CBF5B1E009E44AA /* ONESerialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A1081CBF5B1E009E44AA /* ONESerialItem.m */; };
@@ -274,6 +275,8 @@
 		559D1DA31CD72CB500CA6CB3 /* ONEMovieScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieScoreView.h; sourceTree = "<group>"; };
 		559D1DA41CD72CB500CA6CB3 /* ONEMovieScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieScoreView.m; sourceTree = "<group>"; };
 		559D1DA61CD72CD000CA6CB3 /* ONEMovieScoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMovieScoreView.xib; sourceTree = "<group>"; };
+		559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		559D1DAC1CD771AC00CA6CB3 /* ONE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ONE.entitlements; sourceTree = "<group>"; };
 		55B9A0EA1CBF2ECA009E44AA /* ONEReadAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadAdItem.h; sourceTree = "<group>"; };
 		55B9A0EB1CBF2ECA009E44AA /* ONEReadAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadAdItem.m; sourceTree = "<group>"; };
 		55B9A1041CBF5B0F009E44AA /* ONEEssayItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONEEssayItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */,
+				559D1DAB1CD771AC00CA6CB3 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +841,7 @@
 		7E1A38EC1CAD960C0085EB67 /* ONE */ = {
 			isa = PBXGroup;
 			children = (
+				559D1DAC1CD771AC00CA6CB3 /* ONE.entitlements */,
 				7E1A39291CAD9D1B0085EB67 /* Classes */,
 				7E1A38ED1CAD960C0085EB67 /* Supporting Files */,
 			);
@@ -979,6 +984,7 @@
 		E14DF55EF240829EA9F129B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */,
 				55711B321CC7913900A4EC54 /* MediaPlayer.framework */,
 				9308BD47B20C5C8F1D609C57 /* libPods.a */,
 			);
@@ -1021,6 +1027,11 @@
 					7E1A38E91CAD960C0085EB67 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = XJPMR8FRF3;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1329,6 +1340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = ONE/ONE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;
@@ -1347,6 +1359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = ONE/ONE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;

@@ -22,7 +22,6 @@
     if (range.location != NSNotFound)
     {
         tmpStr = [tmpStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
-//        [str deleteCharactersInRange:NSMakeRange(0, range.location + range.length)];
     }
     // 换行
     tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
@@ -34,11 +33,9 @@
     range = [tmpStr rangeOfString:@"<!--EndFragment-->"];
     if (range.location != NSNotFound)
     {
-//        ONELog(@"%@ str %zd", NSStringFromRange(range), tmpStr.length)
         tmpStr = [tmpStr stringByReplacingCharactersInRange:range withString:@""];
     }
     
-//    ONELog(@"%@", tmpStr)
     //<!--EndFragment-->
     
     // 设置内容格式

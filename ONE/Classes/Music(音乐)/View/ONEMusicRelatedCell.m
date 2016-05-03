@@ -26,8 +26,6 @@
 {
     _relatedItem = relatedItem;
     
-//    self.activity.hidden = relatedItem;
-    
     [self.coverImgView sd_setImageWithURL:[NSURL URLWithString:relatedItem.cover] placeholderImage:[UIImage imageNamed:@"music_more_collection"]];
     
     self.titleLabel.text = relatedItem.title;
