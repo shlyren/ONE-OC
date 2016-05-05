@@ -220,7 +220,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47.5" y="815"/>
+            <point key="canvasLocation" x="478.5" y="678"/>
         </view>
         <view contentMode="scaleToFill" id="Lkc-QE-31L" userLabel="评论列表SectionHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -240,7 +240,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47.5" y="815"/>
+            <point key="canvasLocation" x="478.5" y="586"/>
         </view>
     </objects>
     <resources>

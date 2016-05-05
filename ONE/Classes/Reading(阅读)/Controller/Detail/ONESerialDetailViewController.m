@@ -35,10 +35,6 @@
         [weakSelf.toolBarView setPraiseTitle:serial.praisenum commentTitle:serial.commentnum shareTitle:serial.sharenum];
         weakSelf.toolBarView.typeStr = @"serial";
         weakSelf.toolBarView.content_id = serial.content_id;
-//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
-//            return serial.content_id;
-//        };
-        
         [weakSelf.tableView reloadData];
     } failure:nil];
 }

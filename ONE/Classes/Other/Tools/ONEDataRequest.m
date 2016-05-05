@@ -352,8 +352,6 @@
             return @{@"content_id" : @"id"};
         }];
         
-       // [responseObject writeToFile:@"/Users/Schnappi/Desktop/1379.plist" atomically:true];
-        
         ONEReadListItem *item = [ONEReadListItem mj_objectWithKeyValues:responseObject[@"data"]];
         
         if (success) success(item);

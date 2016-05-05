@@ -21,10 +21,14 @@
  */
 @property (nonatomic, strong) NSString *content_id;
 
-/// 快速构造方法
+/**
+ *  快速构造方法
+ */
 + (instancetype)toolBarView;
 
-/// 设置按钮的标题
+/**
+ *  设置按钮的标题
+ */
 - (void)setPraiseTitle:(NSString *)praiseTitle commentTitle:(NSString *)commentTitle shareTitle:(NSString *)shareTitle;
 
 @end

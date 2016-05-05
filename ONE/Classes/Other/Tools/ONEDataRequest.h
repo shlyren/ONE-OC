@@ -182,7 +182,7 @@
 + (void)requestReadAdSuccess:(void (^)(NSArray *adDatas))success failure:(void (^)(NSError *error))failure;
 
 /**
- *  阅读列表]
+ *  阅读列表
  */
 + (void)requestReadList:(NSString *)url parameters:(id)parameters succsee:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 /**

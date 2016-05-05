@@ -111,7 +111,8 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 
 
 #pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.carouselDetailItems.count;
 }
 
@@ -137,13 +138,11 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
     {
         readDetailVC = [ONEEssayDetailViewController new];
     }
-    
-    if ([item.type isEqualToString:@"2"])
+    else if ([item.type isEqualToString:@"2"])
     {
         readDetailVC = [ONESerialDetailViewController new];
     }
-    
-    if ([item.type isEqualToString:@"3"])
+    else if ([item.type isEqualToString:@"3"])
     {
         readDetailVC = [ONEQuestionDetailViewController new];
     }

@@ -225,7 +225,6 @@
 
         UIScrollView *scrollView = (UIScrollView *)childVc.view;
         scrollView.scrollsToTop = i == btn.tag;
-
     }
 }
 

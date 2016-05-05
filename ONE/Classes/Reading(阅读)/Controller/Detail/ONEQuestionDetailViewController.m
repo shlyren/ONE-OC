@@ -56,9 +56,6 @@
         [weakSelf.toolBarView setPraiseTitle:question.praisenum commentTitle:question.commentnum shareTitle:question.sharenum];
          weakSelf.toolBarView.typeStr = @"question";
         weakSelf.toolBarView.content_id = question.question_id;
-//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
-//            return question.question_id;
-//        };
         
         [weakSelf.tableView reloadData];
     } failure:nil];

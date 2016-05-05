@@ -38,18 +38,6 @@
         weakSelf.toolBarView.typeStr = @"essay";
         weakSelf.toolBarView.content_id = essay.content_id;
         [weakSelf.toolBarView setPraiseTitle:essay.praisenum commentTitle:essay.commentnum shareTitle:essay.sharenum];
-        
-//        NSDictionary *paremeter = @{
-//                                    @"deviceid"    : NSUUID.UUID.UUIDString,
-//                                    @"devicetype"  : @"ios",
-//                                    @"itemid"      : essay.content_id,
-//                                    @"type"        : @"essay"
-//                                    };
-        
-//        weakSelf.toolBarView.praiseBtnClickBlock = ^(UIButton *praiseBtn){
-//          
-//            return essay.content_id;
-//        };
         [weakSelf.tableView reloadData];
     } failure:nil];
 }
