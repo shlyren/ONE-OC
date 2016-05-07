@@ -40,30 +40,40 @@
 {
     if (![file isKindOfClass:[NSDictionary class]]) return;
     
-    NSDictionary *dict = (NSDictionary *)file;
-    NSString  *path = [self stringByReplacingUrlOfBundleID:url];
-    
-    if ([self createDirectoryAtPath:path]) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSDictionary *dict = (NSDictionary *)file;
+        NSString  *path = [self stringByReplacingUrlOfBundleID:url];
         
-        NSString *fullPath = filePath;
-
-        BOOL flag = [NSKeyedArchiver archiveRootObject:dict toFile:fullPath];
-        if (flag) {
-            ONELog(@"缓存成功 %@/caches.ren", path)
-        }else {
-            ONELog(@"缓存失败 %@/caches.ren", path)
+        if ([self createDirectoryAtPath:path]) {
+            
+            NSString *fullPath = filePath;
+            
+            BOOL flag = [NSKeyedArchiver archiveRootObject:dict toFile:fullPath];
+            if (flag) {
+                ONELog(@"缓存成功 %@/caches.ren", path)
+            }else {
+                ONELog(@"%@", [NSThread currentThread])
+            }
         }
-    }
+    });
 }
 
-+ (NSDictionary *)readFileAtPath:(NSString *)path
++ (void)readFileAtPath:(NSString *)path completion:(void (^)(NSDictionary *))completion
 {
     path = [self stringByReplacingUrlOfBundleID:path];
 //    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
 //    ONELog(@"%@/%@",cachesPath,path)
     ONELog(@"使用缓存 %@/caches.ren", path);
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(dict);
+        });
+    });
+
 }
+
 
 + (NSString *)stringByReplacingUrlOfBundleID:(NSString *)httpUrl
 {

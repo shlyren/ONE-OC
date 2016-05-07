@@ -92,7 +92,11 @@ static ONEHttpTool *_instance;
             if (failure) failure(error);
         }];
     }else {
-        success([ONEAutoCacheTool readFileAtPath:url]);
+//        success([ONEAutoCacheTool readFileAtPath:url]);
+        
+        [ONEAutoCacheTool readFileAtPath:url completion:^(NSDictionary *responseObject) {
+            success(responseObject);
+        }];
     }
 }
 
