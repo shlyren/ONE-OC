@@ -93,6 +93,8 @@
 		55B9A1091CBF5B1E009E44AA /* ONESerialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A1081CBF5B1E009E44AA /* ONESerialItem.m */; };
 		55B9A10C1CBF5B2D009E44AA /* ONEQuestionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A10B1CBF5B2D009E44AA /* ONEQuestionItem.m */; };
 		55B9A10F1CBF5D68009E44AA /* ONEReadListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A10E1CBF5D68009E44AA /* ONEReadListItem.m */; };
+		55BED5181CDCB8CE0056CA16 /* ONEFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BED5171CDCB8CE0056CA16 /* ONEFileManager.m */; };
+		55BED51B1CDDC1AC0056CA16 /* ONESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BED51A1CDDC1AC0056CA16 /* ONESettingViewController.m */; };
 		55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B31CAE479B0092A897 /* ONEMusicViewController.m */; };
 		55C289B71CAE47A50092A897 /* ONEMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B61CAE47A50092A897 /* ONEMovieViewController.m */; };
 		55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B91CAE48280092A897 /* ONENavigationController.m */; };
@@ -116,6 +118,7 @@
 		55C6DD721CC4D72C00988121 /* ONESearchMovieItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD711CC4D72C00988121 /* ONESearchMovieItem.m */; };
 		55C6DD761CC4EF4A00988121 /* ONESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD741CC4EF4A00988121 /* ONESearchTableViewCell.m */; };
 		55C6DD771CC4EF4A00988121 /* ONESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */; };
+		55D7ADA31CDDE7BA005708B5 /* ONEAutoCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D7ADA21CDDE7BA005708B5 /* ONEAutoCacheTool.m */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
 		55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC84711CB7D63700E454A3 /* ONEMusicPlayerView.m */; };
 		55FC84741CB7D64700E454A3 /* ONEMusicPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55FC84731CB7D64700E454A3 /* ONEMusicPlayerView.xib */; };
@@ -287,6 +290,10 @@
 		55B9A10B1CBF5B2D009E44AA /* ONEQuestionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEQuestionItem.m; sourceTree = "<group>"; };
 		55B9A10D1CBF5D68009E44AA /* ONEReadListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadListItem.h; sourceTree = "<group>"; };
 		55B9A10E1CBF5D68009E44AA /* ONEReadListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadListItem.m; sourceTree = "<group>"; };
+		55BED5161CDCB8CE0056CA16 /* ONEFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFileManager.h; sourceTree = "<group>"; };
+		55BED5171CDCB8CE0056CA16 /* ONEFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEFileManager.m; sourceTree = "<group>"; };
+		55BED5191CDDC1AC0056CA16 /* ONESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESettingViewController.h; sourceTree = "<group>"; };
+		55BED51A1CDDC1AC0056CA16 /* ONESettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONESettingViewController.m; sourceTree = "<group>"; };
 		55C289A41CAE1BDE0092A897 /* ONE_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONE_Prefix.pch; sourceTree = "<group>"; };
 		55C289B21CAE479B0092A897 /* ONEMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicViewController.h; sourceTree = "<group>"; };
 		55C289B31CAE479B0092A897 /* ONEMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicViewController.m; sourceTree = "<group>"; };
@@ -330,6 +337,8 @@
 		55C6DD731CC4EF4A00988121 /* ONESearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESearchTableViewCell.h; sourceTree = "<group>"; };
 		55C6DD741CC4EF4A00988121 /* ONESearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONESearchTableViewCell.m; sourceTree = "<group>"; };
 		55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONESearchTableViewCell.xib; sourceTree = "<group>"; };
+		55D7ADA11CDDE7BA005708B5 /* ONEAutoCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEAutoCacheTool.h; sourceTree = "<group>"; };
+		55D7ADA21CDDE7BA005708B5 /* ONEAutoCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEAutoCacheTool.m; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
 		55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieMoreViewController.m; sourceTree = "<group>"; };
 		55FC84701CB7D63700E454A3 /* ONEMusicPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicPlayerView.h; sourceTree = "<group>"; };
@@ -550,14 +559,14 @@
 			path = PastList;
 			sourceTree = "<group>";
 		};
-		55711B341CC87EEF00A4EC54 /* Personal */ = {
+		55711B341CC87EEF00A4EC54 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
 				55711B351CC87EEF00A4EC54 /* Controller */,
 				55711B361CC87EEF00A4EC54 /* Model */,
 				55711B371CC87EEF00A4EC54 /* View */,
 			);
-			path = Personal;
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		55711B351CC87EEF00A4EC54 /* Controller */ = {
@@ -566,6 +575,8 @@
 				55711B381CC87EFA00A4EC54 /* ONELoginViewController.h */,
 				55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */,
 				55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */,
+				55BED5191CDDC1AC0056CA16 /* ONESettingViewController.h */,
+				55BED51A1CDDC1AC0056CA16 /* ONESettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -617,12 +628,16 @@
 		558165A31CC609830022458E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				55BED5161CDCB8CE0056CA16 /* ONEFileManager.h */,
+				55BED5171CDCB8CE0056CA16 /* ONEFileManager.m */,
 				558165A41CC609830022458E /* ONEDataRequest.h */,
 				558165A51CC609830022458E /* ONEDataRequest.m */,
 				558165A61CC609830022458E /* ONEFPSLabel.h */,
 				558165A71CC609830022458E /* ONEFPSLabel.m */,
 				558165A81CC609830022458E /* ONEHttpTool.h */,
 				558165A91CC609830022458E /* ONEHttpTool.m */,
+				55D7ADA11CDDE7BA005708B5 /* ONEAutoCacheTool.h */,
+				55D7ADA21CDDE7BA005708B5 /* ONEAutoCacheTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -870,7 +885,7 @@
 				7E1A39361CAD9D1B0085EB67 /* Music(音乐) */,
 				7E1A392A1CAD9D1B0085EB67 /*  Movie(电影) */,
 				55C6DD4B1CC4B2E400988121 /* Search(搜索) */,
-				55711B341CC87EEF00A4EC54 /* Personal */,
+				55711B341CC87EEF00A4EC54 /* Mine */,
 				7E1A39321CAD9D1B0085EB67 /* Main */,
 				7E1A393E1CAD9D1B0085EB67 /* Other */,
 			);
@@ -1216,14 +1231,17 @@
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
+				55BED5181CDCB8CE0056CA16 /* ONEFileManager.m in Sources */,
 				55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				55C6DD6F1CC4D03D00988121 /* ONESearchMusicItem.m in Sources */,
+				55D7ADA31CDDE7BA005708B5 /* ONEAutoCacheTool.m in Sources */,
 				558165B01CC609830022458E /* ONEConst.m in Sources */,
 				5509044D1CBFD64700F884C2 /* ONEReadQuestionViewController.m in Sources */,
 				558165B41CC609830022458E /* ONEHttpTool.m in Sources */,
 				55FC849E1CBAB98300E454A3 /* ONEMovieListItem.m in Sources */,
 				55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */,
+				55BED51B1CDDC1AC0056CA16 /* ONESettingViewController.m in Sources */,
 				558165AD1CC609830022458E /* UITableView+Extension.m in Sources */,
 				553BDD891CC0D27C006BE7BF /* ONEReadCommentItem.m in Sources */,
 				55422CFE1CBFEB1700A3B1A0 /* ONEDefaultCellArrItem.m in Sources */,
@@ -1347,7 +1365,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oneisall;
+				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.ONEOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -1366,7 +1384,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oneisall;
+				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.ONEOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

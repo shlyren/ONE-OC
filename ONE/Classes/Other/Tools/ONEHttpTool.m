@@ -9,9 +9,12 @@
 #import "ONEHttpTool.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
+#import "ONEAutoCacheTool.h"
+#import "RealReachability.h"
 
 @interface ONEHttpTool ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 
@@ -41,7 +44,31 @@ static ONEHttpTool *_instance;
     return _instance;
 }
 
++ (ONENetWorkStatus)currentNetWorkStatus
+{
+    switch ([[RealReachability sharedInstance] currentReachabilityStatus]) {
+        case RealStatusUnknown:
+            return ONENetWorkStatusUnknown;
+        case RealStatusNotReachable:
+            return ONENetWorkStatusNoNetwork;
+        case RealStatusViaWWAN:
+            return ONENetWorkStatusIsWWAN;
+        case RealStatusViaWiFi:
+            return ONENetWorkStatusIsWiFi;
+    }
+}
 
++ (BOOL)haveNetwork
+{
+    ONENetWorkStatus status = [self currentNetWorkStatus];
+    
+    if (status == ONENetWorkStatusIsWWAN || status == ONENetWorkStatusIsWiFi) {
+        return true;
+    }else {
+        [SVProgressHUD dismiss];
+        return false;
+    }
+}
 
 + (void)cancel
 {
@@ -49,22 +76,25 @@ static ONEHttpTool *_instance;
 }
 
 
-
 + (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    
-    [[ONEHttpTool shareHttpTool] GET:url parameters:parameters success:^(id responseObject) {
+    if ([ONEHttpTool haveNetwork]) {
         
-        if (success) success(responseObject);
-        
-    } failure:^(NSError *error) {
-        
-        if (failure) failure(error);
-        
-    }];
+        [[ONEHttpTool shareHttpTool] GET:url parameters:parameters success:^(id responseObject) {
+            
+            if ([[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey]) {
+                [ONEAutoCacheTool writeFile:responseObject withUrl:url];
+            }
+            if (success) success(responseObject);
+            
+        } failure:^(NSError *error) {
+            
+            if (failure) failure(error);
+        }];
+    }else {
+        success([ONEAutoCacheTool readFileAtPath:url]);
+    }
 }
-
-
 
 + (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
@@ -80,14 +110,12 @@ static ONEHttpTool *_instance;
     }];
 }
 
-
-
 - (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
 
     
-    [self.manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         if (success) success(responseObject);
         [SVProgressHUD dismiss];

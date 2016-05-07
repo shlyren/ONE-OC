@@ -20,3 +20,6 @@ UIKIT_EXTERN CGFloat const ONEDefaultMargin;
 
 /** 重复点击tabbar按钮的通知 */
 UIKIT_EXTERN NSString *const ONETabBarItemDidRepeatClickNotification;
+
+/** 自动清除缓存Key */
+UIKIT_EXTERN NSString *const ONEAutomaticCacheKey;

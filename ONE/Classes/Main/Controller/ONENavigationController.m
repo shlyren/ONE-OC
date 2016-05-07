@@ -9,6 +9,7 @@
 #import "ONENavigationController.h"
 #import "SVProgressHUD.h"
 #import "ONESearchViewController.h"
+#import "ONESettingViewController.h"
 
 @interface ONENavigationController ()<UIGestureRecognizerDelegate , UINavigationControllerDelegate>
 @end
@@ -24,7 +25,6 @@
 
     pan.delegate = self;
     [self.view addGestureRecognizer:pan];
-    
 }
 
 
@@ -96,7 +96,7 @@
 
 - (void)rightBtnClick
 {
-    ONELogFunc;
+    [self pushViewController:[ONESettingViewController new] animated:true];
 }
 
 - (UIBarButtonItem *)setUpBackBarBtn

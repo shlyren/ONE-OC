@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ONEDefaultCellArrItem.h"
 
 @interface ONEDefaultCellGroupItem : NSObject
 
@@ -28,7 +29,7 @@
 @property (nonatomic, strong) UIView *footerView;
 
 /** 行的模型 */
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray<__kindof ONEDefaultCellItem *> *items;
 
 + (instancetype)groupWithItems:(NSArray *)items;
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^ONECellActionBlock)(id parameter);
+
 @interface ONEDefaultCellItem : NSObject
 
 /** title */
@@ -19,15 +21,21 @@
 /** subTitle */
 @property (nonatomic, strong) NSString *subTitle;
 
-
 /** action */
-@property (nonatomic, strong) void (^actionBlock)(id parameter);
+@property (nonatomic, strong) ONECellActionBlock actionBlock;
 
+@property (nonatomic, assign) UITableViewCellStyle cellStyle;
 
+@property (nonatomic, assign) UITableViewCellAccessoryType accessoryType;
+
+@property (nonatomic, strong) UIView *accessoryView;
+
++ (instancetype)itemWithTitle:(NSString *)title;
++ (instancetype)itemWithTitle:(NSString *)title action:(ONECellActionBlock)actionBlock;
 
 + (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image;
 
 + (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle;
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle actionBlock:(void (^)(id parameter))actionBlock;
++ (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle actionBlock:(ONECellActionBlock)actionBlock;
 @end

@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "ONEFPSLabel.h"
 #import "SDImageCache.h"
+#import "RealReachability.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -26,7 +27,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [ONETabbarController new];
     [self.window makeKeyAndVisible];
-    
+   
+    [[RealReachability sharedInstance] startNotifier];
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
     
     // 界面 FPS 代码

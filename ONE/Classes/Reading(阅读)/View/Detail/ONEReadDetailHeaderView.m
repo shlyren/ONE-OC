@@ -101,11 +101,10 @@
 // 初始化列表里面的的按钮
 - (void)setupListBtn
 {
-    
-    for (UIView *childView in self.listScrollView.subviews)
-    {
-        if ([childView isKindOfClass:UIButton.class]) return;
-    }
+//    for (UIView *childView in self.listScrollView.subviews)
+//    {
+//        if ([childView isKindOfClass:UIButton.class]) return;
+//    }
     
     CGFloat margin = 20;
     for (NSInteger i = 0; i < self.serialList.count; i ++ )
@@ -131,7 +130,7 @@
 }
 
 
-#pragma mark -  设置数据
+#pragma mark - 设置数据
 #pragma mark 短篇数据
 - (void)setEssayItem:(ONEEssayItem *)essayItem
 {
@@ -278,7 +277,7 @@
     detailVc.user_id = userid;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
     nav.delegate = self;
-    [self.window.rootViewController.topViewController presentViewController:nav animated:YES completion:nil];
+    [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 }
 
 // 详情下面的个人信息的头像的按钮点击事件

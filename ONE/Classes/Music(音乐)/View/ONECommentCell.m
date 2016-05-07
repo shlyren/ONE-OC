@@ -58,10 +58,9 @@
     
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentItem.praisenum] forState:UIControlStateNormal];
     
-    
     ONEAuthorItem *author    = commentItem.user;
     self.userNameLabel.text  = author.user_name;
-
+    
    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:author.web_url] placeholderImage:[UIImage imageNamed:@"author_cover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
        self.iconImageView.image = image.circleImage;
    }];
@@ -116,7 +115,8 @@
 
 - (CGFloat)rowHeight
 {
-    [self layoutIfNeeded];
-    return CGRectGetMaxY(self.commentContectLabel.frame) + 15;
+    //    [self layoutIfNeeded];
+    return 60 + self.commentContectLabel.height + 10;
+    // return CGRectGetMaxY(self.commentContectLabel.frame) + 15;
 }
 @end

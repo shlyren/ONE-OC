@@ -49,7 +49,6 @@
             [self.view addSubview:_scrollView = scrollView];
         }
         
-        
         // titlesView
         {
             UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.y, ONEScreenWidth, 30)];

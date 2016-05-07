@@ -28,34 +28,44 @@
 
 #import "ONEHomeSubtotalItem.h"
 
-
 #import "ONESearchReadItem.h"
 #import "ONESearchMusicItem.h"
 #import "ONESearchMovieItem.h"
 
 @implementation ONEDataRequest
+
+#define fullUrl(centerUrl) [NSString stringWithFormat:@"%@/%@/%@", ONEBaseUrl, centerUrl, url]
+
+#pragma mark - 音乐
 /**
  *  请求音乐列表数据
  */
 + (void)requsetMusciIdList:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray *musicIdList))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:music_idlist] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(music_idlist);
+
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         ONEMusicResultItem *result = [ONEMusicResultItem mj_objectWithKeyValues:responseObject];
         success(result.data);
     } failure:^(NSError *error) {
         if (failure) failure(error);
         ONELog(@"音乐列表获取失败 %@", error);
     }];
+    
 }
 
 /**
- *  请求音乐我详情数据
+ *  请求音乐详情数据
  */
-+ (void)requestMusicDetail:(NSString *)url parameters:(id)parameters success:(void (^)(ONEMusicDetailItem *musicDetailItem))success failure:(void (^)(NSError *error))failure{
++ (void)requestMusicDetail:(NSString *)url parameters:(id)parameters success:(void (^)(ONEMusicDetailItem *musicDetailItem))success failure:(void (^)(NSError *error))failure
+{
     
-    url = [[ONEBaseUrl stringByAppendingPathComponent:music_detail] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(music_detail);
+    
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEMusicDetailItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"detail_id" : @"id" };
         }];
@@ -73,8 +83,11 @@
  */
 + (void)requestMusicComment:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray <ONEMusicCommentItem *> *commentItems))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:comment_music] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(comment_music);
+
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEMusicCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"comment_id" : @"id" };
         }];
@@ -84,6 +97,7 @@
         ONELog(@"评论数据获取失败%@", error);
         if (failure) failure(error);
     }];
+
 }
 
 /**
@@ -91,8 +105,11 @@
  */
 + (void)requestMusicRelated:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray <ONEMusicRelatedItem *>*relatedItems))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:related_music] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(related_music);
+    
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEMusicRelatedItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"related_id" : @"id"};
         }];
@@ -102,6 +119,7 @@
         ONELog(@"音乐详情获取失败%@", error);
         if (failure) failure(error);
     }];
+
 }
 
 /**
@@ -110,24 +128,27 @@
  */
 + (void)requestUserInfo:(NSString *)url parameters:(id)parameters success:(void (^)(ONEAuthorItem *autoItem))success failure:(void (^)(NSError *error))failure;
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:user_info] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(user_info);
+
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         ONEAuthorItem *userInfoItem = [ONEAuthorItem mj_objectWithKeyValues:responseObject[@"data"]];
         success(userInfoItem);
     } failure:^(NSError *error) {
         ONELog(@"用户资料获取失败%@", error);
         if (failure) failure(error);
     }];
+    
 }
 
+#pragma mark - 喜欢
 /**
  *  喜欢
  */
 + (void)addPraise:(NSString *)url parameters:(id)parameters success:(void (^)(BOOL isSuccess, NSString *message))success failure:(void (^)(NSError *error))failure
 {
-    //http://v3.wufazhuce.com:8000/api/movie/praisereview
     url = [ONEBaseUrl stringByAppendingPathComponent:url];
-    [ONEHttpTool POST:url parameters:parameters success:^(id responseObject) {
+    [ONEHttpTool POST:url parameters:parameters success:^(NSDictionary *responseObject) {
         ONEMusicResultItem *result = [ONEMusicResultItem mj_objectWithKeyValues:responseObject];
         success(!result.res, result.msg);
     } failure:^(NSError *error) {
@@ -142,8 +163,10 @@
  */
 + (void)requestPersonSong:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray <ONEMusicRelatedItem *>*musics))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:works_music] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(works_music);
+    
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
         success([ONEMusicRelatedItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]);
     } failure:^(NSError *error) {
         if (failure) failure(error);
@@ -157,8 +180,11 @@
  */
 + (void)requsetMusicByMonth:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray <ONEMusicRelatedItem *>*musics))success failure:(void (^)(NSError *error))failure
 {
-    NSString *fullUrl = [[ONEBaseUrl stringByAppendingPathComponent:music_bymonth] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:fullUrl parameters:parameters success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(music_bymonth);
+
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEMusicRelatedItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"related_id" : @"id"};
         }];
@@ -167,7 +193,6 @@
         if (failure) failure(error);
         ONELog(@"%@歌曲 获取失败%@",url, error);
     }];
-
 }
 
 /**
@@ -181,16 +206,14 @@
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 电影 ↓↓↓↓↓↓↓↓↓↓↓↓
 /**
  *  获取电影列表数据
- *
- *  @param url        请求地址 短地址
- *  @param parameters 请求参数
- *  @param success    请求成功回调
- *  @param failure    请求失败回调
  */
 + (void)requestMovieList:(NSString *)url parameters:(id)parameters succes:(void (^)(NSArray *movieLists))success failure:(void(^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:movie_list] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+    
+    NSString *fullUrl = fullUrl(movie_list);
+
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONEMovieListItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"movie_id" : @"id"};
         }];
@@ -207,8 +230,10 @@
  */
 + (void)requestMovieDetail:(NSString *)url parameters:(id)parameters success:(void (^)(ONEMovieDetailItem *movieDetail))success failure:(void (^)(NSError *error))failure
 {
-    url = [movie_detail stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+    NSString *fullUrl = [NSString stringWithFormat:@"%@/%@", movie_detail, url];
+    
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONEMovieDetailItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"movie_detailId" : @"id"};
         }];
@@ -225,9 +250,9 @@
  */
 + (void)requestMovieStory:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieStory))success failure:(void (^)(NSError *))failure
 {
-    url = [movie stringByAppendingPathComponent:url];
-    
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+     NSString *fullUrl = [NSString stringWithFormat:@"%@/%@", movie, url];
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+
         [ONEMovieStoryItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"movie_story_id" : @"id"};
         }];
@@ -237,13 +262,14 @@
         }];
         
         ONEMovieResultItem *result = [ONEMovieResultItem mj_objectWithKeyValues:responseObject[@"data"]];
-       
+        
         success(result);
         
     } failure:^(NSError *error) {
         if (failure) failure(error);
         ONELog(@"电影故事获取失败%@",error);
     }];
+    
 }
 
 /**
@@ -251,9 +277,10 @@
  */
 + (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure
 {
-    url = [movie stringByAppendingPathComponent:url];
+    NSString *fullUrl = [NSString stringWithFormat:@"%@/%@", movie, url];
     
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONEMusicCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"comment_id" : @"id"};
         }];
@@ -278,21 +305,19 @@
  */
 + (void)requestMovieComment:(NSString *)url parameters:(id)patameters success:(void (^)(NSMutableArray *movieComments))success failure:(void (^)(NSError *error))failure
 {
-    url = [ONEBaseUrl stringByAppendingPathComponent:[movie_comment stringByAppendingPathComponent:url]];
     
-    [ONEHttpTool GET:url parameters:patameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(movie_comment);
+    [ONEHttpTool GET:fullUrl parameters:patameters success:^(NSDictionary *responseObject) {
+        
         [ONEMovieCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"comment_id" : @"id"};
         }];
-        
-//        NSArray *ar = [ONEMovieCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
-        
         success([ONEMovieCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]]);
-
+        
     } failure:^(NSError *error) {
         if (failure) failure(error);
         ONELog(@"电影评论获取失败%@",error);
-
+        
     }];
 }
 
@@ -303,8 +328,10 @@
  */
 + (void)requestReadAdSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
-    [ONEHttpTool GET:readAdUrl parameters:nil success:^(id responseObject) {
-        
+    
+    NSString *fullUrl = readAdUrl;
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+         
         [ONEReadAdItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"ad_id" : @"id"};
         }];
@@ -316,12 +343,13 @@
         if (failure) failure(error);
         ONELog(@"阅读广告获取失败%@",error);
     }];
+
 }
 /** 阅读轮播 */
 + (void)requestCarousel:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *carouselDetailItem))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:reading_carousel] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(reading_carousel);
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
         
         NSArray *carouselDetailItem = [ONECarouselDetailItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         if (success) success(carouselDetailItem);
@@ -337,13 +365,17 @@
  */
 + (void)requestReadList:(NSString *)url parameters:(id)parameters succsee:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    [ONEHttpTool GET:readIndexUrl parameters:nil success:^(NSDictionary *responseObject) {
+    NSString *fullUrl = readIndexUrl;
+    
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONEReadListItem mj_setupObjectClassInArray:^NSDictionary *{
             return @{@"essay" : [ONEEssayItem class],
                      @"serial" : [ONESerialItem class],
                      @"question" : [ONEQuestionItem class]
                      };
         }];
+        
         [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
             return @{@"author" : [ONEAuthorItem class]};
         }];
@@ -351,7 +383,6 @@
         [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"content_id" : @"id"};
         }];
-        
         ONEReadListItem *item = [ONEReadListItem mj_objectWithKeyValues:responseObject[@"data"]];
         
         if (success) success(item);
@@ -359,16 +390,21 @@
     } failure:^(NSError *error) {
         if (failure) failure(error);
         ONELog(@"阅读列表获取失败%@",error);
-    }];
+        }];
+    
 }
+
+
 /**
  *  短篇详情
  */
 + (void)requestEssayDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEEssayItem *essay))success failure:(void (^)(NSError *error))failure
 {
     
-    url = [[ONEBaseUrl stringByAppendingPathComponent:essay] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(essay);
+    
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
             return @{@"author" : [ONEAuthorItem class]};
         }];
@@ -387,12 +423,13 @@
  */
 + (void)requestSerialDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONESerialItem *serial))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:serialcontent] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(serialcontent);
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"content_id" : @"id"};
         }];
-    
+        
         ONESerialItem *serial = [ONESerialItem mj_objectWithKeyValues:responseObject[@"data"]];
         if (success) success(serial);
         
@@ -400,7 +437,6 @@
         if (failure) failure(error);
         ONELog(@"问题详情获取失败%@",error);
     }];
-
 }
 
 
@@ -409,8 +445,11 @@
  */
 + (void)requestQuestionDetail:(NSString *)url parameters:(id)parameters succsee:(void (^)(ONEQuestionItem *question))success failure:(void (^)(NSError *error))failure
 {
-    url = [[ONEBaseUrl stringByAppendingPathComponent:question] stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    NSString *fullUrl = fullUrl(question);
+
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
+        
         ONEQuestionItem *question = [ONEQuestionItem mj_objectWithKeyValues:responseObject[@"data"]];
         if (success) success(question);
         
@@ -418,7 +457,7 @@
         if (failure) failure(error);
         ONELog(@"问题详情获取失败%@",error);
     }];
-
+    
 }
 
 /**
@@ -426,18 +465,20 @@
  */
 + (void)requestReadComment:(NSString *)url parameters:(id)parameters success:(void (^)(NSArray *commentItems))success failure:(void (^)(NSError *error))failure
 {
-    url = [ONEBaseUrl stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+     NSString *fullUrl = [NSString stringWithFormat:@"%@/%@",ONEBaseUrl, url];
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
+        
         [ONEReadCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"comment_id" : @"id" };
         }];
-        //ONEMusicResultItem *commentResult = [ONEMusicResultItem mj_objectWithKeyValues:responseObject[@"data"]];
+        
         NSArray *Item = [ONEReadCommentItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
         if (success) success(Item);
     } failure:^(NSError *error) {
         ONELog(@"评论数据获取失败%@", error);
         if (failure) failure(error);
     }];
+    
 }
 
 
@@ -445,8 +486,9 @@
 + (void)requestEssayRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *essayRelated))success failure:(void (^)(NSError *error))failure
 {
     
-    url = [ONEBaseUrl stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+    NSString *fullUrl = [NSString stringWithFormat:@"%@/%@",ONEBaseUrl, url];
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONEEssayItem mj_setupObjectClassInArray:^NSDictionary *{
             return @{@"author" : [ONEAuthorItem class]};
         }];
@@ -463,8 +505,9 @@
 /** 连载 推荐 */
 + (void)requestSerialRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialRelated))success failure:(void (^)(NSError *error))failure
 {
-    url = [ONEBaseUrl stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+     NSString *fullUrl = [NSString stringWithFormat:@"%@/%@",ONEBaseUrl, url];
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+        
         [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"content_id" : @"id"};
         }];
@@ -481,8 +524,8 @@
 /** 问题 推荐 */
 + (void)requestQuestionRelated:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *questionRelated))success failure:(void (^)(NSError *error))failure
 {
-    url = [ONEBaseUrl stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+     NSString *fullUrl = [NSString stringWithFormat:@"%@/%@",ONEBaseUrl, url];
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
         
         NSArray *questionRelated = [ONEQuestionItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         if (success) success(questionRelated);
@@ -497,9 +540,9 @@
 /** 连载列表 */
 + (void)requestSeriaList:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *serialList))success failure:(void (^)(NSError *error))failure
 {
-    url = [serial_list stringByAppendingPathComponent:url];
+    NSString *fullUrl = fullUrl(serial_list);
     
-    [ONEHttpTool GET:url parameters:parameters success:^(id responseObject) {
+    [ONEHttpTool GET:fullUrl parameters:parameters success:^(NSDictionary *responseObject) {
         
         [ONESerialItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"content_id" : @"id"};
@@ -514,15 +557,15 @@
     }];
 }
 
-
 #pragma mark - 首页
 /** 首页 小记 */
 + (void)requestHomeSubtotal:(NSString *)url paramrters:(id)parameters success:(void (^)(NSArray *homeSubtotal))success failure:(void (^)(NSError *error))failure
 {
-    url = [homeSubtotal stringByAppendingPathComponent:url];
-    [ONEHttpTool GET:url parameters:nil success:^(id responseObject) {
+     NSString *fullUrl = [NSString stringWithFormat:@"%@/hp/%@",ONEBaseUrl, url];
+    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
         
         NSArray *homeSubtotal = [ONEHomeSubtotalItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
         if (success) success(homeSubtotal);
         
     } failure:^(NSError *error) {

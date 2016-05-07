@@ -10,24 +10,31 @@
 
 @implementation ONEDefaultCellItem
 
++ (instancetype)itemWithTitle:(NSString *)title
+{
+    return [self itemWithTitle:title image:nil subTitle:nil actionBlock:nil];
+}
++ (instancetype)itemWithTitle:(NSString *)title action:(ONECellActionBlock)actionBlock
+{
+    return [self itemWithTitle:title image:nil subTitle:nil actionBlock:actionBlock];
+}
+
 + (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image
 {
-    ONEDefaultCellItem *item = [self new];
-    item.title = title;
-    item.image = image;
-    return item;
+    return [self itemWithTitle:title image:image subTitle:nil actionBlock:nil];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle
 {
-    ONEDefaultCellItem *item = [self itemWithTitle:title image:image];
-    item.subTitle = subTitle;
-    return item;
+    return [self itemWithTitle:title image:image subTitle:subTitle actionBlock:nil];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle actionBlock:(void (^)(id parameter))actionBlock
++ (instancetype)itemWithTitle:(NSString *)title image:(NSString *)image subTitle:(NSString *)subTitle actionBlock:(ONECellActionBlock)actionBlock
 {
-    ONEDefaultCellItem *item = [self itemWithTitle:title image:image subTitle:subTitle];
+    ONEDefaultCellItem *item = [self new];
+    item.title = title;
+    item.subTitle = subTitle;
+    item.image = image;
     item.actionBlock = actionBlock;
     return item;
 }

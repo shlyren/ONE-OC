@@ -9,9 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "MJExtension.h"
 
+typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
+    ONENetWorkStatusUnknown = -1,
+    ONENetWorkStatusNoNetwork = 0,
+    ONENetWorkStatusIsWWAN = 1,
+    ONENetWorkStatusIsWiFi = 2
+};
+
 @interface ONEHttpTool : NSObject
 
+
++ (BOOL)haveNetwork;
+
++ (ONENetWorkStatus)currentNetWorkStatus;
+
 + (void)cancel;
+
 
 /**
  *  GET 请求

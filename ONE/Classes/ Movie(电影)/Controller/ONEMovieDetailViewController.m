@@ -87,12 +87,26 @@ static NSString *const movieCommentID = @"movieComment";
             weakSelf.movieReviewResult = movieReview;
             ONEDefaultCellGroupItem *group1 = weakSelf.groups.firstObject;
             group1.items = movieReview.data;
-        }else{
-           [weakSelf.groups removeObjectAtIndex:0];
         }
+//        else{
+//            if (weakSelf.groups.count == 2) {
+//                [weakSelf.groups removeObjectAtIndex:0];
+//            }
+//           
+//        }
         [weakSelf.tableView reloadData];
-    } failure:nil];
+        [weakSelf loadCommentData];
+    } failure:^(NSError *error) {
+        [weakSelf loadCommentData];
+    }];
  
+   
+    
+}
+
+- (void)loadCommentData
+{
+    ONEWeakSelf
     /** 评论 */
     [ONEDataRequest requestMovieComment:[_movie_id stringByAppendingPathComponent:@"0"] parameters:nil success:^(NSMutableArray *movieComments) {
         if (movieComments.count) {
@@ -101,9 +115,8 @@ static NSString *const movieCommentID = @"movieComment";
             group2.items = weakSelf.commentArray;
             [weakSelf.tableView reloadData];
         }
-    
+        
     } failure:nil];
-    
 }
 
 #pragma mark load more comment  data
