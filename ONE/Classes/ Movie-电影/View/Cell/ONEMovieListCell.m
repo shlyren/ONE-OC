@@ -38,12 +38,6 @@
     return self;
 }
 
-
-- (void)awakeFromNib
-{
-    
-}
-
 - (void)setMovieListItem:(ONEMovieListItem *)movieListItem
 {
     _movieListItem = movieListItem;

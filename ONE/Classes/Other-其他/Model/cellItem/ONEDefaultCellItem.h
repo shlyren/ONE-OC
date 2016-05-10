@@ -12,25 +12,25 @@ typedef void (^ONECellActionBlock)(id parameter);
 
 @interface ONEDefaultCellItem : NSObject
 
-/** title */
+/** 标题 */
 @property (nonatomic, strong) NSString *title;
 
 /** 图片 */
 @property (nonatomic, strong) NSString *image;
 
-/** subTitle */
+/** 子标题 */
 @property (nonatomic, strong) NSString *subTitle;
 
 /** action */
 @property (nonatomic, strong) ONECellActionBlock actionBlock;
 
-/** cell的类型 */
+/** cell的样式 */
 @property (nonatomic, assign) UITableViewCellStyle cellStyle;
 
 /** cell附属物类型 */
 @property (nonatomic, assign) UITableViewCellAccessoryType accessoryType;
 
-/** cell附属物View */
+/** cell附属View */
 @property (nonatomic, strong) UIView *accessoryView;
 
 
@@ -39,7 +39,7 @@ typedef void (^ONECellActionBlock)(id parameter);
                      subTitle:(NSString *)subTitle
                     cellStyle:(UITableViewCellStyle)cellStyle
                 accessoryType:(UITableViewCellAccessoryType)accessoryType
-                accessoryView:(UIView*)accessoryView
+                accessoryView:(UIView *)accessoryView
                        action:(ONECellActionBlock)actionBlock;
 
 + (instancetype)itemWithTitle:(NSString *)title;

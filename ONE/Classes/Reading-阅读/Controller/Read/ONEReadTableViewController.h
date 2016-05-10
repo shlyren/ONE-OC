@@ -9,7 +9,6 @@
 
 #import "ONEReadCell.h"
 
-UIKIT_EXTERN NSString *const readCell;
 
 @interface ONEReadTableViewController : UITableViewController
 

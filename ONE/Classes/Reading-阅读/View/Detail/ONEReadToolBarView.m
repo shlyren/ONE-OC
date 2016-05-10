@@ -36,6 +36,7 @@
     [self.shareBtn setTitle:shareTitle forState:UIControlStateNormal];
     [self.shareBtn setTitle:shareTitle forState:UIControlStateHighlighted];
 }
+
 - (IBAction)praiseBtnClick
 {
     

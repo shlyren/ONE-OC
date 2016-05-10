@@ -33,7 +33,7 @@
 
 @implementation ONEMovieDetailViewController
 
-static NSString *const movieCommentID = @"movieComment";
+static NSString *const movieCommentID = @"ONEMovieCommentCell";
 #pragma mark - lazy load
 - (NSMutableArray *)groups
 {
@@ -47,10 +47,7 @@ static NSString *const movieCommentID = @"movieComment";
 #pragma mark view
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    if (self = [super initWithStyle:style]) {
-        self = [super initWithStyle: UITableViewStyleGrouped];
-    }
-    return self;
+    return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 - (void)viewDidLoad
@@ -58,20 +55,20 @@ static NSString *const movieCommentID = @"movieComment";
     [super viewDidLoad];
     [self setupView];
     [self loadData];
-    [self setupGroup];
 }
 
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(ONENavBMaxY, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(ONENavBMaxY, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     ONEMovieDetailHeaderView *headerView = [ONEMovieDetailHeaderView tableHeaderView];
     headerView.movie_id = _movie_id;
     headerView.reviewCount = self.movieReviewResult.count;
     headerView.delegate = self;
     
     self.tableView.tableHeaderView = _headerView = headerView;
-    [self.tableView registerClass:[ONEMovieCommentCell class] forCellReuseIdentifier:movieCommentID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ONEMovieCommentCell" bundle:nil] forCellReuseIdentifier:movieCommentID];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
 }
@@ -85,22 +82,11 @@ static NSString *const movieCommentID = @"movieComment";
     [ONEDataRequest requestMovieReview:[_movie_id stringByAppendingPathComponent:@"review/1/0"] parameters:nil success:^(ONEMovieResultItem *movieReview) {
         if (movieReview.data.count) {
             weakSelf.movieReviewResult = movieReview;
-            ONEDefaultCellGroupItem *group1 = weakSelf.groups.firstObject;
-            group1.items = movieReview.data;
         }
-//        else{
-//            if (weakSelf.groups.count == 2) {
-//                [weakSelf.groups removeObjectAtIndex:0];
-//            }
-//           
-//        }
-        [weakSelf.tableView reloadData];
         [weakSelf loadCommentData];
     } failure:^(NSError *error) {
         [weakSelf loadCommentData];
     }];
- 
-   
     
 }
 
@@ -111,9 +97,7 @@ static NSString *const movieCommentID = @"movieComment";
     [ONEDataRequest requestMovieComment:[_movie_id stringByAppendingPathComponent:@"0"] parameters:nil success:^(NSMutableArray *movieComments) {
         if (movieComments.count) {
             weakSelf.commentArray = movieComments;
-            ONEDefaultCellGroupItem *group2 = weakSelf.groups.lastObject;
-            group2.items = weakSelf.commentArray;
-            [weakSelf.tableView reloadData];
+            [weakSelf setupGroup];
         }
         
     } failure:nil];
@@ -145,30 +129,32 @@ static NSString *const movieCommentID = @"movieComment";
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_footer  endRefreshing];
     }];
-    
-   
 }
 
 #pragma mark - init group
 - (void)setupGroup
 {
    
-    ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem new];
-    group1.items        = self.movieReviewResult.data;
-    group1.footerHeight = 40;
-    group1.headerView   = [ONEMovieDetailHeaderView reviewSectionHeaderView];
-    group1.footerView   = [ONEMovieDetailHeaderView reviewSectionFooterView];
+    if (self.movieReviewResult.data.count) {
+        ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem new];
+        group1.items        = self.movieReviewResult.data;
+        group1.footerHeight = 40;
+        group1.headerView   = [ONEMovieDetailHeaderView reviewSectionHeaderView];
+        group1.footerView   = [ONEMovieDetailHeaderView reviewSectionFooterView];
+        [self.groups addObject:group1];
+    }
     
-    ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
-    group2.items        = self.commentArray;
-    group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
-    group2.footerHeight = 0.000000000001;
-    group2.footerView   = nil;
-    [self.groups addObject:group1];
-    [self.groups addObject:group2];
+    if (self.commentArray.count) {
+        ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
+        group2.items        = self.commentArray;
+        group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
+        group2.footerHeight = 0.000000000001;
+        group2.footerView   = nil;
+        [self.groups addObject:group2];
+    }
+     [self.tableView reloadData];
+    
 }
-
-
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -225,8 +211,7 @@ static NSString *const movieCommentID = @"movieComment";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static ONEMovieCommentCell *cell;
-    if (cell == nil) cell = [tableView dequeueReusableCellWithIdentifier:movieCommentID];
+    ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:movieCommentID];
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
 
     return cell.rowHeight;
@@ -234,14 +219,12 @@ static NSString *const movieCommentID = @"movieComment";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    ONEDefaultCellGroupItem *group = self.groups[section];
-    return group.headerView;
+    return [self.groups[section] headerView];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    ONEDefaultCellGroupItem *group = self.groups[section];
-    return group.footerView;
+    return [self.groups[section] footerView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -251,8 +234,7 @@ static NSString *const movieCommentID = @"movieComment";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    ONEDefaultCellGroupItem *group = self.groups[section];
-    return group.footerHeight;
+    return [self.groups[section] footerHeight];
 }
 
 @end

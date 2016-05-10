@@ -22,10 +22,12 @@
 {
     return question;
 }
+
 #pragma mark - Table view data source
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
-    ONEReadCell *cell = [tableView dequeueReusableCellWithIdentifier:readCell];
+    ONEReadCell *cell = (ONEReadCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
     cell.question = self.readItems[indexPath.row];
     
     return cell;

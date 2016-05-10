@@ -20,8 +20,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ONESearchTableViewCell *cell = (ONESearchTableViewCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
-    cell.musicItem = self.searchResult[indexPath.row];
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[ONESearchTableViewCell class]]) {
+        ONESearchTableViewCell *searchCell = (ONESearchTableViewCell*)cell;
+        searchCell.musicItem = self.searchResult[indexPath.row];
+        return searchCell;
+    }
     return cell;
 }
 

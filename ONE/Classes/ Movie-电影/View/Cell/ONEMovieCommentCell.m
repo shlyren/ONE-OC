@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
 
 @property (nonatomic, strong) ONEAuthorItem *author;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
@@ -58,6 +59,7 @@
     [self.praisenumBtn setTitle:[NSString stringWithFormat:@"%zd", commentItem.praisenum] forState:UIControlStateNormal];
     [self.praisenumBtn addTarget:self action:@selector(praisenumBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.inputDateLabel.text = commentItem.input_date;
+    self.scoreLabel.text = commentItem.score;
     
     self.author = commentItem.author ? commentItem.author : commentItem.user;
    

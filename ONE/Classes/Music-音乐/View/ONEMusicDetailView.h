@@ -28,7 +28,7 @@
 
 @property (nonatomic, strong) ONEMusicDetailItem           *musicDetailItem;
 
-@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat heoght);
+@property (nonatomic, strong) void (^contentChangeBlock)(CGFloat height);
 
 @property (nonatomic, weak) id<ONEMusicDetailViewDelegate> delegate;
 @end

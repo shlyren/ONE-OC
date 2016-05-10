@@ -39,7 +39,7 @@
 /**
  *  删除Caches文件夹下所有文件
  *
- *  @return @"清除缓存(XXX)"
+ *  @return 是否删除成功
  */
 + (BOOL)removeDirectoryAtCaches;
 @end

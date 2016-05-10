@@ -9,13 +9,13 @@
 #import "ONEReadTableViewController.h"
 #import "ONEReadPastListViewController.h"
 
-
 @interface ONEReadTableViewController ()
 
 @end
 
 @implementation ONEReadTableViewController
-NSString *const readCell = @"realCell";
+
+static NSString *const readCell = @"readCell";
 
 - (NSArray *)readItems
 {
@@ -57,6 +57,13 @@ NSString *const readCell = @"realCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self.readItems[indexPath.row] rowHeight];
+}
+
+- (ONEReadCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     ONEReadCell *cell = [tableView dequeueReusableCellWithIdentifier:readCell];
+    
+    return cell;
 }
 
 

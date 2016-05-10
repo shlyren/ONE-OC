@@ -30,9 +30,9 @@
 }
 
 #pragma mark - Table view data source
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ONEReadCell *cell = [tableView dequeueReusableCellWithIdentifier:readCell];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ONEReadCell *cell = (ONEReadCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
     cell.serial = self.readItems[indexPath.row];
     
     return cell;

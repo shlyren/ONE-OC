@@ -75,7 +75,6 @@
     /*
      获取这个文件夹中所有文件路径,然后累加 = 文件夹的尺寸
      */
-   
     // 获取文件夹下所有的文件
     NSArray *subpaths = [mgr subpathsAtPath:directoryPath];
     NSInteger totalSize = 0;

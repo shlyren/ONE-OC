@@ -15,7 +15,7 @@
                      subTitle:(NSString *)subTitle
                     cellStyle:(UITableViewCellStyle)cellStyle
                 accessoryType:(UITableViewCellAccessoryType)accessoryType
-                accessoryView:(UIView*)accessoryView
+                accessoryView:(UIView *)accessoryView
                        action:(ONECellActionBlock)actionBlock
 {
     ONEDefaultCellItem *item = [self new];

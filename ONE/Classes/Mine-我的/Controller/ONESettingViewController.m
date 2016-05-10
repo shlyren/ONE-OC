@@ -58,36 +58,33 @@
     ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem groupWithItems:@[item1]];
     [self.settingItems addObject:group1];
 }
+
 - (void)setupGroup2
 {
     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"缓存到本地"];
     UISwitch *s = [UISwitch new];
-    BOOL isON = [[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey];
-    [s setOn:isON animated:true];
+    [s setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey] animated:true];
     [s addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
     item1.accessoryView = s;
-
-    NSString *item2Title = [ONEFileManager getDirectorySizeByMBAtCaches];
     
-    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:item2Title action:^(NSIndexPath *indexPath) {
-        
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:[ONEFileManager getDirectorySizeByMBAtCaches]
+                                                           action:^(NSIndexPath *indexPath) {
+        [SVProgressHUD showWithStatus:@"清除中..."];
         [self showAlertControllerHandler:^(UIAlertAction * _Nonnull action) {
             if ([ONEFileManager removeDirectoryAtCaches]) {
                 [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+                ONEDefaultCellItem *item = self.settingItems[indexPath.section].items[indexPath.row];
+                item.title = [ONEFileManager getDirectorySizeByMBAtCaches];
+                [self.tableView reloadData];
             }else {
                 [SVProgressHUD showErrorWithStatus:@"清除失败"];
             }
-            ONEDefaultCellItem *item = self.settingItems[indexPath.section].items[indexPath.row];
-            item.title = [ONEFileManager getDirectorySizeByMBAtCaches];
-            [self.tableView reloadData];
-
         }];
     
     }];
         
     item2.accessoryType = UITableViewCellAccessoryNone;
-    ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem groupWithItems:@[item1, item2]];
-    [self.settingItems addObject:group2];
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2]]];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -122,7 +119,6 @@
 {
     return self.settingItems[section].items.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
