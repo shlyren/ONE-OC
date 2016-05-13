@@ -8,6 +8,7 @@
 
 #import "ONEAutoCacheTool.h"
 #define cachesPath NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]
+
 @implementation ONEAutoCacheTool
 
 + (BOOL)createDirectoryAtPath:(NSString *)path

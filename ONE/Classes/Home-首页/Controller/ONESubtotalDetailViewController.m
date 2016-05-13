@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "NSMutableAttributedString+string.h"
 #import "ONEDataRequest.h"
+#import "ONEShareTool.h"
 
 @interface ONESubtotalDetailViewController ()
 
@@ -82,7 +83,11 @@
 
 - (IBAction)shareBtnClick
 {
-    ONELogFunc
+    [ONEShareTool showShareView:self
+                        content:self.subtotalItem.hp_content
+                            url:self.subtotalItem.web_url
+                          image:self.imageView.image];
+
 }
 
 - (IBAction)praiseBtnClick

@@ -19,6 +19,7 @@
 #import "ONENavigationController.h"
 #import "UIViewController+Extension.h"
 #import "ONEMovieScoreView.h"
+#import "ONEShareTool.h"
 
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
@@ -262,6 +263,13 @@ static NSString *const photoCellID = @"photoCell";
         [SVProgressHUD showErrorWithStatus:@"操作失败"];
     }];
     
+}
+- (IBAction)shareBtnClick {
+    [ONEShareTool showShareView:self.window.rootViewController
+                        content:self.movieDetail.title
+                            url:self.movieDetail.web_url
+                          image:self.coverImgView.image];
+
 }
 
 - (IBAction)iconBtnClick

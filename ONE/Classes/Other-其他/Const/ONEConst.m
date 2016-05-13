@@ -21,3 +21,5 @@ CGFloat const ONEDefaultMargin = 10;
 NSString *const ONETabBarItemDidRepeatClickNotification = @"ONETabBarItemDidRepeatClickNotification";
 
 NSString *const ONEAutomaticCacheKey = @"ONEAutomaticCacheKey";
+
+NSString *const ONENightModelKey = @"ONENightModelKey";

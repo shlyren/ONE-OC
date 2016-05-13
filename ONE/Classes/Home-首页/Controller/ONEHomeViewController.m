@@ -12,6 +12,8 @@
 #import "ONEDataRequest.h"
 #import "ONEHomeSubtotalItem.h"
 #import "ONEMoviePastListVc.h"
+#import "ONEShareTool.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface ONEHomeViewController ()<YSLDraggableCardContainerDelegate, YSLDraggableCardContainerDataSource>
@@ -20,6 +22,7 @@
 @property (nonatomic, strong) NSArray *homeSubtotals;
 
 @property (weak, nonatomic) IBOutlet UIButton *praiseButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 
@@ -136,6 +139,7 @@
     [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateNormal];
     [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateSelected];
     self.praiseButton.tag = index;
+    self.shareButton.tag = index;
     self.praiseButton.selected = false;
     [self.praiseButton addTarget:self action:@selector(praiseBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -156,7 +160,16 @@
 
 - (IBAction)shareBtnClick
 {
-    ONELogFunc
+    ONEHomeSubtotalItem *item = self.homeSubtotals[self.praiseButton.tag];
+
+    [[UIImageView new] sd_setImageWithURL:[NSURL URLWithString:item.hp_img_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        [ONEShareTool showShareView:self
+                            content:item.hp_content
+                                url:item.web_url
+                              image:image];
+    }];
+    
 }
 
 - (void)praiseBtnClick

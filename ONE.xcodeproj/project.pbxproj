@@ -87,12 +87,16 @@
 		559D1DA21CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1D9A1CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.xib */; };
 		559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D1DA41CD72CB500CA6CB3 /* ONEMovieScoreView.m */; };
 		559D1DA71CD72CD000CA6CB3 /* ONEMovieScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1DA61CD72CD000CA6CB3 /* ONEMovieScoreView.xib */; };
-		559D1DAB1CD771AC00CA6CB3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */; };
 		55B9A0EC1CBF2ECA009E44AA /* ONEReadAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A0EB1CBF2ECA009E44AA /* ONEReadAdItem.m */; };
 		55B9A1061CBF5B0F009E44AA /* ONEEssayItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A1051CBF5B0F009E44AA /* ONEEssayItem.m */; };
 		55B9A1091CBF5B1E009E44AA /* ONESerialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A1081CBF5B1E009E44AA /* ONESerialItem.m */; };
 		55B9A10C1CBF5B2D009E44AA /* ONEQuestionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A10B1CBF5B2D009E44AA /* ONEQuestionItem.m */; };
 		55B9A10F1CBF5D68009E44AA /* ONEReadListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9A10E1CBF5D68009E44AA /* ONEReadListItem.m */; };
+		55BB958E1CE4564300D09D3A /* ONEShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BB958D1CE4564300D09D3A /* ONEShareTool.m */; };
+		55BB958F1CE468B000D09D3A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */; };
+		55BB95911CE468C300D09D3A /* ONE.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 55BB95901CE468C300D09D3A /* ONE.entitlements */; };
+		55BB95971CE5AE2500D09D3A /* ONESwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95961CE5AE2500D09D3A /* ONESwitch.m */; };
+		55BB959A1CE5E43A00D09D3A /* ONENightModeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95991CE5E43A00D09D3A /* ONENightModeTool.m */; };
 		55BED5181CDCB8CE0056CA16 /* ONEFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BED5171CDCB8CE0056CA16 /* ONEFileManager.m */; };
 		55BED51B1CDDC1AC0056CA16 /* ONESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BED51A1CDDC1AC0056CA16 /* ONESettingViewController.m */; };
 		55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C289B31CAE479B0092A897 /* ONEMusicViewController.m */; };
@@ -279,7 +283,6 @@
 		559D1DA41CD72CB500CA6CB3 /* ONEMovieScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieScoreView.m; sourceTree = "<group>"; };
 		559D1DA61CD72CD000CA6CB3 /* ONEMovieScoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMovieScoreView.xib; sourceTree = "<group>"; };
 		559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		559D1DAC1CD771AC00CA6CB3 /* ONE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ONE.entitlements; sourceTree = "<group>"; };
 		55B9A0EA1CBF2ECA009E44AA /* ONEReadAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadAdItem.h; sourceTree = "<group>"; };
 		55B9A0EB1CBF2ECA009E44AA /* ONEReadAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadAdItem.m; sourceTree = "<group>"; };
 		55B9A1041CBF5B0F009E44AA /* ONEEssayItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONEEssayItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -290,6 +293,13 @@
 		55B9A10B1CBF5B2D009E44AA /* ONEQuestionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEQuestionItem.m; sourceTree = "<group>"; };
 		55B9A10D1CBF5D68009E44AA /* ONEReadListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadListItem.h; sourceTree = "<group>"; };
 		55B9A10E1CBF5D68009E44AA /* ONEReadListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadListItem.m; sourceTree = "<group>"; };
+		55BB958C1CE4564300D09D3A /* ONEShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEShareTool.h; sourceTree = "<group>"; };
+		55BB958D1CE4564300D09D3A /* ONEShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEShareTool.m; sourceTree = "<group>"; };
+		55BB95901CE468C300D09D3A /* ONE.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ONE.entitlements; sourceTree = "<group>"; };
+		55BB95951CE5AE2500D09D3A /* ONESwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESwitch.h; sourceTree = "<group>"; };
+		55BB95961CE5AE2500D09D3A /* ONESwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONESwitch.m; sourceTree = "<group>"; };
+		55BB95981CE5E43A00D09D3A /* ONENightModeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONENightModeTool.h; sourceTree = "<group>"; };
+		55BB95991CE5E43A00D09D3A /* ONENightModeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONENightModeTool.m; sourceTree = "<group>"; };
 		55BED5161CDCB8CE0056CA16 /* ONEFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFileManager.h; sourceTree = "<group>"; };
 		55BED5171CDCB8CE0056CA16 /* ONEFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEFileManager.m; sourceTree = "<group>"; };
 		55BED5191CDDC1AC0056CA16 /* ONESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONESettingViewController.h; sourceTree = "<group>"; };
@@ -376,8 +386,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BB958F1CE468B000D09D3A /* AudioToolbox.framework in Frameworks */,
 				D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */,
-				559D1DAB1CD771AC00CA6CB3 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +601,8 @@
 		55711B371CC87EEF00A4EC54 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				55BB95951CE5AE2500D09D3A /* ONESwitch.h */,
+				55BB95961CE5AE2500D09D3A /* ONESwitch.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -638,6 +650,10 @@
 				558165A91CC609830022458E /* ONEHttpTool.m */,
 				55D7ADA11CDDE7BA005708B5 /* ONEAutoCacheTool.h */,
 				55D7ADA21CDDE7BA005708B5 /* ONEAutoCacheTool.m */,
+				55BB958C1CE4564300D09D3A /* ONEShareTool.h */,
+				55BB958D1CE4564300D09D3A /* ONEShareTool.m */,
+				55BB95981CE5E43A00D09D3A /* ONENightModeTool.h */,
+				55BB95991CE5E43A00D09D3A /* ONENightModeTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -865,7 +881,7 @@
 		7E1A38ED1CAD960C0085EB67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				559D1DAC1CD771AC00CA6CB3 /* ONE.entitlements */,
+				55BB95901CE468C300D09D3A /* ONE.entitlements */,
 				55422CEB1CBFEAE500A3B1A0 /* AppDelegate.h */,
 				55422CEC1CBFEAE500A3B1A0 /* AppDelegate.m */,
 				55422CED1CBFEAE500A3B1A0 /* main.m */,
@@ -899,7 +915,8 @@
 				55FC849A1CBAB97300E454A3 /* Model */,
 				55FC849B1CBAB97300E454A3 /* View */,
 			);
-			path = " Movie-电影";
+			name = " Movie-电影";
+			path = "Movie-电影";
 			sourceTree = "<group>";
 		};
 		7E1A392B1CAD9D1B0085EB67 /* Controller */ = {
@@ -1041,7 +1058,7 @@
 				TargetAttributes = {
 					7E1A38E91CAD960C0085EB67 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = XJPMR8FRF3;
+						DevelopmentTeam = PW83CUTGKC;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 1;
@@ -1090,6 +1107,7 @@
 				550904321CBFD62500F884C2 /* ONEReadToolBarView.xib in Resources */,
 				7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */,
 				55C6DD121CC38EFA00988121 /* ONEMoreSubtotalCell.xib in Resources */,
+				55BB95911CE468C300D09D3A /* ONE.entitlements in Resources */,
 				553BDDD71CC35891006BE7BF /* ONEHomeViewController.xib in Resources */,
 				55C6DD1A1CC3CF7700988121 /* ONESubtotalDetailViewController.xib in Resources */,
 				559D1D9C1CD72C3F00CA6CB3 /* ONEMovieCommentCell.xib in Resources */,
@@ -1160,6 +1178,7 @@
 				558165AB1CC609830022458E /* UIColor+Hex.m in Sources */,
 				55FC84BB1CBBB48A00E454A3 /* ONEMovieStoryItem.m in Sources */,
 				55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */,
+				55BB958E1CE4564300D09D3A /* ONEShareTool.m in Sources */,
 				558165B21CC609830022458E /* ONEDataRequest.m in Sources */,
 				55C6DD191CC3CF7700988121 /* ONESubtotalDetailViewController.m in Sources */,
 				550904501CBFD64700F884C2 /* ONEReadViewController.m in Sources */,
@@ -1230,6 +1249,7 @@
 				555630A61CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m in Sources */,
 				559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
+				55BB959A1CE5E43A00D09D3A /* ONENightModeTool.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
 				55BED5181CDCB8CE0056CA16 /* ONEFileManager.m in Sources */,
@@ -1248,6 +1268,7 @@
 				553BDD9C1CC110C7006BE7BF /* ONEReadRelatedCell.m in Sources */,
 				5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */,
 				55C6DD0B1CC3834200988121 /* ONEMoreSubtotalLayout.m in Sources */,
+				55BB95971CE5AE2500D09D3A /* ONESwitch.m in Sources */,
 				553BDDA41CC138B2006BE7BF /* ONEHomeViewController.m in Sources */,
 				553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */,
 				553BDDCD1CC32049006BE7BF /* YSLDraggableCardContainer.m in Sources */,
@@ -1289,6 +1310,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1308,9 +1330,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "855596f0-1deb-4dc6-b8da-6159860ae106";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1332,6 +1355,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1345,8 +1369,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "855596f0-1deb-4dc6-b8da-6159860ae106";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1359,14 +1384,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = ONE/ONE.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.ONEOC;
+				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f54248db-cc68-4d3d-8f9e-ab5194b87428";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -1378,14 +1406,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = ONE/ONE.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.ONEOC;
+				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f54248db-cc68-4d3d-8f9e-ab5194b87428";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;

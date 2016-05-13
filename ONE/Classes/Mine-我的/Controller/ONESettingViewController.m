@@ -13,6 +13,8 @@
 #import "SVProgressHUD.h"
 #import "UIViewController+Extension.h"
 #import "ONENavigationController.h"
+#import "ONESwitch.h"
+#import "ONENightModeTool.h"
 
 @interface ONESettingViewController ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) NSMutableArray<ONEDefaultCellGroupItem *> *settingItems;
@@ -44,11 +46,12 @@
 {
     [self setupGroup1];
     [self setupGroup2];
+    [self setupGroup3];
 }
 
 - (void)setupGroup1
 {
-     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"登录" action:^(id parameter) {
+     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"登录ONE" action:^(id parameter) {
          ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:[ONELoginViewController new]];
          nav.delegate = self;
          [self presentViewController:nav animated:true completion:nil];
@@ -61,11 +64,18 @@
 
 - (void)setupGroup2
 {
+
+    ONEDefaultCellItem *item0 = [ONEDefaultCellItem itemWithTitle:@"夜间模式"];
+    ONESwitch *nightSwitch = [ONESwitch new];
+    [nightSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONENightModelKey] animated:true];
+    [nightSwitch addTarget:self action:@selector(nightSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    item0.accessoryView = nightSwitch;
+    
     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"缓存到本地"];
-    UISwitch *s = [UISwitch new];
-    [s setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey] animated:true];
-    [s addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    item1.accessoryView = s;
+    ONESwitch *autoCacheSwitch = [ONESwitch new];
+    [autoCacheSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey] animated:true];
+    [autoCacheSwitch addTarget:self action:@selector(autoCacheSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    item1.accessoryView = autoCacheSwitch;
     
     ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:[ONEFileManager getDirectorySizeByMBAtCaches]
                                                            action:^(NSIndexPath *indexPath) {
@@ -82,15 +92,53 @@
         }];
     
     }];
-        
     item2.accessoryType = UITableViewCellAccessoryNone;
-    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2]]];
+    
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item0,item1, item2]]];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+- (void)setupGroup3
 {
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONELoginViewController class]] animated:true];
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"查看源代码"
+                                                    accessoryType:UITableViewCellAccessoryDisclosureIndicator
+                                                           action:^(id parameter) {
+                                                               
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/shlyren/ONE-OC"]];
+    }];
+    
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"作者的微博"
+                                                    accessoryType:UITableViewCellAccessoryDisclosureIndicator
+                                                           action:^(id parameter) {
+                                                               
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://weibo.com/shlyjen"]];
+
+    }];
+    
+    ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"作者的首页"
+                                                    accessoryType:UITableViewCellAccessoryDisclosureIndicator
+                                                           action:^(id parameter) {
+                                                               
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://yuxiang.ren"]];
+        
+    }];
+    
+    ONEDefaultCellGroupItem *group3 = [ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3]];
+    [self.settingItems addObject:group3];
 }
+
+- (void)nightSwitchChanged:(ONESwitch *)nightSwitch
+{
+    
+    [ONENightModeTool setNightMode:nightSwitch.isOn];
+    [[NSUserDefaults standardUserDefaults] setBool:nightSwitch.isOn forKey: ONENightModelKey];
+
+}
+
+- (void)autoCacheSwitchChanged:(UISwitch *)autoCacheSwitch
+{
+    [[NSUserDefaults standardUserDefaults] setBool:autoCacheSwitch.isOn forKey: ONEAutomaticCacheKey];
+}
+
 
 - (void)showAlertControllerHandler:(void(^)(UIAlertAction *action))action;
 {
@@ -104,10 +152,7 @@
     
 }
 
-- (void)switchChanged:(UISwitch *)s
-{
-    [[NSUserDefaults standardUserDefaults] setBool:s.isOn forKey: ONEAutomaticCacheKey];
-}
+
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -144,6 +189,12 @@
     if (cellItem.actionBlock) {
         cellItem.actionBlock(indexPath);
     }
+}
+
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONELoginViewController class]] animated:true];
 }
 
 

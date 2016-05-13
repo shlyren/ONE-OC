@@ -54,6 +54,18 @@
 }
 
 + (instancetype)itemWithTitle:(NSString *)title
+                accessoryType:(UITableViewCellAccessoryType)accessoryType
+                       action:(ONECellActionBlock)actionBlock
+{
+    return [self itemWithTitle:title
+                         image:nil
+                      subTitle:nil
+                     cellStyle:UITableViewCellStyleDefault
+                 accessoryType:accessoryType
+                 accessoryView:nil action:actionBlock];
+}
+
++ (instancetype)itemWithTitle:(NSString *)title
                        action:(ONECellActionBlock)actionBlock
 {
     return [self itemWithTitle:title

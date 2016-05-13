@@ -74,6 +74,14 @@
     [self.window.rootViewController presentViewController:nav animated:true completion:nil];
 }
 
+- (IBAction)shareBtnClick:(UIButton *)btn
+{
+    if (self.shareButtonClickBlock) {
+        self.shareButtonClickBlock(btn);
+    }
+}
+
+
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
      [navigationController setNavigationBarHidden:[viewController isKindOfClass:ONELoginViewController.class] animated:true];

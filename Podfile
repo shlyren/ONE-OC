@@ -7,3 +7,6 @@ pod 'MJRefresh'
 pod 'MJExtension'
 pod 'RealReachability'
 pod 'FMDB'
+
+pod 'UMengSocialCOM'
+pod 'DKNightVersion'

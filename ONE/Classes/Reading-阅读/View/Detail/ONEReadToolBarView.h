@@ -21,6 +21,8 @@
  */
 @property (nonatomic, strong) NSString *content_id;
 
+@property (nonatomic, strong) void (^shareButtonClickBlock)(UIButton *);
+
 /**
  *  快速构造方法
  */

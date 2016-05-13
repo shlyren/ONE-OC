@@ -44,6 +44,11 @@ static ONEHttpTool *_instance;
     return _instance;
 }
 
++ (void)startNotifier
+{
+    [[RealReachability sharedInstance] startNotifier];
+}
+
 + (ONENetWorkStatus)currentNetWorkStatus
 {
     switch ([[RealReachability sharedInstance] currentReachabilityStatus]) {

@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
 
 @interface ONEHttpTool : NSObject
 
++ (void)startNotifier;
 /**
  *  是否有网络
  */
@@ -34,6 +35,9 @@ typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
 + (ONENetWorkStatus)currentNetWorkStatus;
 
 + (void)cancel;
+
+
++ (void)requestMethod:(RequestMethod)method url:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 
 /**
@@ -58,6 +62,5 @@ typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
  */
 + (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
-+ (void)requestMethod:(RequestMethod)method url:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 @end

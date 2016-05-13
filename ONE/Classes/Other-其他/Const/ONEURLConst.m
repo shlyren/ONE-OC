@@ -91,7 +91,7 @@ NSString *const reading_carousel                = @"reading/carousel";
 
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 首页 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 /** 首页rul */
-NSString *const homeSubtotal                    = @"http://v3.wufazhuce.com:8000/api/hp";
+NSString *const homeSubtotal         = @"http://v3.wufazhuce.com:8000/api/hp";
 
 
 

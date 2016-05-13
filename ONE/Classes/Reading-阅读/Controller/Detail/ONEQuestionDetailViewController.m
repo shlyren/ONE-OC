@@ -54,7 +54,15 @@
         if (question == nil) return;
         weakSelf.questionHeaderView.questionItem = question;
         [weakSelf.toolBarView setPraiseTitle:question.praisenum commentTitle:question.commentnum shareTitle:question.sharenum];
-         weakSelf.toolBarView.typeStr = @"question";
+        weakSelf.toolBarView.shareButtonClickBlock = ^(UIButton *btn){
+//            NSString *content = [question.question_title stringByAppendingString:question.question_content];
+            NSString *content = [NSString stringWithFormat:@"《%@》\n%@",question.question_title, question.question_content];
+            [ONEShareTool showShareView:self
+                                content:content
+                                    url:question.web_url
+                                  image:[UIImage imageNamed:@"shareicon"]];
+        };
+        weakSelf.toolBarView.typeStr = @"question";
         weakSelf.toolBarView.content_id = question.question_id;
         
         [weakSelf.tableView reloadData];

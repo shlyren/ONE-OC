@@ -15,6 +15,7 @@
 #import "ONENavigationController.h"
 #import "UIViewController+Extension.h"
 #import "ONEDataRequest.h"
+#import "ONEShareTool.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -237,6 +238,14 @@
         }
         
     } failure:nil];
+}
+
+- (IBAction)shareBtnClick {
+    
+    [ONEShareTool showShareView:self.window.rootViewController
+                        content:self.musicDetailItem.story_title
+                            url:self.musicDetailItem.web_url
+                          image:self.imageView.image];
 }
 
 

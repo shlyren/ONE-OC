@@ -11,6 +11,7 @@
 #import "ONEDataRequest.h"
 #import "ONEReadRelatedCell.h"
 #import "ONEReadToolBarView.h"
+#import "ONEShareTool.h"
 
 @interface ONEReadDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 UIKIT_EXTERN NSString *const relatedCellID;

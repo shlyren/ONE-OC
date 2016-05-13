@@ -38,6 +38,15 @@
         weakSelf.toolBarView.typeStr = @"essay";
         weakSelf.toolBarView.content_id = essay.content_id;
         [weakSelf.toolBarView setPraiseTitle:essay.praisenum commentTitle:essay.commentnum shareTitle:essay.sharenum];
+        
+        weakSelf.toolBarView.shareButtonClickBlock = ^(UIButton *btn){
+            NSString *content = [NSString stringWithFormat:@"《%@》\n%@",essay.hp_title, essay.auth_it];
+            [ONEShareTool showShareView:self
+                                content:content
+                                    url:essay.web_url
+                                  image:[UIImage imageNamed:@"shareicon"]];
+        };
+        
         [weakSelf.tableView reloadData];
     } failure:nil];
 }

@@ -11,7 +11,9 @@
 #import "SVProgressHUD.h"
 #import "ONEFPSLabel.h"
 #import "SDImageCache.h"
-#import "RealReachability.h"
+#import "ONEHttpTool.h"
+#import "ONEShareTool.h"
+#import "ONENightModeTool.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -28,8 +30,15 @@
     self.window.rootViewController = [ONETabbarController new];
     [self.window makeKeyAndVisible];
    
-    [[RealReachability sharedInstance] startNotifier];
+    // 监听网络状态的通知
+    [ONEHttpTool startNotifier];
+    // 显示时间
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+    
+    // 初始化分享工具
+    [ONEShareTool setupShareTool];
+    // 初始化夜间模式
+    [ONENightModeTool setupNightMode];
     
     // 界面 FPS 代码
 #if DEBUG
@@ -38,6 +47,18 @@
 #endif
     
     return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
+{
+    BOOL result = [ONEShareTool handleOpenURL:url];
+    
+    if (!result) {
+        
+    }
+    
+    return result;
 }
 
 

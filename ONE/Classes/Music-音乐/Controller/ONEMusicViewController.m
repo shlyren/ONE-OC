@@ -17,6 +17,7 @@
 #import "UITableView+Extension.h"
 #import "ONEHttpTool.h"
 
+
 @interface ONEMusicViewController ()<ONEMusicDetailViewDelegate,
 UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -84,7 +85,7 @@ static NSString *const relatedCellID = @"relatedCell";
 #pragma mark - ↓↓↓↓↓↓ initial ↓↓↓↓↓↓
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    return self = [super initWithStyle:style] ? [super initWithStyle:UITableViewStyleGrouped] : self;
+    return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 - (void)viewDidLoad

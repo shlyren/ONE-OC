@@ -104,6 +104,8 @@
         cell = [[ONEMovieListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:movieListCellID];
     }
 
+    
+    
     cell.movieListItem = self.movieList[indexPath.row];
     return cell;
 }

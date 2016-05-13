@@ -109,7 +109,7 @@
     NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
     ONESearchBaseViewController *childVc = self.childViewControllers[index];
     childVc.view.frame = self.scrollView.bounds;
-    childVc.searchKey = [searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
     [self.scrollView addSubview:childVc.view];
     
     self.bgImageView.hidden = true;
@@ -147,7 +147,7 @@
         // 懒加载
         ONESearchBaseViewController *childVc = self.childViewControllers[btn.tag];
         childVc.view.frame = self.scrollView.bounds;
-        childVc.searchKey = [self.searhKey stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        childVc.searchKey = [self.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
         [self.scrollView addSubview:childVc.view];
         
     }];

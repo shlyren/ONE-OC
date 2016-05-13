@@ -48,6 +48,10 @@ typedef void (^ONECellActionBlock)(id parameter);
                         image:(NSString *)image;
 
 + (instancetype)itemWithTitle:(NSString *)title
+                accessoryType:(UITableViewCellAccessoryType)accessoryType
+                       action:(ONECellActionBlock)actionBlock;
+
++ (instancetype)itemWithTitle:(NSString *)title
                        action:(ONECellActionBlock)actionBlock;
 
 + (instancetype)itemWithTitle:(NSString *)title

@@ -23,3 +23,5 @@ UIKIT_EXTERN NSString *const ONETabBarItemDidRepeatClickNotification;
 
 /** 是否自动缓存Key */
 UIKIT_EXTERN NSString *const ONEAutomaticCacheKey;
+
+UIKIT_EXTERN NSString *const ONENightModelKey;
