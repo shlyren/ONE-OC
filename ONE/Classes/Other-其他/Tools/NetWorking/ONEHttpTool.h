@@ -34,6 +34,9 @@ typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
 
 @interface ONEHttpTool : NSObject
 
+/**
+ *  开始网络状态监听通知
+ */
 + (void)startNotifier;
 /**
  *  是否有网络
@@ -47,7 +50,15 @@ typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
 
 + (void)cancel;
 
-
+/**
+ *  网络请求
+ *
+ *  @param method     请求方式
+ *  @param url        请求url
+ *  @param parameters 请求参数
+ *  @param success    成功回调
+ *  @param failure    失败回调
+ */
 + (void)requestMethod:(RequestMethod)method url:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 

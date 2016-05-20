@@ -21,6 +21,10 @@
 #import "ONEMovieScoreView.h"
 #import "ONEShareTool.h"
 
+#import "ONEHttpTool.h"
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 @interface ONEMovieDetailHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, strong) ONEMovieDetailItem        *movieDetail;
 @property (nonatomic, strong) ONEMovieResultItem        *movieStoryResult;
@@ -167,6 +171,53 @@ static NSString *const photoCellID = @"photoCell";
     self.movieStoryView.frame                 = CGRectMake(0, 0, ONEScreenWidth, 110);
     self.contentLabel.preferredMaxLayoutWidth = ONEScreenWidth - 60;
     self.movieStoryCoverView.backgroundColor  = [UIColor whiteColor];
+    
+    
+}
+
+- (IBAction)imageViewTarget:(UITapGestureRecognizer *)sender
+{
+    
+    if (!self.movieDetail.video) return;
+    
+    if ([ONEHttpTool currentNetWorkStatus] != ONENetWorkStatusIsWiFi)
+    {
+        [self showAlertController];
+        
+    } else {
+        
+        [self playVideo];
+    }
+}
+
+- (void)playVideo
+{
+    
+    AVPlayerViewController *playerVc = [AVPlayerViewController new];
+    playerVc.allowsPictureInPicturePlayback = true;
+
+    NSURL *url = [NSURL URLWithString:self.movieDetail.video];
+    playerVc.player = [AVPlayer playerWithURL:url];
+    
+
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:playerVc animated:true completion:^{
+        [playerVc.player play];
+    }];
+}
+
+
+- (void)showAlertController
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"网络流量提醒" message:@"当前网络为非WI-FI状态,在线播放将消耗您的网络流量" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"继续播放" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self playVideo];
+    }];
+    
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:true completion:nil];
 }
 
 #pragma mark - 加载数据

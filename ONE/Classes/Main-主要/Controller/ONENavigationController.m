@@ -9,7 +9,7 @@
 #import "ONENavigationController.h"
 #import "SVProgressHUD.h"
 #import "ONESearchViewController.h"
-#import "ONESettingViewController.h"
+#import "ONEMeSettingViewController.h"
 
 @interface ONENavigationController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
 @end
@@ -99,7 +99,7 @@
 
 - (void)rightBtnClick
 {
-    [self pushViewController:[ONESettingViewController new] animated:true];
+    [self pushViewController:[ONEMeSettingViewController new] animated:true];
 }
 
 - (UIBarButtonItem *)setUpBackBarBtn
