@@ -27,15 +27,15 @@
     if (self = [super initWithFrame: frame])
     {
         self.layer.cornerRadius = 5;
-        self.clipsToBounds = YES;
+        self.clipsToBounds = true;
         self.textAlignment = NSTextAlignmentCenter;
         self.userInteractionEnabled = false;
         self.textColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor colorWithWhite: 0 alpha: 0.7];
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha: 0.7];
         self.font = [UIFont fontWithName: @"Menlo" size: 14];
         __weak typeof(self) weakSelf = self;
-        self.link = [CADisplayLink displayLinkWithTarget: weakSelf selector: @selector(tick:)];
-        [self.link addToRunLoop: [NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];
+        self.link = [CADisplayLink displayLinkWithTarget:weakSelf selector: @selector(tick:)];
+        [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];
     }
     
     return self;
@@ -52,12 +52,12 @@
     
     self.count++;
     NSTimeInterval delta = link.timestamp - self.lastTime;
-    
+
     if (delta < 1) return;
     self.lastTime = link.timestamp;
     double fps = self.count / delta;
     _count = 0;
-    
+
     CGFloat progress = fps / 60.0;
     self.textColor = [UIColor colorWithHue: 0.27 * (progress - 0.2) saturation: 1 brightness: 0.9 alpha: 1];
     self.text = [NSString stringWithFormat: @"%zdFPS", (NSInteger)(fps + 0.5)];

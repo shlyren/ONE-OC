@@ -10,6 +10,10 @@
 
 
 @interface ONEShareTool : NSObject
+/**
+ *  获取单利对象
+ */
++ (instancetype)shareInstance;
 
 /**
  *  初始化分享工具
@@ -17,7 +21,7 @@
 + (void)setupShareTool;
 
 /**
- *  弹出一个分享列表的类似iOS6的UIActivityViewController控件
+ *  弹出分享控件
  *
  *  @param controller 在该controller弹出分享列表的UIActionSheet
  *  @param content    分享编辑页面的内嵌文字

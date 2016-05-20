@@ -23,7 +23,7 @@
  */
 + (void)closeNightMode;
 /**
- *  设置也夜间模式
+ *  设置夜间模式
  */
 + (void)setNightMode:(BOOL)open;
 @end

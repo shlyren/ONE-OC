@@ -22,42 +22,41 @@
 
 @implementation ONEShareTool
 
-+ (instancetype)shareTool
+#pragma mark - 单利
++ (instancetype)shareInstance
 {
-    return [self new];
-}
-
-
-+ (instancetype)allocWithZone:(struct _NSZone *)zone
-{
-    static dispatch_once_t onceToken;
     static ONEShareTool *_instance;
+    
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [super allocWithZone:zone];
+        _instance = [self new];
     });
     
     return _instance;
 }
 
+
 #pragma mark - 公共方法
 + (void)setupShareTool
 {
-    [[self shareTool] setupShareTool];
+    [[self shareInstance] setupShareTool];
 }
 
 + (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
 {
-    [[ONEShareTool shareTool] showShareView:controller
-                                    content:content
-                                        url:url
-                                      image:image];
+    [[self shareInstance] showShareView:controller
+                                content:content
+                                    url:url
+                                  image:image];
 }
 
 
 + (BOOL)handleOpenURL:(NSURL *)url
 {
-    return [[self shareTool] handleOpenURL:url];
+    return [[self shareInstance] handleOpenURL:url];
 }
+
+
 
 #pragma mark - UMSocialUIDelegate
 - (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
@@ -88,7 +87,7 @@
                                                   UMShareToTwitter]
                                        delegate:self];
     
-//    设置点击分享内容跳转链接
+//  设置点击分享内容跳转链接
     // QQ QQ空间
     [UMSocialData defaultData].extConfig.qqData.url = url;
     [UMSocialData defaultData].extConfig.qzoneData.url = url;
@@ -107,14 +106,16 @@
                             appSecret:@"9cb5f77b3e93f901e2f9a37ebb60b586"
                                   url:@"http://www.umeng.com/social"];
     
-    //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
+    //设置手机QQ 的AppId，Appkey，和分享URL，
+    //需要#import "UMSocialQQHandler.h"
     [UMSocialQQHandler setQQWithAppId:@"1105396018"
                                appKey:@"eRhWnZSETGklE9fh"
                                   url:@"http://www.umeng.com/social"];
     
     
     
-    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    // 需要#import "UMSocialSinaSSOHandler.h"
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3119175926"
                                               secret:@"847ba64e61a99342dab6613b7634ac50"
                                          RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];

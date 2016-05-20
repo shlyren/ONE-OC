@@ -14,22 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - DKNightVersion (2.3.0):
-    - DKNightVersion/Core (= 2.3.0)
-    - DKNightVersion/CoreAnimation (= 2.3.0)
-    - DKNightVersion/UIKit (= 2.3.0)
-  - DKNightVersion/Core (2.3.0):
-    - DKNightVersion/Core/DeallocBlockExecutor (= 2.3.0)
-    - DKNightVersion/Core/extobjc (= 2.3.0)
-  - DKNightVersion/Core/DeallocBlockExecutor (2.3.0)
-  - DKNightVersion/Core/extobjc (2.3.0)
-  - DKNightVersion/CoreAnimation (2.3.0):
-    - DKNightVersion/Core
-  - DKNightVersion/UIKit (2.3.0):
-    - DKNightVersion/Core
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
   - MJExtension (3.0.10)
   - MJRefresh (3.1.0)
   - RealReachability (1.1.3)
@@ -41,8 +25,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - DKNightVersion
-  - FMDB
   - MJExtension
   - MJRefresh
   - RealReachability
@@ -52,8 +34,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  DKNightVersion: 459438cbfd14edb9e41a777ff14b18e5661b9269
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   RealReachability: 9eb2aeccff2f26491dbaa9cf36f906ad28e8e7d9

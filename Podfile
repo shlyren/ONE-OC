@@ -6,7 +6,7 @@ pod 'SVProgressHUD'
 pod 'MJRefresh'
 pod 'MJExtension'
 pod 'RealReachability'
-pod 'FMDB'
-
 pod 'UMengSocialCOM'
-pod 'DKNightVersion'
+
+#pod 'FMDB'
+#pod 'DKNightVersion'

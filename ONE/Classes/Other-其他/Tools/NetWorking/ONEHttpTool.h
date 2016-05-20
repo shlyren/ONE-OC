@@ -8,17 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-
+/**
+ *  请求方式
+ */
 typedef NS_ENUM(NSInteger, RequestMethod) {
+    /** get */
     RequestMethodGET,
+    /** post */
     RequestMethodPOST
 };
 
+/**
+ *  网络状态
+ */
 typedef NS_ENUM(NSInteger, ONENetWorkStatus) {
-    ONENetWorkStatusUnknown = -1, // 未知
-    ONENetWorkStatusNoNetwork = 0, // 无网络
-    ONENetWorkStatusIsWWAN = 1,  // 蜂窝网
-    ONENetWorkStatusIsWiFi = 2  // wifi
+    /** 未知 */
+    ONENetWorkStatusUnknown = -1,
+    /** 无网络 */
+    ONENetWorkStatusNoNetwork = 0,
+    /** 蜂窝网 */
+    ONENetWorkStatusIsWWAN = 1,
+    /** wifi */
+    ONENetWorkStatusIsWiFi = 2,
 };
 
 @interface ONEHttpTool : NSObject

@@ -13,6 +13,7 @@
 @end
 
 @implementation ONENightModeTool
+
 + (instancetype)shareInstance
 {
     return [self new];
@@ -76,7 +77,6 @@
         self.nightModelView.alpha = 0.5;
     }];
 }
-
 
 - (void)closeNightMode
 {
