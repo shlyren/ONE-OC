@@ -7,7 +7,7 @@
 // 首页
 
 #import "ONEHomeViewController.h"
-#import "YSLDraggableCardContainer.h"
+#import "ONELDraggableCardContainer.h"
 #import "ONEDraggableCardView.h"
 #import "ONEDataRequest.h"
 #import "ONEHomeSubtotalItem.h"
@@ -16,9 +16,9 @@
 #import "UIImageView+WebCache.h"
 
 
-@interface ONEHomeViewController ()<YSLDraggableCardContainerDelegate, YSLDraggableCardContainerDataSource>
+@interface ONEHomeViewController ()<ONELDraggableCardContainerDelegate, ONELDraggableCardContainerDataSource>
 
-@property (nonatomic, weak) YSLDraggableCardContainer *cardContainer;
+@property (nonatomic, weak) ONELDraggableCardContainer *cardContainer;
 @property (nonatomic, strong) NSArray *homeSubtotals;
 
 @property (weak, nonatomic) IBOutlet UIButton *praiseButton;
@@ -29,16 +29,16 @@
 @implementation ONEHomeViewController
 
 #pragma mark - lazy load
-- (YSLDraggableCardContainer *)cardContainer
+- (ONELDraggableCardContainer *)cardContainer
 {
     if (_cardContainer == nil)
     {
-        YSLDraggableCardContainer *cardContainer = [[YSLDraggableCardContainer alloc]init];
+        ONELDraggableCardContainer *cardContainer = [[ONELDraggableCardContainer alloc]init];
         cardContainer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         cardContainer.backgroundColor = [UIColor clearColor];
         cardContainer.dataSource = self;
         cardContainer.delegate = self;
-        cardContainer.canDraggableDirection = YSLDraggableDirectionLeft | YSLDraggableDirectionRight | YSLDraggableDirectionUp;
+        cardContainer.canDraggableDirection = ONELDraggableDirectionLeft | ONELDraggableDirectionRight | ONELDraggableDirectionUp;
         [self.view insertSubview:_cardContainer = cardContainer atIndex:0];
 
     }
@@ -76,7 +76,7 @@
     } failure:nil];
 }
 
-#pragma mark - YSLDraggableCardContainerDataSource
+#pragma mark - ONELDraggableCardContainerDataSource
 - (NSInteger)cardContainerViewNumberOfViewInIndex:(NSInteger)index
 {
     return self.homeSubtotals.count;
@@ -90,26 +90,26 @@
     return cardView;
 }
 
-#pragma mark - YSLDraggableCardContainer Delegate
-- (void)cardContainerView:(YSLDraggableCardContainer *)cardContainerView didEndDraggingAtIndex:(NSInteger)index draggableView:(UIView *)draggableView draggableDirection:(YSLDraggableDirection)draggableDirection
+#pragma mark - ONELDraggableCardContainer Delegate
+- (void)cardContainerView:(ONELDraggableCardContainer *)cardContainerView didEndDraggingAtIndex:(NSInteger)index draggableView:(UIView *)draggableView draggableDirection:(ONELDraggableDirection)draggableDirection
 {
-    if (draggableDirection == YSLDraggableDirectionLeft) {
+    if (draggableDirection == ONELDraggableDirectionLeft) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
     
-    if (draggableDirection == YSLDraggableDirectionRight) {
+    if (draggableDirection == ONELDraggableDirectionRight) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
     
-    if (draggableDirection == YSLDraggableDirectionUp) {
+    if (draggableDirection == ONELDraggableDirectionUp) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
 }
 
-- (void)cardContainerViewDidCompleteAll:(YSLDraggableCardContainer *)container;
+- (void)cardContainerViewDidCompleteAll:(ONELDraggableCardContainer *)container;
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经加载完毕" message:@"你还可以" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -133,7 +133,7 @@
 
 }
 
-- (void)cardContainerView:(YSLDraggableCardContainer *)cardContainerView didShowDraggableViewAtIndex:(NSInteger)index
+- (void)cardContainerView:(ONELDraggableCardContainer *)cardContainerView didShowDraggableViewAtIndex:(NSInteger)index
 {
     ONEHomeSubtotalItem *item = self.homeSubtotals[index];
     [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateNormal];
@@ -164,10 +164,7 @@
 
     [[UIImageView new] sd_setImageWithURL:[NSURL URLWithString:item.hp_img_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        [ONEShareTool showShareView:self
-                            content:item.hp_content
-                                url:item.web_url
-                              image:image];
+        [ONEShareTool showShareView:self content:item.hp_content url:item.web_url image:image];
     }];
     
 }

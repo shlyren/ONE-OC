@@ -145,7 +145,7 @@
 @end
 
 
-@implementation YSLCardView
+@implementation ONECardView
 
 - (instancetype)init {
     self = [super init];

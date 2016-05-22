@@ -201,7 +201,7 @@
  */
 + (void)requestMusic:(NSString *)url parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
-    
+    ONELog(@"未实现")
 }
 
 #pragma mark - ↓↓↓↓↓↓↓↓↓↓↓↓ 电影 ↓↓↓↓↓↓↓↓↓↓↓↓

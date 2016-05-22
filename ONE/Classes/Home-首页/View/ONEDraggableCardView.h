@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface YSLCardView : UIView
+@interface ONECardView : UIView
 
 /**
  *  Override
@@ -21,7 +21,7 @@
 
 
 @class ONEHomeSubtotalItem;
-@interface ONEDraggableCardView : YSLCardView
+@interface ONEDraggableCardView : ONECardView
 
 @property (nonatomic, strong) ONEHomeSubtotalItem *subtotalItem;
 
