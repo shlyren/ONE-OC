@@ -20,11 +20,62 @@
 
 @implementation ONEFPSLabel
 
+NSString *const ONEFPSLabelXKey = @"ONEFPSLabelXKey";
+NSString *const ONEFPSLabelYKey = @"ONEFPSLabelYKey";
+NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
+
++ (instancetype)shareInstance
+{
+    static ONEFPSLabel *_instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [self new];
+    });
+    return _instance;
+}
+
++ (void)setupFPSLabel
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:ONEFPSLabelKey]) {
+        [self showFPSLabel];
+    }else {
+        [self hiddenFPSLabel];
+    }
+}
+
++ (void)showFPSLabel
+{
+    [[UIApplication sharedApplication].keyWindow addSubview:[self shareInstance]];
+    [UIView animateWithDuration:0.5 animations:^{
+        [[self shareInstance] setAlpha:1];
+    }];
+}
+
++ (void)hiddenFPSLabel
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        [[self shareInstance] setAlpha:0];
+    } completion:^(BOOL finished) {
+        [[self shareInstance] removeFromSuperview];
+    }];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    frame.size = CGSizeMake(55, 20);
+
+    CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:ONEFPSLabelXKey];
+    CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:ONEFPSLabelYKey];
     
-    if (self = [super initWithFrame: frame])
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:ONEFPSLabelIsPan]) {
+        x = 20;
+        y = ONEScreenHeight - 50;
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:ONEFPSLabelIsPan];
+        [[NSUserDefaults standardUserDefaults] setFloat:x forKey:ONEFPSLabelXKey];
+        [[NSUserDefaults standardUserDefaults] setFloat:y forKey:ONEFPSLabelYKey];
+    }
+    
+
+    if (self = [super initWithFrame: CGRectMake(x, y, 55, 20)])
     {
         self.layer.cornerRadius = 5;
         self.clipsToBounds = true;
@@ -33,6 +84,10 @@
         self.textColor = [UIColor whiteColor];
         self.backgroundColor = [UIColor colorWithWhite:0 alpha: 0.7];
         self.font = [UIFont fontWithName: @"Menlo" size: 14];
+        self.userInteractionEnabled = true;
+        self.alpha = 0;
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        [self addGestureRecognizer:pan];
         __weak typeof(self) weakSelf = self;
         self.link = [CADisplayLink displayLinkWithTarget:weakSelf selector: @selector(tick:)];
         [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];
@@ -41,6 +96,46 @@
     return self;
 }
 
+- (void)pan:(UIPanGestureRecognizer *)pan
+{
+
+    CGPoint point = [pan translationInView:pan.view];
+    
+    CGPoint center = self.center;
+    center.x += point.x;
+    center.y += point.y;
+    self.center = center;
+
+    if (pan.state == UIGestureRecognizerStateEnded)
+    {
+        [[NSUserDefaults standardUserDefaults] setFloat:center.x forKey:ONEFPSLabelXKey];
+        [[NSUserDefaults standardUserDefaults] setFloat:center.y forKey:ONEFPSLabelYKey];
+       
+        if (self.x < 0) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.x = 0;
+            }];
+        } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth ) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.x = ONEScreenWidth - 55;
+            }];
+        }
+        
+        
+        if (self.y < 20) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.y = 20;
+            }];
+        } else if (CGRectGetMaxY(self.frame) > ONEScreenHeight - 20) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.y = ONEScreenHeight - 40;
+            }];
+        }
+   
+    }
+    
+    [pan setTranslation:CGPointZero inView:pan.view];
+}
 
 - (void)tick:(CADisplayLink *)link
 {

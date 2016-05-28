@@ -24,4 +24,8 @@ UIKIT_EXTERN NSString *const ONETabBarItemDidRepeatClickNotification;
 /** 是否自动缓存Key */
 UIKIT_EXTERN NSString *const ONEAutomaticCacheKey;
 
+/** 夜间模式key */
 UIKIT_EXTERN NSString *const ONENightModelKey;
+
+/** 显示fps key */
+UIKIT_EXTERN NSString *const ONEFPSLabelKey;

@@ -41,10 +41,7 @@
     [ONENightModeTool setupNightMode];
     
     // 界面 FPS 代码
-#if DEBUG
-    [self.window addSubview: [[ONEFPSLabel alloc] initWithFrame:CGRectMake(15, ONEScreenHeight - 50, 0, 0)]];
-#else
-#endif
+    [ONEFPSLabel setupFPSLabel];
     
     return YES;
 }

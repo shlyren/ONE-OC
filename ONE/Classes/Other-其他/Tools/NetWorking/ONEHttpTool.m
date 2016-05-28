@@ -45,6 +45,7 @@
     return _instance;
 }
 
+#pragma mark - network status
 + (void)startNotifier
 {
     [[RealReachability sharedInstance] startNotifier];
@@ -77,12 +78,8 @@
     }
 }
 
-+ (void)cancel
-{
-    [[ONEHttpTool shareHttpTool].manager.tasks makeObjectsPerformSelector:@selector(cancel)];
-}
 
-
+#pragma mark - 网络请求
 + (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     if ([self haveNetwork])
@@ -155,6 +152,11 @@
             if (failure) failurBlock(error);
         }];
     }
+}
+
++ (void)cancel
+{
+    [[ONEHttpTool shareHttpTool].manager.tasks makeObjectsPerformSelector:@selector(cancel)];
 }
 
 @end

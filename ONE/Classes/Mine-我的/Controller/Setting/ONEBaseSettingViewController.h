@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ONEDefaultCellGroupItem.h"
+#import "ONESwitch.h"
 #import "ONENavigationController.h"
 
 @interface ONEBaseSettingViewController : UITableViewController 

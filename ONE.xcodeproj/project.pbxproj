@@ -47,7 +47,7 @@
 		553BDDBA1CC20BEF006BE7BF /* ONECarouselDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDB81CC20BEF006BE7BF /* ONECarouselDetailCell.xib */; };
 		553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDC41CC27570006BE7BF /* ONECarouselDetailViewController.m */; };
 		553BDDC71CC27570006BE7BF /* ONECarouselDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDC51CC27570006BE7BF /* ONECarouselDetailViewController.xib */; };
-		553BDDCD1CC32049006BE7BF /* ONELDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDCC1CC32049006BE7BF /* ONELDraggableCardContainer.m */; };
+		553BDDCD1CC32049006BE7BF /* ONEDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDCC1CC32049006BE7BF /* ONEDraggableCardContainer.m */; };
 		553BDDD01CC320A1006BE7BF /* ONEDraggableCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */; };
 		553BDDD71CC35891006BE7BF /* ONEHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */; };
 		55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CEC1CBFEAE500A3B1A0 /* AppDelegate.m */; };
@@ -75,6 +75,7 @@
 		5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592EFC21CB0175200FA3D76 /* ONEMusicDetailView.m */; };
 		5592EFD31CB1122200FA3D76 /* ONEMusicRelatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592EFD11CB1122200FA3D76 /* ONEMusicRelatedCell.m */; };
 		5592EFD41CB1122200FA3D76 /* ONEMusicRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5592EFD21CB1122200FA3D76 /* ONEMusicRelatedCell.xib */; };
+		559B592D1CF9A6A8004009CE /* ONEPracticalToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 559B592C1CF9A6A8004009CE /* ONEPracticalToolViewController.m */; };
 		559D1D9B1CD72C3F00CA6CB3 /* ONEMovieCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D1D8F1CD72C3F00CA6CB3 /* ONEMovieCommentCell.m */; };
 		559D1D9C1CD72C3F00CA6CB3 /* ONEMovieCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1D901CD72C3F00CA6CB3 /* ONEMovieCommentCell.xib */; };
 		559D1D9D1CD72C3F00CA6CB3 /* ONEMovieDetailPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D1D921CD72C3F00CA6CB3 /* ONEMovieDetailPhotoCell.m */; };
@@ -213,8 +214,8 @@
 		553BDDC31CC27570006BE7BF /* ONECarouselDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONECarouselDetailViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		553BDDC41CC27570006BE7BF /* ONECarouselDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONECarouselDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		553BDDC51CC27570006BE7BF /* ONECarouselDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONECarouselDetailViewController.xib; sourceTree = "<group>"; };
-		553BDDCB1CC32049006BE7BF /* ONELDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONELDraggableCardContainer.h; sourceTree = "<group>"; };
-		553BDDCC1CC32049006BE7BF /* ONELDraggableCardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONELDraggableCardContainer.m; sourceTree = "<group>"; };
+		553BDDCB1CC32049006BE7BF /* ONEDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDraggableCardContainer.h; sourceTree = "<group>"; };
+		553BDDCC1CC32049006BE7BF /* ONEDraggableCardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDraggableCardContainer.m; sourceTree = "<group>"; };
 		553BDDCE1CC320A1006BE7BF /* ONEDraggableCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONEDraggableCardView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEDraggableCardView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		553BDDD61CC35891006BE7BF /* ONEHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEHomeViewController.xib; sourceTree = "<group>"; };
@@ -265,6 +266,8 @@
 		5592EFD01CB1122200FA3D76 /* ONEMusicRelatedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicRelatedCell.h; sourceTree = "<group>"; };
 		5592EFD11CB1122200FA3D76 /* ONEMusicRelatedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicRelatedCell.m; sourceTree = "<group>"; };
 		5592EFD21CB1122200FA3D76 /* ONEMusicRelatedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMusicRelatedCell.xib; sourceTree = "<group>"; };
+		559B592B1CF9A6A8004009CE /* ONEPracticalToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPracticalToolViewController.h; sourceTree = "<group>"; };
+		559B592C1CF9A6A8004009CE /* ONEPracticalToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPracticalToolViewController.m; sourceTree = "<group>"; };
 		559D1D8E1CD72C3F00CA6CB3 /* ONEMovieCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieCommentCell.h; sourceTree = "<group>"; };
 		559D1D8F1CD72C3F00CA6CB3 /* ONEMovieCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieCommentCell.m; sourceTree = "<group>"; };
 		559D1D901CD72C3F00CA6CB3 /* ONEMovieCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMovieCommentCell.xib; sourceTree = "<group>"; };
@@ -519,8 +522,8 @@
 			children = (
 				553BDDCE1CC320A1006BE7BF /* ONEDraggableCardView.h */,
 				553BDDCF1CC320A1006BE7BF /* ONEDraggableCardView.m */,
-				553BDDCB1CC32049006BE7BF /* ONELDraggableCardContainer.h */,
-				553BDDCC1CC32049006BE7BF /* ONELDraggableCardContainer.m */,
+				553BDDCB1CC32049006BE7BF /* ONEDraggableCardContainer.h */,
+				553BDDCC1CC32049006BE7BF /* ONEDraggableCardContainer.m */,
 				55C6DD0E1CC38EFA00988121 /* ONEMoreSubtotalCell.h */,
 				55C6DD0F1CC38EFA00988121 /* ONEMoreSubtotalCell.m */,
 				55C6DD101CC38EFA00988121 /* ONEMoreSubtotalCell.xib */,
@@ -688,12 +691,14 @@
 		55B94D131CEF44FF00E75CE9 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				55B94D141CEF44FF00E75CE9 /* ONEAboutViewController.h */,
-				55B94D151CEF44FF00E75CE9 /* ONEAboutViewController.m */,
 				55B94D161CEF44FF00E75CE9 /* ONEBaseSettingViewController.h */,
 				55B94D171CEF44FF00E75CE9 /* ONEBaseSettingViewController.m */,
 				55B94D181CEF44FF00E75CE9 /* ONEMeSettingViewController.h */,
 				55B94D191CEF44FF00E75CE9 /* ONEMeSettingViewController.m */,
+				55B94D141CEF44FF00E75CE9 /* ONEAboutViewController.h */,
+				55B94D151CEF44FF00E75CE9 /* ONEAboutViewController.m */,
+				559B592B1CF9A6A8004009CE /* ONEPracticalToolViewController.h */,
+				559B592C1CF9A6A8004009CE /* ONEPracticalToolViewController.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1220,6 +1225,7 @@
 				558165AB1CC609830022458E /* UIColor+Hex.m in Sources */,
 				55FC84BB1CBBB48A00E454A3 /* ONEMovieStoryItem.m in Sources */,
 				55C289BA1CAE48280092A897 /* ONENavigationController.m in Sources */,
+				559B592D1CF9A6A8004009CE /* ONEPracticalToolViewController.m in Sources */,
 				55FC8E0E1CF15A400042EE1C /* ONENightModeTool.m in Sources */,
 				55BB958E1CE4564300D09D3A /* ONEShareTool.m in Sources */,
 				55C6DD191CC3CF7700988121 /* ONESubtotalDetailViewController.m in Sources */,
@@ -1315,7 +1321,7 @@
 				55BB95971CE5AE2500D09D3A /* ONESwitch.m in Sources */,
 				553BDDA41CC138B2006BE7BF /* ONEHomeViewController.m in Sources */,
 				553BDDC61CC27570006BE7BF /* ONECarouselDetailViewController.m in Sources */,
-				553BDDCD1CC32049006BE7BF /* ONELDraggableCardContainer.m in Sources */,
+				553BDDCD1CC32049006BE7BF /* ONEDraggableCardContainer.m in Sources */,
 				559D1DA11CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.m in Sources */,
 				7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */,
 				553BDDD01CC320A1006BE7BF /* ONEDraggableCardView.m in Sources */,

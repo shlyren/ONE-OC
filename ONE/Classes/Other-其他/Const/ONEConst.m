@@ -23,3 +23,5 @@ NSString *const ONETabBarItemDidRepeatClickNotification = @"ONETabBarItemDidRepe
 NSString *const ONEAutomaticCacheKey = @"ONEAutomaticCacheKey";
 
 NSString *const ONENightModelKey = @"ONENightModelKey";
+
+NSString *const ONEFPSLabelKey = @"ONEFPSLabelKey";

@@ -10,9 +10,10 @@
 #import "ONELoginViewController.h"
 #import "ONEFileManager.h"
 #import "SVProgressHUD.h"
-#import "ONESwitch.h"
 #import "ONENightModeTool.h"
+
 #import "ONEAboutViewController.h"
+#import "ONEPracticalToolViewController.h"
 
 @interface ONEMeSettingViewController ()<UINavigationControllerDelegate>
 
@@ -32,6 +33,7 @@
     [self setupGroup1];
     [self setupGroup2];
     [self setupGroup3];
+    [self setupGroup4];
 }
 
 - (void)setupGroup1
@@ -88,6 +90,15 @@
     
     [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1]]];
 
+}
+
+- (void)setupGroup4
+{
+    ONEDefaultCellArrItem *item1 = [ONEDefaultCellArrItem itemWithTitle:@"小工具" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:nil];
+    item1.pushClass = [ONEPracticalToolViewController class];
+    
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1]]];
+    
 }
 
 - (void)nightSwitchChanged:(ONESwitch *)nightSwitch

@@ -41,7 +41,7 @@
 }
 - (IBAction)loginTitleClick
 {
-    [self setupWebViewControllerTitle:@"任玉祥" url:@"https://yuxiang.ren"];
+    [self setupWebViewControllerTitle:@"任玉祥" url:@"http://shlyren.com"];
 }
 
 - (void)protocolLabelClick

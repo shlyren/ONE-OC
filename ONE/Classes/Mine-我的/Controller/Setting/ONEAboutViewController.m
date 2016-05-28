@@ -7,6 +7,7 @@
 //
 
 #import "ONEAboutViewController.h"
+#import "ONEURLConst.h"
 
 
 @implementation ONEAboutViewController
@@ -15,12 +16,22 @@
 {
     [super viewDidLoad];
     self.title = @"关于";
-    [self setupGroup];
+    [self setupGroup1];
+    [self setupGroup2];
+    
 }
 
-- (void)setupGroup;
+- (void)setupGroup1
 {
-    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"源代码" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"用户协议" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        [self openUrl:procotolUrl];
+    }];
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1]]];
+}
+
+- (void)setupGroup2;
+{
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"源代码(OC)" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://github.com/shlyren/ONE-OC"];
     }];
@@ -33,11 +44,13 @@
     
     ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"作者首页" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
-        [self openUrl:@"http://yuxiang.ren"];
+        [self openUrl:@"http://shlyren.com"];
         
     }];
     
-    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1,item2,item3]]];
+   
+    
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3]]];
 }
 
 - (void)openUrl:(NSString *)urlStr

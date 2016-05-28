@@ -10,4 +10,12 @@
 
 @interface ONEFPSLabel : UILabel
 
+
++ (instancetype)shareInstance;
+
++ (void)setupFPSLabel;
+
++ (void)showFPSLabel;
+
++ (void)hiddenFPSLabel;
 @end

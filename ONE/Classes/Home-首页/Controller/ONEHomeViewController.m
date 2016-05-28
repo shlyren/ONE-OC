@@ -7,7 +7,7 @@
 // 首页
 
 #import "ONEHomeViewController.h"
-#import "ONELDraggableCardContainer.h"
+#import "ONEDraggableCardContainer.h"
 #import "ONEDraggableCardView.h"
 #import "ONEDataRequest.h"
 #import "ONEHomeSubtotalItem.h"
@@ -16,9 +16,9 @@
 #import "UIImageView+WebCache.h"
 
 
-@interface ONEHomeViewController ()<ONELDraggableCardContainerDelegate, ONELDraggableCardContainerDataSource>
+@interface ONEHomeViewController ()<ONEDraggableCardContainerDelegate, ONEDraggableCardContainerDataSource>
 
-@property (nonatomic, weak) ONELDraggableCardContainer *cardContainer;
+@property (nonatomic, weak) ONEDraggableCardContainer *cardContainer;
 @property (nonatomic, strong) NSArray *homeSubtotals;
 
 @property (weak, nonatomic) IBOutlet UIButton *praiseButton;
@@ -29,16 +29,16 @@
 @implementation ONEHomeViewController
 
 #pragma mark - lazy load
-- (ONELDraggableCardContainer *)cardContainer
+- (ONEDraggableCardContainer *)cardContainer
 {
     if (_cardContainer == nil)
     {
-        ONELDraggableCardContainer *cardContainer = [[ONELDraggableCardContainer alloc]init];
+        ONEDraggableCardContainer *cardContainer = [[ONEDraggableCardContainer alloc]init];
         cardContainer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         cardContainer.backgroundColor = [UIColor clearColor];
         cardContainer.dataSource = self;
         cardContainer.delegate = self;
-        cardContainer.canDraggableDirection = ONELDraggableDirectionLeft | ONELDraggableDirectionRight | ONELDraggableDirectionUp;
+        cardContainer.canDraggableDirection = ONEDraggableDirectionLeft | ONEDraggableDirectionRight | ONEDraggableDirectionUp;
         [self.view insertSubview:_cardContainer = cardContainer atIndex:0];
 
     }
@@ -76,7 +76,7 @@
     } failure:nil];
 }
 
-#pragma mark - ONELDraggableCardContainerDataSource
+#pragma mark - ONEDraggableCardContainerDataSource
 - (NSInteger)cardContainerViewNumberOfViewInIndex:(NSInteger)index
 {
     return self.homeSubtotals.count;
@@ -90,26 +90,26 @@
     return cardView;
 }
 
-#pragma mark - ONELDraggableCardContainer Delegate
-- (void)cardContainerView:(ONELDraggableCardContainer *)cardContainerView didEndDraggingAtIndex:(NSInteger)index draggableView:(UIView *)draggableView draggableDirection:(ONELDraggableDirection)draggableDirection
+#pragma mark - ONEDraggableCardContainer Delegate
+- (void)cardContainerView:(ONEDraggableCardContainer *)cardContainerView didEndDraggingAtIndex:(NSInteger)index draggableView:(UIView *)draggableView draggableDirection:(ONEDraggableDirection)draggableDirection
 {
-    if (draggableDirection == ONELDraggableDirectionLeft) {
+    if (draggableDirection == ONEDraggableDirectionLeft) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
     
-    if (draggableDirection == ONELDraggableDirectionRight) {
+    if (draggableDirection == ONEDraggableDirectionRight) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
     
-    if (draggableDirection == ONELDraggableDirectionUp) {
+    if (draggableDirection == ONEDraggableDirectionUp) {
         [cardContainerView movePositionWithDirection:draggableDirection
                                          isAutomatic:false];
     }
 }
 
-- (void)cardContainerViewDidCompleteAll:(ONELDraggableCardContainer *)container;
+- (void)cardContainerViewDidCompleteAll:(ONEDraggableCardContainer *)container;
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"已经加载完毕" message:@"你还可以" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -133,7 +133,7 @@
 
 }
 
-- (void)cardContainerView:(ONELDraggableCardContainer *)cardContainerView didShowDraggableViewAtIndex:(NSInteger)index
+- (void)cardContainerView:(ONEDraggableCardContainer *)cardContainerView didShowDraggableViewAtIndex:(NSInteger)index
 {
     ONEHomeSubtotalItem *item = self.homeSubtotals[index];
     [self.praiseButton setTitle:[NSString stringWithFormat:@"%zd", item.praisenum] forState:UIControlStateNormal];

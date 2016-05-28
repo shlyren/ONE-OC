@@ -10,8 +10,6 @@
 
 @interface ONEMoreSubtotalLayout ()
 
-
-
 /** 这个字典用来存储每一列最大的Y值(每一列的高度) */
 @property (nonatomic, strong) NSMutableDictionary *maxYDict;
 

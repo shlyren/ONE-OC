@@ -73,9 +73,10 @@
 #pragma mark - 私有方法
 - (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
 {
+    
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:@"5733f154e0f55a7bbb00041b"
-                                      shareText:content
+                                      shareText:[content stringByAppendingString:url]
                                      shareImage:image
                                 shareToSnsNames:@[UMShareToSina,
                                                   UMShareToWechatSession,
@@ -94,6 +95,7 @@
     // 微信 微信朋友圈
     [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
     [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
+    
 }
 
 - (void)setupShareTool
