@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"实用小工具";
+    self.title = @"实用工具";
     [self setupGroups];
 }
 

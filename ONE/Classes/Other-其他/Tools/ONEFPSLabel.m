@@ -46,6 +46,9 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
 + (void)showFPSLabel
 {
     [[UIApplication sharedApplication].keyWindow addSubview:[self shareInstance]];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:ONEFPSLabelKey];
+    
     [UIView animateWithDuration:0.5 animations:^{
         [[self shareInstance] setAlpha:1];
     }];
@@ -53,6 +56,7 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
 
 + (void)hiddenFPSLabel
 {
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:ONEFPSLabelKey];
     [UIView animateWithDuration:0.5 animations:^{
         [[self shareInstance] setAlpha:0];
     } completion:^(BOOL finished) {
@@ -73,7 +77,6 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
         [[NSUserDefaults standardUserDefaults] setFloat:x forKey:ONEFPSLabelXKey];
         [[NSUserDefaults standardUserDefaults] setFloat:y forKey:ONEFPSLabelYKey];
     }
-    
 
     if (self = [super initWithFrame: CGRectMake(x, y, 55, 20)])
     {

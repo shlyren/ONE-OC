@@ -18,4 +18,5 @@
 + (void)showFPSLabel;
 
 + (void)hiddenFPSLabel;
+
 @end
