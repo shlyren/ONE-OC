@@ -29,7 +29,7 @@
 /** footerView */
 @property (nonatomic, strong) UIView *footerView;
 
-/** 行的模型 */
+/** 行的模型 数组 */
 @property (nonatomic, strong) NSArray<__kindof ONEDefaultCellItem *> *items;
 
 + (instancetype)groupWithItems:(NSArray *)items;

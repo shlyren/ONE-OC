@@ -9,9 +9,6 @@
 #import "ONEReadEssayViewController.h"
 #import "ONEEssayDetailViewController.h"
 
-@interface ONEReadEssayViewController ()
-
-@end
 
 @implementation ONEReadEssayViewController
 

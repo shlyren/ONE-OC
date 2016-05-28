@@ -34,7 +34,6 @@
         weakSelf.headerView.serialItem = serial;
         [weakSelf.toolBarView setPraiseTitle:serial.praisenum commentTitle:serial.commentnum shareTitle:serial.sharenum];
         weakSelf.toolBarView.shareButtonClickBlock = ^(UIButton *btn){
-//            NSString *content = [serial.title stringByAppendingString:serial.excerpt];
             NSString *content = [NSString stringWithFormat:@"《%@》\n%@",serial.title, serial.excerpt];
             [ONEShareTool showShareView:self
                                 content:content

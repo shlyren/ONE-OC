@@ -11,6 +11,7 @@
 #import "ONEURLConst.h"
 
 @interface ONELoginViewController ()<UIWebViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *protocolLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgrouImage;
 
@@ -38,7 +39,9 @@
     [content addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange];
     self.protocolLabel.attributedText = content;
     [self.protocolLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(protocolLabelClick)]];
+
 }
+
 - (IBAction)loginTitleClick
 {
     [self setupWebViewControllerTitle:@"任玉祥" url:@"http://shlyren.com"];

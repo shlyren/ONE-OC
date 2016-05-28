@@ -9,9 +9,6 @@
 #import "ONEReadTableViewController.h"
 #import "ONEReadPastListViewController.h"
 
-@interface ONEReadTableViewController ()
-
-@end
 
 @implementation ONEReadTableViewController
 

@@ -8,9 +8,7 @@
 
 #import "ONEReadQuestionViewController.h"
 #import "ONEQuestionDetailViewController.h"
-@interface ONEReadQuestionViewController ()
 
-@end
 
 @implementation ONEReadQuestionViewController
 

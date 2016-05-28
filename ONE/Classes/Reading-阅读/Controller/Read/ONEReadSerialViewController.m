@@ -9,9 +9,6 @@
 #import "ONEReadSerialViewController.h"
 #import "ONESerialDetailViewController.h"
 
-@interface ONEReadSerialViewController ()
-
-@end
 
 @implementation ONEReadSerialViewController
 

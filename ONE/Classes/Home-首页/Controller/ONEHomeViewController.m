@@ -34,7 +34,7 @@
     if (_cardContainer == nil)
     {
         ONEDraggableCardContainer *cardContainer = [[ONEDraggableCardContainer alloc]init];
-        cardContainer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        cardContainer.frame = CGRectMake(0, 0, self.view.width, self.view.height);
         cardContainer.backgroundColor = [UIColor clearColor];
         cardContainer.dataSource = self;
         cardContainer.delegate = self;
@@ -44,6 +44,7 @@
     }
     return _cardContainer;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
@@ -94,18 +95,15 @@
 - (void)cardContainerView:(ONEDraggableCardContainer *)cardContainerView didEndDraggingAtIndex:(NSInteger)index draggableView:(UIView *)draggableView draggableDirection:(ONEDraggableDirection)draggableDirection
 {
     if (draggableDirection == ONEDraggableDirectionLeft) {
-        [cardContainerView movePositionWithDirection:draggableDirection
-                                         isAutomatic:false];
+        [cardContainerView movePositionWithDirection:draggableDirection isAutomatic:false];
     }
     
     if (draggableDirection == ONEDraggableDirectionRight) {
-        [cardContainerView movePositionWithDirection:draggableDirection
-                                         isAutomatic:false];
+        [cardContainerView movePositionWithDirection:draggableDirection isAutomatic:false];
     }
     
     if (draggableDirection == ONEDraggableDirectionUp) {
-        [cardContainerView movePositionWithDirection:draggableDirection
-                                         isAutomatic:false];
+        [cardContainerView movePositionWithDirection:draggableDirection isAutomatic:false];
     }
 }
 

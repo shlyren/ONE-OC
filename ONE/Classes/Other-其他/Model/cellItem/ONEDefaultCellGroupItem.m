@@ -17,14 +17,4 @@
     return group;
 }
 
-//+ (instancetype)groupWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle headerHeight:(CGFloat)headerHeight footerHeight:(CGFloat)footerHeight
-//{
-//    ONEDefaultCellGroupItem *group = [ONEDefaultCellGroupItem new];
-//    group.headerTitle = headerTitle;
-//    group.footerTitle = footerTitle;
-//    group.headerHeight = headerHeight;
-//    group.footerHeight = footerHeight;
-//    
-//    return group;
-//}
 @end

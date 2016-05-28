@@ -18,10 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"实用工具";
-    [self setupGroups];
+    [self setupGroup1];
 }
 
-- (void)setupGroups
+- (void)setupGroup1
 {
     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"显示FPS"];
     ONESwitch *fpsSwitch = [ONESwitch new];

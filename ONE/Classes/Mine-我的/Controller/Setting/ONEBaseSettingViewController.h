@@ -11,6 +11,8 @@
 #import "ONESwitch.h"
 #import "ONENavigationController.h"
 
-@interface ONEBaseSettingViewController : UITableViewController 
+@interface ONEBaseSettingViewController : UITableViewController
+/** 组的模型 */
 @property (nonatomic, strong) NSMutableArray<ONEDefaultCellGroupItem *> *settingItems;
+
 @end
