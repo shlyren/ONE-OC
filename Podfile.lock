@@ -14,31 +14,21 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - DKNightVersion (2.3.0):
-    - DKNightVersion/Core (= 2.3.0)
-    - DKNightVersion/CoreAnimation (= 2.3.0)
-    - DKNightVersion/UIKit (= 2.3.0)
-  - DKNightVersion/Core (2.3.0):
-    - DKNightVersion/Core/DeallocBlockExecutor (= 2.3.0)
-    - DKNightVersion/Core/extobjc (= 2.3.0)
-  - DKNightVersion/Core/DeallocBlockExecutor (2.3.0)
-  - DKNightVersion/Core/extobjc (2.3.0)
-  - DKNightVersion/CoreAnimation (2.3.0):
-    - DKNightVersion/Core
-  - DKNightVersion/UIKit (2.3.0):
-    - DKNightVersion/Core
   - MJExtension (3.0.10)
   - MJRefresh (3.1.0)
-  - RealReachability (1.1.5)
+  - RealReachability (1.1.7):
+    - RealReachability/Connection (= 1.1.7)
+    - RealReachability/Ping (= 1.1.7)
+  - RealReachability/Connection (1.1.7)
+  - RealReachability/Ping (1.1.7)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.0.3)
-  - UMengSocialCOM (5.1.0)
+  - UMengSocialCOM (5.2.1)
 
 DEPENDENCIES:
   - AFNetworking
-  - DKNightVersion
   - MJExtension
   - MJRefresh
   - RealReachability
@@ -48,12 +38,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  DKNightVersion: 459438cbfd14edb9e41a777ff14b18e5661b9269
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  RealReachability: 42781d33adbc61ffb93a8235dcd9919bc1db92ab
+  RealReachability: 8b6644c6b3145f7552ed83bffb52c49b0f3b55e3
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  UMengSocialCOM: 8fa4732b03757161aaa8aab97be7d980adb9ccdb
+  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
 
 COCOAPODS: 0.39.0

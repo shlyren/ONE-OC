@@ -85,7 +85,7 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"本月";
     }else{
-     cell.textLabel.text = self.pastLists[indexPath.row];
+        cell.textLabel.text = self.pastLists[indexPath.row];
     }
     return cell;
 }

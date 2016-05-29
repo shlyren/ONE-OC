@@ -43,6 +43,8 @@
     // 界面 FPS 代码
     [ONEFPSLabel setupFPSLabel];
     
+    ONELog(@"当前环境: DEBUG")
+    
     return YES;
 }
 
@@ -96,6 +98,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(clearMemory) userInfo:nil repeats:true];
     
 }
+
 - (void)stopTimer
 {
     [self.timer invalidate];

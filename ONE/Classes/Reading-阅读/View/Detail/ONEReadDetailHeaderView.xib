@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -199,7 +199,7 @@
                 <outlet property="titleLabel" destination="k55-uh-40e" id="nSM-nb-bMh"/>
                 <outlet property="weiboLabel" destination="ol8-lU-2Jb" id="0kt-bU-egj"/>
             </connections>
-            <point key="canvasLocation" x="521.5" y="313"/>
+            <point key="canvasLocation" x="446.5" y="314"/>
         </view>
         <view contentMode="scaleToFill" id="7fp-aQ-fd2" userLabel="推荐SectionHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>

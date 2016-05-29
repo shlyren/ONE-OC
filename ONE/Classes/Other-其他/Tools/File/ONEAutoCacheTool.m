@@ -25,10 +25,10 @@
     NSError * error = nil;
     BOOL success = [manager createDirectoryAtPath:fullPath withIntermediateDirectories:true attributes:nil error:&error];
     if (success) {
-        ONELog(@"创建成功 %@", path);
+//        ONELog(@"创建成功 %@", path);
         return true;
     }else {
-        ONELog(@"文件夹创建失败%@", error);
+//        ONELog(@"文件夹创建失败%@", error);
         return false;
     }
     
@@ -48,9 +48,9 @@
             
             BOOL flag = [NSKeyedArchiver archiveRootObject:dict toFile:filePath];
             if (flag) {
-                ONELog(@"缓存成功 %@/caches.ren", path)
+//                ONELog(@"缓存成功 %@/caches.ren", path)
             }else {
-                ONELog(@"缓存失败 %@/caches.ren", path)
+//                ONELog(@"缓存失败 %@/caches.ren", path)
             }
         }
     });
@@ -61,7 +61,7 @@
     path = [self stringByReplacingUrlOfBundleID:path];
 //    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
 //    ONELog(@"%@/%@",cachesPath,path)
-    ONELog(@"使用缓存 %@/caches.ren", path);
+//    ONELog(@"使用缓存 %@/caches.ren", path);
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
