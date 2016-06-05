@@ -4,7 +4,7 @@
 //
 //  Created by 任玉祥 on 16/4/1.
 //  Copyright © 2016年 任玉祥. All rights reserved.
-// 首页
+//  首页
 
 #import "ONEHomeViewController.h"
 #import "ONEDraggableCardContainer.h"
@@ -45,7 +45,8 @@
     return _cardContainer;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self loadData];
 

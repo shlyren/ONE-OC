@@ -44,10 +44,7 @@
 
 + (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
 {
-    [[self shareInstance] showShareView:controller
-                                content:content
-                                    url:url
-                                  image:image];
+    [[self shareInstance] showShareView:controller content:content url:url image:image];
 }
 
 
@@ -87,6 +84,7 @@
                                                   UMShareToAlipaySession,
                                                   UMShareToTwitter]
                                        delegate:self];
+    
     
 //  设置点击分享内容跳转链接
     // QQ QQ空间

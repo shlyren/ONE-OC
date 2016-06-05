@@ -141,7 +141,8 @@
             if (failure) failurBlock(error);
         }];
     }
-    else {
+    else if (method == RequestMethodPOST)
+    {
         
         [[ONEHttpTool shareHttpTool].manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             

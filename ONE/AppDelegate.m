@@ -32,6 +32,7 @@
    
     // 监听网络状态的通知
     [ONEHttpTool startNotifier];
+    
     // 显示时间
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
     

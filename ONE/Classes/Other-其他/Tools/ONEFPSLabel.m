@@ -80,6 +80,8 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
 
     if (self = [super initWithFrame: CGRectMake(x, y, 55, 20)])
     {
+        [self setupPoint];
+        
         self.layer.cornerRadius = 5;
         self.clipsToBounds = true;
         self.textAlignment = NSTextAlignmentCenter;
@@ -114,30 +116,34 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
         [[NSUserDefaults standardUserDefaults] setFloat:center.x forKey:ONEFPSLabelXKey];
         [[NSUserDefaults standardUserDefaults] setFloat:center.y forKey:ONEFPSLabelYKey];
        
-        if (self.x < 0) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.x = 0;
-            }];
-        } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth ) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.x = ONEScreenWidth - 55;
-            }];
-        }
+        [self setupPoint];
         
-        
-        if (self.y < 20) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.y = 20;
-            }];
-        } else if (CGRectGetMaxY(self.frame) > ONEScreenHeight - 20) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.y = ONEScreenHeight - 40;
-            }];
-        }
-   
     }
     
     [pan setTranslation:CGPointZero inView:pan.view];
+}
+
+- (void)setupPoint
+{
+    if (self.x < 0) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.x = 0;
+        }];
+    } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth ) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.x = ONEScreenWidth - 55;
+        }];
+    }
+    
+    if (self.y < 20) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.y = 20;
+        }];
+    } else if (CGRectGetMaxY(self.frame) > ONEScreenHeight - 20) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.y = ONEScreenHeight - 40;
+        }];
+    }
 }
 
 - (void)tick:(CADisplayLink *)link

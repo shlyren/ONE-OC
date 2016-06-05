@@ -33,6 +33,7 @@
                   url:(NSString *)url
                 image:(UIImage *)image;
 
+
 /**
  *  添加系统回调
  *
