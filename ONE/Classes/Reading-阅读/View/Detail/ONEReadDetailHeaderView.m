@@ -124,6 +124,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.audioBtn.hidden = true;
     self.listBtn.hidden = true;
     [self.listBtn addTarget:self action:@selector(listBtnClick) forControlEvents:UIControlEventTouchUpInside];

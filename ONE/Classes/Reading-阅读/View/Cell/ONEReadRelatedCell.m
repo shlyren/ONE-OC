@@ -24,6 +24,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.contentLabel.preferredMaxLayoutWidth = ONEScreenWidth - 2 * ONEDefaultMargin;
     self.titleLabel.preferredMaxLayoutWidth = ONEScreenWidth - 61;
 }

@@ -167,12 +167,12 @@ static NSString *const photoCellID = @"photoCell";
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.keywordView.frame                    = CGRectMake(0, 0, ONEScreenWidth, 110);
     self.movieStoryView.frame                 = CGRectMake(0, 0, ONEScreenWidth, 110);
     self.contentLabel.preferredMaxLayoutWidth = ONEScreenWidth - 60;
     self.movieStoryCoverView.backgroundColor  = [UIColor whiteColor];
-    
-    
+
 }
 
 - (IBAction)imageViewTarget:(UITapGestureRecognizer *)sender

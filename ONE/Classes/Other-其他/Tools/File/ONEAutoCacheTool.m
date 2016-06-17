@@ -61,7 +61,7 @@
     path = [self stringByReplacingUrlOfBundleID:path];
 //    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
 //    ONELog(@"%@/%@",cachesPath,path)
-//    ONELog(@"使用缓存 %@/caches.ren", path);
+    ONELog(@"使用缓存 %@/caches.ren", path);
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];

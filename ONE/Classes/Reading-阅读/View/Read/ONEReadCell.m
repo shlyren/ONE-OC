@@ -23,7 +23,14 @@
 
 - (void)awakeFromNib
 {
-    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_button_white"]];
+    [super awakeFromNib];
+    self.backgroundColor = ONEColor(250, 250, 250, 1);
+    
+    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.layer.borderWidth = 0.4f;
+    self.layer.shouldRasterize = true;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    self.layer.cornerRadius = 5.0;
 }
 
 - (void)setFrame:(CGRect)frame

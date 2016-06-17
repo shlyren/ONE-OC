@@ -70,12 +70,19 @@ static NSString *const readCell = @"readCell";
     footerView.height = 54;
     
     UIButton *footerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [footerBtn setBackgroundImage:[UIImage imageNamed:@"common_button_white"] forState:UIControlStateNormal];
+    [footerBtn setBackgroundColor:ONEColor(250, 250, 250, 1)];
     [footerBtn addTarget:self action:@selector(footerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [footerBtn setFrame:CGRectMake(ONEDefaultMargin, 0, ONEScreenWidth - 20, footerView.height - 10)];
     [footerBtn setTitle:@"查看往期作品" forState:UIControlStateNormal];
     footerBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [footerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    footerBtn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    footerBtn.layer.borderWidth = 0.4f;
+    footerBtn.layer.shouldRasterize = true;
+    footerBtn.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    footerBtn.layer.cornerRadius = 5.0;
+    
     [footerView addSubview:footerBtn];
     return footerView;
 }

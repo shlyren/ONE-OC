@@ -173,6 +173,8 @@
 
 - (void)setupCardView
 {
+    self.backgroundColor = ONEColor(250, 250, 250, 1);
+    
     self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.layer.borderWidth = 0.4f;
     self.layer.shouldRasterize = true;

@@ -46,6 +46,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.commentContectLabel.preferredMaxLayoutWidth = ONEScreenWidth - 80;
 }
 

@@ -44,7 +44,8 @@
 
 - (void)awakeFromNib
 {
-     self.commentContectLabel.preferredMaxLayoutWidth = ONEScreenWidth - 80;
+    [super awakeFromNib];
+    self.commentContectLabel.preferredMaxLayoutWidth = ONEScreenWidth - 80;
 }
 
 - (void)setCommentItem:(ONEMusicCommentItem *)commentItem

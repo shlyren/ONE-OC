@@ -98,6 +98,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     _typeArr = @[@"音乐故事", @"歌词", @"歌曲信息"];
     
     self.descLabel.text = nil;

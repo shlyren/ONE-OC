@@ -112,8 +112,6 @@
                                appKey:@"eRhWnZSETGklE9fh"
                                   url:@"http://www.umeng.com/social"];
     
-    
-    
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
     // 需要#import "UMSocialSinaSSOHandler.h"
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3119175926"
