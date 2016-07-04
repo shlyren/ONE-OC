@@ -13,6 +13,7 @@
 #import "NSMutableAttributedString+string.h"
 
 @interface ONEReadRelatedCell ()
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
@@ -47,6 +48,7 @@
     self.typeImgView.image = [UIImage imageNamed:@"question"];
     
 }
+
 - (void)setSerialItem:(ONESerialItem *)serialItem
 {
     _serialItem = serialItem;
@@ -54,7 +56,6 @@
     self.nameLabel.text     = serialItem.author.user_name;
     self.contentLabel.text  = serialItem.excerpt;
     self.typeImgView.image  = [UIImage imageNamed:@"serialcontent"];
-
 }
 
 - (CGFloat)rowHeight

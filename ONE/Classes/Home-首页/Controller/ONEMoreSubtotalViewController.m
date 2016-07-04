@@ -12,7 +12,10 @@
 #import "ONEMoreSubtotalLayout.h"
 #import "ONESubtotalDetailViewController.h"
 
-@interface ONEMoreSubtotalViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, ONEMoreSubtotalLayoutDelegate>
+@interface ONEMoreSubtotalViewController ()<UICollectionViewDataSource,
+                                            UICollectionViewDelegate,
+                                            ONEMoreSubtotalLayoutDelegate>
+
 @property (nonatomic, weak) UICollectionView      *collectionView;
 @property (nonatomic, strong) NSArray             *subtotalArr;
 

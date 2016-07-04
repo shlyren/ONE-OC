@@ -9,9 +9,8 @@
 #import "ONEMoviePastListVc.h"
 #import "ONEMoreSubtotalViewController.h"
 
-
-
 @implementation ONEMoviePastListVc
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];

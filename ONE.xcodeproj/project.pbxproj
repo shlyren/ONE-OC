@@ -1438,7 +1438,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;
@@ -1461,7 +1461,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ONE/ONE_Prefix.pch;
 				INFOPLIST_FILE = ONE/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;

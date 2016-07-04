@@ -10,6 +10,7 @@
 
 @class ONEHomeSubtotalItem;
 @interface ONESubtotalDetailViewController : UIViewController
+/** 小记的模型 */
 @property (nonatomic, strong) ONEHomeSubtotalItem *subtotalItem;
 
 @end

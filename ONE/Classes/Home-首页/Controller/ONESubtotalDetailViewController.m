@@ -15,14 +15,22 @@
 
 @interface ONESubtotalDetailViewController ()
 
+/** 卡片的view */
 @property (weak, nonatomic) IBOutlet UIView *cardView;
+/** 卡片上的image */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+/** 卡片标题 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_titleLabel;
+/** 卡片作者 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_authorLabel;
+/** 卡片内容 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_contentLabel;
+/** 发表时间 */
 @property (weak, nonatomic) IBOutlet UILabel *hp_makettimeLabel;
 
+/** 喜欢按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *praiseBtn;
+/** 分享按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 
 
@@ -34,6 +42,12 @@
 {
     [super viewDidLoad];
     
+    [self setupView];
+}
+
+/** 初始化view */
+- (void)setupView
+{
     self.view.backgroundColor = ONEColor(251, 244, 225, 1);
     self.title = self.subtotalItem.hp_title;
     
