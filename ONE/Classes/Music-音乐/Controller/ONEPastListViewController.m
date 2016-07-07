@@ -82,11 +82,9 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pastLiseCellId];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"本月";
-    }else{
-        cell.textLabel.text = self.pastLists[indexPath.row];
-    }
+    
+    cell.textLabel.text = indexPath.row ? self.pastLists[indexPath.row] : @"本月";
+    
     return cell;
 }
 

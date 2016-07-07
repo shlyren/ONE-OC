@@ -20,6 +20,7 @@
 
 
 @interface ONEMovieDetailViewController () <ONEMovieDetailHeaderViewDelegate>
+
 /** 评审团评论的模型 */
 @property (nonatomic, strong) ONEMovieResultItem *movieReviewResult;
 /** tableview组 */
@@ -34,6 +35,7 @@
 @implementation ONEMovieDetailViewController
 
 static NSString *const movieCommentID = @"ONEMovieCommentCell";
+
 #pragma mark - lazy load
 - (NSMutableArray *)groups
 {
@@ -90,6 +92,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     
 }
 
+/** 加载评论数据 */
 - (void)loadCommentData
 {
     ONEWeakSelf
@@ -103,7 +106,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     } failure:nil];
 }
 
-#pragma mark load more comment  data
+#pragma mark load more comment data
 - (void)loadMore
 {
     NSString *url = nil;
@@ -135,7 +138,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 - (void)setupGroup
 {
    
-    if (self.movieReviewResult.data.count) {
+    if (self.movieReviewResult.data.count) { // 电影短评
         ONEDefaultCellGroupItem *group1 = [ONEDefaultCellGroupItem new];
         group1.items        = self.movieReviewResult.data;
         group1.footerHeight = 40;
@@ -144,7 +147,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
         [self.groups addObject:group1];
     }
     
-    if (self.commentArray.count) {
+    if (self.commentArray.count) { // 评论
         ONEDefaultCellGroupItem *group2 = [ONEDefaultCellGroupItem new];
         group2.items        = self.commentArray;
         group2.headerView   = [ONEMovieDetailHeaderView commentSectionHeaderView];
@@ -152,6 +155,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
         group2.footerView   = nil;
         [self.groups addObject:group2];
     }
+    
      [self.tableView reloadData];
     
 }

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ONEMovieDetailViewController : UITableViewController
+/** 电影id */
 @property (nonatomic, strong) NSString *movie_id;
 @end

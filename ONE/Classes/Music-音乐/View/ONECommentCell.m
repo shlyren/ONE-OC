@@ -82,12 +82,12 @@
     
     [ONEDataRequest addPraise:comment_praise parameters:parameters success:^(BOOL isSuccess, NSString *message) {
         
-        if (!isSuccess)
+        if (!isSuccess) // 失败
         {
             [SVProgressHUD showErrorWithStatus:message];
             _praisenumBtn.selected = !_praisenumBtn.selected;
             
-        }else{
+        }else{ // 成功
             
              NSInteger praisenum = _praisenumBtn.selected ? ++_commentItem.praisenum : --_commentItem.praisenum;
             
@@ -109,6 +109,8 @@
     [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 }
 
+
+#pragma mark - navigation 代理
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];

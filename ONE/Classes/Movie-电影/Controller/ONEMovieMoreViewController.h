@@ -11,7 +11,7 @@
 //typedef NS_ENUM (NSUInteger, ONEMovieMoreViewControllerType){
 //    ONEMovieMoreViewControllerTypeMovieStory = 0, // 电影故事
 //    ONEMovieMoreViewControllerTypeReview = 1, // 评审团
-////    ONEMovieCommentCellTypeMovieComment = 2, // 评论
+//    ONEMovieCommentCellTypeMovieComment = 2, // 评论
 //    
 //};
 

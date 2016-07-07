@@ -11,13 +11,13 @@
 @interface ONEMovieListItem : NSObject
 
 
-/** <#注释#> */
+/** 评分 */
 @property (nonatomic, strong) NSString *revisedscore;
 
-/** <#注释#> */
+/** 图片 */
 @property (nonatomic, strong) NSString *cover;
 
-/**  */
+/** 分数 */
 @property (nonatomic, strong) NSString *score;
 
 /** <#注释#> */

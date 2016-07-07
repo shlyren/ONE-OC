@@ -19,8 +19,8 @@
 
 
 @interface ONEMusicViewController ()<ONEMusicDetailViewDelegate,
-UICollectionViewDelegate, UICollectionViewDataSource>
-
+                                    UICollectionViewDelegate,
+                                    UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 
@@ -36,6 +36,7 @@ UICollectionViewDelegate, UICollectionViewDataSource>
 /** 有没有相似歌曲数据  默认没有 */
 @property (nonatomic, assign) BOOL haveRelatedData;
 
+/** 没有数据时显示 */
 @property (nonatomic, strong) UIImageView *noDataImgView;
 
 /** 音乐播放器 */
@@ -121,6 +122,7 @@ static NSString *const relatedCellID = @"relatedCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ONECommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellID];
     
+    /** 刷新数据 */
     self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadDetailData)];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreCommentData)];
     [self.tableView.mj_header beginRefreshing];

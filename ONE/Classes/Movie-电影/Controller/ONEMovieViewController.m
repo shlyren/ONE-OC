@@ -44,12 +44,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    /** 通知 */
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView.mj_header selector:@selector(beginRefreshing) name:ONETabBarItemDidRepeatClickNotification object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    /** 移除通知 */
     [[NSNotificationCenter defaultCenter] removeObserver:self.tableView.mj_header];
 }
 
@@ -103,8 +105,6 @@
     if (cell == nil) {
         cell = [[ONEMovieListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:movieListCellID];
     }
-
-    
     
     cell.movieListItem = self.movieList[indexPath.row];
     return cell;

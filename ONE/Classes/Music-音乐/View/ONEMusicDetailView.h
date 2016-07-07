@@ -26,9 +26,12 @@
 
 @interface ONEMusicDetailView : UIView
 
+/** 模型 */
 @property (nonatomic, strong) ONEMusicDetailItem           *musicDetailItem;
 
+/** 记录行高的block */
 @property (nonatomic, strong) void (^contentChangeBlock)(CGFloat height);
 
+/** 代理 */
 @property (nonatomic, weak) id<ONEMusicDetailViewDelegate> delegate;
 @end

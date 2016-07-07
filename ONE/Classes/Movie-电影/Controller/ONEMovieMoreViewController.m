@@ -16,6 +16,7 @@
 #import "UITableView+Extension.h"
 
 @interface ONEMovieMoreViewController ()
+/** 故事模型数组 */
 @property (nonatomic, strong) NSMutableArray *storyItems;
 @end
 
@@ -24,14 +25,21 @@
 static NSString *const moreMovieCell = @"moreMovieCell";
 
 #pragma mark - initial
-#pragma mark view
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    [self setupView];
+}
+
+#pragma mark view
+- (void)setupView
+{
     [self.tableView registerClass:[ONEMovieCommentCell class] forCellReuseIdentifier:moreMovieCell];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [self.tableView.mj_header beginRefreshing];
+
 }
 
 #pragma mark data

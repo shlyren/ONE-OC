@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ONEPastListViewController : UITableViewController
+/** 晚起列表的数组  */
 @property (nonatomic, strong, readonly) NSArray *pastLists;
 /** 结束的时间 格式为 yyyy-MM */
 @property (nonatomic, strong) NSString *endMonth;

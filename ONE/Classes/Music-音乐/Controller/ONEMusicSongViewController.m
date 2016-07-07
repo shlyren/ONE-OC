@@ -16,6 +16,7 @@
 
 @interface ONEMusicSongViewController ()
 
+/** 歌曲列表数组 */
 @property (nonatomic, strong) NSArray *songLists;
 
 @end
