@@ -206,7 +206,7 @@ NSString *const relatedCellID = @"relatedCell";
     cell.commentItem = self.commentItems[indexPath.row];
     // 讲行高保存到字典
     [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f",cell.rowHeight] forKey:@(indexPath.row)];
-    ONELog(@"计算的行高-%zd", indexPath.row)
+    //ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 

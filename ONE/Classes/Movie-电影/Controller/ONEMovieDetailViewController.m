@@ -124,11 +124,12 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     NSString *url = nil;
     if (self.commentArray.count == 0)
     {
-        url = [_movie_id stringByAppendingPathComponent:@"review/1/0"];
-    }else{
-        ONEMovieCommentItem *item = [self.commentArray lastObject];
-        url = [_movie_id stringByAppendingPathComponent:item.comment_id];
+        return;
+        //url = [_movie_id stringByAppendingPathComponent:@"review/1/0"];
     }
+    
+    ONEMovieCommentItem *item = [self.commentArray lastObject];
+    url = [_movie_id stringByAppendingPathComponent:item.comment_id];
     
     ONEWeakSelf
     [SVProgressHUD show];
@@ -232,7 +233,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 
     NSString *rowHeightStr = [self.rowHeightDict objectForKey:key];
     if (rowHeightStr) {
-        ONELog(@"保存的行高-%@", key)
+        //ONELog(@"保存的行高-%@", key)
         return rowHeightStr.floatValue;
     }
     
@@ -240,7 +241,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
     // 保存到字典
     [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:key];
-    ONELog(@"计算的行高-%@", key)
+    //ONELog(@"计算的行高-%@", key)
     return cell.rowHeight;
 }
 

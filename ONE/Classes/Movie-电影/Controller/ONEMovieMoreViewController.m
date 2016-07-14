@@ -128,17 +128,21 @@ static NSString *const moreMovieCell = @"moreMovieCell";
     
     NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
     if (rowHeightStr) {
-        ONELog(@"保存的行高-%zd", indexPath.row)
+        //ONELog(@"保存的行高-%zd", indexPath.row)
         return rowHeightStr.floatValue;
     }
     
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:moreMovieCell];
     cell.movieStoryItem = self.storyItems[indexPath.row];
     [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
-    ONELog(@"计算的行高-%zd", indexPath.row)
+    //ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+}
 
 @end
 

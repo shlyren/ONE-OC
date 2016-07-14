@@ -169,14 +169,14 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 {
     NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
     if (rowHeightStr) {
-        ONELog(@"保存的行高-%zd", indexPath.row)
+        //ONELog(@"保存的行高-%zd", indexPath.row)
         return rowHeightStr.floatValue;
     }
     
     ONECarouselDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:carouselDetailCell];
     cell.carouselDetailItem = self.carouselDetailItems[indexPath.row];
     [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
-    ONELog(@"计算的行高-%zd", indexPath.row)
+        //ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 

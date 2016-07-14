@@ -288,14 +288,14 @@ static NSString *const relatedCellID = @"relatedCell";
     
     NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
     if (rowHeightStr) {
-        ONELog(@"保存的行高-%zd", indexPath.row)
+        //ONELog(@"保存的行高-%zd", indexPath.row)
         return rowHeightStr.floatValue;
     }
     
     ONECommentCell *cell= [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentArr[indexPath.row];
     [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
-    ONELog(@"计算的行高-%zd", indexPath.row)
+    //ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 
