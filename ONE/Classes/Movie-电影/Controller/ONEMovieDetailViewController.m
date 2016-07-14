@@ -30,6 +30,8 @@
 /** 用户评论的模型 */
 @property (nonatomic, strong) NSMutableArray *commentArray;
 
+/** 保存行高的字典 */
+@property (nonatomic, strong) NSMutableDictionary *rowHeightDict;
 @end
 
 @implementation ONEMovieDetailViewController
@@ -37,6 +39,15 @@
 static NSString *const movieCommentID = @"ONEMovieCommentCell";
 
 #pragma mark - lazy load
+- (NSMutableDictionary *)rowHeightDict
+{
+    if (!_rowHeightDict) {
+        _rowHeightDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _rowHeightDict;
+}
+
 - (NSMutableArray *)groups
 {
     if (_groups == nil) {
@@ -56,7 +67,8 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 {
     [super viewDidLoad];
     [self setupView];
-    [self loadData];
+//    [self loadData];
+    [self loadCommentData];
 }
 
 - (void)setupView
@@ -77,20 +89,20 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 
 #pragma mark - load data
 #pragma mark detail data
-- (void)loadData
-{
-    ONEWeakSelf
-    /** 电影评审团 */
-    [ONEDataRequest requestMovieReview:[_movie_id stringByAppendingPathComponent:@"review/1/0"] parameters:nil success:^(ONEMovieResultItem *movieReview) {
-        if (movieReview.data.count) {
-            weakSelf.movieReviewResult = movieReview;
-        }
-        [weakSelf loadCommentData];
-    } failure:^(NSError *error) {
-        [weakSelf loadCommentData];
-    }];
-    
-}
+//- (void)loadData
+//{
+//    ONEWeakSelf
+//    /** 电影评审团 */
+//    [ONEDataRequest requestMovieReview:[_movie_id stringByAppendingPathComponent:@"review/1/0"] parameters:nil success:^(ONEMovieResultItem *movieReview) {
+//        if (movieReview.data.count) {
+//            weakSelf.movieReviewResult = movieReview;
+//        }
+//        [weakSelf loadCommentData];
+//    } failure:^(NSError *error) {
+//        [weakSelf loadCommentData];
+//    }];
+//
+//}
 
 /** 加载评论数据 */
 - (void)loadCommentData
@@ -215,9 +227,20 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // key
+    NSString *key = [NSString stringWithFormat:@"%zd-%zd", indexPath.section, indexPath.row];
+
+    NSString *rowHeightStr = [self.rowHeightDict objectForKey:key];
+    if (rowHeightStr) {
+        ONELog(@"保存的行高-%@", key)
+        return rowHeightStr.floatValue;
+    }
+    
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:movieCommentID];
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
-
+    // 保存到字典
+    [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:key];
+    ONELog(@"计算的行高-%@", key)
     return cell.rowHeight;
 }
 

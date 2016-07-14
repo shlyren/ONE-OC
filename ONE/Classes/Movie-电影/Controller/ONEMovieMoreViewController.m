@@ -18,11 +18,24 @@
 @interface ONEMovieMoreViewController ()
 /** 故事模型数组 */
 @property (nonatomic, strong) NSMutableArray *storyItems;
+/** 保存行高的字典 */
+@property (nonatomic, strong) NSMutableDictionary *rowHeightDict;
 @end
 
 @implementation ONEMovieMoreViewController
 
 static NSString *const moreMovieCell = @"moreMovieCell";
+
+
+#pragma mark - lazy load
+- (NSMutableDictionary *)rowHeightDict
+{
+    if (!_rowHeightDict) {
+        _rowHeightDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _rowHeightDict;
+}
 
 #pragma mark - initial
 - (void)viewDidLoad
@@ -84,6 +97,14 @@ static NSString *const moreMovieCell = @"moreMovieCell";
     }];
 }
 
+
+/** endRefresh */
+- (void)endRefreshing
+{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -104,17 +125,20 @@ static NSString *const moreMovieCell = @"moreMovieCell";
 #pragma mark - table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
+    if (rowHeightStr) {
+        ONELog(@"保存的行高-%zd", indexPath.row)
+        return rowHeightStr.floatValue;
+    }
+    
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:moreMovieCell];
     cell.movieStoryItem = self.storyItems[indexPath.row];
+    [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
+    ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 
-/** endRefresh */
-- (void)endRefreshing
-{
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
-}
 
 @end
 

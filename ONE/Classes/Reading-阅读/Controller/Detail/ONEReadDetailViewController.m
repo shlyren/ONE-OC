@@ -17,6 +17,9 @@
 @property (nonatomic, strong) NSMutableArray *commentItems;
 @property (nonatomic, strong) UIImageView *noDataImgView;
 
+/** 保存cell行高的字典 */
+@property (nonatomic, strong) NSMutableDictionary *rowHeightDict;
+
 @end
 
 @implementation ONEReadDetailViewController
@@ -25,6 +28,16 @@ NSString *const relatedCellID = @"relatedCell";
 #define ToolBarHeight 44
 
 #pragma mark - lazy load
+- (NSMutableDictionary *)rowHeightDict
+{
+    if (!_rowHeightDict) {
+        _rowHeightDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _rowHeightDict;
+}
+
+
 - (ONEReadDetailHeaderView *)headerView
 {
     if (_headerView == nil)
@@ -178,8 +191,22 @@ NSString *const relatedCellID = @"relatedCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+//    __weak ONEMusicCommentItem *item = self.commentItems[indexPath.row];
+//    ONELog(@"%p",item)
+//
+    //从字典获取行高
+    NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
+    if (rowHeightStr) {
+        ONELog(@"保存的行高-%zd", indexPath.row)
+        return rowHeightStr.floatValue;
+    }
+    
     ONECommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentItems[indexPath.row];
+    // 讲行高保存到字典
+    [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f",cell.rowHeight] forKey:@(indexPath.row)];
+    ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 

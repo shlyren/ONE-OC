@@ -276,30 +276,30 @@
 /**
  *  获取评审团
  */
-+ (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure
-{
-    NSString *fullUrl = [NSString stringWithFormat:@"%@/%@", movie, url];
-    
-    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
-        
-        [ONEMusicCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{@"comment_id" : @"id"};
-        }];
-        
-        [ONEMovieResultItem mj_setupObjectClassInArray:^NSDictionary *{
-            return @{@"data" : [ONEMovieCommentItem class]};
-        }];
-        
-        ONEMovieResultItem *result = [ONEMovieResultItem mj_objectWithKeyValues:responseObject[@"data"]];
-        
-        success(result);
-        
-    } failure:^(NSError *error) {
-        if (failure) failure(error);
-        ONELog(@"电影故事获取失败%@",error);
-    }];
-
-}
+//+ (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure
+//{
+//    NSString *fullUrl = [NSString stringWithFormat:@"%@/%@", movie, url];
+//    
+//    [ONEHttpTool GET:fullUrl parameters:nil success:^(NSDictionary *responseObject) {
+//        
+//        [ONEMusicCommentItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+//            return @{@"comment_id" : @"id"};
+//        }];
+//        
+//        [ONEMovieResultItem mj_setupObjectClassInArray:^NSDictionary *{
+//            return @{@"data" : [ONEMovieCommentItem class]};
+//        }];
+//        
+//        ONEMovieResultItem *result = [ONEMovieResultItem mj_objectWithKeyValues:responseObject[@"data"]];
+//        
+//        success(result);
+//        
+//    } failure:^(NSError *error) {
+//        if (failure) failure(error);
+//        ONELog(@"电影故事获取失败%@",error);
+//    }];
+//
+//}
 
 /**
  *  获取用户评论

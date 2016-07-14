@@ -11,10 +11,10 @@
 #import "ONEEssayItem.h"
 
 @interface ONEEssayDetailViewController ()
+
 @end
 
 @implementation ONEEssayDetailViewController
-
 
 - (void)viewDidLoad
 {
@@ -67,6 +67,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
+        
         ONEReadRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:relatedCellID];
         cell.essayItem = self.relatedItems[indexPath.row];
         return cell;
@@ -79,6 +80,7 @@
 {
     if (indexPath.section == 0 && self.relatedItems.count)
     {
+        
         ONEEssayItem *item = self.relatedItems[indexPath.row];
         ONEEssayDetailViewController *detailVc = [ONEEssayDetailViewController new];
         detailVc.detail_id = item.content_id;

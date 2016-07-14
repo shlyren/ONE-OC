@@ -159,7 +159,7 @@
  *  @param success    请求成功回调
  *  @param failure    请求失败回调
  */
-+ (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure;
+//+ (void)requestMovieReview:(NSString *)url parameters:(id)patameters success:(void (^)(ONEMovieResultItem *movieReview))success failure:(void (^)(NSError *error))failure;
 
 /**
  *  获取电影用户评论

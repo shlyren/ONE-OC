@@ -30,6 +30,9 @@
 /** 存放评论模型的数组  */
 @property (nonatomic, strong) NSMutableArray *commentArr;
 
+/** 保存行高的字典 */
+@property (nonatomic, strong) NSMutableDictionary *rowHeightDict;
+
 /** 存放相似歌曲的数组 */
 @property (nonatomic, strong) NSArray *relatedArr;
 
@@ -50,6 +53,15 @@ static NSString *const commentCellID = @"ONECommentCell";
 static NSString *const relatedCellID = @"relatedCell";
 
 #pragma mark - ↓↓↓↓↓↓ lazy load ↓↓↓↓↓↓
+- (NSMutableDictionary *)rowHeightDict
+{
+    if (!_rowHeightDict) {
+        _rowHeightDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _rowHeightDict;
+}
+
 - (UIImageView *)noDataImgView
 {
     if (_noDataImgView == nil) {
@@ -273,8 +285,17 @@ static NSString *const relatedCellID = @"relatedCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_haveRelatedData && indexPath.section == 0) return 190;
+    
+    NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
+    if (rowHeightStr) {
+        ONELog(@"保存的行高-%zd", indexPath.row)
+        return rowHeightStr.floatValue;
+    }
+    
     ONECommentCell *cell= [tableView dequeueReusableCellWithIdentifier:commentCellID];
     cell.commentItem = self.commentArr[indexPath.row];
+    [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
+    ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 

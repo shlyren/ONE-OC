@@ -33,7 +33,7 @@
 #define ONEScreenHeight [UIScreen mainScreen].bounds.size.height
 
 /** 随机颜色 */
-#define ONERandomlyColor ONEColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
+#define ONERandomColor ONEColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
 /** 颜色 RGB */
 #define ONEColor(r, g, b, a) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:(a)]
 /** 默认颜色 */
@@ -42,6 +42,6 @@
 /** 默认字体 */
 #define ONEDefaultFont [UIFont systemFontOfSize:15]
 
-#endif /* 是否是OBJC */
+#endif /* OBJC */
 
 #endif /* ONE_Prefix_pch */

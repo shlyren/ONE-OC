@@ -35,7 +35,7 @@
     for (NSString *subPath in subpaths) {
         
         NSString *filePath = [directoryPath stringByAppendingPathComponent:subPath];
-        // 不知为什么真机上Snapshots文件夹下的文件删不掉
+        // 不知为什么真机上Snapshots文件夹下的文件删不掉?
         if ([filePath containsString:@"Snapshots"]) continue;
     
         if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&error]) {

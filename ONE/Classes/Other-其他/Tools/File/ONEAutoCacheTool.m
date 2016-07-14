@@ -73,7 +73,6 @@
 
 }
 
-
 + (NSString *)stringByReplacingUrlOfBundleID:(NSString *)httpUrl
 {
     return [httpUrl stringByReplacingOccurrencesOfString:@"http://v3.wufazhuce.com:8000" withString:[[NSBundle mainBundle] bundleIdentifier]];

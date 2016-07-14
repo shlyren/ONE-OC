@@ -28,8 +28,6 @@
     return _manager;
 }
 
-
-
 + (instancetype)shareHttpTool
 {
     return [[self alloc] init];

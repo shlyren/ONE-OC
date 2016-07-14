@@ -47,7 +47,6 @@
     [[self shareInstance] showShareView:controller content:content url:url image:image];
 }
 
-
 + (BOOL)handleOpenURL:(NSURL *)url
 {
     return [[self shareInstance] handleOpenURL:url];

@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ONECarouselDetailViewController">
@@ -17,15 +19,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nYE-kr-sQG">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="O6n-Nz-XFe"/>
                         <outlet property="delegate" destination="-1" id="WLU-DR-jx7"/>
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-7F-gcc">
-                    <rect key="frame" x="5" y="20" width="38" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="38" id="4qd-2A-caD"/>
                         <constraint firstAttribute="height" constant="38" id="Kev-gk-3hl"/>
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.4549019608" green="0.68627450980000004" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.4549019608" green="0.68627450980000004" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="mg2-7F-gcc" firstAttribute="leading" secondItem="6Us-0i-DFF" secondAttribute="leading" constant="5" id="0NP-BY-mUU"/>
                 <constraint firstItem="nYE-kr-sQG" firstAttribute="top" secondItem="6Us-0i-DFF" secondAttribute="top" constant="20" id="4qb-Ni-86h"/>
@@ -56,7 +56,6 @@
                 <constraint firstItem="nYE-kr-sQG" firstAttribute="leading" secondItem="mg2-7F-gcc" secondAttribute="centerX" id="ocl-nP-wsR"/>
                 <constraint firstItem="nYE-kr-sQG" firstAttribute="leading" secondItem="6Us-0i-DFF" secondAttribute="leading" id="zz7-Af-HZu"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="ocl-nP-wsR"/>

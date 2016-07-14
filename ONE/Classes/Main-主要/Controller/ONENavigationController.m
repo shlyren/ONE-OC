@@ -22,7 +22,6 @@
     self.interactivePopGestureRecognizer.enabled = false;
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-
     pan.delegate = self;
     [self.view addGestureRecognizer:pan];
 
@@ -40,15 +39,15 @@
     }else {// 当子控制器的个数==0 的时候, 表示暂定控制器是跟控制器, 设置导航条的item
         
         // 创建左侧tabbItem
-        UIBarButtonItem *leftBtn = [self navigationItemImage:@"nav_search_default"
-                                                       frame:CGRectMake(0, 15, 20, 20)
-                                                      action:@selector(leftBtnClick)];
+        UIBarButtonItem *leftBtn = [self navItemImage:@"nav_search_default"
+                                                frame:CGRectMake(0, 15, 20, 20)
+                                               action:@selector(leftBtnClick)];
         viewController.navigationItem.leftBarButtonItem = leftBtn;
         
          // 创建右侧tabbItem
-        UIBarButtonItem *rightBtn = [self navigationItemImage:@"nav_me_default"
-                                                        frame:CGRectMake(30, 15, 20, 20)
-                                                       action:@selector(rightBtnClick)];
+        UIBarButtonItem *rightBtn = [self navItemImage:@"nav_me_default"
+                                                 frame:CGRectMake(30, 15, 20, 20)
+                                                action:@selector(rightBtnClick)];
         viewController.navigationItem.rightBarButtonItem = rightBtn;
         
     }
@@ -58,7 +57,7 @@
 }
 
 // 初始化跟控制器导航条的item
-- (UIBarButtonItem *)navigationItemImage:(NSString *)imageName frame:(CGRect)frame action:(SEL)action
+- (UIBarButtonItem *)navItemImage:(NSString *)imageName frame:(CGRect)frame action:(SEL)action
 {
     UIButton *bigBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     UIButton *smallBtn = [[UIButton alloc] initWithFrame:frame];

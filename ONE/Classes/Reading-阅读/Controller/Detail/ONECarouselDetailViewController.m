@@ -18,15 +18,19 @@
 #import "ONEQuestionDetailViewController.h"
 
 @interface ONECarouselDetailViewController () <UITableViewDataSource, UITableViewDelegate>
+/** tableview */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+/** 模型数组 */
 @property (nonatomic, strong) NSArray *carouselDetailItems;
-
+/** 头标题 */
 @property (nonatomic, weak) UILabel *headerLabel;
-
+/** 尾标题 */
 @property (nonatomic, weak) UILabel *footerLabel;
+/** 尾部View */
 @property (nonatomic, weak) UIView *footerView;
 
+/** 保存行高的字典 */
+@property (nonatomic, strong) NSMutableDictionary *rowHeightDict;
 @end
 
 @implementation ONECarouselDetailViewController
@@ -34,6 +38,14 @@
 static NSString *const carouselDetailCell = @"carouselDetailCell";
 
 #pragma mark - lazy load
+- (NSMutableDictionary *)rowHeightDict
+{
+    if (!_rowHeightDict) {
+        _rowHeightDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _rowHeightDict;
+}
 - (UILabel *)headerLabel
 {
     if (_headerLabel == nil)
@@ -155,8 +167,16 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *rowHeightStr = [self.rowHeightDict objectForKey:@(indexPath.row)];
+    if (rowHeightStr) {
+        ONELog(@"保存的行高-%zd", indexPath.row)
+        return rowHeightStr.floatValue;
+    }
+    
     ONECarouselDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:carouselDetailCell];
     cell.carouselDetailItem = self.carouselDetailItems[indexPath.row];
+    [self.rowHeightDict setObject:[NSString stringWithFormat:@"%f", cell.rowHeight] forKey:@(indexPath.row)];
+    ONELog(@"计算的行高-%zd", indexPath.row)
     return cell.rowHeight;
 }
 
