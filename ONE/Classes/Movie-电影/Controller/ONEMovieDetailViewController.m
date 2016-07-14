@@ -113,9 +113,13 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
         if (movieComments.count) {
             weakSelf.commentArray = movieComments;
             [weakSelf setupGroup];
+        } else {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
         
-    } failure:nil];
+    } failure:^(NSError *error) {
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark load more comment data
@@ -134,16 +138,17 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     ONEWeakSelf
     [SVProgressHUD show];
     [ONEDataRequest requestMovieComment:url parameters:nil success:^(NSArray *movieComments) {
+        [SVProgressHUD dismiss];
         if (movieComments.count) {
             [weakSelf.commentArray addObjectsFromArray:movieComments];
             [weakSelf.tableView reloadData];
+            [weakSelf.tableView.mj_footer endRefreshing];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"没有数据了哦~~"];
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-
-        [weakSelf.tableView.mj_footer  endRefreshing];
+        
     } failure:^(NSError *error) {
-        [weakSelf.tableView.mj_footer  endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 
