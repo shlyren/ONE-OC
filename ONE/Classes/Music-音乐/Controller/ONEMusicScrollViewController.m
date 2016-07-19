@@ -31,8 +31,6 @@
     return _musicVc;
 }
 
-
-
 #pragma mark - initial
 #pragma mark initial view
 - (void)viewDidLoad
@@ -94,11 +92,11 @@
     ONELog(@"%zd", index)
     if (preIndex == index) return;
     
-    [self.musicVc removeFromParentViewController];
     for (UIView *subView in scrollView.subviews)
     {
         [subView removeFromSuperview];
     }
+    [self.musicVc removeFromParentViewController];
     
     self.musicVc.detailIdUrl = self.musicListArray[index];
     self.musicVc.view.frame = scrollView.bounds;

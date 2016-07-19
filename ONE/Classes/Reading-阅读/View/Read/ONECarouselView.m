@@ -11,7 +11,6 @@
 
 @interface ONEReadAdCell : UICollectionViewCell
 @property (nonatomic, weak) UIImageView *imageView;
-
 @end
 
 @implementation ONEReadAdCell
@@ -21,7 +20,7 @@
     if (self = [super initWithFrame:frame])
     {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        [self addSubview: _imageView = imageView];
+        [self.contentView addSubview: _imageView = imageView];
     }
     return self;
 }
@@ -42,6 +41,7 @@ static NSString *const readAdCell = @"readAdCell";
 
 #define COLLECTION_MAX_SECTION 10
 #define PAGECONTROL_HEIGHT 25
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame])
@@ -59,7 +59,8 @@ static NSString *const readAdCell = @"readAdCell";
         collectionView.showsVerticalScrollIndicator = false;
         collectionView.showsHorizontalScrollIndicator = false;
         collectionView.pagingEnabled = true;
-        [collectionView registerClass:[ONEReadAdCell class] forCellWithReuseIdentifier:readAdCell];
+        [collectionView registerClass:[ONEReadAdCell class]
+           forCellWithReuseIdentifier:readAdCell];
         [self addSubview:self.collectionView = collectionView];
         
         UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.height - PAGECONTROL_HEIGHT, self.width, PAGECONTROL_HEIGHT)];
@@ -72,11 +73,14 @@ static NSString *const readAdCell = @"readAdCell";
     return self;
 }
 
-- (void)setImageNames:(NSArray<NSString *> *)imageNames
+- (void)setImageNames:(NSArray *)imageNames
 {
     _imageNames = imageNames;
     
-    if (![imageNames.firstObject hasPrefix:@"http"]) return;
+    // 如果是url
+    if ([imageNames.firstObject isKindOfClass:[NSString class]]) {
+        if (![imageNames.firstObject hasPrefix:@"http"]) return;
+    }
     
     self.pageControl.numberOfPages = imageNames.count;
     self.pageControl.currentPage = 0;
@@ -92,26 +96,30 @@ static NSString *const readAdCell = @"readAdCell";
     }];
 }
 
--(NSIndexPath *)resetPage
+/** 重置页面索引 */
+- (NSIndexPath *)resetPage
 {
+    // 获取当前显示的item 索引
     NSIndexPath *currentIndexPath = [self.collectionView indexPathsForVisibleItems].lastObject;
     NSIndexPath *currentIndexPathReset = [NSIndexPath indexPathForItem:currentIndexPath.item inSection:COLLECTION_MAX_SECTION / 2];
+    
     [_collectionView scrollToItemAtIndexPath:currentIndexPathReset atScrollPosition:UICollectionViewScrollPositionLeft animated:false];
     return currentIndexPathReset;
 }
 
+/** 显示下一页 */
 - (void)showNextPage
 {
     NSIndexPath *currentPage = self.resetPage;
     NSInteger nextItem = currentPage.item + 1;
-    NSInteger nextScetion = currentPage.section;
+    NSInteger nextSection = currentPage.section;
     if (nextItem >= _imageNames.count)
     {
         nextItem = 0;
-        nextScetion++;
+        nextSection++;
     }
     
-    NSIndexPath * nextPagePath = [NSIndexPath indexPathForItem:nextItem inSection:nextScetion];
+    NSIndexPath *nextPagePath = [NSIndexPath indexPathForItem:nextItem inSection:nextSection];
     [_collectionView scrollToItemAtIndexPath:nextPagePath atScrollPosition:UICollectionViewScrollPositionLeft animated:true];
 }
 
@@ -128,7 +136,18 @@ static NSString *const readAdCell = @"readAdCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEReadAdCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:readAdCell forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageNames[indexPath.row]] placeholderImage:[UIImage imageNamed:@"top10"]];
+    
+    // url
+    if ([self.imageNames[indexPath.row] isKindOfClass:[NSString class]])
+    {
+           [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageNames[indexPath.row]] placeholderImage:[UIImage imageNamed:@"top10"]];
+    }
+    // UIImage对象
+    else if ([self.imageNames[indexPath.row] isKindOfClass:[UIImage class]])
+    {
+        cell.imageView.image = self.imageNames[indexPath.row];
+    }
+
     return cell;
 }
 
@@ -154,7 +173,6 @@ static NSString *const readAdCell = @"readAdCell";
 
 }
 
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self stopTimer];
@@ -175,7 +193,11 @@ static NSString *const readAdCell = @"readAdCell";
 {
     if (_imageNames.count < 2) return;
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.intervalTime target:self selector:@selector(showNextPage) userInfo:nil repeats:true];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.intervalTime
+                                                  target:self
+                                                selector:@selector(showNextPage)
+                                                userInfo:nil
+                                                 repeats:true];
 }
 
 - (void)stopTimer
@@ -189,4 +211,5 @@ static NSString *const readAdCell = @"readAdCell";
     [self stopTimer];
     self.collectionView.delegate = nil;
 }
+
 @end

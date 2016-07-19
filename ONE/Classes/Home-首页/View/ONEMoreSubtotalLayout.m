@@ -38,7 +38,6 @@
     return _attrsArray;
 }
 
-
 - (void)prepareLayout
 {
     self.columnCount = 2;
