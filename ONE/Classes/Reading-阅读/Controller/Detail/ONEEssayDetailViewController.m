@@ -31,7 +31,7 @@
 {
    [super loadDetailData];
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestEssayDetail:self.detail_id parameters:nil succsee:^(ONEEssayItem *essay) {
         if (!essay) return;
         weakSelf.headerView.essayItem = essay;
@@ -54,7 +54,7 @@
 - (void)loadRelatedData
 {
     ONEWeakSelf
-    [SVProgressHUD show];
+    
      NSString *url = [relates_essay stringByAppendingPathComponent:self.detail_id];
     [ONEDataRequest requestEssayRelated:url paramrters:nil success:^(NSArray *essayRelated) {
         if (!essayRelated.count) return;

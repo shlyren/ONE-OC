@@ -143,7 +143,7 @@ NSString *const relatedCellID = @"relatedCell";
     NSString *comment_id = [self.commentItems.lastObject comment_id];
     NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@", readeCommnet, self.commentType, self.detail_id, comment_id];
     
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestReadComment:url parameters:nil success:^(NSArray *commentItems) {
         
         if (commentItems.count) {

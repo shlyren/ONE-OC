@@ -127,7 +127,8 @@
     };
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
     if (method == RequestMethodGET) {
         
         [[ONEHttpTool shareHttpTool].manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {

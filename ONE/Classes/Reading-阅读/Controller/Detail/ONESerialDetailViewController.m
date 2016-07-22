@@ -28,7 +28,7 @@
 {
     [super loadDetailData];
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestSerialDetail:self.detail_id parameters:nil succsee:^(ONESerialItem *serial) {
         if (!serial) return ;
         weakSelf.headerView.serialItem = serial;
@@ -49,7 +49,7 @@
 
 - (void)loadRelatedData
 {
-    [SVProgressHUD show];
+    
     
     NSString *url =  [related_serial stringByAppendingPathComponent:self.detail_id];
     [ONEDataRequest requestSerialRelated:url paramrters:nil success:^(NSArray *serialRelated) {

@@ -145,7 +145,7 @@
 /** 阅读列表 */
 - (void)loadReadList
 {
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestReadList:nil parameters:nil succsee:^(ONEReadListItem *responseObject) {
         if (responseObject) {
             self.readList = responseObject;

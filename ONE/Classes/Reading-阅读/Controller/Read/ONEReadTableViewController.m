@@ -9,7 +9,6 @@
 #import "ONEReadTableViewController.h"
 #import "ONEReadPastListViewController.h"
 
-
 @implementation ONEReadTableViewController
 
 static NSString *const readCell = @"readCell";
@@ -32,17 +31,25 @@ static NSString *const readCell = @"readCell";
     [super viewDidLoad];
     
     [self setupView];
-    
-    self.tableView.tableFooterView = self.tableFooterView;
-  
 }
+
 - (void)setupView
 {
+    self.tableView.showsVerticalScrollIndicator = false;
+    
+    self.tableView.tableFooterView = self.tableFooterView;
+    
     self.tableView.estimatedRowHeight = 120;
     self.tableView.contentInset = UIEdgeInsetsMake(ONEDefaultMargin + ONETitleViewH, 0, 0, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ONEReadCell class]) bundle:nil] forCellReuseIdentifier:readCell];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tableView.showsVerticalScrollIndicator = true;
 }
 
 #pragma mark - Table view data source
@@ -89,6 +96,7 @@ static NSString *const readCell = @"readCell";
 
 - (void)footerBtnClick:(UIButton *)footerBtn
 {
+    
     ONEReadPastListViewController *pastListVc = [ONEReadPastListViewController new];
     pastListVc.endMonth = self.endDate;
     pastListVc.readPastListType = self.readType;

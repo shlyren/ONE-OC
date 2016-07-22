@@ -226,7 +226,7 @@ static NSString *const photoCellID = @"photoCell";
     _movie_id = movie_id;
     _oneMovieTitles = @[@"一个电影表", @"剧照", @"演职人员"];
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestMovieStory:[movie_id stringByAppendingPathComponent:@"story/1/0"] parameters:nil success:^(ONEMovieResultItem *movieStory) {
         if (movieStory)
         {
@@ -395,7 +395,7 @@ static NSString *const photoCellID = @"photoCell";
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     
-    [SVProgressHUD show];
+    
     [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:imageName] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         CGFloat height = image.size.height / image.size.width * ONEScreenWidth;

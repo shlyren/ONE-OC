@@ -62,7 +62,7 @@
 - (void)setUpData
 {
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requsetMusciIdList:@"0" parameters:nil success:^(NSArray *musicIdList) {
         if (musicIdList.count)
         {
@@ -92,12 +92,13 @@
     ONELog(@"%zd", index)
     if (preIndex == index) return;
     
+    [self.musicVc removeFromParentViewController];
+    
     for (UIView *subView in scrollView.subviews)
     {
         [subView removeFromSuperview];
     }
-    [self.musicVc removeFromParentViewController];
-    
+
     self.musicVc.detailIdUrl = self.musicListArray[index];
     self.musicVc.view.frame = scrollView.bounds;
     [scrollView addSubview:self.musicVc.view];

@@ -55,7 +55,7 @@
 #pragma mark - webView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    [SVProgressHUD show];
+    
     return true;
 }
 

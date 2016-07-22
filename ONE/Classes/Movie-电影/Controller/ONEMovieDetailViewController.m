@@ -136,7 +136,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     url = [_movie_id stringByAppendingPathComponent:item.comment_id];
     
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestMovieComment:url parameters:nil success:^(NSArray *movieComments) {
         [SVProgressHUD dismiss];
         if (movieComments.count) {

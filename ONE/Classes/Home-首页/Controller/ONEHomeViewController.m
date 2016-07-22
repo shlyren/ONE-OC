@@ -67,7 +67,7 @@
 #pragma  mark - 加载数据 
 - (void)loadData
 {
-    [SVProgressHUD show];
+    
     ONEWeakSelf
     [ONEDataRequest requestHomeSubtotal:@"more/0" paramrters:nil success:^(NSArray *homeSubtotal) {
         if (homeSubtotal.count)

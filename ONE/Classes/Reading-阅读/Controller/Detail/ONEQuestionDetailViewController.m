@@ -49,7 +49,7 @@
 {
     [super loadDetailData];
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestQuestionDetail:self.detail_id parameters:nil succsee:^(ONEQuestionItem *question) {
         if (question == nil) return;
         weakSelf.questionHeaderView.questionItem = question;
@@ -72,7 +72,7 @@
 - (void)loadRelatedData
 {
     ONEWeakSelf
-    [SVProgressHUD show];
+    
     
     NSString *url = [related_question stringByAppendingPathComponent:self.detail_id];
     [ONEDataRequest requestQuestionRelated:url paramrters:nil success:^(NSArray *questionRelated) {

@@ -61,7 +61,7 @@ static NSString *const moreSubtotalCell = @"moreSubtotalCell";
 {
     ONEWeakSelf
     NSString *url = [@"bymonth" stringByAppendingPathComponent:self.month];
-    [SVProgressHUD show];
+    
     [ONEDataRequest requestHomeSubtotal:url paramrters:nil success:^(NSArray *homeSubtotal) {
         [SVProgressHUD dismiss];
         if (!homeSubtotal.count) return;
