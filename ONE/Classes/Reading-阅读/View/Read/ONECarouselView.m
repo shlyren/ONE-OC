@@ -183,6 +183,11 @@ static NSString *const readAdCell = @"readAdCell";
     [self startTimer];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self resetPage];
+}
+
 - (NSTimeInterval)intervalTime
 {
     if (_intervalTime <= 0) return 2.0;

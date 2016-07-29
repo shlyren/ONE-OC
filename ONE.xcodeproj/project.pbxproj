@@ -28,7 +28,6 @@
 		5509044E1CBFD64700F884C2 /* ONEReadSerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550904441CBFD64700F884C2 /* ONEReadSerialViewController.m */; };
 		5509044F1CBFD64700F884C2 /* ONEReadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550904461CBFD64700F884C2 /* ONEReadTableViewController.m */; };
 		550904501CBFD64700F884C2 /* ONEReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550904481CBFD64700F884C2 /* ONEReadViewController.m */; };
-		55212F6D1CB6493F00634442 /* ONEPersonDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55212F6C1CB6493F00634442 /* ONEPersonDetailTableView.m */; };
 		55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55212F881CB68FAF00634442 /* ONEMusicSongViewController.m */; };
 		55212F8D1CB6901300634442 /* ONEMusicSongViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55212F8C1CB6901300634442 /* ONEMusicSongViewController.storyboard */; };
 		5537A9A41CAF658E0039949C /* ONEMusicScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5537A9A31CAF658E0039949C /* ONEMusicScrollViewController.m */; };
@@ -121,6 +120,8 @@
 		55C6DD761CC4EF4A00988121 /* ONESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD741CC4EF4A00988121 /* ONESearchTableViewCell.m */; };
 		55C6DD771CC4EF4A00988121 /* ONESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
+		55EF74671D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */; };
+		55EF746A1D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */; };
 		55F7EF9C1CE6FB47000FC9DD /* ONEAutoCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF941CE6FB47000FC9DD /* ONEAutoCacheTool.m */; };
 		55F7EF9D1CE6FB47000FC9DD /* ONEFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF961CE6FB47000FC9DD /* ONEFileManager.m */; };
 		55F7EF9E1CE6FB47000FC9DD /* ONEDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF991CE6FB47000FC9DD /* ONEDataRequest.m */; };
@@ -181,8 +182,6 @@
 		550904461CBFD64700F884C2 /* ONEReadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadTableViewController.m; sourceTree = "<group>"; };
 		550904471CBFD64700F884C2 /* ONEReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEReadViewController.h; sourceTree = "<group>"; };
 		550904481CBFD64700F884C2 /* ONEReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEReadViewController.m; sourceTree = "<group>"; };
-		55212F6B1CB6493F00634442 /* ONEPersonDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersonDetailTableView.h; sourceTree = "<group>"; };
-		55212F6C1CB6493F00634442 /* ONEPersonDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersonDetailTableView.m; sourceTree = "<group>"; };
 		55212F871CB68FAF00634442 /* ONEMusicSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMusicSongViewController.h; sourceTree = "<group>"; };
 		55212F881CB68FAF00634442 /* ONEMusicSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMusicSongViewController.m; sourceTree = "<group>"; };
 		55212F8C1CB6901300634442 /* ONEMusicSongViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ONEMusicSongViewController.storyboard; sourceTree = "<group>"; };
@@ -349,6 +348,10 @@
 		55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONESearchTableViewCell.xib; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
 		55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieMoreViewController.m; sourceTree = "<group>"; };
+		55EF74651D4B8B9300A5E7D8 /* UIScrollView+scaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+scaleImage.h"; sourceTree = "<group>"; };
+		55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+scaleImage.m"; sourceTree = "<group>"; };
+		55EF74681D4B98AE00A5E7D8 /* ONEPersonDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersonDetailTableView.h; sourceTree = "<group>"; };
+		55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersonDetailTableView.m; sourceTree = "<group>"; };
 		55F7EF931CE6FB47000FC9DD /* ONEAutoCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEAutoCacheTool.h; sourceTree = "<group>"; };
 		55F7EF941CE6FB47000FC9DD /* ONEAutoCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEAutoCacheTool.m; sourceTree = "<group>"; };
 		55F7EF951CE6FB47000FC9DD /* ONEFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFileManager.h; sourceTree = "<group>"; };
@@ -559,6 +562,8 @@
 		554481651CD6EC0E008AB5DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				55EF74681D4B98AE00A5E7D8 /* ONEPersonDetailTableView.h */,
+				55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */,
 				554481661CD6EC2B008AB5DE /* ONETabBar.h */,
 				554481671CD6EC2B008AB5DE /* ONETabBar.m */,
 			);
@@ -628,6 +633,8 @@
 				5581659B1CC609830022458E /* UIView+Frame.m */,
 				5581659C1CC609830022458E /* UIViewController+Extension.h */,
 				5581659D1CC609830022458E /* UIViewController+Extension.m */,
+				55EF74651D4B8B9300A5E7D8 /* UIScrollView+scaleImage.h */,
+				55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -878,8 +885,6 @@
 				5592EFD01CB1122200FA3D76 /* ONEMusicRelatedCell.h */,
 				5592EFD11CB1122200FA3D76 /* ONEMusicRelatedCell.m */,
 				5592EFD21CB1122200FA3D76 /* ONEMusicRelatedCell.xib */,
-				55212F6B1CB6493F00634442 /* ONEPersonDetailTableView.h */,
-				55212F6C1CB6493F00634442 /* ONEPersonDetailTableView.m */,
 				55FC84701CB7D63700E454A3 /* ONEMusicPlayerView.h */,
 				55FC84711CB7D63700E454A3 /* ONEMusicPlayerView.m */,
 				55FC84731CB7D64700E454A3 /* ONEMusicPlayerView.xib */,
@@ -1236,6 +1241,7 @@
 				558165AC1CC609830022458E /* UIImage+image.m in Sources */,
 				55F7EF9F1CE6FB47000FC9DD /* ONEHttpTool.m in Sources */,
 				55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */,
+				55EF746A1D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m in Sources */,
 				554481681CD6EC2B008AB5DE /* ONETabBar.m in Sources */,
 				55C6DD6C1CC4CF9400988121 /* ONESearchReadItem.m in Sources */,
 				55FC84961CBA4FB100E454A3 /* ONESubTitleCell.m in Sources */,
@@ -1279,7 +1285,6 @@
 				5537A9A41CAF658E0039949C /* ONEMusicScrollViewController.m in Sources */,
 				55C6DD521CC4B75000988121 /* ONESearchViewController.m in Sources */,
 				558165AF1CC609830022458E /* UIViewController+Extension.m in Sources */,
-				55212F6D1CB6493F00634442 /* ONEPersonDetailTableView.m in Sources */,
 				550904331CBFD62500F884C2 /* ONECarouselView.m in Sources */,
 				55C6DD691CC4C5D600988121 /* ONESearchMusicViewController.m in Sources */,
 				558165AE1CC609830022458E /* UIView+Frame.m in Sources */,
@@ -1294,6 +1299,7 @@
 				55B9A10F1CBF5D68009E44AA /* ONEReadListItem.m in Sources */,
 				55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */,
 				55C6DD631CC4C57A00988121 /* ONESearchMovieViewController.m in Sources */,
+				55EF74671D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m in Sources */,
 				55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */,
 				5509044E1CBFD64700F884C2 /* ONEReadSerialViewController.m in Sources */,
 				5509044C1CBFD64700F884C2 /* ONEReadEssayViewController.m in Sources */,

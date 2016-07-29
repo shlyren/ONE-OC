@@ -16,6 +16,8 @@
 #import "ONEMusicSongViewController.h"
 #import "ONEAuthorItem.h"
 
+#import "UIScrollView+scaleImage.h"
+
 #define persionDetailHeader 360
 @interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
 
@@ -105,7 +107,7 @@
     self.navigationItem.title = @"ta的资料";
     _tableView.detailView = self.personTopView;
     _tableView.delegate_person = self;
-    
+   // _tableView.yx_image = [UIImage imageWithContentsOfFile:@"personalBackgroundImage"];
     self.automaticallyAdjustsScrollViewInsets = false;
     self.tableView.contentInset = UIEdgeInsetsMake(persionDetailHeader, 0, 0, 0);
 }
