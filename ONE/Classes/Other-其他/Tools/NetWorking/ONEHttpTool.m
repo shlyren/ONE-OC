@@ -80,76 +80,75 @@
 #pragma mark - 网络请求
 + (void)GET:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    if ([self haveNetwork])
-    {
-        [self requestMethod:RequestMethodGET url:url parameters:parameters success:^(id responseObject) {
-            if (![url containsString:@"search"] && // 搜索无需缓存
-                [[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey])
-            {
-                [ONEAutoCacheTool writeFile:responseObject withUrl:url];
-            }
-            if (success) success(responseObject);
-
-        } failure:^(NSError *error) {
-            if (failure) failure(error);
-        }];
-        
-    }else {
-        [ONEAutoCacheTool readFileAtPath:url completion:^(NSDictionary *responseObject) {
-            success(responseObject);
-        }];
-    }
+    [self requestMethod:RequestMethodGET url:url parameters:parameters success:success failure:failure];
 }
 
 + (void)POST:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    
-    [self requestMethod:RequestMethodPOST url:url parameters:parameters success:^(id responseObject) {
-        if (success) success(responseObject);
-    } failure:^(NSError *error) {
-        if (failure) failure(error);
-    }];
+    [self requestMethod:RequestMethodPOST url:url parameters:parameters success:success failure:failure];
 }
 
-
+// 主要方法
 + (void)requestMethod:(RequestMethod)method url:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
+    // 成功的bolck
     void (^successBlock)(id responseObject) = ^(id responseObject) {
         success(responseObject);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         [SVProgressHUD dismiss];
     };
     
+    //失败的block
     void (^failurBlock)(id responseObject) = ^(id responseObject) {
         failure(responseObject);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"网络请求失败!"];
     };
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-    [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    if (method == RequestMethodGET) {
-        
-        [[ONEHttpTool shareHttpTool].manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-            
-            if (success) successBlock(responseObject);
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            if (failure) failurBlock(error);
-        }];
-    }
-    else if (method == RequestMethodPOST)
+    if (self.haveNetwork) // 有网络
     {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+        [SVProgressHUD showWithStatus:@"加载中..."];
         
-        [[ONEHttpTool shareHttpTool].manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (method == RequestMethodGET)
+        {
+            [ONEHttpTool.shareHttpTool.manager GET:url
+                                        parameters:parameters
+                                          progress:nil
+                                           success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+                
+                if (success) successBlock(responseObject);
+                
+                // 缓存
+                if (![url containsString:@"search"] && // 搜索无需缓存
+                    [[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey])
+                {
+                    [ONEAutoCacheTool writeFile:responseObject withUrl:url];
+                }
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                if (failure) failurBlock(error);
+            }];
             
-            if (success) successBlock(responseObject);
+        } else if (method == RequestMethodPOST) {
             
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            if (failure) failurBlock(error);
+            [ONEHttpTool.shareHttpTool.manager POST:url
+                                         parameters:parameters
+                                           progress:nil
+                                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                if (success) successBlock(responseObject);
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                if (failure) failurBlock(error);
+            }];
+        }
+    }else { // 没有网络 读取本地磁盘
+        [SVProgressHUD showWithStatus:@"没有网络,使用缓存..."];
+        [ONEAutoCacheTool readFileAtPath:url completion:^(NSDictionary *responseObject) {
+            successBlock(responseObject);
         }];
     }
 }

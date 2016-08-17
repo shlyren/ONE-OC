@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
-
 @property (nonatomic, weak) UIScrollView        *scrollView;
 @property (nonatomic, weak) UIView              *titlesView;
 @property (nonatomic, weak) UIView              *titlesLineView;
@@ -95,25 +94,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.searchBar becomeFirstResponder];
     [self setupAllViewController];
 }
 
-#pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)viewDidAppear:(BOOL)animated
 {
-   [self.view endEditing:true];
-    if ([searchBar.text isEqualToString:self.searhKey]) return;
-    
-    self.searhKey = searchBar.text;
-    NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
-    ONESearchBaseViewController *childVc = self.childViewControllers[index];
-    childVc.view.frame = self.scrollView.bounds;
-    childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
-    [self.scrollView addSubview:childVc.view];
-    
-    self.bgImageView.hidden = true;
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
 }
+
+
 
 - (void)setupAllViewController
 {
@@ -152,7 +142,6 @@
         
     }];
     
-    
     // 设置滚动到顶部
     for (NSInteger i = 0; i < self.childViewControllers.count; i++)
     {
@@ -167,19 +156,33 @@
     }
 }
 
-
-#pragma mark - dcrollView delegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
-    [self titleBtnClick:self.titlesView.subviews[index]];
-}
-
-
 - (IBAction)cancel
 {
     [self.view endEditing:true];
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.view endEditing:true];
+    if ([searchBar.text isEqualToString:self.searhKey]) return;
+    
+    self.searhKey = searchBar.text;
+    NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
+    ONESearchBaseViewController *childVc = self.childViewControllers[index];
+    childVc.view.frame = self.scrollView.bounds;
+    childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
+    [self.scrollView addSubview:childVc.view];
+    
+    self.bgImageView.hidden = true;
+}
+
+#pragma mark - scrollView delegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
+    [self titleBtnClick:self.titlesView.subviews[index]];
 }
 
 

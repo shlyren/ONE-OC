@@ -18,11 +18,11 @@
 
 @interface ONEHomeViewController ()<ONEDraggableCardContainerDelegate, ONEDraggableCardContainerDataSource>
 
-@property (nonatomic, weak) ONEDraggableCardContainer *cardContainer;
-@property (nonatomic, strong) NSArray *homeSubtotals;
+@property (nonatomic, weak) ONEDraggableCardContainer   *cardContainer;
+@property (nonatomic, strong) NSArray                   *homeSubtotals;
 
-@property (weak, nonatomic) IBOutlet UIButton *praiseButton;
-@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton           *praiseButton;
+@property (weak, nonatomic) IBOutlet UIButton           *shareButton;
 
 @end
 
