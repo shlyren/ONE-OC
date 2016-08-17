@@ -47,11 +47,14 @@
         if ([self createDirectoryAtPath:path]) {
             
             BOOL flag = [NSKeyedArchiver archiveRootObject:dict toFile:filePath];
-            if (flag) {
-//                ONELog(@"缓存成功 %@/caches.ren", path)
-            }else {
-//                ONELog(@"缓存失败 %@/caches.ren", path)
-            }
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (flag) {
+                    //ONELog(@"缓存成功 %@/caches.ren", path)
+                }else {
+                    //ONELog(@"缓存失败 %@/caches.ren", path)
+                }
+            });
         }
     });
 }
@@ -65,7 +68,6 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(dict);
         });
@@ -75,6 +77,7 @@
 
 + (NSString *)stringByReplacingUrlOfBundleID:(NSString *)httpUrl
 {
-    return [httpUrl stringByReplacingOccurrencesOfString:@"http://v3.wufazhuce.com:8000" withString:[[NSBundle mainBundle] bundleIdentifier]];
+    return [httpUrl stringByReplacingOccurrencesOfString:@"http://v3.wufazhuce.com:8000"
+                                              withString:NSBundle.mainBundle.bundleIdentifier];
 }
 @end

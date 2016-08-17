@@ -66,7 +66,8 @@ static CGFloat const imageHeight = 200;
 #pragma mark - exchangeMethod
 + (void)load
 {
-    [self yx_exchangeInstanceMethodWithoOrigSelector:@selector(setTableHeaderView:) swizzleSelector:@selector(setYx_tableHeaderView:)];
+    [self yx_exchangeInstanceMethodWithoOrigSelector:@selector(setTableHeaderView:)
+                                     swizzleSelector:@selector(setYx_tableHeaderView:)];
 }
 
 - (void)setYx_tableHeaderView:(UIView *)yx_tableHeaderView
