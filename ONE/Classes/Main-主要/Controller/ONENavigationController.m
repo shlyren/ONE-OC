@@ -91,11 +91,6 @@
 
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONESearchViewController class]] animated:true];
-}
-
 - (void)rightBtnClick
 {
     [self pushViewController:[ONEMeSettingViewController new] animated:true];
@@ -121,11 +116,15 @@
     [self popViewControllerAnimated:true];
 }
 
-
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
    [SVProgressHUD dismiss];
    return [super popViewControllerAnimated:animated];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONESearchViewController class]] animated:true];
 }
 
 @end

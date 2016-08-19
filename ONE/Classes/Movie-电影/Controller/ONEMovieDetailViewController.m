@@ -84,7 +84,6 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     self.tableView.tableHeaderView = _headerView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"ONEMovieCommentCell" bundle:nil] forCellReuseIdentifier:movieCommentID];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-    
 }
 
 #pragma mark - load data
@@ -101,7 +100,6 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 //    } failure:^(NSError *error) {
 //        [weakSelf loadCommentData];
 //    }];
-//
 //}
 
 /** 加载评论数据 */
@@ -192,6 +190,7 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ONEMovieCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:movieCommentID];
+    
     cell.commentItem = [self.groups[indexPath.section] items][indexPath.row];
     cell.movie_id = _movie_id;
     

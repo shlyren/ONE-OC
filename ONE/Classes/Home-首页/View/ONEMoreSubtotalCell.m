@@ -28,6 +28,7 @@
     self.layer.shouldRasterize = true;
     self.layer.rasterizationScale = UIScreen.mainScreen.scale;
     self.layer.cornerRadius = 5;
+    
 }
 
 - (void)setSubtotalItem:(ONEHomeSubtotalItem *)subtotalItem
