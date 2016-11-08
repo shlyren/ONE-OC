@@ -60,6 +60,19 @@
 		55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B0C1CC66E0C00A4EC54 /* ONEReadPastListViewController.m */; };
 		55711B3B1CC87EFA00A4EC54 /* ONELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */; };
 		55711B3C1CC87EFA00A4EC54 /* ONELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */; };
+		557EA6451DD1C838008A77C8 /* ONEPushTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 557EA6441DD1C838008A77C8 /* ONEPushTool.m */; };
+		557EA6491DD1C841008A77C8 /* jpush-ios-2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6471DD1C841008A77C8 /* jpush-ios-2.2.0.a */; };
+		557EA64B1DD1C866008A77C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA64A1DD1C866008A77C8 /* CFNetwork.framework */; };
+		557EA64D1DD1C877008A77C8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA64C1DD1C877008A77C8 /* CoreFoundation.framework */; };
+		557EA64F1DD1C881008A77C8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA64E1DD1C881008A77C8 /* CoreTelephony.framework */; };
+		557EA6511DD1C888008A77C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6501DD1C888008A77C8 /* SystemConfiguration.framework */; };
+		557EA6531DD1C88E008A77C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6521DD1C88E008A77C8 /* CoreGraphics.framework */; };
+		557EA6551DD1C894008A77C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6541DD1C894008A77C8 /* Foundation.framework */; };
+		557EA6571DD1C899008A77C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6561DD1C899008A77C8 /* UIKit.framework */; };
+		557EA6591DD1C8A0008A77C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA6581DD1C8A0008A77C8 /* Security.framework */; };
+		557EA65B1DD1C8AD008A77C8 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA65A1DD1C8AD008A77C8 /* UserNotifications.framework */; };
+		557EA65D1DD1C8B4008A77C8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 557EA65C1DD1C8B4008A77C8 /* libresolv.tbd */; };
+		557EA6661DD1D2A0008A77C8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */; };
 		558165AA1CC609830022458E /* NSMutableAttributedString+string.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165931CC609830022458E /* NSMutableAttributedString+string.m */; };
 		558165AB1CC609830022458E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165951CC609830022458E /* UIColor+Hex.m */; };
 		558165AC1CC609830022458E /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 558165971CC609830022458E /* UIImage+image.m */; };
@@ -137,13 +150,14 @@
 		55FC84BF1CBBB78900E454A3 /* ONEAuthorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC84BE1CBBB78900E454A3 /* ONEAuthorItem.m */; };
 		55FC84CA1CBBF69300E454A3 /* ONEMovieCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC84C91CBBF69300E454A3 /* ONEMovieCommentItem.m */; };
 		55FC8E0E1CF15A400042EE1C /* ONENightModeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC8E0B1CF15A400042EE1C /* ONENightModeTool.m */; };
+		651587DB57B2B7908CA199D5 /* libPods-ONE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC71329B1C3A9BFE262AB61 /* libPods-ONE.a */; };
 		7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A38F91CAD960C0085EB67 /* Assets.xcassets */; };
 		7E1A38FD1CAD960C0085EB67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A38FB1CAD960C0085EB67 /* LaunchScreen.storyboard */; };
 		7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8D0CD1CAE027000613625 /* ONETabbarController.m */; };
-		D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9308BD47B20C5C8F1D609C57 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EC71329B1C3A9BFE262AB61 /* libPods-ONE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ONE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5505BCCA1CAF97160063B97C /* ONECommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ONECommentCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5505BCCB1CAF97160063B97C /* ONECommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONECommentCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5505BCCC1CAF97160063B97C /* ONECommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONECommentCell.xib; sourceTree = "<group>"; };
@@ -238,6 +252,20 @@
 		55711B381CC87EFA00A4EC54 /* ONELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONELoginViewController.h; sourceTree = "<group>"; };
 		55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONELoginViewController.m; sourceTree = "<group>"; };
 		55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONELoginViewController.xib; sourceTree = "<group>"; };
+		557EA6431DD1C838008A77C8 /* ONEPushTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPushTool.h; sourceTree = "<group>"; };
+		557EA6441DD1C838008A77C8 /* ONEPushTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPushTool.m; sourceTree = "<group>"; };
+		557EA6471DD1C841008A77C8 /* jpush-ios-2.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.2.0.a"; sourceTree = "<group>"; };
+		557EA6481DD1C841008A77C8 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		557EA64A1DD1C866008A77C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		557EA64C1DD1C877008A77C8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		557EA64E1DD1C881008A77C8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		557EA6501DD1C888008A77C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		557EA6521DD1C88E008A77C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		557EA6541DD1C894008A77C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		557EA6561DD1C899008A77C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		557EA6581DD1C8A0008A77C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		557EA65A1DD1C8AD008A77C8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		557EA65C1DD1C8B4008A77C8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		558165921CC609830022458E /* NSMutableAttributedString+string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+string.h"; sourceTree = "<group>"; };
 		558165931CC609830022458E /* NSMutableAttributedString+string.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+string.m"; sourceTree = "<group>"; };
 		558165941CC609830022458E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -381,15 +409,14 @@
 		55FC84C91CBBF69300E454A3 /* ONEMovieCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieCommentItem.m; sourceTree = "<group>"; };
 		55FC8E0A1CF15A400042EE1C /* ONENightModeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONENightModeTool.h; sourceTree = "<group>"; };
 		55FC8E0B1CF15A400042EE1C /* ONENightModeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONENightModeTool.m; sourceTree = "<group>"; };
+		5903EA75C5513075E612B37A /* Pods-ONE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONE.release.xcconfig"; path = "Pods/Target Support Files/Pods-ONE/Pods-ONE.release.xcconfig"; sourceTree = "<group>"; };
 		7E1A38EA1CAD960C0085EB67 /* ONE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1A38F91CAD960C0085EB67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E1A38FC1CAD960C0085EB67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E1A38FE1CAD960C0085EB67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EC8D0CC1CAE027000613625 /* ONETabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONETabbarController.h; sourceTree = "<group>"; };
 		7EC8D0CD1CAE027000613625 /* ONETabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONETabbarController.m; sourceTree = "<group>"; };
-		9308BD47B20C5C8F1D609C57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D924295F1CA24556FCC56ACA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F8B2C5369889A2D5CC517E09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A5E55A527AFC263C15369A57 /* Pods-ONE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ONE/Pods-ONE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,7 +424,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D71ED2D436FF4D83FEA74CC9 /* libPods.a in Frameworks */,
+				557EA6661DD1D2A0008A77C8 /* AudioToolbox.framework in Frameworks */,
+				557EA65D1DD1C8B4008A77C8 /* libresolv.tbd in Frameworks */,
+				557EA65B1DD1C8AD008A77C8 /* UserNotifications.framework in Frameworks */,
+				557EA6591DD1C8A0008A77C8 /* Security.framework in Frameworks */,
+				557EA6571DD1C899008A77C8 /* UIKit.framework in Frameworks */,
+				557EA6551DD1C894008A77C8 /* Foundation.framework in Frameworks */,
+				557EA6531DD1C88E008A77C8 /* CoreGraphics.framework in Frameworks */,
+				557EA6511DD1C888008A77C8 /* SystemConfiguration.framework in Frameworks */,
+				557EA64F1DD1C881008A77C8 /* CoreTelephony.framework in Frameworks */,
+				557EA64D1DD1C877008A77C8 /* CoreFoundation.framework in Frameworks */,
+				557EA64B1DD1C866008A77C8 /* CFNetwork.framework in Frameworks */,
+				651587DB57B2B7908CA199D5 /* libPods-ONE.a in Frameworks */,
+				557EA6491DD1C841008A77C8 /* jpush-ios-2.2.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +657,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		557EA6421DD1C838008A77C8 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				557EA6461DD1C841008A77C8 /* Lib */,
+				557EA6431DD1C838008A77C8 /* ONEPushTool.h */,
+				557EA6441DD1C838008A77C8 /* ONEPushTool.m */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		557EA6461DD1C841008A77C8 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				557EA6471DD1C841008A77C8 /* jpush-ios-2.2.0.a */,
+				557EA6481DD1C841008A77C8 /* JPUSHService.h */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		558165911CC609830022458E /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +711,7 @@
 		558165A31CC609830022458E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				557EA6421DD1C838008A77C8 /* Push */,
 				55FC8E091CF15A400042EE1C /* NightMode */,
 				55F7EF921CE6FB47000FC9DD /* File */,
 				55F7EF971CE6FB47000FC9DD /* NetWorking */,
@@ -892,22 +951,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		75E8192DE6F085F776EE105A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D924295F1CA24556FCC56ACA /* Pods.debug.xcconfig */,
-				F8B2C5369889A2D5CC517E09 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7E1A38E11CAD960C0085EB67 = {
 			isa = PBXGroup;
 			children = (
 				7E1A38EC1CAD960C0085EB67 /* ONE */,
 				7E1A38EB1CAD960C0085EB67 /* Products */,
-				75E8192DE6F085F776EE105A /* Pods */,
 				E14DF55EF240829EA9F129B5 /* Frameworks */,
+				D233BBD5E7A16759993FA2A6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1063,12 +1113,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		D233BBD5E7A16759993FA2A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5E55A527AFC263C15369A57 /* Pods-ONE.debug.xcconfig */,
+				5903EA75C5513075E612B37A /* Pods-ONE.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E14DF55EF240829EA9F129B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				557EA65C1DD1C8B4008A77C8 /* libresolv.tbd */,
+				557EA65A1DD1C8AD008A77C8 /* UserNotifications.framework */,
+				557EA6581DD1C8A0008A77C8 /* Security.framework */,
+				557EA6561DD1C899008A77C8 /* UIKit.framework */,
+				557EA6541DD1C894008A77C8 /* Foundation.framework */,
+				557EA6521DD1C88E008A77C8 /* CoreGraphics.framework */,
+				557EA6501DD1C888008A77C8 /* SystemConfiguration.framework */,
+				557EA64E1DD1C881008A77C8 /* CoreTelephony.framework */,
+				557EA64C1DD1C877008A77C8 /* CoreFoundation.framework */,
+				557EA64A1DD1C866008A77C8 /* CFNetwork.framework */,
 				559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */,
 				55711B321CC7913900A4EC54 /* MediaPlayer.framework */,
-				9308BD47B20C5C8F1D609C57 /* libPods.a */,
+				4EC71329B1C3A9BFE262AB61 /* libPods-ONE.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1080,12 +1149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E1A39011CAD960C0085EB67 /* Build configuration list for PBXNativeTarget "ONE" */;
 			buildPhases = (
-				7FA55A72439075DB56DD7FB8 /* Check Pods Manifest.lock */,
+				1D8CC4F138818AFD9667E0FF /* [CP] Check Pods Manifest.lock */,
 				7E1A38E61CAD960C0085EB67 /* Sources */,
 				7E1A38E71CAD960C0085EB67 /* Frameworks */,
 				7E1A38E81CAD960C0085EB67 /* Resources */,
-				376690A43AD086DAE6E694FF /* Embed Pods Frameworks */,
-				807A1FE5BE39D6CFB98654E4 /* Copy Pods Resources */,
+				049D718FBA1946DBBB329025 /* [CP] Embed Pods Frameworks */,
+				FC6DE37CA91CD66863DA18DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1103,7 +1172,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ONE;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "任玉祥";
 				TargetAttributes = {
 					7E1A38E91CAD960C0085EB67 = {
@@ -1112,6 +1181,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -1173,29 +1245,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		376690A43AD086DAE6E694FF /* Embed Pods Frameworks */ = {
+		049D718FBA1946DBBB329025 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ONE/Pods-ONE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7FA55A72439075DB56DD7FB8 /* Check Pods Manifest.lock */ = {
+		1D8CC4F138818AFD9667E0FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1203,19 +1275,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		807A1FE5BE39D6CFB98654E4 /* Copy Pods Resources */ = {
+		FC6DE37CA91CD66863DA18DC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ONE/Pods-ONE-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1308,6 +1380,7 @@
 				559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
+				557EA6451DD1C838008A77C8 /* ONEPushTool.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
 				55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
@@ -1361,8 +1434,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
@@ -1406,8 +1481,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxiang Ren (9A5T9K87B2)";
@@ -1434,7 +1511,7 @@
 		};
 		7E1A39021CAD960C0085EB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D924295F1CA24556FCC56ACA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A5E55A527AFC263C15369A57 /* Pods-ONE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1446,6 +1523,10 @@
 				INFOPLIST_FILE = ONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONE/Classes/Other-其他/Tools/Push/Lib",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1457,7 +1538,7 @@
 		};
 		7E1A39031CAD960C0085EB67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8B2C5369889A2D5CC517E09 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5903EA75C5513075E612B37A /* Pods-ONE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1469,6 +1550,10 @@
 				INFOPLIST_FILE = ONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONE/Classes/Other-其他/Tools/Push/Lib",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ren.yuxiang.oc.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";

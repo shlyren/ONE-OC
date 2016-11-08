@@ -14,6 +14,7 @@
 #import "ONEHttpTool.h"
 #import "ONEShareTool.h"
 #import "ONENightModeTool.h"
+#import "ONEPushTool.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -24,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -43,6 +45,8 @@
     
     // 界面 FPS 代码
     [ONEFPSLabel setupFPSLabel];
+    
+    [ONEPushTool registerForRemoteNotificationApplication:application didFinishLaunchingWithOptions:launchOptions];
     
     ONELog(@"当前环境: DEBUG")
     
@@ -84,9 +88,14 @@
     [self startTimer];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    
+    [ONEPushTool application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    [ONEPushTool application:application didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
@@ -97,7 +106,6 @@
 - (void)startTimer
 {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(clearMemory) userInfo:nil repeats:true];
-    
 }
 
 - (void)stopTimer

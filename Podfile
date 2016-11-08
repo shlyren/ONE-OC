@@ -1,12 +1,16 @@
-platform :ios, '8.0'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
 
-pod 'AFNetworking'
-pod 'SDWebImage'
-pod 'SVProgressHUD'
-pod 'MJRefresh'
-pod 'MJExtension'
-pod 'RealReachability'
-pod 'UMengSocialCOM'
+target 'ONE' do
+  # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
 
-#pod 'DKNightVersion'
-#pod 'FMDB'
+  # Pods for ONE
+  	pod 'AFNetworking'
+	pod 'SDWebImage'
+	pod 'SVProgressHUD'
+	pod 'MJRefresh'
+	pod 'MJExtension'
+	pod 'RealReachability'
+	pod 'UMengSocialCOM'
+end

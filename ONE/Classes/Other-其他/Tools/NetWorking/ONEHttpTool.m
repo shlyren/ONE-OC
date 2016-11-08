@@ -92,8 +92,8 @@
 + (void)requestMethod:(RequestMethod)method url:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     // 成功的bolck
-    void (^successBlock)(id responseObject) = ^(id responseObject) {
-        success(responseObject);
+    void (^successBlock)(id responseObject) = ^(id res) {
+        success(res);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
         [SVProgressHUD dismiss];
     };
