@@ -54,6 +54,8 @@
 		55422CFF1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFB1CBFEB1700A3B1A0 /* ONEDefaultCellGroupItem.m */; };
 		55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */; };
 		554481681CD6EC2B008AB5DE /* ONETabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 554481671CD6EC2B008AB5DE /* ONETabBar.m */; };
+		5546617C1DD2B0DD00F59711 /* ONEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546617B1DD2B0DD00F59711 /* ONEMeViewController.m */; };
+		5546617F1DD2B71600F59711 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546617E1DD2B71600F59711 /* UIButton+Extension.m */; };
 		555630A61CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 555630A51CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m */; };
 		5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */; };
 		55711B011CC66BC600A4EC54 /* ONEReadPastListResultVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 55711B001CC66BC600A4EC54 /* ONEReadPastListResultVc.m */; };
@@ -241,6 +243,10 @@
 		55422CFD1CBFEB1700A3B1A0 /* ONEDefaultCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ONEDefaultCellItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		554481661CD6EC2B008AB5DE /* ONETabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONETabBar.h; sourceTree = "<group>"; };
 		554481671CD6EC2B008AB5DE /* ONETabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONETabBar.m; sourceTree = "<group>"; };
+		5546617A1DD2B0DD00F59711 /* ONEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMeViewController.h; sourceTree = "<group>"; };
+		5546617B1DD2B0DD00F59711 /* ONEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMeViewController.m; sourceTree = "<group>"; };
+		5546617D1DD2B71600F59711 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		5546617E1DD2B71600F59711 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		555630A41CE0E7AC003CDED0 /* ONEDefaultCellArrItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEDefaultCellArrItem.h; sourceTree = "<group>"; };
 		555630A51CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEDefaultCellArrItem.m; sourceTree = "<group>"; };
 		5569CF051CB55709006EB7A0 /* ONEMusicDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEMusicDetailView.xib; sourceTree = "<group>"; };
@@ -637,6 +643,8 @@
 				55711B381CC87EFA00A4EC54 /* ONELoginViewController.h */,
 				55711B391CC87EFA00A4EC54 /* ONELoginViewController.m */,
 				55711B3A1CC87EFA00A4EC54 /* ONELoginViewController.xib */,
+				5546617A1DD2B0DD00F59711 /* ONEMeViewController.h */,
+				5546617B1DD2B0DD00F59711 /* ONEMeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -679,6 +687,8 @@
 		558165911CC609830022458E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5546617D1DD2B71600F59711 /* UIButton+Extension.h */,
+				5546617E1DD2B71600F59711 /* UIButton+Extension.m */,
 				558165921CC609830022458E /* NSMutableAttributedString+string.h */,
 				558165931CC609830022458E /* NSMutableAttributedString+string.m */,
 				558165941CC609830022458E /* UIColor+Hex.h */,
@@ -1367,6 +1377,7 @@
 				55C6DD661CC4C58900988121 /* ONESearchAuthorViewController.m in Sources */,
 				5509044B1CBFD64700F884C2 /* ONESerialDetailViewController.m in Sources */,
 				5509042F1CBFD62500F884C2 /* ONEReadDetailHeaderView.m in Sources */,
+				5546617F1DD2B71600F59711 /* UIButton+Extension.m in Sources */,
 				55C289B71CAE47A50092A897 /* ONEMovieViewController.m in Sources */,
 				55B9A10F1CBF5D68009E44AA /* ONEReadListItem.m in Sources */,
 				55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */,
@@ -1376,6 +1387,7 @@
 				5509044E1CBFD64700F884C2 /* ONEReadSerialViewController.m in Sources */,
 				5509044C1CBFD64700F884C2 /* ONEReadEssayViewController.m in Sources */,
 				55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */,
+				5546617C1DD2B0DD00F59711 /* ONEMeViewController.m in Sources */,
 				555630A61CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m in Sources */,
 				559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,

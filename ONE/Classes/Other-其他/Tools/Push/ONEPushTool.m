@@ -73,7 +73,7 @@
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+        [self handleRemoteNotification:userInfo];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
 }
@@ -83,7 +83,7 @@
     // Required
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+        [self handleRemoteNotification:userInfo];
     }
     completionHandler();  // 系统要求执行这个方法
 }
@@ -91,16 +91,31 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Required, iOS 7 Support
-    [JPUSHService handleRemoteNotification:userInfo];
+    [self handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     // Required,For systems with less than or equal to iOS6
-    [JPUSHService handleRemoteNotification:userInfo];
+    [self handleRemoteNotification:userInfo];
 }
 
 
+- (void)handleRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    id vaule = userInfo[@"aps"][@"badge"];
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber + [vaule integerValue];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:badge];
+    [JPUSHService setBadge:badge];
+    
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
++ (void)resetBadge
+{
+    [JPUSHService resetBadge];
+}
 
 @end

@@ -90,6 +90,18 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
     [self setupView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:true];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:false];
+}
+
 - (void)setupView
 {
     
@@ -160,6 +172,7 @@ static NSString *const carouselDetailCell = @"carouselDetailCell";
         readDetailVC = [ONEQuestionDetailViewController new];
     }
     readDetailVC.detail_id = item.item_id;
+    
     [self.navigationController pushViewController:readDetailVC animated:true];
     
 }

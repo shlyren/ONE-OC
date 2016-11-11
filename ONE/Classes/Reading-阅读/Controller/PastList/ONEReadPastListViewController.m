@@ -18,7 +18,6 @@
     pastListResultVC.readPastListType = self.readPastListType;
     pastListResultVC.month = self.pastLists[indexPath.row];
     [self.navigationController pushViewController:pastListResultVC animated:true];
-    
 }
 
 @end

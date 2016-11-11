@@ -15,6 +15,8 @@
 #import "ONEShareTool.h"
 #import "ONENightModeTool.h"
 #import "ONEPushTool.h"
+#import "ONESearchViewController.h"
+#import "ONENavigationController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -47,12 +49,41 @@
     [ONEFPSLabel setupFPSLabel];
     
     [ONEPushTool registerForRemoteNotificationApplication:application didFinishLaunchingWithOptions:launchOptions];
-    
+    [self setup3DTouchItems:application];
     ONELog(@"当前环境: DEBUG")
     
     return YES;
 }
 
+#pragma mark - 设置3DTouch
+- (void)setup3DTouchItems:(UIApplication *)application
+{
+    UIApplicationShortcutItem *share = [[UIApplicationShortcutItem alloc] initWithType: @"shareONE" localizedTitle: @"分享" localizedSubtitle: nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeShare] userInfo: nil];
+    UIApplicationShortcutItem *clear = [[UIApplicationShortcutItem alloc] initWithType: @"clearIcon" localizedTitle: @"任玉祥" localizedSubtitle: nil icon: [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeFavorite] userInfo: nil];
+    UIApplicationShortcutItem *search = [[UIApplicationShortcutItem alloc] initWithType: @"searchItem" localizedTitle: @"搜索" localizedSubtitle: nil icon: [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch] userInfo: nil];
+    application.shortcutItems = @[search, clear, share];
+    
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    NSString *type = shortcutItem.type;
+    if ([type isEqualToString: @"shareONE"])
+    {
+        [ONEShareTool showShareView:application.keyWindow.rootViewController content:@"ONE by Yuxiang" url:@"https://yuxiang.ren" image:nil];
+    }
+    else if([type isEqualToString: @"searchItem"])
+    {
+        ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:[ONESearchViewController new]];
+        [application.keyWindow.rootViewController presentViewController:nav animated:true completion:nil];
+
+    }
+    else if([type isEqualToString: @"clearIcon"])
+    {
+        application.applicationIconBadgeNumber = 0;
+        [ONEPushTool resetBadge];
+    }
+}
 
 - (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
 {
@@ -69,6 +100,7 @@
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // 前台 按下home键
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

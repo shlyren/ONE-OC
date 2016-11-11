@@ -14,7 +14,7 @@
 #import "ONEMovieListCell.h"
 #import "ONEMovieDetailViewController.h"
 
-@interface ONEMovieViewController ()
+@interface ONEMovieViewController ()<UIViewControllerPreviewingDelegate>
 
 @property (nonatomic, strong) NSMutableArray *movieList;
 
@@ -39,7 +39,72 @@
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.rowHeight = 150;
+    
+    // 2、判断3DTouch
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+        [self registerForPreviewingWithDelegate: self sourceView: self.view];
+    }
 }
+
+
+#pragma mark - UIViewControllerPreviewingDelegate
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    //    [self.navigationController pushViewController: viewControllerToCommit animated: YES];
+    [self showViewController: viewControllerToCommit sender: self];
+}
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: location];
+    ONEMovieListCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) return nil;
+    
+    ONEMovieListItem *movieListItem = cell.movieListItem;
+    ONEMovieDetailViewController *movieDetailVc = [ONEMovieDetailViewController new];
+    movieDetailVc.movie_id = [movieListItem movie_id];
+    movieDetailVc.title = [movieListItem title];
+    return movieDetailVc;
+}
+
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems
+{
+    // 生成UIPreviewAction
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Action 1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 1 selected");
+    }];
+    
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Action 2" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 2 selected");
+    }];
+    
+    UIPreviewAction *action3 = [UIPreviewAction actionWithTitle:@"Action 3" style:UIPreviewActionStyleSelected handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 3 selected");
+    }];
+    
+    UIPreviewAction *tap1 = [UIPreviewAction actionWithTitle:@"tap 1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 1 selected");
+    }];
+    
+    UIPreviewAction *tap2 = [UIPreviewAction actionWithTitle:@"tap 2" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 2 selected");
+    }];
+    
+    UIPreviewAction *tap3 = [UIPreviewAction actionWithTitle:@"tap 3" style:UIPreviewActionStyleSelected handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 3 selected");
+    }];
+    
+    // 塞到UIPreviewActionGroup中
+    NSArray *actions = @[action1, action2, action3];
+    NSArray *taps = @[tap1, tap2, tap3];
+    UIPreviewActionGroup *group1 = [UIPreviewActionGroup actionGroupWithTitle:@"Action Group" style:UIPreviewActionStyleDefault actions:actions];
+    UIPreviewActionGroup *group2 = [UIPreviewActionGroup actionGroupWithTitle:@"Action Group" style:UIPreviewActionStyleDefault actions:taps];
+    NSArray *group = @[group1,group2];
+    
+    return group;
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {

@@ -13,4 +13,5 @@ target 'ONE' do
 	pod 'MJExtension'
 	pod 'RealReachability'
 	pod 'UMengSocialCOM'
+    pod 'Masonry'
 end

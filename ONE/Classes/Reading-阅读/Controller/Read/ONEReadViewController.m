@@ -20,7 +20,7 @@
 #import "ONEReadListItem.h"
 
 
-@interface ONEReadViewController () <ONECarouselViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate>
+@interface ONEReadViewController () <ONECarouselViewDelegate, UIScrollViewDelegate>
 @property (nonatomic, weak) UIView              *carouselCoverView;
 @property (nonatomic, weak) ONECarouselView     *carouselView;
 @property (nonatomic, strong) NSArray           *adDatas;
@@ -244,14 +244,14 @@
     crouseDetailVc.adItem = self.adDatas[indexPath.row];
     if (crouseDetailVc.adItem == nil) return;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:crouseDetailVc];
-    nav.delegate = self;
+//    nav.delegate = self;
     [self presentViewController:nav animated:true completion:nil];
 }
 
 #pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONECarouselDetailViewController class]] animated:true];
-}
+//- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONECarouselDetailViewController class]] animated:true];
+//}
 
 @end

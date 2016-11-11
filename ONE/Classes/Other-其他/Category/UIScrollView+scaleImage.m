@@ -8,6 +8,7 @@
 
 #import "UIScrollView+scaleImage.h"
 #import <objc/runtime.h>
+#import "UIScrollView+MJExtension.h"
 
 /** 交换方法的分类 */
 @interface NSObject (exchangeMethod)
@@ -83,11 +84,14 @@ static CGFloat const imageHeight = 200;
 {
     UIImageView *imageView = objc_getAssociatedObject(self, imageViewKey);
     
-    if (!imageView) {
+    if (!imageView)
+    {
         imageView = [UIImageView new];
         imageView.clipsToBounds = true;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
         [self insertSubview:imageView atIndex:0];
+        
         
         objc_setAssociatedObject(self, imageViewKey, imageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
@@ -110,6 +114,7 @@ static CGFloat const imageHeight = 200;
 - (void)setYx_height:(CGFloat)yx_height
 {
     objc_setAssociatedObject(self, imageViewHeight, @(yx_height), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
     [self setupHeaderImageViewFrame];
     
 }
@@ -117,7 +122,7 @@ static CGFloat const imageHeight = 200;
 - (CGFloat)yx_height
 {
     CGFloat height = [objc_getAssociatedObject(self, imageViewHeight) floatValue];
-    return height ? height : imageHeight;
+    return height ? : imageHeight;
 }
 
 #pragma mark - other
@@ -128,19 +133,22 @@ static CGFloat const imageHeight = 200;
 
 - (void)setIsInitial:(BOOL)isInitial
 {
-    objc_setAssociatedObject(self, isInitialKey, @(isInitialKey), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, isInitialKey, @(isInitial), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)setupHeaderImageViewFrame
 {
     [self headerImageView].frame = CGRectMake(0, 0, self.bounds.size.width, self.yx_height);
+    self.x = CGRectGetMaxY([self headerImageView].frame);
 }
 
 - (void)setupHeaderImageView
 {
     [self setupHeaderImageViewFrame];
-    if (![self isInitial]) {
-        [self addObserver:self forKeyPath:KeyPath(self, contentOffset) options:NSKeyValueObservingOptionNew context:nil];
+    if (![self isInitial])
+    {
+        [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+        [self setIsInitial:true];
     }
 }
 
@@ -154,10 +162,11 @@ static CGFloat const imageHeight = 200;
     }
 }
 
+
 - (void)dealloc
 {
     if ([self isInitial]) {
-        [self removeObserver:self forKeyPath:KeyPath(self, contentOffset)];
+        [self removeObserver:self forKeyPath:@"contentOffset"];
     }
 }
 @end

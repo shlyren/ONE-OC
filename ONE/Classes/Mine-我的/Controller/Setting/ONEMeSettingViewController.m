@@ -51,11 +51,6 @@
 - (void)setupGroup2
 {
 
-    ONEDefaultCellItem *item0 = [ONEDefaultCellItem itemWithTitle:@"夜间模式"];
-    ONESwitch *nightSwitch = [ONESwitch new];
-    [nightSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONENightModelKey] animated:true];
-    [nightSwitch addTarget:self action:@selector(nightSwitchChanged:) forControlEvents:UIControlEventValueChanged];
-    item0.accessoryView = nightSwitch;
     
     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"缓存到本地"];
     ONESwitch *autoCacheSwitch = [ONESwitch new];
@@ -80,7 +75,7 @@
     }];
     item2.accessoryType = UITableViewCellAccessoryNone;
     
-    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item0,item1, item2]]];
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2]]];
 }
 
 - (void)setupGroup3
@@ -99,14 +94,6 @@
     
     [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1]]];
     
-}
-
-- (void)nightSwitchChanged:(ONESwitch *)nightSwitch
-{
-    
-    [ONENightModeTool setNightMode:nightSwitch.isOn];
-    [[NSUserDefaults standardUserDefaults] setBool:nightSwitch.isOn forKey: ONENightModelKey];
-
 }
 
 - (void)autoCacheSwitchChanged:(UISwitch *)autoCacheSwitch

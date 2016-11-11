@@ -106,7 +106,8 @@ NSString *const relatedCellID = @"relatedCell";
     
     ONEReadToolBarView *toolBarView = [ONEReadToolBarView toolBarView];
     toolBarView.frame = CGRectMake(0, self.tableView.height - ToolBarHeight, self.view.width, ToolBarHeight);
-    [self.view  addSubview: _toolBarView = toolBarView];
+    [self.view addSubview: _toolBarView = toolBarView];
+    
 }
 
 #pragma mark - 数据相关
@@ -225,5 +226,6 @@ NSString *const relatedCellID = @"relatedCell";
 {
     return 0.000000000001;
 }
+
 
 @end

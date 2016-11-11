@@ -9,9 +9,10 @@
 #import "ONENavigationController.h"
 #import "SVProgressHUD.h"
 #import "ONESearchViewController.h"
+#import "ONEMeViewController.h"
 #import "ONEMeSettingViewController.h"
 
-@interface ONENavigationController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
+@interface ONENavigationController ()<UIGestureRecognizerDelegate>
 @end
 
 @implementation ONENavigationController
@@ -85,14 +86,16 @@
 {
     ONESearchViewController *searchVc = [ONESearchViewController new];
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:searchVc];
-    nav.delegate = self;
-    
     [self presentViewController:nav animated:true completion:nil];
 
 }
 
 - (void)rightBtnClick
 {
+    
+//    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:[ONEMeViewController new]];
+//    
+//    [self presentViewController:nav animated:true completion:nil];
     [self pushViewController:[ONEMeSettingViewController new] animated:true];
 }
 
@@ -120,11 +123,6 @@
 {
    [SVProgressHUD dismiss];
    return [super popViewControllerAnimated:animated];
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONESearchViewController class]] animated:true];
 }
 
 @end

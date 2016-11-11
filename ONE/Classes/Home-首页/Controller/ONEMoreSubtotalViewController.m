@@ -14,7 +14,8 @@
 
 @interface ONEMoreSubtotalViewController ()<UICollectionViewDataSource,
                                             UICollectionViewDelegate,
-                                            ONEMoreSubtotalLayoutDelegate>
+                                            ONEMoreSubtotalLayoutDelegate,
+                                            UIViewControllerPreviewingDelegate>
 
 @property (nonatomic, weak) UICollectionView      *collectionView;
 @property (nonatomic, strong) NSArray             *subtotalArr;
@@ -52,6 +53,12 @@ static NSString *const moreSubtotalCell = @"moreSubtotalCell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = false;
     [self loadData];
+    
+    // 2、判断3DTouch
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+        [self registerForPreviewingWithDelegate: self sourceView: self.view];
+    }
 }
 
 /**
@@ -101,5 +108,27 @@ static NSString *const moreSubtotalCell = @"moreSubtotalCell";
     detailVc.subtotalItem = self.subtotalArr[indexPath.row];
     [self.navigationController pushViewController:detailVc animated:true];
 }
+
+
+#pragma mark - UIViewControllerPreviewingDelegate
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    //    [self.navigationController pushViewController: viewControllerToCommit animated: YES];
+    [self showViewController: viewControllerToCommit sender: self];
+}
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:location];
+    ONEMoreSubtotalCell *cell = (ONEMoreSubtotalCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (!cell) return nil;
+    
+    ONESubtotalDetailViewController *vc = [ONESubtotalDetailViewController new];
+    ONEHomeSubtotalItem *subtotalItem = cell.subtotalItem;
+    vc.subtotalItem = subtotalItem;
+    return vc;
+}
+
 
 @end
