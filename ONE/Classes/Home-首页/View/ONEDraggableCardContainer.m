@@ -451,13 +451,15 @@ typedef NS_ENUM(NSInteger, MoveSlope) {
         ONEDraggableDirection direction = ONEDraggableDirectionDefault;
         if (fabs(ratio_h) > fabs(ratio_w))
         {
-            if (ratio_h < - kDragCompleteCoefficient_height_default && (_canDraggableDirection & ONEDraggableDirectionUp))
+            if (ratio_h < - kDragCompleteCoefficient_height_default &&
+                (_canDraggableDirection & ONEDraggableDirectionUp))
             {
                 // up
                 direction = ONEDraggableDirectionUp;
             }
             
-            if (ratio_h > kDragCompleteCoefficient_height_default && (_canDraggableDirection & ONEDraggableDirectionDown))
+            if (ratio_h > kDragCompleteCoefficient_height_default &&
+                (_canDraggableDirection & ONEDraggableDirectionDown))
             {
                 // down
                 direction = ONEDraggableDirectionDown;
@@ -465,13 +467,15 @@ typedef NS_ENUM(NSInteger, MoveSlope) {
             
         } else {
             
-            if (ratio_w > kDragCompleteCoefficient_width_default && (_canDraggableDirection & ONEDraggableDirectionRight))
+            if (ratio_w > kDragCompleteCoefficient_width_default &&
+                (_canDraggableDirection & ONEDraggableDirectionRight))
             {
                 // right
                 direction = ONEDraggableDirectionRight;
             }
             
-            if (ratio_w < - kDragCompleteCoefficient_width_default && (_canDraggableDirection & ONEDraggableDirectionLeft))
+            if (ratio_w < - kDragCompleteCoefficient_width_default &&
+                (_canDraggableDirection & ONEDraggableDirectionLeft))
             {
                 // left
                 direction = ONEDraggableDirectionLeft;

@@ -116,7 +116,6 @@
 }
 
 
-
 - (void)setupAllViewController
 {
     [self addChildViewController:ONESearchHpViewController.new];

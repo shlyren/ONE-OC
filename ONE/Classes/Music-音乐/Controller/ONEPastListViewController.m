@@ -16,34 +16,39 @@
 {
     [super viewDidLoad];
     self.title = @"往期列表";
-    _pastLists = [self arryWithEndDateStr:self.endMonth];
+    _pastLists = [self arryWithEndDate:self.endMonth];
 }
 
-- (NSArray *)arryWithEndDateStr:(NSString *)endDateStr
+- (NSArray *)arryWithEndDate:(NSString *)endDateStr;
 {
-    if (![endDateStr containsString:@"-"]) return nil;
     
-    /** 当前的时间 */
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.dateFormat = @"yyyy-MM";
-    NSString *currentDate = [formatter stringFromDate:[NSDate date]];
-    NSInteger currentYear = currentDate.integerValue;
-    NSRange range = [currentDate rangeOfString:@"-"];
-    if (range.location != NSNotFound)
+    if (endDateStr.length < 6) return nil;
+    
+    NSString *enDash = @"";
+    
+    if (endDateStr.length > 6)
     {
-        currentDate = [currentDate stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
+       enDash = [endDateStr substringWithRange:NSMakeRange(4, endDateStr.length - 6)];
     }
-    NSInteger currentMonth = currentDate.integerValue;
     
+    /** 时间格式 */
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = [NSString stringWithFormat:@"yyyy%@MM", enDash];
+    NSDateFormatter *yearFor = [NSDateFormatter new];
+    yearFor.dateFormat = [NSString stringWithFormat:@"yyyy"];
+    NSDateFormatter *monthFor = [NSDateFormatter new];
+    monthFor.dateFormat = [NSString stringWithFormat:@"MM"];
     
     /** 截止的时间 */
-    NSInteger endYear = endDateStr.integerValue;
-    range = [endDateStr rangeOfString:@"-"];
-    if (range.location != NSNotFound)
-    {
-        endDateStr = [endDateStr stringByReplacingCharactersInRange:NSMakeRange(0, range.location + range.length) withString:@""];
-    }
-    NSInteger endMonth = endDateStr.integerValue;
+    NSDate *endDate = [formatter dateFromString:endDateStr];
+    if (endDate == nil) return nil;
+    NSInteger endYear = [[yearFor stringFromDate:endDate] integerValue];;
+    NSInteger endMonth = [[monthFor stringFromDate:endDate] integerValue];
+    
+    /** 当前的时间 */
+    NSDate *currentDate = [NSDate date];
+    NSInteger currentYear = [[yearFor stringFromDate:currentDate] integerValue];
+    NSInteger currentMonth = [[monthFor stringFromDate:currentDate] integerValue];;
     
     NSInteger maxMonth = 0;
     NSInteger minMonth = 0;
@@ -55,13 +60,12 @@
         
         for (NSInteger resMonth = maxMonth; resMonth >= minMonth; resMonth--)
         {
-            [tmpArr addObject:[NSString stringWithFormat:@"%zd-%02zd",resYear, resMonth]];
+            [tmpArr addObject:[NSString stringWithFormat:@"%zd%@%02zd",resYear, enDash,resMonth]];
         }
     }
     
     return tmpArr;
 }
-
 
 
 #pragma mark - Table view data source
