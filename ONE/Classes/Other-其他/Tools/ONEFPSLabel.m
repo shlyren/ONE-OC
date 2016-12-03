@@ -70,7 +70,8 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
     CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:ONEFPSLabelXKey];
     CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:ONEFPSLabelYKey];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:ONEFPSLabelIsPan]) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:ONEFPSLabelIsPan])
+    {
         x = 20;
         y = ONEScreenHeight - 50;
         [[NSUserDefaults standardUserDefaults] setBool:true forKey:ONEFPSLabelIsPan];
@@ -125,21 +126,27 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
 
 - (void)setupPoint
 {
-    if (self.x < 0) {
+    if (self.x < 0)
+    {
         [UIView animateWithDuration:0.2 animations:^{
             self.x = 0;
         }];
-    } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth) {
+    }
+    else if (CGRectGetMaxX(self.frame) > ONEScreenWidth)
+    {
         [UIView animateWithDuration:0.2 animations:^{
             self.x = ONEScreenWidth - 55;
         }];
     }
     
-    if (self.y < 20) {
+    if (self.y < 20)
+    {
         [UIView animateWithDuration:0.2 animations:^{
             self.y = 20;
         }];
-    } else if (CGRectGetMaxY(self.frame) > ONEScreenHeight - 20) {
+    }
+    else if (CGRectGetMaxY(self.frame) > ONEScreenHeight - 20)
+    {
         [UIView animateWithDuration:0.2 animations:^{
             self.y = ONEScreenHeight - 40;
         }];

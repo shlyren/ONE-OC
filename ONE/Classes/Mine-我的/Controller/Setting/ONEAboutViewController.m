@@ -8,7 +8,7 @@
 
 #import "ONEAboutViewController.h"
 #import "ONEURLConst.h"
-
+#import "ONEWebViewController.h"
 
 @implementation ONEAboutViewController
 
@@ -38,27 +38,34 @@
     
     ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"作者微博" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
                                                                
-        [self openUrl:@"http://weibo.com/shlyjen"];
+        [self openUrl:@"https://weibo.com/shlyjen"];
                                                                
     }];
     
     ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"作者首页" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
-        [self openUrl:@"http://shlyren.com"];
+        [self openUrl:@"https://shlyren.com"];
+        
+    }];
+    ONEDefaultCellItem *item4 = [ONEDefaultCellItem itemWithTitle:@"作者博客" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        
+        [self openUrl:@"https://yuxiang.ren"];
         
     }];
     
    
     
-    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3]]];
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3, item4]]];
 }
 
 - (void)openUrl:(NSString *)urlStr
 {
-    NSURL *url = [NSURL URLWithString:urlStr];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-    }
+    
+    [self.navigationController pushViewController:[ONEWebViewController webViewControllerWithUrl:urlStr] animated:true];
+//    NSURL *url = [NSURL URLWithString:urlStr];
+//    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+//        [[UIApplication sharedApplication] openURL:url];
+//    }
 }
 
 @end

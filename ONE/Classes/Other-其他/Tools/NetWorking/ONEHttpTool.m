@@ -14,7 +14,6 @@
 
 @interface ONEHttpTool ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
-
 @end
 
 
@@ -51,7 +50,8 @@
 
 + (ONENetWorkStatus)currentNetWorkStatus
 {
-    switch ([[RealReachability sharedInstance] currentReachabilityStatus]) {
+    switch ([[RealReachability sharedInstance] currentReachabilityStatus])
+    {
         case RealStatusUnknown:
             return ONENetWorkStatusUnknown;
         case RealStatusNotReachable:
@@ -61,6 +61,8 @@
         case RealStatusViaWiFi:
             return ONENetWorkStatusIsWiFi;
     }
+    
+//    return (ONENetWorkStatus)[[RealReachability sharedInstance] currentReachabilityStatus];
 }
 
 + (BOOL)haveNetwork
@@ -105,52 +107,55 @@
         [SVProgressHUD showErrorWithStatus:@"网络请求失败!"];
     };
     
-    if (self.haveNetwork) // 有网络
+    if (!self.haveNetwork)
     {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-        [SVProgressHUD showWithStatus:@"加载中..."];
-        
-        if (method == RequestMethodGET)
-        {
-            [ONEHttpTool.shareHttpTool.manager GET:url
-                                        parameters:parameters
-                                          progress:nil
-                                           success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-                
-                if (success) successBlock(responseObject);
-                
-                // 缓存
-                if (![url containsString:@"search"] && // 搜索无需缓存
-                    [[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey])
-                {
-                    [ONEAutoCacheTool writeFile:responseObject withUrl:url];
-                }
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
-                if (failure) failurBlock(error);
-            }];
-            
-        } else if (method == RequestMethodPOST) {
-            
-            [ONEHttpTool.shareHttpTool.manager POST:url
-                                         parameters:parameters
-                                           progress:nil
-                                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                
-                if (success) successBlock(responseObject);
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
-                if (failure) failurBlock(error);
-            }];
-        }
-    }else { // 没有网络 读取本地磁盘
         [SVProgressHUD showWithStatus:@"没有网络,使用缓存..."];
         [ONEAutoCacheTool readFileAtPath:url completion:^(NSDictionary *responseObject) {
             successBlock(responseObject);
         }];
+        return;
     }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    if (method == RequestMethodGET)
+    {
+        [ONEHttpTool.shareHttpTool.manager GET:url
+                                    parameters:parameters
+                                      progress:nil
+                                       success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+                                           
+                                           if (success) successBlock(responseObject);
+                                           
+                                           // 缓存
+                                           if (![url containsString:@"search"] && // 搜索无需缓存
+                                               [[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey])
+                                           {
+                                               [ONEAutoCacheTool writeFile:responseObject withUrl:url];
+                                           }
+                                           
+                                       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                           
+                                           if (failure) failurBlock(error);
+                                       }];
+        
+    }
+    else if(method == RequestMethodPOST)
+    {
+        [ONEHttpTool.shareHttpTool.manager POST:url
+                                     parameters:parameters
+                                       progress:nil
+                                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                            
+                                            if (success) successBlock(responseObject);
+                                            
+                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                            
+                                            if (failure) failurBlock(error);
+                                        }];
+    }
+
 }
 
 + (void)cancel

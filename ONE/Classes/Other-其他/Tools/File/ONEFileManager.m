@@ -23,10 +23,12 @@
     BOOL isDirectory;
     BOOL isExist = [mgr fileExistsAtPath:directoryPath isDirectory:&isDirectory];
     
-    if (!isExist || !isDirectory) {
-        // 报错:抛异常
-        [[NSException exceptionWithName:@"filePathError" reason:@"传错,必须传文件夹路径" userInfo:nil] raise];
-    }
+//    if (!isExist || !isDirectory) {
+//        // 报错:抛异常
+//        [[NSException exceptionWithName:@"filePathError" reason:@"传错,必须传文件夹路径" userInfo:nil] raise];
+//    }
+    
+    NSAssert(isExist && isDirectory, @"the filePath is must directories");
 
     NSArray *subpaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
   
@@ -67,10 +69,12 @@
     BOOL isDirectory;
     BOOL isExist = [mgr fileExistsAtPath:directoryPath isDirectory:&isDirectory];
     
-    if (!isExist || !isDirectory) {
-        // 报错:抛异常
-        [[NSException exceptionWithName:@"filePathError" reason:@"笨蛋,传错,必须传文件夹路径" userInfo:nil] raise];
-    }
+//    if (!isExist || !isDirectory) {
+//        // 报错:抛异常
+//        [[NSException exceptionWithName:@"filePathError" reason:@"笨蛋,传错,必须传文件夹路径" userInfo:nil] raise];
+//    }
+    
+    NSAssert(isExist && isDirectory, @"the filePath is must directories");
     
     /*
      获取这个文件夹中所有文件路径,然后累加 = 文件夹的尺寸

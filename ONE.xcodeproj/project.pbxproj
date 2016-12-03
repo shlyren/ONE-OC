@@ -156,6 +156,8 @@
 		7E1A38FA1CAD960C0085EB67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A38F91CAD960C0085EB67 /* Assets.xcassets */; };
 		7E1A38FD1CAD960C0085EB67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A38FB1CAD960C0085EB67 /* LaunchScreen.storyboard */; };
 		7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8D0CD1CAE027000613625 /* ONETabbarController.m */; };
+		8001279B1DF2A91E002D02A5 /* ONEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800127991DF2A91E002D02A5 /* ONEWebViewController.m */; };
+		8001279C1DF2A91E002D02A5 /* ONEWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -422,6 +424,9 @@
 		7E1A38FE1CAD960C0085EB67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EC8D0CC1CAE027000613625 /* ONETabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONETabbarController.h; sourceTree = "<group>"; };
 		7EC8D0CD1CAE027000613625 /* ONETabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONETabbarController.m; sourceTree = "<group>"; };
+		800127981DF2A91E002D02A5 /* ONEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEWebViewController.h; sourceTree = "<group>"; };
+		800127991DF2A91E002D02A5 /* ONEWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEWebViewController.m; sourceTree = "<group>"; };
+		8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEWebViewController.xib; sourceTree = "<group>"; };
 		A5E55A527AFC263C15369A57 /* Pods-ONE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ONE/Pods-ONE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1062,6 +1067,9 @@
 				7EC8D0CD1CAE027000613625 /* ONETabbarController.m */,
 				55C289B81CAE48280092A897 /* ONENavigationController.h */,
 				55C289B91CAE48280092A897 /* ONENavigationController.m */,
+				800127981DF2A91E002D02A5 /* ONEWebViewController.h */,
+				800127991DF2A91E002D02A5 /* ONEWebViewController.m */,
+				8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1234,6 +1242,7 @@
 				55C6DD531CC4B75000988121 /* ONESearchViewController.xib in Resources */,
 				559D1D9E1CD72C3F00CA6CB3 /* ONEMovieDetailPhotoCell.xib in Resources */,
 				5592EFD41CB1122200FA3D76 /* ONEMusicRelatedCell.xib in Resources */,
+				8001279C1DF2A91E002D02A5 /* ONEWebViewController.xib in Resources */,
 				550904351CBFD62500F884C2 /* ONEReadCell.xib in Resources */,
 				55212F8D1CB6901300634442 /* ONEMusicSongViewController.storyboard in Resources */,
 				553BDD801CC08957006BE7BF /* ONEQuestionHeaderView.xib in Resources */,
@@ -1282,7 +1291,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FC6DE37CA91CD66863DA18DC /* [CP] Copy Pods Resources */ = {
@@ -1375,6 +1384,7 @@
 				558165B11CC609830022458E /* ONEURLConst.m in Sources */,
 				5505BCD41CAFEE5F0063B97C /* ONEMusicRelatedItem.m in Sources */,
 				55C6DD661CC4C58900988121 /* ONESearchAuthorViewController.m in Sources */,
+				8001279B1DF2A91E002D02A5 /* ONEWebViewController.m in Sources */,
 				5509044B1CBFD64700F884C2 /* ONESerialDetailViewController.m in Sources */,
 				5509042F1CBFD62500F884C2 /* ONEReadDetailHeaderView.m in Sources */,
 				5546617F1DD2B71600F59711 /* UIButton+Extension.m in Sources */,

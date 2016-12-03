@@ -14,4 +14,5 @@ target 'ONE' do
 	pod 'RealReachability'
 	pod 'UMengSocialCOM'
     pod 'Masonry'
+    pod 'JQAlertView'
 end

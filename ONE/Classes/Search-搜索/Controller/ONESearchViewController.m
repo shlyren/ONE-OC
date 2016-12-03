@@ -172,7 +172,7 @@
         
         UIScrollView *scrollView = (UIScrollView *)childVc.view;
         scrollView.scrollsToTop = i == btn.tag;
-        
+
     }
     
     // 还原
@@ -207,11 +207,6 @@
     NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
     self.scroll = true; // 手动拖拽
     [self titleBtnClick:self.titlesView.subviews[index]];
-//    [self selectedBtn:self.titlesView.subviews[index]];
-}
-
-- (void)selectedBtn:(ONEReadTitleButton *)btn
-{
     
 }
 

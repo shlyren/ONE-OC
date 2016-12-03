@@ -36,24 +36,6 @@
 }
 
 
-#pragma mark - 公共方法
-+ (void)setupShareTool
-{
-    [[self shareInstance] setupShareTool];
-}
-
-+ (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
-{
-    [[self shareInstance] showShareView:controller content:content url:url image:image];
-}
-
-+ (BOOL)handleOpenURL:(NSURL *)url
-{
-    return [[self shareInstance] handleOpenURL:url];
-}
-
-
-
 #pragma mark - UMSocialUIDelegate
 - (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
@@ -65,14 +47,12 @@
     }
 }
 
-
-#pragma mark - 私有方法
-- (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
++ (void)showShareView:(UIViewController *)controller content:(NSString *)content url:(NSString *)url image:(UIImage *)image
 {
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:@"5733f154e0f55a7bbb00041b"
-                                      shareText:[content stringByAppendingString:url]
+                                      shareText:[content stringByAppendingFormat:@"\n%@", url]
                                      shareImage:image
                                 shareToSnsNames:@[UMShareToSina,
                                                   UMShareToWechatSession,
@@ -82,7 +62,7 @@
                                                   UMShareToTencent,
                                                   UMShareToAlipaySession,
                                                   UMShareToTwitter]
-                                       delegate:self];
+                                       delegate:[self shareInstance]];
     
     
 //  设置点击分享内容跳转链接
@@ -95,7 +75,7 @@
     
 }
 
-- (void)setupShareTool
++ (void)setupShareTool
 {
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:@"5733f154e0f55a7bbb00041b"];
@@ -118,7 +98,7 @@
                                          RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
++ (BOOL)handleOpenURL:(NSURL *)url
 {
     return [UMSocialSnsService handleOpenURL:url];
 }
