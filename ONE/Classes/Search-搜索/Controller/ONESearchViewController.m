@@ -26,6 +26,12 @@
 
 @property (nonatomic, strong) NSString          *searhKey;
 
+/** 
+ 这个bool值是记录 scrollview滚动是通过点击title还是手动拖拽scroll的,
+ false 为点击 title, true是手动拖拽 
+ */
+@property (nonatomic, assign, getter=isScroll) BOOL scroll;
+
 @end
 
 @implementation ONESearchViewController
@@ -135,7 +141,10 @@
     btn.selected = true;
     self.selectedBtn = btn;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    ONELog(@"%@", self.isScroll ? @"拖拽" : @"点击title");
+    NSTimeInterval timeInterval = self.isScroll ? 0 : 0.2;
+
+    [UIView animateWithDuration:timeInterval animations:^{
         
         self.titlesLineView.centerX = btn.centerX;
         self.titlesLineView.width = btn.titleLabel.width;
@@ -165,6 +174,9 @@
         scrollView.scrollsToTop = i == btn.tag;
         
     }
+    
+    // 还原
+    self.scroll = false;
 }
 
 - (IBAction)cancel
@@ -193,7 +205,14 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
+    self.scroll = true; // 手动拖拽
     [self titleBtnClick:self.titlesView.subviews[index]];
+//    [self selectedBtn:self.titlesView.subviews[index]];
+}
+
+- (void)selectedBtn:(ONEReadTitleButton *)btn
+{
+    
 }
 
 

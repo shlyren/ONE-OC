@@ -31,6 +31,8 @@
 @property (nonatomic, weak) ONEReadTitleButton  *selectedBtn;
 
 @property (nonatomic, strong) ONEReadListItem   *readList;
+
+@property (nonatomic, assign, getter=isScroll) BOOL scroll;
 @end
 
 @implementation ONEReadViewController
@@ -196,7 +198,9 @@
     btn.selected = true;
     self.selectedBtn = btn;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    ONELog(@"%@", self.isScroll ? @"拖拽" : @"点击title");
+    
+    [UIView animateWithDuration:self.scroll ? 0.0 : 0.2 animations:^{
 
         self.titlesLineView.centerX = btn.centerX;
         self.titlesLineView.width = btn.titleLabel.width;
@@ -226,12 +230,14 @@
         UIScrollView *scrollView = (UIScrollView *)childVc.view;
         scrollView.scrollsToTop = i == btn.tag;
     }
+    self.scroll = false;
 }
 
 #pragma mark - scrollView delegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
+    self.scroll = true;
     [self titleBtnClick:self.titlesView.subviews[index]];
 }
 

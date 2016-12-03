@@ -129,7 +129,7 @@ NSString *const ONEFPSLabelIsPan = @"ONEFPSLabelIsPan";
         [UIView animateWithDuration:0.2 animations:^{
             self.x = 0;
         }];
-    } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth ) {
+    } else if (CGRectGetMaxX(self.frame) > ONEScreenWidth) {
         [UIView animateWithDuration:0.2 animations:^{
             self.x = ONEScreenWidth - 55;
         }];
