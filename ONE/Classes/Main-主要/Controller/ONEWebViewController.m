@@ -97,7 +97,7 @@
         if (![view isKindOfClass:[UIButton class]]) continue;
         UIButton *btn = (UIButton *)view;
         [btn setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-        [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.6]] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:0.85 alpha:0.6]] forState:UIControlStateNormal];
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = true;
     }
@@ -139,10 +139,7 @@
 
 - (IBAction)goback
 {
-    if ([self.webView canGoBack])
-    {
-        [self.webView goBack];
-    }
+    if ([self.webView canGoBack])[self.webView goBack];
 }
 
 
@@ -171,7 +168,7 @@
     // 获取 id = 'media'的 aduio节点，并播放
     [webView evaluateJavaScript: @"var audio = document.getElementById('media'); audio.play();" completionHandler: nil];
     self.title = webView.title;
-    
+
     [self showControl];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
 }
@@ -208,7 +205,6 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     [self showControl];
-    
 }
 
 - (void)showControl

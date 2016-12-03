@@ -49,6 +49,7 @@
     [ONEFPSLabel setupFPSLabel];
     
     [ONEPushTool registerForRemoteNotificationApplication:application didFinishLaunchingWithOptions:launchOptions];
+    
     [self setup3DTouchItems:application];
     ONELog(@"当前环境: DEBUG")
     

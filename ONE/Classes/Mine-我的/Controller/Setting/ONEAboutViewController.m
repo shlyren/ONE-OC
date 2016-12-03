@@ -18,7 +18,8 @@
     self.title = @"关于";
     [self setupGroup1];
     [self setupGroup2];
-    
+    [self setupGroup3];
+    [self setupGroup4];
 }
 
 - (void)setupGroup1
@@ -31,41 +32,73 @@
 
 - (void)setupGroup2;
 {
-    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"源代码(OC)" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"SouceCode" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://github.com/shlyren/ONE-OC"];
     }];
     
-    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"作者微博" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
-                                                               
-        [self openUrl:@"https://weibo.com/shlyjen"];
-                                                               
-    }];
-    
-    ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"作者首页" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"Homepage" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://shlyren.com"];
         
     }];
-    ONEDefaultCellItem *item4 = [ONEDefaultCellItem itemWithTitle:@"作者博客" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"Blog" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://yuxiang.ren"];
         
     }];
     
-   
+    ONEDefaultCellItem *item4 = [ONEDefaultCellItem itemWithTitle:@"Resume" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        [self openUrl:@"https://shlyren.com/resume"];
+    }];
+
+    ONEDefaultCellGroupItem *item = [ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3, item4]];
+    item.headerTitle = @"Website";
+    [self.settingItems addObject:item];
+}
+
+- (void)setupGroup3
+{
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"Weibo" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        
+        [self openUrl:@"https://weibo.com/shlyjen"];
+        
+    }];
     
-    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3, item4]]];
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"Github" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        
+        [self openUrl:@"https://github.com/shlyren"];
+        
+    }];
+    
+    ONEDefaultCellItem *item3 = [ONEDefaultCellItem itemWithTitle:@"Twitter" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        
+        [self openUrl:@"https://twitter.com/shlyren"];
+        
+    }];
+    
+    ONEDefaultCellItem *item4 = [ONEDefaultCellItem itemWithTitle:@"Facebook" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+        
+        [self openUrl:@"https://facebook.com/goodlinessL"];
+        
+    }];
+    
+    ONEDefaultCellGroupItem *item = [ONEDefaultCellGroupItem groupWithItems:@[item1, item2, item3, item4]];
+    item.headerTitle = @"Social";
+    [self.settingItems addObject:item];
+}
+
+- (void)setupGroup4
+{
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"E-mail" accessoryType:UITableViewCellAccessoryNone action:^(id parameter) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto://mail@yuxiang.ren"]];
+    }];
+    [self.settingItems addObject:[ONEDefaultCellGroupItem groupWithItems:@[item1]]];
 }
 
 - (void)openUrl:(NSString *)urlStr
 {
-    
     [self.navigationController pushViewController:[ONEWebViewController webViewControllerWithUrl:urlStr] animated:true];
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-//        [[UIApplication sharedApplication] openURL:url];
-//    }
 }
 
 @end

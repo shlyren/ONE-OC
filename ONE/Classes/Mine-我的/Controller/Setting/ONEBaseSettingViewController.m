@@ -8,11 +8,12 @@
 
 #import "ONEBaseSettingViewController.h"
 
-@interface ONEBaseSettingViewController ()
-
-@end
-
 @implementation ONEBaseSettingViewController
+
+- (UITableViewStyle)tableViewStyle
+{
+    return UITableViewStyleGrouped;
+}
 
 - (NSMutableArray *)settingItems
 {
@@ -24,7 +25,7 @@
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    return [super initWithStyle:UITableViewStyleGrouped];
+    return [super initWithStyle:self.tableViewStyle];
 }
 
 
@@ -71,6 +72,34 @@
     }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.settingItems[section].headerTitle;
+}
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return self.settingItems[section].footerTitle;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.settingItems[section].headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return self.settingItems[section].footerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.settingItems[section].headerHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return self.settingItems[section].footerHeight;
+}
 
 @end

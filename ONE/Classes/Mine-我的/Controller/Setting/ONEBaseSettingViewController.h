@@ -15,4 +15,5 @@
 /** 组的模型 */
 @property (nonatomic, strong) NSMutableArray<ONEDefaultCellGroupItem *> *settingItems;
 
+- (UITableViewStyle)tableViewStyle;
 @end

@@ -85,6 +85,7 @@
                 <constraint firstAttribute="trailing" secondItem="NXq-fQ-3SP" secondAttribute="trailing" id="fp3-HD-VaP"/>
                 <constraint firstItem="d9M-NC-2HG" firstAttribute="leading" secondItem="78L-P5-z6f" secondAttribute="leading" id="qrE-NK-ipF"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="109.5" y="242.5"/>
         </view>
     </objects>

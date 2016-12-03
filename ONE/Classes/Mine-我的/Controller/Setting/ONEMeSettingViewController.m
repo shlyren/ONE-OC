@@ -51,7 +51,6 @@
 - (void)setupGroup2
 {
 
-    
     ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"缓存到本地"];
     ONESwitch *autoCacheSwitch = [ONESwitch new];
     [autoCacheSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey: ONEAutomaticCacheKey] animated:true];
