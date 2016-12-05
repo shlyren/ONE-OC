@@ -86,6 +86,9 @@
 {
     ONESearchViewController *searchVc = [ONESearchViewController new];
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:searchVc];
+//    for (UIGestureRecognizer *ges in searchVc.view.gestureRecognizers) {
+//        if (ges.state == UIGestureRecognizerStateChanged) continue;
+//    }
     [self presentViewController:nav animated:true completion:nil];
 
 }
@@ -94,10 +97,11 @@
 {
     
 //    ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:[ONEMeViewController new]];
-//    
+////
 //    [self presentViewController:nav animated:true completion:nil];
     [self pushViewController:[ONEMeSettingViewController new] animated:true];
 }
+
 
 - (UIBarButtonItem *)setUpBackBarBtn
 {
@@ -124,5 +128,7 @@
    [SVProgressHUD dismiss];
    return [super popViewControllerAnimated:animated];
 }
+
+
 
 @end

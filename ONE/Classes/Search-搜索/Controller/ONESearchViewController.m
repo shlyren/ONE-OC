@@ -101,6 +101,7 @@
 {
     [super viewDidLoad];
     [self setupAllViewController];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -124,6 +125,7 @@
 
 - (void)setupAllViewController
 {
+    
     [self addChildViewController:ONESearchHpViewController.new];
     [self addChildViewController:ONESearchReadViewController.new];
     [self addChildViewController:ONESearchMusicViewController.new];
@@ -144,21 +146,23 @@
     ONELog(@"%@", self.isScroll ? @"拖拽" : @"点击title");
     NSTimeInterval timeInterval = self.isScroll ? 0 : 0.2;
 
+    
+    ONEWeakSelf
     [UIView animateWithDuration:timeInterval animations:^{
         
-        self.titlesLineView.centerX = btn.centerX;
-        self.titlesLineView.width = btn.titleLabel.width;
+        weakSelf.titlesLineView.centerX = btn.centerX;
+        weakSelf.titlesLineView.width = btn.titleLabel.width;
         
-        CGPoint offset = self.scrollView.contentOffset;
-        offset.x = btn.tag * self.scrollView.width;
-        [self.scrollView setContentOffset:offset animated:false];
+        CGPoint offset = weakSelf.scrollView.contentOffset;
+        offset.x = btn.tag * weakSelf.scrollView.width;
+        [weakSelf.scrollView setContentOffset:offset animated:false];
         
     } completion:^(BOOL finished) {
         // 懒加载
-        ONESearchBaseViewController *childVc = self.childViewControllers[btn.tag];
-        childVc.view.frame = self.scrollView.bounds;
-        childVc.searchKey = [self.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
-        [self.scrollView addSubview:childVc.view];
+        ONESearchBaseViewController *childVc = weakSelf.childViewControllers[btn.tag];
+        childVc.view.frame = weakSelf.scrollView.bounds;
+        childVc.searchKey = [weakSelf.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
+        [weakSelf.scrollView addSubview:childVc.view];
         
     }];
     
@@ -181,22 +185,28 @@
 
 - (IBAction)cancel
 {
-    [self.view endEditing:true];
+//    [self.view endEditing:true];
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view endEditing:true];
+    
     if ([searchBar.text isEqualToString:self.searhKey]) return;
     
     self.searhKey = searchBar.text;
+
+//#warning [UIScrollView _systemGestureStateChanged:]: message sent to deallocated instance
     NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
-    ONESearchBaseViewController *childVc = self.childViewControllers[index];
+    ONESearchBaseViewController *childVc = (ONESearchBaseViewController *)self.childViewControllers[index];
     childVc.view.frame = self.scrollView.bounds;
     childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
     [self.scrollView addSubview:childVc.view];
+
     
     self.bgImageView.hidden = true;
 }
@@ -207,8 +217,6 @@
     NSInteger index = scrollView.contentOffset.x / ONEScreenWidth;
     self.scroll = true; // 手动拖拽
     [self titleBtnClick:self.titlesView.subviews[index]];
-    
 }
-
 
 @end

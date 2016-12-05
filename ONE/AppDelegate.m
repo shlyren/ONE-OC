@@ -50,8 +50,15 @@
     
     [ONEPushTool registerForRemoteNotificationApplication:application didFinishLaunchingWithOptions:launchOptions];
     
-    [self setup3DTouchItems:application];
-    ONELog(@"当前环境: DEBUG")
+    
+//    if (self.window.rootViewController.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+//    {
+//        [self setup3DTouchItems:application];
+//    }
+//    if ([UIDevice currentDevice]) {
+//        
+//    }
+//    [self setup3DTouchItems:application];
     
     return YES;
 }

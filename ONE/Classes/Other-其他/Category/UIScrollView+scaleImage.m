@@ -91,8 +91,6 @@ static CGFloat const imageHeight = 200;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         [self insertSubview:imageView atIndex:0];
-        
-        
         objc_setAssociatedObject(self, imageViewKey, imageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return imageView;
@@ -148,6 +146,7 @@ static CGFloat const imageHeight = 200;
     if (![self isInitial])
     {
         [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+        ONELog(@"UIScrollView (scaleImage) addObserver")
         [self setIsInitial:true];
     }
 }
@@ -162,11 +161,25 @@ static CGFloat const imageHeight = 200;
     }
 }
 
-
-- (void)dealloc
+- (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    if ([self isInitial]) {
+    [super willMoveToSuperview:newSuperview];
+    
+    if (newSuperview && ![newSuperview isKindOfClass:[UIScrollView class]]) return;
+    
+    if ([self isInitial])
+    {
         [self removeObserver:self forKeyPath:@"contentOffset"];
+        [self setIsInitial:false];
+        ONELog(@"UIScrollView (scaleImage) removeObserver")
     }
 }
+
+
+//- (void)dealloc
+//{
+//    if ([self isInitial]) {
+//        [self removeObserver:self forKeyPath:@"contentOffset"];
+//    }
+//}
 @end

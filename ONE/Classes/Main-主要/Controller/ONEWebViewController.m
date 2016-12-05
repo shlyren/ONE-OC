@@ -125,6 +125,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [self.webView stopLoading];
     self.webView.scrollView.delegate = nil;
     self.webView.navigationDelegate = nil;
 }
@@ -232,6 +233,7 @@
     // 移除进度条通知
     [self.webView removeObserver: self forKeyPath: kEstimatedProgressKey];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+    
 }
 
 
