@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ONEPersonDetailViewController : UIViewController
+
+@interface ONEPersonDetailViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *user_id;
 

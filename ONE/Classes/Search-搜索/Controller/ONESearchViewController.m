@@ -161,10 +161,11 @@
         // 懒加载
         ONESearchBaseViewController *childVc = weakSelf.childViewControllers[btn.tag];
         childVc.view.frame = weakSelf.scrollView.bounds;
-        childVc.searchKey = [weakSelf.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
+        childVc.searchKey = [weakSelf.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         [weakSelf.scrollView addSubview:childVc.view];
-        
+
     }];
+    
     
     // 设置滚动到顶部
     for (NSInteger i = 0; i < self.childViewControllers.count; i++)
@@ -197,17 +198,14 @@
     [self.view endEditing:true];
     
     if ([searchBar.text isEqualToString:self.searhKey]) return;
-    
     self.searhKey = searchBar.text;
 
-//#warning [UIScrollView _systemGestureStateChanged:]: message sent to deallocated instance
     NSInteger index = self.scrollView.contentOffset.x / ONEScreenWidth;
     ONESearchBaseViewController *childVc = (ONESearchBaseViewController *)self.childViewControllers[index];
     childVc.view.frame = self.scrollView.bounds;
-    childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet controlCharacterSet]];
+    childVc.searchKey = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [self.scrollView addSubview:childVc.view];
 
-    
     self.bgImageView.hidden = true;
 }
 

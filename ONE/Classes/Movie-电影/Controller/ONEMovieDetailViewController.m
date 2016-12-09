@@ -19,7 +19,7 @@
 #import "ONEMovieMoreViewController.h"
 
 
-@interface ONEMovieDetailViewController () <ONEMovieDetailHeaderViewDelegate>
+@interface ONEMovieDetailViewController ()
 
 /** 评审团评论的模型 */
 @property (nonatomic, strong) ONEMovieResultItem *movieReviewResult;
@@ -79,7 +79,6 @@ static NSString *const movieCommentID = @"ONEMovieCommentCell";
     ONEMovieDetailHeaderView *headerView = [ONEMovieDetailHeaderView tableHeaderView];
     headerView.movie_id = _movie_id;
     headerView.reviewCount = self.movieReviewResult.count;
-    headerView.delegate = self;
     
     self.tableView.tableHeaderView = _headerView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"ONEMovieCommentCell" bundle:nil] forCellReuseIdentifier:movieCommentID];

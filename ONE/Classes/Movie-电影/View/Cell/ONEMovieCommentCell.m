@@ -17,7 +17,7 @@
 #import "ONENavigationController.h"
 #import "UIViewController+Extension.h"
 
-@interface ONEMovieCommentCell ()<UINavigationControllerDelegate>
+@interface ONEMovieCommentCell ()
 /** 评论内容 */
 @property (weak, nonatomic) IBOutlet UILabel     *commentContectLabel;
 /** 喜欢 按钮 */
@@ -108,14 +108,8 @@
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = self.author.user_id;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
-    nav.delegate = self;
     [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
 }
 
 

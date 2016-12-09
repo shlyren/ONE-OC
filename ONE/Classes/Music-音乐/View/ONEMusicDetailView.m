@@ -19,7 +19,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface ONEMusicDetailView ()<UINavigationControllerDelegate>
+@interface ONEMusicDetailView ()
 /**  图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 /** 简介 */
@@ -126,7 +126,6 @@
     ONEAuthorItem *author = musicDetailItem.author;
     self.descLabel.text = author.desc;
     // 歌手头像
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *urlData =[NSData dataWithContentsOfURL:[NSURL URLWithString:author.web_url]];
         
@@ -204,14 +203,9 @@
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = self.musicDetailItem.author.user_id;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
-    nav.delegate = self;
     [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:true];
-}
 
 - (IBAction)praiseBtnclick:(UIButton *)sender
 {

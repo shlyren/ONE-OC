@@ -7,7 +7,6 @@
 //
 
 #import "ONEMeViewController.h"
-#import "UIScrollView+scaleImage.h"
 #import "UIImage+image.h"
 #import "UIButton+Extension.h"
 #import "UIScrollView+MJRefresh.h"
@@ -28,8 +27,8 @@
 {
     [super viewDidLoad];
     
-    self.tableView.yx_image = [UIImage imageNamed:@"personalBackgroundImage"];
-    self.tableView.yx_height = 120;
+//    self.tableView.yx_image = [UIImage imageNamed:@"personalBackgroundImage"];
+//    self.tableView.yx_height = 120;
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem new];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];

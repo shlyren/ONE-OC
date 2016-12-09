@@ -15,4 +15,5 @@ target 'ONE' do
 	pod 'UMengSocialCOM'
     pod 'Masonry'
     pod 'JQAlertView'
+    pod 'ZYScaleHeader'
 end

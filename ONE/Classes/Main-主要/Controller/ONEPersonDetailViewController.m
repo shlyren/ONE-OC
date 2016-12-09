@@ -7,7 +7,6 @@
 //
 
 #import "ONEPersonDetailViewController.h"
-#import "ONEPersonDetailTableView.h"
 #import "ONEDataRequest.h"
 #import "UIImageView+WebCache.m"
 #import "UIImage+image.h"
@@ -15,27 +14,13 @@
 #import "ONEDefaultCellGroupItem.h"
 #import "ONEMusicSongViewController.h"
 #import "ONEAuthorItem.h"
-
-#import "UIScrollView+scaleImage.h"
+#import "ZYScaleHeader.h"
+#import "ONEPersionHeaderView.h"
 
 #define persionDetailHeader 360
-@interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate, ONEPersonDetailTableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet ONEPersonDetailTableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UIView *personTopView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTop;
-
+@interface ONEPersonDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *cellItems;
-
+@property (nonatomic, weak) ONEPersionHeaderView *personHeaderView;
 @end
 
 @implementation ONEPersonDetailViewController
@@ -51,7 +36,7 @@
 
 - (instancetype)init
 {
-    return [[UIStoryboard storyboardWithName:NSStringFromClass([self class]) bundle:nil] instantiateInitialViewController];
+    return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -64,6 +49,17 @@
     [self setUpView];
     [self loadData];
     [self setUpTableVieData];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:true];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:false];
+
 }
 
 - (void)setUpTableVieData
@@ -105,23 +101,17 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"ta的资料";
-    _tableView.detailView = self.personTopView;
-    _tableView.delegate_person = self;
-   // _tableView.yx_image = [UIImage imageWithContentsOfFile:@"personalBackgroundImage"];
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.tableView.contentInset = UIEdgeInsetsMake(persionDetailHeader, 0, 0, 0);
+    
+    ZYScaleHeader *headerView = [ZYScaleHeader headerWithImage:[UIImage imageNamed:@"personalBackgroundImage"] height:300];
+    [headerView addSubview: _personHeaderView = [ONEPersionHeaderView persionHeaderViewFrame:headerView.bounds]];
+    self.tableView.zy_header = headerView;
 }
 
 - (void)loadData
 {
     [ONEDataRequest requestUserInfo:_user_id parameters:nil success:^(ONEAuthorItem *authorItem) {
-        
-        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:authorItem.web_url] placeholderImage:[UIImage imageNamed:@"personal"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            _iconImageView.image = [image circleImage];
-        }];
-        
-        _userNameLabel.text = authorItem.user_name;
-        _scoreLabel.text = authorItem.score;
+        self.personHeaderView.author = authorItem;
     } failure:nil];
 }
 
@@ -143,33 +133,16 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:normalCellID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.separatorInset = UIEdgeInsetsZero;
     }
     
     ONEDefaultCellArrItem *item = [self.cellItems[indexPath.section] items][indexPath.row];
-    
     cell.imageView.image = [UIImage imageNamed:item.image];
     cell.textLabel.text = item.title;
     return cell;
 }
 
 
-#pragma mark - tableview delagate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    // 获取当前偏移量                                 // -367
-    CGFloat offsetY = scrollView.contentOffset.y + persionDetailHeader;
-    
-    // 获取topview的高度
-    CGFloat height = persionDetailHeader - offsetY;
-   // ONELog(@"y%.1f offsetY%.1f height%.1f image%.1f", scrollView.contentOffset.y, offsetY, height, _imageView.height);
-    if (offsetY == 0) return;
-    if (offsetY > 0)
-    {
-        _topViewTop.constant = -offsetY;
-    }else{
-        _topViewH.constant = height;
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -187,27 +160,6 @@
     return @"ta的收藏";
 }
 
-#pragma mark - ONEPersonDetailTableViewDelegate
-#pragma mark 点击小记时调用此方法
-- (void)personDetailTableView:(ONEPersonDetailTableView *)detailTableView didChilckSubtotalBtn:(UIButton *)subtotalBtn
-{
-    UIViewController *subtotalVc = [UIViewController new];
-    subtotalVc.navigationItem.title = @"小记";
-    subtotalVc.view.backgroundColor = [UIColor whiteColor];
-    
-    [self.navigationController pushViewController:subtotalVc animated:true];
-}
-
-
-#pragma mark 点击歌单时调用此方法
-- (void)personDetailTableView:(ONEPersonDetailTableView *)detailTableView didChilckSonglistBtn:(UIButton *)songlistBtn
-{
-    UIViewController *songlistVc = [UIViewController new];
-    songlistVc.navigationItem.title = @"ta的歌单";
-    songlistVc.view.backgroundColor = [UIColor whiteColor];
-    
-    [self.navigationController pushViewController:songlistVc animated:true];
-}
 - (IBAction)close
 {
     [self dismissViewControllerAnimated:true completion:nil];

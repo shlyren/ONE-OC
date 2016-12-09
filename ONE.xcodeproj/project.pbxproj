@@ -99,7 +99,6 @@
 		559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D1DA41CD72CB500CA6CB3 /* ONEMovieScoreView.m */; };
 		559D1DA71CD72CD000CA6CB3 /* ONEMovieScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D1DA61CD72CD000CA6CB3 /* ONEMovieScoreView.xib */; };
 		55B2D6E11CFA842100AB8AA9 /* ONEPersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B2D6DF1CFA842100AB8AA9 /* ONEPersonDetailViewController.m */; };
-		55B2D6E21CFA842100AB8AA9 /* ONEPersonDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B2D6E01CFA842100AB8AA9 /* ONEPersonDetailViewController.storyboard */; };
 		55B94D1A1CEF44FF00E75CE9 /* ONEAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B94D151CEF44FF00E75CE9 /* ONEAboutViewController.m */; };
 		55B94D1B1CEF44FF00E75CE9 /* ONEBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B94D171CEF44FF00E75CE9 /* ONEBaseSettingViewController.m */; };
 		55B94D1C1CEF44FF00E75CE9 /* ONEMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B94D191CEF44FF00E75CE9 /* ONEMeSettingViewController.m */; };
@@ -135,8 +134,6 @@
 		55C6DD761CC4EF4A00988121 /* ONESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6DD741CC4EF4A00988121 /* ONESearchTableViewCell.m */; };
 		55C6DD771CC4EF4A00988121 /* ONESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */; };
 		55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */; };
-		55EF74671D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */; };
-		55EF746A1D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */; };
 		55F7EF9C1CE6FB47000FC9DD /* ONEAutoCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF941CE6FB47000FC9DD /* ONEAutoCacheTool.m */; };
 		55F7EF9D1CE6FB47000FC9DD /* ONEFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF961CE6FB47000FC9DD /* ONEFileManager.m */; };
 		55F7EF9E1CE6FB47000FC9DD /* ONEDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F7EF991CE6FB47000FC9DD /* ONEDataRequest.m */; };
@@ -158,6 +155,9 @@
 		7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8D0CD1CAE027000613625 /* ONETabbarController.m */; };
 		8001279B1DF2A91E002D02A5 /* ONEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800127991DF2A91E002D02A5 /* ONEWebViewController.m */; };
 		8001279C1DF2A91E002D02A5 /* ONEWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */; };
+		806365961DFA9F6D00687913 /* ZYScaleHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 806365951DFA9F6D00687913 /* ZYScaleHeader.m */; };
+		8063659B1DFA9FCC00687913 /* ONEPersionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063659A1DFA9FCC00687913 /* ONEPersionHeaderView.m */; };
+		8063659D1DFA9FD800687913 /* ONEPersionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8063659C1DFA9FD800687913 /* ONEPersionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -317,7 +317,6 @@
 		559D1DAA1CD771AC00CA6CB3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		55B2D6DE1CFA842100AB8AA9 /* ONEPersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersonDetailViewController.h; sourceTree = "<group>"; };
 		55B2D6DF1CFA842100AB8AA9 /* ONEPersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersonDetailViewController.m; sourceTree = "<group>"; };
-		55B2D6E01CFA842100AB8AA9 /* ONEPersonDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ONEPersonDetailViewController.storyboard; sourceTree = "<group>"; };
 		55B94D141CEF44FF00E75CE9 /* ONEAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEAboutViewController.h; sourceTree = "<group>"; };
 		55B94D151CEF44FF00E75CE9 /* ONEAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEAboutViewController.m; sourceTree = "<group>"; };
 		55B94D161CEF44FF00E75CE9 /* ONEBaseSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEBaseSettingViewController.h; sourceTree = "<group>"; };
@@ -384,10 +383,6 @@
 		55C6DD751CC4EF4A00988121 /* ONESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONESearchTableViewCell.xib; sourceTree = "<group>"; };
 		55E92D2C1CBDF14B002FC2EF /* ONEMovieMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEMovieMoreViewController.h; sourceTree = "<group>"; };
 		55E92D2D1CBDF14B002FC2EF /* ONEMovieMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEMovieMoreViewController.m; sourceTree = "<group>"; };
-		55EF74651D4B8B9300A5E7D8 /* UIScrollView+scaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+scaleImage.h"; sourceTree = "<group>"; };
-		55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+scaleImage.m"; sourceTree = "<group>"; };
-		55EF74681D4B98AE00A5E7D8 /* ONEPersonDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersonDetailTableView.h; sourceTree = "<group>"; };
-		55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersonDetailTableView.m; sourceTree = "<group>"; };
 		55F7EF931CE6FB47000FC9DD /* ONEAutoCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEAutoCacheTool.h; sourceTree = "<group>"; };
 		55F7EF941CE6FB47000FC9DD /* ONEAutoCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEAutoCacheTool.m; sourceTree = "<group>"; };
 		55F7EF951CE6FB47000FC9DD /* ONEFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEFileManager.h; sourceTree = "<group>"; };
@@ -427,6 +422,11 @@
 		800127981DF2A91E002D02A5 /* ONEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEWebViewController.h; sourceTree = "<group>"; };
 		800127991DF2A91E002D02A5 /* ONEWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEWebViewController.m; sourceTree = "<group>"; };
 		8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEWebViewController.xib; sourceTree = "<group>"; };
+		806365941DFA9F6D00687913 /* ZYScaleHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYScaleHeader.h; sourceTree = "<group>"; };
+		806365951DFA9F6D00687913 /* ZYScaleHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYScaleHeader.m; sourceTree = "<group>"; };
+		806365991DFA9FCC00687913 /* ONEPersionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersionHeaderView.h; sourceTree = "<group>"; };
+		8063659A1DFA9FCC00687913 /* ONEPersionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersionHeaderView.m; sourceTree = "<group>"; };
+		8063659C1DFA9FD800687913 /* ONEPersionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEPersionHeaderView.xib; sourceTree = "<group>"; };
 		A5E55A527AFC263C15369A57 /* Pods-ONE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ONE/Pods-ONE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -612,10 +612,12 @@
 		554481651CD6EC0E008AB5DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55EF74681D4B98AE00A5E7D8 /* ONEPersonDetailTableView.h */,
-				55EF74691D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m */,
+				806365931DFA9F6D00687913 /* ZYScaleHeader */,
 				554481661CD6EC2B008AB5DE /* ONETabBar.h */,
 				554481671CD6EC2B008AB5DE /* ONETabBar.m */,
+				806365991DFA9FCC00687913 /* ONEPersionHeaderView.h */,
+				8063659A1DFA9FCC00687913 /* ONEPersionHeaderView.m */,
+				8063659C1DFA9FD800687913 /* ONEPersionHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,8 +708,6 @@
 				5581659B1CC609830022458E /* UIView+Frame.m */,
 				5581659C1CC609830022458E /* UIViewController+Extension.h */,
 				5581659D1CC609830022458E /* UIViewController+Extension.m */,
-				55EF74651D4B8B9300A5E7D8 /* UIScrollView+scaleImage.h */,
-				55EF74661D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1062,7 +1062,6 @@
 			children = (
 				55B2D6DE1CFA842100AB8AA9 /* ONEPersonDetailViewController.h */,
 				55B2D6DF1CFA842100AB8AA9 /* ONEPersonDetailViewController.m */,
-				55B2D6E01CFA842100AB8AA9 /* ONEPersonDetailViewController.storyboard */,
 				7EC8D0CC1CAE027000613625 /* ONETabbarController.h */,
 				7EC8D0CD1CAE027000613625 /* ONETabbarController.m */,
 				55C289B81CAE48280092A897 /* ONENavigationController.h */,
@@ -1129,6 +1128,15 @@
 				5509043E1CBFD64700F884C2 /* Read */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		806365931DFA9F6D00687913 /* ZYScaleHeader */ = {
+			isa = PBXGroup;
+			children = (
+				806365941DFA9F6D00687913 /* ZYScaleHeader.h */,
+				806365951DFA9F6D00687913 /* ZYScaleHeader.m */,
+			);
+			path = ZYScaleHeader;
 			sourceTree = "<group>";
 		};
 		D233BBD5E7A16759993FA2A6 /* Pods */ = {
@@ -1232,11 +1240,11 @@
 			files = (
 				5569CF061CB55709006EB7A0 /* ONEMusicDetailView.xib in Resources */,
 				5505BCCE1CAF97160063B97C /* ONECommentCell.xib in Resources */,
+				8063659D1DFA9FD800687913 /* ONEPersionHeaderView.xib in Resources */,
 				55FC84741CB7D64700E454A3 /* ONEMusicPlayerView.xib in Resources */,
 				559D1DA01CD72C3F00CA6CB3 /* ONEMovieListCell.xib in Resources */,
 				7E1A38FD1CAD960C0085EB67 /* LaunchScreen.storyboard in Resources */,
 				553BDDBA1CC20BEF006BE7BF /* ONECarouselDetailCell.xib in Resources */,
-				55B2D6E21CFA842100AB8AA9 /* ONEPersonDetailViewController.storyboard in Resources */,
 				553BDD9D1CC110C7006BE7BF /* ONEReadRelatedCell.xib in Resources */,
 				559D1DA21CD72C3F00CA6CB3 /* ONEMovieDetailHeaderView.xib in Resources */,
 				55C6DD531CC4B75000988121 /* ONESearchViewController.xib in Resources */,
@@ -1332,7 +1340,6 @@
 				558165AC1CC609830022458E /* UIImage+image.m in Sources */,
 				55F7EF9F1CE6FB47000FC9DD /* ONEHttpTool.m in Sources */,
 				55212F8A1CB68FAF00634442 /* ONEMusicSongViewController.m in Sources */,
-				55EF746A1D4B98AE00A5E7D8 /* ONEPersonDetailTableView.m in Sources */,
 				554481681CD6EC2B008AB5DE /* ONETabBar.m in Sources */,
 				55C6DD6C1CC4CF9400988121 /* ONESearchReadItem.m in Sources */,
 				55FC84961CBA4FB100E454A3 /* ONESubTitleCell.m in Sources */,
@@ -1392,19 +1399,20 @@
 				55B9A10F1CBF5D68009E44AA /* ONEReadListItem.m in Sources */,
 				55422CEE1CBFEAE500A3B1A0 /* AppDelegate.m in Sources */,
 				55C6DD631CC4C57A00988121 /* ONESearchMovieViewController.m in Sources */,
-				55EF74671D4B8B9300A5E7D8 /* UIScrollView+scaleImage.m in Sources */,
 				55422D001CBFEB1700A3B1A0 /* ONEDefaultCellItem.m in Sources */,
 				5509044E1CBFD64700F884C2 /* ONEReadSerialViewController.m in Sources */,
 				5509044C1CBFD64700F884C2 /* ONEReadEssayViewController.m in Sources */,
 				55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */,
 				5546617C1DD2B0DD00F59711 /* ONEMeViewController.m in Sources */,
 				555630A61CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m in Sources */,
+				806365961DFA9F6D00687913 /* ZYScaleHeader.m in Sources */,
 				559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,
 				557EA6451DD1C838008A77C8 /* ONEPushTool.m in Sources */,
 				55E92D2E1CBDF14B002FC2EF /* ONEMovieMoreViewController.m in Sources */,
 				55711B0D1CC66E0C00A4EC54 /* ONEReadPastListViewController.m in Sources */,
+				8063659B1DFA9FCC00687913 /* ONEPersionHeaderView.m in Sources */,
 				5592EFC31CB0175200FA3D76 /* ONEMusicDetailView.m in Sources */,
 				55F7EF9C1CE6FB47000FC9DD /* ONEAutoCacheTool.m in Sources */,
 				55C6DD6F1CC4D03D00988121 /* ONESearchMusicItem.m in Sources */,
@@ -1482,7 +1490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "855596f0-1deb-4dc6-b8da-6159860ae106";
@@ -1523,7 +1531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "855596f0-1deb-4dc6-b8da-6159860ae106";
 				SDKROOT = iphoneos;

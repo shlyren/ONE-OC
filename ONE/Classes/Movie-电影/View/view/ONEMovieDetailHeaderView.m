@@ -328,14 +328,8 @@ static NSString *const photoCellID = @"photoCell";
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = [self.movieStoryResult.data[0] user_id];
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
-    nav.delegate = self;
     [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:ONEPersonDetailViewController.class] animated:true];
 }
 
 - (IBAction)allMovieStoryBtnClick

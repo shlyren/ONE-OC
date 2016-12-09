@@ -17,7 +17,7 @@
 #import "UIViewController+Extension.h"
 #import "ONEDataRequest.h"
 
-@interface ONEReadDetailHeaderView ()<UINavigationControllerDelegate>
+@interface ONEReadDetailHeaderView ()
 
 /************************** 短篇,连载headerView *************************/
 /** 播放按钮 */
@@ -277,7 +277,6 @@
     ONEPersonDetailViewController *detailVc = [ONEPersonDetailViewController new];
     detailVc.user_id = userid;
     ONENavigationController *nav = [[ONENavigationController alloc] initWithRootViewController:detailVc];
-    nav.delegate = self;
     [self.window.rootViewController.topViewController presentViewController:nav animated:true completion:nil];
 }
 
@@ -287,11 +286,6 @@
     [self iconBtnClick];
 }
 
-#pragma mark - UINavigationController delegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [navigationController setNavigationBarHidden:[viewController isKindOfClass:[ONEPersonDetailViewController class]] animated:animated];
-}
 
 #pragma mark - load Nib
 + (instancetype)detailHeaderView
