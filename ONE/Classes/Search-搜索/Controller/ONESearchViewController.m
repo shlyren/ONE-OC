@@ -146,26 +146,25 @@
     ONELog(@"%@", self.isScroll ? @"拖拽" : @"点击title");
     NSTimeInterval timeInterval = self.isScroll ? 0 : 0.2;
 
-    
-    ONEWeakSelf
     [UIView animateWithDuration:timeInterval animations:^{
         
-        weakSelf.titlesLineView.centerX = btn.centerX;
-        weakSelf.titlesLineView.width = btn.titleLabel.width;
+        self.titlesLineView.centerX = btn.centerX;
+        self.titlesLineView.width = btn.titleLabel.width;
         
-        CGPoint offset = weakSelf.scrollView.contentOffset;
-        offset.x = btn.tag * weakSelf.scrollView.width;
-        [weakSelf.scrollView setContentOffset:offset animated:false];
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = btn.tag * self.scrollView.width;
+        self.scrollView.contentOffset = offset;
         
     } completion:^(BOOL finished) {
         // 懒加载
-        ONESearchBaseViewController *childVc = weakSelf.childViewControllers[btn.tag];
-        childVc.view.frame = weakSelf.scrollView.bounds;
-        childVc.searchKey = [weakSelf.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-        [weakSelf.scrollView addSubview:childVc.view];
+        ONESearchBaseViewController *childVc = self.childViewControllers[btn.tag];
+        childVc.view.frame = self.scrollView.bounds;
+        childVc.searchKey = [self.searhKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        [self.scrollView addSubview:childVc.view];
 
     }];
-    
+    // 还原
+    self.scroll = false;
     
     // 设置滚动到顶部
     for (NSInteger i = 0; i < self.childViewControllers.count; i++)
@@ -179,9 +178,6 @@
         scrollView.scrollsToTop = i == btn.tag;
 
     }
-    
-    // 还原
-    self.scroll = false;
 }
 
 - (IBAction)cancel

@@ -32,12 +32,12 @@
 
 - (void)setupGroup2;
 {
-    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"SouceCode" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item1 = [ONEDefaultCellItem itemWithTitle:@"SourceCode" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://github.com/shlyren/ONE-OC"];
     }];
     
-    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"Homepage" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"HomePage" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://shlyren.com"];
         
@@ -65,7 +65,7 @@
         
     }];
     
-    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"Github" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
+    ONEDefaultCellItem *item2 = [ONEDefaultCellItem itemWithTitle:@"GitHub" accessoryType:UITableViewCellAccessoryDisclosureIndicator action:^(id parameter) {
         
         [self openUrl:@"https://github.com/shlyren"];
         

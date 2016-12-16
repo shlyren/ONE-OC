@@ -155,7 +155,6 @@
 		7EC8D0CE1CAE027000613625 /* ONETabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8D0CD1CAE027000613625 /* ONETabbarController.m */; };
 		8001279B1DF2A91E002D02A5 /* ONEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800127991DF2A91E002D02A5 /* ONEWebViewController.m */; };
 		8001279C1DF2A91E002D02A5 /* ONEWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */; };
-		806365961DFA9F6D00687913 /* ZYScaleHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 806365951DFA9F6D00687913 /* ZYScaleHeader.m */; };
 		8063659B1DFA9FCC00687913 /* ONEPersionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063659A1DFA9FCC00687913 /* ONEPersionHeaderView.m */; };
 		8063659D1DFA9FD800687913 /* ONEPersionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8063659C1DFA9FD800687913 /* ONEPersionHeaderView.xib */; };
 /* End PBXBuildFile section */
@@ -422,8 +421,6 @@
 		800127981DF2A91E002D02A5 /* ONEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEWebViewController.h; sourceTree = "<group>"; };
 		800127991DF2A91E002D02A5 /* ONEWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEWebViewController.m; sourceTree = "<group>"; };
 		8001279A1DF2A91E002D02A5 /* ONEWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEWebViewController.xib; sourceTree = "<group>"; };
-		806365941DFA9F6D00687913 /* ZYScaleHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYScaleHeader.h; sourceTree = "<group>"; };
-		806365951DFA9F6D00687913 /* ZYScaleHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYScaleHeader.m; sourceTree = "<group>"; };
 		806365991DFA9FCC00687913 /* ONEPersionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONEPersionHeaderView.h; sourceTree = "<group>"; };
 		8063659A1DFA9FCC00687913 /* ONEPersionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONEPersionHeaderView.m; sourceTree = "<group>"; };
 		8063659C1DFA9FD800687913 /* ONEPersionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ONEPersionHeaderView.xib; sourceTree = "<group>"; };
@@ -612,7 +609,6 @@
 		554481651CD6EC0E008AB5DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				806365931DFA9F6D00687913 /* ZYScaleHeader */,
 				554481661CD6EC2B008AB5DE /* ONETabBar.h */,
 				554481671CD6EC2B008AB5DE /* ONETabBar.m */,
 				806365991DFA9FCC00687913 /* ONEPersionHeaderView.h */,
@@ -1130,15 +1126,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		806365931DFA9F6D00687913 /* ZYScaleHeader */ = {
-			isa = PBXGroup;
-			children = (
-				806365941DFA9F6D00687913 /* ZYScaleHeader.h */,
-				806365951DFA9F6D00687913 /* ZYScaleHeader.m */,
-			);
-			path = ZYScaleHeader;
-			sourceTree = "<group>";
-		};
 		D233BBD5E7A16759993FA2A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1405,7 +1392,6 @@
 				55C289B41CAE479B0092A897 /* ONEMusicViewController.m in Sources */,
 				5546617C1DD2B0DD00F59711 /* ONEMeViewController.m in Sources */,
 				555630A61CE0E7AC003CDED0 /* ONEDefaultCellArrItem.m in Sources */,
-				806365961DFA9F6D00687913 /* ZYScaleHeader.m in Sources */,
 				559D1DA51CD72CB500CA6CB3 /* ONEMovieScoreView.m in Sources */,
 				55FC84721CB7D63700E454A3 /* ONEMusicPlayerView.m in Sources */,
 				55FC84B31CBB7B1E00E454A3 /* ONEMovieDetailItem.m in Sources */,

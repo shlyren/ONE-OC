@@ -72,7 +72,7 @@
 - (void)share
 {
     
-    [JQAlertView showAlertViewWithTitle:nil message:nil preferredStyle:JQAlertViewStyleActionSheet titles:@[@"分享", @"在Safari中打开", @"复制网址"] destructiveTitle:nil cancelTitle:@"取消" handler:^(JQAlertView * _Nonnull alertView, NSInteger index) {
+    [JQAlertView showAlertViewWithTitle:nil message:nil preferredStyle:JQAlertViewStyleActionSheet titles:@[@"分享", @"在Safari中打开", @"复制链接"] destructiveTitle:nil cancelTitle:@"取消" handler:^(JQAlertView * _Nonnull alertView, NSInteger index) {
         if (index == 0) {
             [ONEShareTool showShareView:self content:self.title url:[NSString stringWithFormat:@"%@", self.webView.URL] image:[UIImage imageNamed:@"avatar"]];
         }else if (index == 1) {
