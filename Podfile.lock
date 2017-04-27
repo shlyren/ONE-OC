@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - JQAlertView (1.2.1)
+  - JQAlertView (1.2.6)
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
@@ -23,9 +23,9 @@ PODS:
     - RealReachability/Ping (= 1.1.8)
   - RealReachability/Connection (1.1.8)
   - RealReachability/Ping (1.1.8)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
   - UMengSocialCOM (5.2.1)
   - ZYScaleHeader (1.0.1)
@@ -44,12 +44,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  JQAlertView: d26f788174bf32aad853472e4df4ea45c1a88836
+  JQAlertView: 1e0eeaa6ec7c052859166a7af2559e2eb6550549
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   ZYScaleHeader: a98ae52d9dbee3642385d91235c480c3856096f4
